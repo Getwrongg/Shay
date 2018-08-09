@@ -2,6 +2,8 @@
 #include <math.h>
 #include <glut.h>
 #include <time.h>
+#include "PortalWorld.h"
+
 
 
 //#include <windows.h> // only used if mouse is required (not portable)
@@ -354,6 +356,8 @@ void DisplayRedPosts ();
 void DisplayRoof();
 void DisplayStepBricks ();
 void DisplayLights ();
+
+//this is not used???
 void DisplayECL ();
 
 // calls functions to create display lists (below)
@@ -382,9 +386,12 @@ void DrawAngledRoofBeam (int listNo, GLdouble x, GLdouble y, GLdouble z, GLdoubl
 void DrawAngledRoofBeam2 (int listNo, GLdouble x, GLdouble y, GLdouble z, GLdouble beamSize);
 void DrawStepBricks ();
 void DrawMapExit ();
+
+//method not in use???
 void DrawECL ();
 
 
+//these methods are not used??
 void BindBridgeWall(GLint LR);
 void BindBuildingWall();
 void BindWallPosts(GLint LR);
@@ -472,6 +479,7 @@ void myinit()
 	CreateTextures();
 }
 
+
 //--------------------------------------------------------------------------------------
 //  Main Display Function
 //--------------------------------------------------------------------------------------
@@ -496,7 +504,8 @@ void Display()
 		if ((cam.GetLR() > 35500.0) && (cam.GetFB() < 25344.0) ||
 			(cam.GetLR() > 34100.0) && (cam.GetFB() > 41127.0))
 		{
-			cam.DisplayNoExit(width, height,tp.GetTexture(NO_EXIT));
+			
+			/*cam.DisplayNoExit(width, height,tp.GetTexture(NO_EXIT));*/
 		}
 				// set the movement and rotation speed according to frame count
 		IncrementFrameCount();
@@ -511,6 +520,7 @@ void Display()
 	glFlush();
 	glutSwapBuffers();
 }
+
 
 //--------------------------------------------------------------------------------------
 void reshape(int w, int h)

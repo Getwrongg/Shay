@@ -78,6 +78,7 @@
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>
       </RuntimeLibrary>
+      <AdditionalIncludeDirectories>C:\Users\jacob\source\repos\Shay\PortalEngine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EntryPointSymbol>
@@ -93,6 +94,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\jacob\source\repos\Shay\PortalEngine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -109,6 +111,7 @@
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>
       </RuntimeLibrary>
+      <AdditionalIncludeDirectories>C:\Users\jacob\source\repos\Shay\PortalEngine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -128,6 +131,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\jacob\source\repos\Shay\PortalEngine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -167,6 +171,11 @@
     <ClCompile Include="..\Sound.cpp" />
     <ClCompile Include="..\SoundTime.cpp" />
     <ClCompile Include="..\texturedPolygons.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PortalEngine\PortalEngine.vcxproj">
+      <Project>{e93ef497-ceec-4677-93e5-285993d67f00}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
