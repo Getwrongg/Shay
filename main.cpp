@@ -2,11 +2,11 @@
 #include <math.h>
 #include <glut.h>
 #include <time.h>
-#include "PortalWorld.h"
+//#include "PortalWorld.h"
 
 
 
-//#include <windows.h> // only used if mouse is required (not portable)
+#include <windows.h> // only used if mouse is required (not portable)
 #include "camera.h"
 #include "texturedPolygons.h"
 
@@ -297,7 +297,7 @@ int width, height;
 // display campus map
 bool DisplayMap = false;
 // display welcome screen
-bool DisplayWelcome = true;
+bool DisplayWelcome = false;
 // display exit screen
 bool DisplayExit = false;
 // display light fittings
@@ -328,7 +328,6 @@ void keys(unsigned char key, int x, int y);
 
 // keyboard and mouse functions
 void movementKeys(int key, int x, int y);
-void releaseKey(int key, int x, int y);
 void releaseKeys(unsigned char key, int x, int y);
 void Mouse(int button, int state, int x, int y);
 void mouseMove(int x, int y);
@@ -422,8 +421,6 @@ int main(int argc, char **argv)
 	myinit();
 
 	glutIgnoreKeyRepeat(1);
-	glutSpecialFunc(movementKeys);
-	glutSpecialUpFunc(releaseKey);
 	glutKeyboardUpFunc (releaseKeys);
 	glutKeyboardFunc(keys);
 
@@ -432,8 +429,8 @@ int main(int argc, char **argv)
 	glutMouseFunc(Mouse);
 	
 	// ONLY USE IF REQUIRE MOUSE MOVEMENT
-	//glutPassiveMotionFunc(mouseMove);
-	//ShowCursor(FALSE);
+	glutPassiveMotionFunc(mouseMove);
+	ShowCursor(FALSE);
 
 	glutReshapeFunc(reshape);
 	glutMainLoop();
@@ -543,45 +540,6 @@ void reshape(int w, int h)
 //--------------------------------------------------------------------------------------
 // Keyboard Functions
 //--------------------------------------------------------------------------------------
-void movementKeys(int key, int x, int y)
-{
-	switch (key)
-	{
-		case GLUT_KEY_LEFT :
-			cam.DirectionRotateLR(-1);
-			break;
-
-		case GLUT_KEY_RIGHT : 
-			cam.DirectionRotateLR(1);
-			break;
-
-		case GLUT_KEY_UP : 
-			cam.DirectionFB(1);
-			break;
-
-		case GLUT_KEY_DOWN : 
-			cam.DirectionFB(-1);
-			break;
-	}
-}
-
-//--------------------------------------------------------------------------------------
-void releaseKey(int key, int x, int y)
-{
-	switch (key)
-	{
-		// rotate left or right
-		case GLUT_KEY_LEFT : 
-		case GLUT_KEY_RIGHT : 
-			cam.DirectionRotateLR(0);			
-		break;
-		// move backwards or forwards
-		case GLUT_KEY_UP : 
-		case GLUT_KEY_DOWN : 
-			cam.DirectionFB(0);
-		break;
-	}
-}
 
 //--------------------------------------------------------------------------------------
 void keys(unsigned char key, int x, int y)
@@ -589,26 +547,22 @@ void keys(unsigned char key, int x, int y)
 	int i = 0;
 	switch (key)
 	{
-		// step left
-		case 'Z':
-		case 'z':
+		case 'a':
 			cam.DirectionLR(-1);
 			break;
-		// step right
-		case 'X':
-		case 'x':
+
+		case 'd':
 			cam.DirectionLR(1);
-		break;
-		// look up
-		case 'Q':
-		case 'q':
-			cam.DirectionLookUD(1);
 			break;
-		// look down
-		case 'A':
-		case 'a':
-			cam.DirectionLookUD(-1);
-		break;
+
+		case 'w':
+			cam.DirectionFB(1.5);
+			break;
+
+		case 's':
+			cam.DirectionFB(-1);
+			break;
+
 		// display campus map
 		case 'm':
 		case 'M':
@@ -632,7 +586,7 @@ void keys(unsigned char key, int x, int y)
 			}
 		break;
 		// display welcome page (space key)
-		case ' ':
+		case 32:
 			{
 				if (DisplayWelcome)
 				{
@@ -686,20 +640,17 @@ void releaseKeys(unsigned char key, int x, int y)
 {
 	switch (key)
 	{
-		// step left or right
-		case 'x' :
-		case 'X' :
-		case 'z' :
-		case 'Z' :
+			// move left or right
+		case 'a':
+		case 'd':
 			cam.DirectionLR(0);
-		break;
-		// look left up or down
-		case 'a' :
-		case 'A' :
-		case 'q' :
-		case 'Q' :
-			cam.DirectionLookUD(0);
-		break;
+			break;
+			// move backwards or forwards
+		case 'w':
+		case 's':
+			cam.DirectionFB(0);
+			break;
+		
 	}
 }
 
@@ -732,13 +683,13 @@ void mouseMove(int x, int y)
 			cam.DirectionRotateLR(0);
 		else if (x > width/2.0)
 		{
-			cam.DirectionRotateLR(1);
+			cam.DirectionRotateLR(2);
 			Display();
 			glutWarpPointer(width/2.0,height/2.0);
 		}
 		else if (x < width/2.0)
 		{
-			cam.DirectionRotateLR(-1);
+			cam.DirectionRotateLR(-2);
 			Display();
 			glutWarpPointer(width/2.0,height/2.0);
 		}
@@ -748,12 +699,12 @@ void mouseMove(int x, int y)
 			cam.DirectionLookUD(0);
 
 		else if (y > height/2.0) {
-			cam.DirectionLookUD(-1);
+			cam.DirectionLookUD(-2);
 			Display();
 			glutWarpPointer(width/2.0,height/2.0);
 		}
 		else if (y < height/2.0) {
-			cam.DirectionLookUD(1);
+			cam.DirectionLookUD(2);
 			Display();
 			glutWarpPointer(width/2.0,height/2.0);
 		}

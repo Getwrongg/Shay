@@ -276,7 +276,7 @@ void Camera::SetPlains(const int & moveX, const int & moveZ)
 				
 				if ((m_plainNo != i) && m_plainHeight != m_Plain.GetYstart(i))
 				{
-					stepSound->Play();
+	//				stepSound->Play();
 				}
 
 
