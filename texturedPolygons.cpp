@@ -14,8 +14,6 @@
 //  Declares datatype to store a raw image file and calls method to load image
 //--------------------------------------------------------------------------------------
 
-//TEMP
-#pragma warning(disable : 4996)
 GLubyte* TexturedPolygons::LoadTexture(std::string filenameS, int imgWidth, int imgHeight)
 {
 
@@ -37,7 +35,7 @@ GLubyte* TexturedPolygons::LoadRawImageFile(char* filename, int width, int heigh
 	unsigned char* image;
 	// create memory space w x h x 3 (3 stores RGB values)
 	image = (unsigned char*)malloc(sizeof(unsigned char) * width * height * 3);
-	file = fopen(filename, "rb" );
+	fopen_s(&file, filename, "rb" );
 	// exit program if image not found and inform user
 	if (file == NULL)
 	{
