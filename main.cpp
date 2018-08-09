@@ -415,7 +415,7 @@ int main(int argc, char **argv)
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
 	glutInitWindowPosition(100,100);
-	glutInitWindowSize(800,500);
+	glutInitWindowSize(1280,720);
 	glutCreateWindow("Murdoch University Campus Tour");
 
 	myinit();
@@ -577,7 +577,13 @@ void keys(unsigned char key, int x, int y)
 			}
 		}
 		break;
-		// exit tour (escape key)
+		// exit tour (escape key or q)
+
+		case 'q':
+		case 'Q':
+			exit(0);
+			break;
+
 		case 27:
 			{
 				cam.SetRotateSpeed (0.0f);
