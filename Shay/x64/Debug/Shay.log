@@ -1,0 +1,16 @@
+﻿  AABB.CPP
+  AABBLinkedList.cpp
+  AABBNode.cpp
+  camera.cpp
+  cameraMap.cpp
+  collision.cpp
+  EasySound.cpp
+c:\users\jacob\source\repos\shay\easysound.cpp(84): warning C4018: '>': signed/unsigned mismatch
+  main.cpp
+  PlainLinkedList.cpp
+  PlainNode.cpp
+  Sound.cpp
+  SoundTime.cpp
+  texturedPolygons.cpp
+  Generating Code...
+x64\Debug\AABB.obj : fatal error LNK1112: module machine type 'x64' conflicts with target machine type 'x86'

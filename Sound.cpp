@@ -4,7 +4,7 @@
 
 #include <memory.h>
 #include <malloc.h>
-
+#include <iostream>
 #include "Sound.h"
 #include "EasySound.h"
 
@@ -45,7 +45,12 @@ CSound::CSound(char *filename, int iSoundID)
 
 CSound::~CSound()
 {
-	SDL_FreeWAV(m_data);
+	try {
+		SDL_FreeWAV(m_data);
+	}
+	catch(int e){
+		std::cout << "An exception occurred. Exception Nr. " << e << '\n';
+	}	
 }
 
 

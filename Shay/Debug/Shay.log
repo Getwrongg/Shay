@@ -5,7 +5,7 @@
   cameraMap.cpp
   collision.cpp
   EasySound.cpp
-c:\users\axel0\desktop\ict290\shay\easysound.cpp(84): warning C4018: '>': signed/unsigned mismatch
+c:\users\jacob\source\repos\shay\easysound.cpp(84): warning C4018: '>': signed/unsigned mismatch
   main.cpp
   PlainLinkedList.cpp
   PlainNode.cpp
@@ -13,4 +13,4 @@ c:\users\axel0\desktop\ict290\shay\easysound.cpp(84): warning C4018: '>': signed
   SoundTime.cpp
   texturedPolygons.cpp
   Generating Code...
-  Shay.vcxproj -> C:\Users\axel0\Desktop\ICT290\Shay\Debug\Shay.exe
+  Shay.vcxproj -> C:\Users\jacob\source\repos\Shay\Debug\Shay.exe
