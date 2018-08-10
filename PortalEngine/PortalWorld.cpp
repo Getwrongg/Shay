@@ -9,6 +9,5 @@ PortalWorld::PortalWorld()
 	{
 		std::cout << "hello there" << std::endl;
 	}
-
 }
 
