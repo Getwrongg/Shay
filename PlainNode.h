@@ -12,7 +12,7 @@
 
 #include <iostream>
 #include <math.h>
-#include <glut.h>
+#include <GL/glut.h>
 
 class PlainNode
 {

@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <math.h>
-#include <glut.h>
+#include <GL/glut.h>
 #include <time.h>
 //#include "PortalWorld.h"
 
