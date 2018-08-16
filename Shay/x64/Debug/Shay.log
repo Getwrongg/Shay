@@ -1,18 +1,1 @@
-﻿  AABB.CPP
-  AABBLinkedList.cpp
-  AABBNode.cpp
-  camera.cpp
-  cameraMap.cpp
-  collision.cpp
-  EasySound.cpp
-c:\users\manu\source\repos\shay\easysound.cpp(84): warning C4018: '>': signed/unsigned mismatch
-  main.cpp
-c:\program files (x86)\windows kits\10\include\10.0.17134.0\shared\minwindef.h(127): warning C4005: 'CALLBACK': macro redefinition
-  c:\program files (x86)\microsoft visual studio\2017\community\vc\auxiliary\vs\include\glut.h(34): note: see previous definition of 'CALLBACK'
-  PlainLinkedList.cpp
-  PlainNode.cpp
-  Sound.cpp
-  SoundTime.cpp
-  texturedPolygons.cpp
-  Generating Code...
-x64\Debug\AABB.obj : fatal error LNK1112: module machine type 'x64' conflicts with target machine type 'x86'
+﻿LINK : fatal error LNK1104: cannot open file 'SDL2.lib'
