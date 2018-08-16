@@ -81,7 +81,7 @@
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>
       </RuntimeLibrary>
-      <AdditionalIncludeDirectories>C:\Users\jacob\source\repos\Shay\Dependancies\SDL2-2.0.8\include;C:\Users\jacob\source\repos\Shay\Dependancies\glew-1.11.0\include;C:\Users\jacob\source\repos\Shay\Dependancies\freeglut\include;C:\Users\Murdoch\source\repos\Shay\Dependancies\glew-1.11.0\include;C:\Users\Murdoch\source\repos\Shay\Dependancies\freeglut\include;C:\Users\jacob\source\repos\Shay\PortalEngine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\manu\source\repos\Shay\Dependancies\SDL2-2.0.8\include;C:\Users\manu\source\repos\Shay\Dependancies\glew-1.11.0\include;C:\Users\manu\source\repos\Shay\Dependancies\freeglut\include;C:\Users\Murdoch\source\repos\Shay\Dependancies\glew-1.11.0\include;C:\Users\Murdoch\source\repos\Shay\Dependancies\freeglut\include;C:\Users\manu\source\repos\Shay\PortalEngine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EntryPointSymbol>
@@ -89,7 +89,7 @@
       <NoEntryPoint>false</NoEntryPoint>
       <SubSystem>Console</SubSystem>
       <AdditionalDependencies>freeglut.lib;glew32.lib;SDL2.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Users\jacob\source\repos\Shay\Dependancies\SDL2-2.0.8\lib;C:\Users\jacob\source\repos\Shay\Dependancies\glew-1.11.0\lib;C:\Users\jacob\source\repos\Shay\Dependancies\freeglut\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\manu\source\repos\Shay\Dependancies\SDL2-2.0.8\lib;C:\Users\manu\source\repos\Shay\Dependancies\glew-1.11.0\lib;C:\Users\manu\source\repos\Shay\Dependancies\freeglut\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
