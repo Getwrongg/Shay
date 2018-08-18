@@ -1,1 +1,9 @@
-﻿  Shay.vcxproj -> C:\Users\jacob\source\repos\Shay\Debug\Shay.exe
+﻿  cameraMap.cpp
+c:\users\jacob\source\repos\shay\cameramap.cpp(29): warning C4244: 'argument': conversion from 'const int' to 'GLfloat', possible loss of data
+c:\users\jacob\source\repos\shay\cameramap.cpp(36): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\jacob\source\repos\shay\cameramap.cpp(37): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\jacob\source\repos\shay\cameramap.cpp(38): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\jacob\source\repos\shay\cameramap.cpp(39): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\jacob\source\repos\shay\cameramap.cpp(67): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\jacob\source\repos\shay\cameramap.cpp(99): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+  Shay.vcxproj -> C:\Users\jacob\source\repos\Shay\Debug\Shay.exe
