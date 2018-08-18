@@ -81,15 +81,15 @@
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>
       </RuntimeLibrary>
-      <AdditionalIncludeDirectories>C:\Users\jacob\source\repos\Shay\Dependancies\SDL2-2.0.8\include;C:\Users\jacob\source\repos\Shay\Dependancies\glew-1.11.0\include;C:\Users\jacob\source\repos\Shay\Dependancies\freeglut\include\;C:\Users\manu\source\repos\Shay\Dependancies\SDL2-2.0.8\include;C:\Users\manu\source\repos\Shay\Dependancies\glew-1.11.0\include;C:\Users\manu\source\repos\Shay\Dependancies\freeglut\include;C:\Users\Murdoch\source\repos\Shay\Dependancies\glew-1.11.0\include;C:\Users\Murdoch\source\repos\Shay\Dependancies\freeglut\include;C:\Users\manu\source\repos\Shay\PortalEngine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\jacob\source\repos\Shay\Dependancies\DevIL\include;C:\Users\Manu\source\repos\Shay\Dependancies\DevIL\include;C:\Users\jacob\source\repos\Shay\Dependancies\SDL2-2.0.8\include;C:\Users\jacob\source\repos\Shay\Dependancies\glew-1.11.0\include;C:\Users\jacob\source\repos\Shay\Dependancies\freeglut\include\;C:\Users\manu\source\repos\Shay\Dependancies\SDL2-2.0.8\include;C:\Users\manu\source\repos\Shay\Dependancies\glew-1.11.0\include;C:\Users\manu\source\repos\Shay\Dependancies\freeglut\include;C:\Users\Murdoch\source\repos\Shay\Dependancies\glew-1.11.0\include;C:\Users\Murdoch\source\repos\Shay\Dependancies\freeglut\include;C:\Users\manu\source\repos\Shay\PortalEngine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EntryPointSymbol>
       </EntryPointSymbol>
       <NoEntryPoint>false</NoEntryPoint>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>freeglut.lib;glew32.lib;SDL2.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Users\jacob\source\repos\Shay\Dependancies\SDL2-2.0.8\lib;C:\Users\jacob\source\repos\Shay\Dependancies\glew-1.11.0\lib;C:\Users\jacob\source\repos\Shay\Dependancies\freeglut\lib;C:\Users\manu\source\repos\Shay\Dependancies\SDL2-2.0.8\lib;C:\Users\manu\source\repos\Shay\Dependancies\glew-1.11.0\lib;C:\Users\manu\source\repos\Shay\Dependancies\freeglut\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>freeglut.lib;glew32.lib;SDL2.lib;DevIL.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\jacob\source\repos\Shay\Dependancies\DevIL\lib;C:\Users\Manu\source\repos\Shay\Dependancies\DevIL\lib;C:\Users\jacob\source\repos\Shay\Dependancies\SDL2-2.0.8\lib;C:\Users\jacob\source\repos\Shay\Dependancies\glew-1.11.0\lib;C:\Users\jacob\source\repos\Shay\Dependancies\freeglut\lib;C:\Users\manu\source\repos\Shay\Dependancies\SDL2-2.0.8\lib;C:\Users\manu\source\repos\Shay\Dependancies\glew-1.11.0\lib;C:\Users\manu\source\repos\Shay\Dependancies\freeglut\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -160,6 +160,7 @@
     <ClInclude Include="..\cameraMap.h" />
     <ClInclude Include="..\collision.h" />
     <ClInclude Include="..\EasySound.h" />
+    <ClInclude Include="..\JpegLoader.h" />
     <ClInclude Include="..\PlainLinkedList.h" />
     <ClInclude Include="..\PlainNode.h" />
     <ClInclude Include="..\Sound.h" />
@@ -174,6 +175,7 @@
     <ClCompile Include="..\cameraMap.cpp" />
     <ClCompile Include="..\collision.cpp" />
     <ClCompile Include="..\EasySound.cpp" />
+    <ClCompile Include="..\JpegLoader.cpp" />
     <ClCompile Include="..\main.cpp" />
     <ClCompile Include="..\PlainLinkedList.cpp" />
     <ClCompile Include="..\PlainNode.cpp" />

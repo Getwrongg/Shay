@@ -2,7 +2,10 @@
 #include <math.h>
 #include <GL/glut.h>
 #include <time.h>
+#include <IL/il.h>
+#include "JpegLoader.h"
 #include "PortalWorld.h"
+
 
 //hello
 
@@ -317,6 +320,7 @@ unsigned char* image = NULL;
 // objects
 Camera cam;
 TexturedPolygons tp;
+JpegLoader jpeg;
 
 // initializes setting
 void myinit();
@@ -331,6 +335,10 @@ void movementKeys(int key, int x, int y);
 void releaseKeys(unsigned char key, int x, int y);
 void Mouse(int button, int state, int x, int y);
 void mouseMove(int x, int y);
+
+	// draws banner with manu's face on it
+void DrawMyFaceBanner();
+void DrawFaceBannerPosts();
 
 // calls display functions below to draw the backdrops
 void DrawBackdrop();
@@ -442,6 +450,7 @@ int main(int argc, char **argv)
 //--------------------------------------------------------------------------------------
 void myinit()
 {
+	ilInit();
 	// set background (sky colour)
 	glClearColor(97.0/255.0, 140.0/255.0, 185.0/255.0, 1.0);
 	
@@ -503,6 +512,8 @@ void Display()
 		{
 			
 			/*cam.DisplayNoExit(width, height,tp.GetTexture(NO_EXIT));*/
+			//PortalWorld portal;
+			
 		}
 				// set the movement and rotation speed according to frame count
 		IncrementFrameCount();
@@ -510,6 +521,11 @@ void Display()
 		cam.SetRotateSpeed (angleIncrement);
 		// display images
 		DrawBackdrop();
+
+		jpeg.BindTexture("data/MyFace.jpg");
+		DrawMyFaceBanner(); // for my face banner
+		DrawFaceBannerPosts();
+
 	glPopMatrix();
 	glDisable (GL_TEXTURE_2D); 
 
@@ -689,13 +705,13 @@ void mouseMove(int x, int y)
 			cam.DirectionRotateLR(0);
 		else if (x > width/2.0)
 		{
-			cam.DirectionRotateLR(2);
+			cam.DirectionRotateLR(3);
 			Display();
 			glutWarpPointer(width/2.0,height/2.0);
 		}
 		else if (x < width/2.0)
 		{
-			cam.DirectionRotateLR(-2);
+			cam.DirectionRotateLR(-3);
 			Display();
 			glutWarpPointer(width/2.0,height/2.0);
 		}
@@ -1572,6 +1588,38 @@ void CreateTextures()
 	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
 
 	
+}
+
+//--------------------------------------------------------------------------------------
+//  Called from the main display function to draw manu's face banner
+//--------------------------------------------------------------------------------------
+void DrawMyFaceBanner() {
+	//glColor3f(1, 1, 0);
+	glBegin(GL_POLYGON);
+	glTexCoord2i(0, 0); glVertex3f(30000.0, 11500.0, 20000.0); // left
+	glTexCoord2i(0, 1); glVertex3f(29000.0, 11500.0, 20000.0);
+	glTexCoord2i(1, 1); glVertex3f(29000.0, 10500.0, 20000.0);
+	glTexCoord2i(1, 0); glVertex3f(30000.0, 10500.0, 20000.0);
+	glEnd();
+}
+
+void DrawFaceBannerPosts()
+{
+	// draw left cylinder
+	glPushMatrix();
+	glTranslatef(30000, 11500, 20000);
+	glRotatef(90.0f, 1.0f, 0.0f, 0.0f);
+	gluQuadricDrawStyle(glu_cylinder, GLU_FILL); //GLUquadricObj * qobj = gluNewQuadric();
+	gluCylinder(glu_cylinder, 10, 25, 2000, 200, 200);
+	glPopMatrix();
+
+	// draww right cylinder
+	glPushMatrix();
+	glTranslatef(29000, 11500, 20000);
+	glRotatef(90.0f, 1.0f, 0.0f, 0.0f);
+	gluQuadricDrawStyle(glu_cylinder, GLU_FILL); //GLUquadricObj * qobj = gluNewQuadric();
+	gluCylinder(glu_cylinder, 10, 25, 2000, 200, 200);
+	glPopMatrix();
 }
 
 //--------------------------------------------------------------------------------------
