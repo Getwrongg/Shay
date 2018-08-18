@@ -18,9 +18,15 @@
     <ClInclude Include="PortalWorld.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="JpegLoader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="PortalWorld.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="JpegLoader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

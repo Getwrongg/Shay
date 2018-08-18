@@ -1,4 +1,5 @@
 #include "PortalWorld.h"
+#include "JpegLoader.h"
 #include <iostream>
 
 

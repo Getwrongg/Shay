@@ -2,7 +2,7 @@
 #include <math.h>
 #include <GL/glut.h>
 #include <time.h>
-//#include "PortalWorld.h"
+#include "PortalWorld.h"
 
 //hello
 
