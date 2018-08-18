@@ -1563,7 +1563,7 @@ void CreateTextures()
 
 	image = tp.LoadTexture("data/map.raw", 256, 256);
 	tp.CreateTexture(217, image, 256, 256);
-	image = tp.LoadTexture("data/welcome.raw", 512, 512);
+	image = tp.LoadTexture("data/welcome.raw", 512, 512); 
 	tp.CreateTexture(218, image, 512, 512);
 	image = tp.LoadTexture("data/thanks.raw", 512, 512);
 	tp.CreateTexture(219, image, 512, 512);
