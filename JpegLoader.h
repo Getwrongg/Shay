@@ -31,6 +31,7 @@ public:
 		*/
 	void BindTexture(const char * filename);
 
+private:
 		/**
 		* @brief  Load jpeg image
 		*

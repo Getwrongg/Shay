@@ -1,23 +1,4 @@
-﻿  AABB.CPP
-  AABBLinkedList.cpp
-  AABBNode.cpp
-  camera.cpp
-c:\users\manu\source\repos\shay\camera.cpp(200): warning C4244: 'argument': conversion from 'GLdouble' to 'const int', possible loss of data
-c:\users\manu\source\repos\shay\camera.cpp(211): warning C4244: 'argument': conversion from 'GLdouble' to 'const int', possible loss of data
-c:\users\manu\source\repos\shay\camera.cpp(242): warning C4244: 'argument': conversion from 'GLdouble' to 'const int', possible loss of data
-c:\users\manu\source\repos\shay\camera.cpp(252): warning C4244: 'argument': conversion from 'GLdouble' to 'const int', possible loss of data
-  cameraMap.cpp
-c:\users\manu\source\repos\shay\cameramap.cpp(29): warning C4244: 'argument': conversion from 'const int' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\cameramap.cpp(36): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\cameramap.cpp(37): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\cameramap.cpp(38): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\cameramap.cpp(39): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\cameramap.cpp(67): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\cameramap.cpp(99): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-  collision.cpp
-  EasySound.cpp
-c:\users\manu\source\repos\shay\easysound.cpp(84): warning C4018: '>': signed/unsigned mismatch
-  JpegLoader.cpp
+﻿  JpegLoader.cpp
   main.cpp
 c:\users\manu\source\repos\shay\main.cpp(455): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
 c:\users\manu\source\repos\shay\main.cpp(575): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
@@ -297,74 +278,5 @@ c:\users\manu\source\repos\shay\main.cpp(5098): warning C4244: 'argument': conve
 c:\users\manu\source\repos\shay\main.cpp(5099): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
 c:\users\manu\source\repos\shay\main.cpp(5100): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
 c:\users\manu\source\repos\shay\main.cpp(5101): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
-  PlainLinkedList.cpp
-  PlainNode.cpp
-  Sound.cpp
-  SoundTime.cpp
-  texturedPolygons.cpp
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(134): warning C4244: 'argument': conversion from 'const GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(135): warning C4244: 'argument': conversion from 'const GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(136): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(136): warning C4244: 'argument': conversion from 'const GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(137): warning C4244: 'argument': conversion from 'const GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(138): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(138): warning C4244: 'argument': conversion from 'const GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(139): warning C4244: 'argument': conversion from 'const GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(140): warning C4244: 'argument': conversion from 'const GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(140): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(159): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(160): warning C4244: 'argument': conversion from 'const GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(161): warning C4244: 'argument': conversion from 'const GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(161): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(162): warning C4244: 'argument': conversion from 'const GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(162): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(163): warning C4244: 'argument': conversion from 'const GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(163): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(164): warning C4244: 'argument': conversion from 'const GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(164): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(165): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(166): warning C4244: 'argument': conversion from 'const GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(166): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(185): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(186): warning C4244: 'argument': conversion from 'const GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(187): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(188): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(188): warning C4244: 'argument': conversion from 'const GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(189): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(189): warning C4244: 'argument': conversion from 'const GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(190): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(190): warning C4244: 'argument': conversion from 'const GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(191): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(191): warning C4244: 'argument': conversion from 'const GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(192): warning C4244: 'argument': conversion from 'const GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(192): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(209): warning C4244: 'argument': conversion from 'const GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(210): warning C4244: 'argument': conversion from 'const GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(212): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(212): warning C4244: 'argument': conversion from 'const GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(213): warning C4244: 'argument': conversion from 'const GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(214): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(214): warning C4244: 'argument': conversion from 'const GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(215): warning C4244: 'argument': conversion from 'const GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(216): warning C4244: 'argument': conversion from 'const GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(216): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(231): warning C4244: 'argument': conversion from 'const GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(232): warning C4244: 'argument': conversion from 'const GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(233): warning C4244: 'argument': conversion from 'const GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(233): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(234): warning C4244: 'argument': conversion from 'const GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(235): warning C4244: 'argument': conversion from 'const GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(235): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(236): warning C4244: 'argument': conversion from 'const GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(237): warning C4244: 'argument': conversion from 'const GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(237): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(352): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(353): warning C4244: 'argument': conversion from 'const GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(354): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(355): warning C4244: 'argument': conversion from 'const GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(356): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(357): warning C4244: 'argument': conversion from 'const GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(358): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\texturedpolygons.cpp(359): warning C4244: 'argument': conversion from 'const GLdouble' to 'GLfloat', possible loss of data
   Generating Code...
   Shay.vcxproj -> C:\Users\Manu\source\repos\Shay\Debug\Shay.exe
