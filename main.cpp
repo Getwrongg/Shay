@@ -462,7 +462,7 @@ void myinit()
 	ilInit(); 
 
 	// set background (sky colour)
-	glClearColor(97.0/255.0, 140.0/255.0, 185.0/255.0, 1.0);
+	glClearColor(97.0/255.0, 140.0/255.0, 335.0/255.0, 1.0);
 	
 	// set perpsective
 	gluLookAt(0.0, 1.75, 0.0, 
