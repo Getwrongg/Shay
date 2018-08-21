@@ -429,9 +429,9 @@ int main(int argc, char **argv)
 
 	myinit();
 
-	PortalWorld portal; // testing portalworld
+	//PortalWorld portal; // testing portalworld
 
-	glutIgnoreKeyRepeat(1);
+	//glutIgnoreKeyRepeat(1); // removed this so we can hold down to move up or down
 	glutKeyboardUpFunc (releaseKeys);
 	glutKeyboardFunc(keys);
 
