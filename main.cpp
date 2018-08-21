@@ -341,6 +341,9 @@ void mouseMove(int x, int y);
 void DrawMyFaceBanner();
 void DrawFaceBannerPosts();
 
+//draws solar panels on roof
+void DrawSolarPanels();
+
 // calls display functions below to draw the backdrops
 void DrawBackdrop();
 // functions to display display lists (images) and bind them to a texture
@@ -534,6 +537,10 @@ void Display()
 
 		DrawMyFaceBanner(); // for my face banner
 		DrawFaceBannerPosts();
+
+		//for the solar panels
+		jpeg.BindTexture("data/SolarPanel.jpg");
+		DrawSolarPanels();
 
 		glPopMatrix();
 		glDisable(GL_TEXTURE_2D);
@@ -1658,6 +1665,22 @@ void DrawFaceBannerPosts()
 	gluCylinder(glu_cylinder, 10, 25, 2000, 200, 200);
 	glPopMatrix();
 }
+
+
+//--------------------------------------------------------------------------------------
+//  Called from the main display function to draw solar panels
+//--------------------------------------------------------------------------------------
+void DrawSolarPanels() {
+	glBegin(GL_POLYGON);
+	glRotatef(90.0f, 1.0f, 45.0f, 45.0f);
+	glTexCoord2i(0, 0); glVertex3f(30000.0, 12150.0, 43000.0); // top left
+	glTexCoord2i(0, 1); glVertex3f(8000.0, 12150.0, 43000.0); // top right
+	glTexCoord2i(1, 1); glVertex3f(8000.0, 11500.0, 41150.0); // bottom right
+	glTexCoord2i(1, 0); glVertex3f(30000.0, 11500.0, 41150.0); // bottom left
+	glEnd();
+}
+
+
 
 //--------------------------------------------------------------------------------------
 //  Called from the main display function to draw the backdrop (all images)

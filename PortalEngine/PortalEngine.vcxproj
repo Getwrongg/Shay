@@ -76,7 +76,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\Chris\source\repos\Shay\Dependancies\DevIL\include;C:\Users\Chris\source\repos\Shay\Dependancies\freeglut\include;C:\Users\Murdoch\source\repos\Shay\Dependancies\DevIL\include;C:\Users\Manu\source\repos\Shay\Dependancies\DevIL\include;C:\Users\Murdoch\source\repos\Shay\Dependancies\freeglut\include;C:\Users\Manu\source\repos\Shay\Dependancies\freeglut\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\jacob\source\repos\Shay\Dependancies\glew-1.11.0\include;C:\Users\jacob\source\repos\Shay\Dependancies\freeglut\include;C:\Users\jacob\source\repos\Shay\Dependancies\DevIL\include;C:\Users\jacob\source\repos\Shay\PortalEngine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>C:\Users\Manu\source\repos\Shay\Dependancies\SDL2-2.0.8\lib;C:\Users\Manu\source\repos\Shay\Dependancies\freeglut\lib;C:\Users\Manu\source\repos\Shay\Dependancies\DevIL\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -89,6 +89,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\jacob\source\repos\Shay\Dependancies\glew-1.11.0\include;C:\Users\jacob\source\repos\Shay\Dependancies\freeglut\include;C:\Users\jacob\source\repos\Shay\Dependancies\DevIL\include;C:\Users\jacob\source\repos\Shay\PortalEngine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -99,6 +100,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\jacob\source\repos\Shay\Dependancies\glew-1.11.0\include;C:\Users\jacob\source\repos\Shay\Dependancies\freeglut\include;C:\Users\jacob\source\repos\Shay\Dependancies\DevIL\include;C:\Users\jacob\source\repos\Shay\PortalEngine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -113,6 +115,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\jacob\source\repos\Shay\Dependancies\glew-1.11.0\include;C:\Users\jacob\source\repos\Shay\Dependancies\freeglut\include;C:\Users\jacob\source\repos\Shay\Dependancies\DevIL\include;C:\Users\jacob\source\repos\Shay\PortalEngine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
