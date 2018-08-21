@@ -2,11 +2,9 @@
 
 PortalWorld::PortalWorld()
 {
-	void PrintMessage();
-	{
-		std::cout << "Welcome to Portal World!" << std::endl;
-		//exit(0);
-	}
+	std::cout << "Welcome to Portal World!" << std::endl;
+	//exit(0);
+
 }
 
 

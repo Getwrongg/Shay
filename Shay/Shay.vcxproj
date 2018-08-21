@@ -126,8 +126,8 @@
       </EntryPointSymbol>
       <NoEntryPoint>false</NoEntryPoint>
       <SubSystem>Console</SubSystem>
-      <AdditionalDependencies>freeglut.lib;glew32.lib;SDL2.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Users\jacob\source\repos\Shay\Dependancies\SDL2-2.0.8\lib;C:\Users\jacob\source\repos\Shay\Dependancies\glew-1.11.0\lib;C:\Users\jacob\source\repos\Shay\Dependancies\freeglut\lib;C:\Users\jacob\source\repos\Shay\Dependancies\SDL2-2.0.8\lib;C:\Users\jacob\source\repos\Shay\Dependancies\glew-1.11.0\lib;C:\Users\jacob\source\repos\Shay\Dependancies\freeglut\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>freeglut.lib;glew32.lib;SDL2.lib;DevIL.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\jacob\source\repos\Shay\Dependancies\SDL2-2.0.8\lib;C:\Users\jacob\source\repos\Shay\Dependancies\glew-1.11.0\lib;C:\Users\manu\source\repos\Shay\Dependancies\freeglut\lib;C:\Users\jacob\source\repos\Shay\Dependancies\freeglut\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

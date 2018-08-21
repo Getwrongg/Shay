@@ -414,6 +414,8 @@ void CreatePlains();
 // deletes image and clears memory
 void DeleteImageFromMemory(unsigned char* tempImage);
 
+bool inPortal = false;
+
 //--------------------------------------------------------------------------------------
 //  Main function 
 //--------------------------------------------------------------------------------------
@@ -428,7 +430,6 @@ int main(int argc, char **argv)
 	myinit();
 
 	PortalWorld portal; // testing portalworld
-	//portal.
 
 	glutIgnoreKeyRepeat(1);
 	glutKeyboardUpFunc (releaseKeys);
@@ -444,6 +445,7 @@ int main(int argc, char **argv)
 
 	glutReshapeFunc(reshape);
 	glutMainLoop();
+
 	return(0);
 }
 
@@ -526,8 +528,8 @@ void Display()
 	
 	jpeg.BindTexture("data/MyFace.jpg");
 
-		DrawMyFaceBanner(); // for my face banner
-		DrawFaceBannerPosts();
+	DrawMyFaceBanner(); // for my face banner
+	DrawFaceBannerPosts();
 
 	glPopMatrix();
 	glDisable (GL_TEXTURE_2D); 
