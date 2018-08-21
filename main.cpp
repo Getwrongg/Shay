@@ -3,15 +3,14 @@
 #include <GL/glut.h>
 #include <time.h>
 #include <IL/il.h>
-#include "JpegLoader.h"
-#include "PortalWorld.h"
 
-
-//hello
 
 #include <windows.h> // only used if mouse is required (not portable)
 #include "camera.h"
 #include "texturedPolygons.h"
+
+#include "PortalWorld.cpp" // only works if use .cpp for some reason
+#include "JpegLoader.cpp"
 
 //--------------------------------------------------------------------------------------
 
@@ -428,6 +427,9 @@ int main(int argc, char **argv)
 
 	myinit();
 
+	PortalWorld portal; // testing portalworld
+	//portal.
+
 	glutIgnoreKeyRepeat(1);
 	glutKeyboardUpFunc (releaseKeys);
 	glutKeyboardFunc(keys);
@@ -451,7 +453,9 @@ int main(int argc, char **argv)
 //--------------------------------------------------------------------------------------
 void myinit()
 {
-	ilInit();
+	// sets up devil library
+	ilInit(); 
+
 	// set background (sky colour)
 	glClearColor(97.0/255.0, 140.0/255.0, 185.0/255.0, 1.0);
 	
@@ -513,10 +517,7 @@ void Display()
 	if ((cam.GetLR() > 35500.0) && (cam.GetFB() < 25344.0) ||
 		(cam.GetLR() > 34100.0) && (cam.GetFB() > 41127.0))
 	{
-
-		/*cam.DisplayNoExit(width, height,tp.GetTexture(NO_EXIT));*/
-		//PortalWorld portal;
-
+		cam.DisplayNoExit(width, height,tp.GetTexture(NO_EXIT));
 	}
 	// set the movement and rotation speed according to frame count
 	IncrementFrameCount();
