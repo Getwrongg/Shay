@@ -385,6 +385,22 @@ void Camera::Position (GLdouble const & tempX, GLdouble const & tempY,
 	callGLLookAt();
 }
 
+void Camera::FreeLookYUP() {
+	m_y+= 1000;
+	callGLLookAt();
+}
+
+void Camera::FreeLookYDown() {
+	m_y -= 1000;
+	callGLLookAt();
+}
+void Camera::FreeLookXZ() {
+	m_x += m_lookX*1000;
+	m_z += m_lookZ*1000;
+	callGLLookAt();
+}
+
+
 //----------------------------------------------------------------------------------------
 // Check ok to move
 //----------------------------------------------------------------------------------------

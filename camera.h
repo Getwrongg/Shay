@@ -96,6 +96,10 @@ public:
 	// display no exit
 	void DisplayNoExit (const int & screenWidth, const int & screenHeight, 
 						const GLuint & tempImage);
+	void MoveUD();
+	void FreeLookYUP();
+	void FreeLookYDown();
+	void FreeLookXZ();
 	
 private:
 
@@ -135,7 +139,7 @@ private:
 	// move around the world
 	void MoveFB();
 	void MoveLR();
-	void MoveUD();
+	
 	void RotateLR();
 	void LookUD();
 	

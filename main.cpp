@@ -439,6 +439,7 @@ int main(int argc, char **argv)
 	glutIdleFunc(Display);
 	glutMouseFunc(Mouse);
 	
+
 	// ONLY USE IF REQUIRE MOUSE MOVEMENT
 	glutPassiveMotionFunc(mouseMove);
 	ShowCursor(FALSE);
@@ -489,6 +490,7 @@ void myinit()
 	// load texture images and create display lists
 	CreateTextureList();
 	CreateTextures();
+
 }
 
 
@@ -658,6 +660,29 @@ void keys(unsigned char key, int x, int y)
 			}
 		}
 		break;
+
+		case 'E':
+		case 'e':
+		{
+			cam.FreeLookYUP();
+		}
+		break;
+
+		case 'R':
+		case 'r':
+		{
+			cam.FreeLookYDown();
+		}
+		break;
+
+		case 'F':
+		case 'f':
+		{
+			cam.FreeLookXZ();
+		}
+		
+
+		
 		
 	}
 }
@@ -677,6 +702,7 @@ void releaseKeys(unsigned char key, int x, int y)
 		case 's':
 			cam.DirectionFB(0);
 			break;
+
 		
 	}
 }
@@ -738,6 +764,7 @@ void mouseMove(int x, int y)
 		else
 			cam.DirectionLookUD(0);
 }
+
 
 //--------------------------------------------------------------------------------------
 // Set up bounding boxes for collsion detection
