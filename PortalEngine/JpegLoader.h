@@ -15,7 +15,7 @@
 	*
 	* @todo
 	*
-	* @bug Program has no bugs.
+	* @bug Program has memory leak
 	*/
 class JpegLoader
 {
