@@ -160,7 +160,6 @@
     <ClInclude Include="..\cameraMap.h" />
     <ClInclude Include="..\collision.h" />
     <ClInclude Include="..\EasySound.h" />
-    <ClInclude Include="..\JpegLoader.h" />
     <ClInclude Include="..\PlainLinkedList.h" />
     <ClInclude Include="..\PlainNode.h" />
     <ClInclude Include="..\Sound.h" />
@@ -175,7 +174,6 @@
     <ClCompile Include="..\cameraMap.cpp" />
     <ClCompile Include="..\collision.cpp" />
     <ClCompile Include="..\EasySound.cpp" />
-    <ClCompile Include="..\JpegLoader.cpp" />
     <ClCompile Include="..\main.cpp" />
     <ClCompile Include="..\PlainLinkedList.cpp" />
     <ClCompile Include="..\PlainNode.cpp" />
