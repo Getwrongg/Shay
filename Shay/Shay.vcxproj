@@ -70,8 +70,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Users\Murdoch\source\repos\Shay\Dependancies\SDL2-2.0.8\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Murdoch\source\repos\Shay\Dependancies\SDL2-2.0.8\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\Chris\source\repos\Shay\Dependancies\SDL2-2.0.8\include;C:\Users\Murdoch\source\repos\Shay\Dependancies\SDL2-2.0.8\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\Chris\source\repos\Shay\Dependancies\SDL2-2.0.8\lib\x64;C:\Users\Murdoch\source\repos\Shay\Dependancies\SDL2-2.0.8\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -81,7 +81,7 @@
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>
       </RuntimeLibrary>
-      <AdditionalIncludeDirectories>C:\Users\jacob\source\repos\Shay\Dependancies\DevIL\include;C:\Users\Manu\source\repos\Shay\Dependancies\DevIL\include;C:\Users\Murdoch\source\repos\Shay\Dependancies\DevIL\include;C:\Users\jacob\source\repos\Shay\Dependancies\SDL2-2.0.8\include;C:\Users\jacob\source\repos\Shay\Dependancies\glew-1.11.0\include;C:\Users\jacob\source\repos\Shay\Dependancies\freeglut\include\;C:\Users\manu\source\repos\Shay\Dependancies\SDL2-2.0.8\include;C:\Users\manu\source\repos\Shay\Dependancies\glew-1.11.0\include;C:\Users\manu\source\repos\Shay\Dependancies\freeglut\include;C:\Users\Murdoch\source\repos\Shay\Dependancies\glew-1.11.0\include;C:\Users\Murdoch\source\repos\Shay\Dependancies\freeglut\include;C:\Users\Murdoch\source\repos\Shay\PortalEngine;C:\Users\manu\source\repos\Shay\PortalEngine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Chris\source\repos\Shay\PortalEngine;C:\Users\Chris\source\repos\Shay\Dependancies\SDL2-2.0.8\include;C:\Users\Chris\source\repos\Shay\Dependancies\glew-1.11.0\include;C:\Users\Chris\source\repos\Shay\Dependancies\freeglut\include;C:\Users\Chris\source\repos\Shay\Dependancies\DevIL\include;C:\Users\jacob\source\repos\Shay\Dependancies\DevIL\include;C:\Users\Manu\source\repos\Shay\Dependancies\DevIL\include;C:\Users\Murdoch\source\repos\Shay\Dependancies\DevIL\include;C:\Users\jacob\source\repos\Shay\Dependancies\SDL2-2.0.8\include;C:\Users\jacob\source\repos\Shay\Dependancies\glew-1.11.0\include;C:\Users\jacob\source\repos\Shay\Dependancies\freeglut\include\;C:\Users\manu\source\repos\Shay\Dependancies\SDL2-2.0.8\include;C:\Users\manu\source\repos\Shay\Dependancies\glew-1.11.0\include;C:\Users\manu\source\repos\Shay\Dependancies\freeglut\include;C:\Users\Murdoch\source\repos\Shay\Dependancies\glew-1.11.0\include;C:\Users\Murdoch\source\repos\Shay\Dependancies\freeglut\include;C:\Users\Murdoch\source\repos\Shay\PortalEngine;C:\Users\manu\source\repos\Shay\PortalEngine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EntryPointSymbol>
@@ -89,7 +89,7 @@
       <NoEntryPoint>false</NoEntryPoint>
       <SubSystem>Console</SubSystem>
       <AdditionalDependencies>freeglut.lib;glew32.lib;SDL2.lib;DevIL.lib;%(AdditionalDependencies)</AdditionalDependencies>
-      <AdditionalLibraryDirectories>C:\Users\jacob\source\repos\Shay\Dependancies\DevIL\lib;C:\Users\Manu\source\repos\Shay\Dependancies\DevIL\lib;C:\Users\jacob\source\repos\Shay\Dependancies\SDL2-2.0.8\lib;C:\Users\Murdoch\source\repos\Shay\Dependancies\SDL2-2.0.8\lib;C:\Users\jacob\source\repos\Shay\Dependancies\glew-1.11.0\lib;C:\Users\jacob\source\repos\Shay\Dependancies\freeglut\lib;C:\Users\manu\source\repos\Shay\Dependancies\SDL2-2.0.8\lib;C:\Users\manu\source\repos\Shay\Dependancies\glew-1.11.0\lib;C:\Users\manu\source\repos\Shay\Dependancies\freeglut\lib;C:\Users\Murdoch\source\repos\Shay\Dependancies\freeglut\lib;C:\Users\Murdoch\source\repos\Shay\Dependancies\glew-1.11.0\lib;C:\Users\Murdoch\source\repos\Shay\Dependancies\DevIL\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\Chris\source\repos\Shay\Dependancies\SDL2-2.0.8\lib;C:\Users\Chris\source\repos\Shay\Dependancies\glew-1.11.0\lib;C:\Users\Chris\source\repos\Shay\Dependancies\freeglut\lib;C:\Users\Chris\source\repos\Shay\Dependancies\DevIL\lib;C:\Users\jacob\source\repos\Shay\Dependancies\DevIL\lib;C:\Users\Manu\source\repos\Shay\Dependancies\DevIL\lib;C:\Users\jacob\source\repos\Shay\Dependancies\SDL2-2.0.8\lib;C:\Users\Murdoch\source\repos\Shay\Dependancies\SDL2-2.0.8\lib;C:\Users\jacob\source\repos\Shay\Dependancies\glew-1.11.0\lib;C:\Users\jacob\source\repos\Shay\Dependancies\freeglut\lib;C:\Users\manu\source\repos\Shay\Dependancies\SDL2-2.0.8\lib;C:\Users\manu\source\repos\Shay\Dependancies\glew-1.11.0\lib;C:\Users\manu\source\repos\Shay\Dependancies\freeglut\lib;C:\Users\Murdoch\source\repos\Shay\Dependancies\freeglut\lib;C:\Users\Murdoch\source\repos\Shay\Dependancies\glew-1.11.0\lib;C:\Users\Murdoch\source\repos\Shay\Dependancies\DevIL\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
