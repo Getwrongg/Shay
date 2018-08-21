@@ -414,8 +414,6 @@ void CreatePlains();
 // deletes image and clears memory
 void DeleteImageFromMemory(unsigned char* tempImage);
 
-bool inPortal = false;
-
 //--------------------------------------------------------------------------------------
 //  Main function 
 //--------------------------------------------------------------------------------------

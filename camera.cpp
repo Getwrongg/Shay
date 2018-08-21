@@ -386,7 +386,7 @@ void Camera::Position (GLdouble const & tempX, GLdouble const & tempY,
 }
 
 void Camera::FreeLookYUP() {
-	m_y+= 1000;
+	m_y += 1000;
 	callGLLookAt();
 }
 
