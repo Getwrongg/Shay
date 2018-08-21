@@ -306,6 +306,8 @@ bool DisplayExit = false;
 bool lightsOn;
 // display ECL block
 bool displayECL = true;
+// in portal or not. if true don't display shay's world
+bool inPortal = false;
 
 // varibles used for tarnslating graphics etc
 GLdouble step, step2, stepLength;
@@ -498,45 +500,48 @@ void myinit()
 
 void Display()
 {
-	// check for movement
-	cam.CheckCamera();
-
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-	// DISPLAY TEXTURES
-	//enable texture mapping
-	glEnable(GL_TEXTURE_2D);
-	glPushMatrix();
-	// displays the welcome screen
-	if (DisplayWelcome) cam.DisplayWelcomeScreen(width, height, 1, tp.GetTexture(WELCOME));
-	// displays the exit screen
-	if (DisplayExit) cam.DisplayWelcomeScreen(width, height, 0, tp.GetTexture(EXIT));
-	// displays the map
-	if (DisplayMap) cam.DisplayMap(width, height, tp.GetTexture(MAP));
-	// display no exit sign (position check should really be in an object, but didn't have time)
-	if ((cam.GetLR() > 35500.0) && (cam.GetFB() < 25344.0) ||
-		(cam.GetLR() > 34100.0) && (cam.GetFB() > 41127.0))
+	if (!inPortal)
 	{
-		cam.DisplayNoExit(width, height,tp.GetTexture(NO_EXIT));
+		// check for movement
+		cam.CheckCamera();
+
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+		// DISPLAY TEXTURES
+		//enable texture mapping
+		glEnable(GL_TEXTURE_2D);
+		glPushMatrix();
+		// displays the welcome screen
+		if (DisplayWelcome) cam.DisplayWelcomeScreen(width, height, 1, tp.GetTexture(WELCOME));
+		// displays the exit screen
+		if (DisplayExit) cam.DisplayWelcomeScreen(width, height, 0, tp.GetTexture(EXIT));
+		// displays the map
+		if (DisplayMap) cam.DisplayMap(width, height, tp.GetTexture(MAP));
+		// display no exit sign (position check should really be in an object, but didn't have time)
+		if ((cam.GetLR() > 35500.0) && (cam.GetFB() < 25344.0) ||
+			(cam.GetLR() > 34100.0) && (cam.GetFB() > 41127.0))
+		{
+			cam.DisplayNoExit(width, height, tp.GetTexture(NO_EXIT));
+		}
+		// set the movement and rotation speed according to frame count
+		IncrementFrameCount();
+		cam.SetMoveSpeed(stepIncrement);
+		cam.SetRotateSpeed(angleIncrement);
+		// display images
+		DrawBackdrop();
+
+		jpeg.BindTexture("data/MyFace.jpg");
+
+		DrawMyFaceBanner(); // for my face banner
+		DrawFaceBannerPosts();
+
+		glPopMatrix();
+		glDisable(GL_TEXTURE_2D);
+
+		// clear buffers
+		glFlush();
+		glutSwapBuffers();
 	}
-	// set the movement and rotation speed according to frame count
-	IncrementFrameCount();
-	cam.SetMoveSpeed(stepIncrement);
-	cam.SetRotateSpeed(angleIncrement);
-	// display images
-	DrawBackdrop();
-	
-	jpeg.BindTexture("data/MyFace.jpg");
-
-	DrawMyFaceBanner(); // for my face banner
-	DrawFaceBannerPosts();
-
-	glPopMatrix();
-	glDisable (GL_TEXTURE_2D); 
-
-	// clear buffers
-	glFlush();
-	glutSwapBuffers();
 }
 
 
