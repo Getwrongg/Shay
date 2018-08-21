@@ -24,7 +24,6 @@ int JpegLoader::LoadImage(const char * filename)
 	ILuint image;
 
 	ilGenImages(1, &image); // Generation of one image name
-	ilBindImage(image); // Binding of image name
 	success = ilLoadImage(filename); // Loading of the image by DevIL
 
 	if (success)

@@ -489,40 +489,42 @@ void myinit()
 //--------------------------------------------------------------------------------------
 //  Main Display Function
 //--------------------------------------------------------------------------------------
+
 void Display()
 {
 	// check for movement
 	cam.CheckCamera();
-	
+
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	// DISPLAY TEXTURES
 	//enable texture mapping
-	glEnable (GL_TEXTURE_2D);
-	glPushMatrix();	
-		// displays the welcome screen
-		if (DisplayWelcome) cam.DisplayWelcomeScreen (width, height, 1, tp.GetTexture(WELCOME));	
-		// displays the exit screen
-		if (DisplayExit) cam.DisplayWelcomeScreen (width, height, 0, tp.GetTexture(EXIT) );
-		// displays the map
-		if (DisplayMap) cam.DisplayMap(width, height, tp.GetTexture(MAP));
-		// display no exit sign (position check should really be in an object, but didn't have time)
-		if ((cam.GetLR() > 35500.0) && (cam.GetFB() < 25344.0) ||
-			(cam.GetLR() > 34100.0) && (cam.GetFB() > 41127.0))
-		{
-			
-			/*cam.DisplayNoExit(width, height,tp.GetTexture(NO_EXIT));*/
-			//PortalWorld portal;
-			
-		}
-				// set the movement and rotation speed according to frame count
-		IncrementFrameCount();
-		cam.SetMoveSpeed (stepIncrement);
-		cam.SetRotateSpeed (angleIncrement);
-		// display images
-		DrawBackdrop();
+	glEnable(GL_TEXTURE_2D);
+	glPushMatrix();
+	// displays the welcome screen
+	if (DisplayWelcome) cam.DisplayWelcomeScreen(width, height, 1, tp.GetTexture(WELCOME));
+	// displays the exit screen
+	if (DisplayExit) cam.DisplayWelcomeScreen(width, height, 0, tp.GetTexture(EXIT));
+	// displays the map
+	if (DisplayMap) cam.DisplayMap(width, height, tp.GetTexture(MAP));
+	// display no exit sign (position check should really be in an object, but didn't have time)
+	if ((cam.GetLR() > 35500.0) && (cam.GetFB() < 25344.0) ||
+		(cam.GetLR() > 34100.0) && (cam.GetFB() > 41127.0))
+	{
 
-		jpeg.BindTexture("data/MyFace.jpg");
+		/*cam.DisplayNoExit(width, height,tp.GetTexture(NO_EXIT));*/
+		//PortalWorld portal;
+
+	}
+	// set the movement and rotation speed according to frame count
+	IncrementFrameCount();
+	cam.SetMoveSpeed(stepIncrement);
+	cam.SetRotateSpeed(angleIncrement);
+	// display images
+	DrawBackdrop();
+	
+	jpeg.BindTexture("data/MyFace.jpg");
+
 		DrawMyFaceBanner(); // for my face banner
 		DrawFaceBannerPosts();
 
@@ -919,6 +921,8 @@ void CreateTextures()
 	tp.SetTextureCount(250);
 
 	// load and create textures
+
+	
 
 	image = tp.LoadTexture("data/abovechanctext.raw", 128, 1024);
 	tp.CreateTexture(ABOVE_CHANC_TEXT, image, 128, 1024);
@@ -1653,31 +1657,31 @@ void DrawBackdrop()
 //--------------------------------------------------------------------------------------
 // Display the chancellery windoe and door posts
 //--------------------------------------------------------------------------------------
-void DisplayChancPosts ()
+void DisplayChancPosts()
 {
 	// Windowposts Chanc (downstairs)
 	step = 0.0;
 	for (int i = 0; i < 14; i++)
 	{
 		glPushMatrix();
-			glTranslatef(0.0, 0.0, step);
-			if ((i != 1) && (i != 2) && (i != 10) && (i != 11))
-			{			
-				glBindTexture(GL_TEXTURE_2D, tp.GetTexture(WINDOWPOST_CHANC_FRONT));
-				glCallList(11);
-			}
-			if ((i != 1) && (i != 10))
-			{			
-				glBindTexture(GL_TEXTURE_2D, tp.GetTexture(WINDOWPOST_CHANC_RIGHT));
-				glCallList(12);
-			}
-			if ((i != 2) && (i != 11))
-			{
-				glBindTexture(GL_TEXTURE_2D, tp.GetTexture(WINDOWPOST_CHANC_LEFT));
-				glCallList(13);
-			}
-				
-		glPopMatrix();		
+		glTranslatef(0.0, 0.0, step);
+		if ((i != 1) && (i != 2) && (i != 10) && (i != 11))
+		{
+			glBindTexture(GL_TEXTURE_2D, tp.GetTexture(WINDOWPOST_CHANC_FRONT));
+			glCallList(11);
+		}
+		if ((i != 1) && (i != 10))
+		{
+			glBindTexture(GL_TEXTURE_2D, tp.GetTexture(WINDOWPOST_CHANC_RIGHT));
+			glCallList(12);
+		}
+		if ((i != 2) && (i != 11))
+		{
+			glBindTexture(GL_TEXTURE_2D, tp.GetTexture(WINDOWPOST_CHANC_LEFT));
+			glCallList(13);
+		}
+
+		glPopMatrix();
 		step += 960.0;
 	}
 
@@ -1686,12 +1690,12 @@ void DisplayChancPosts ()
 	for (int i = 0; i < 11; i++)
 	{
 		glPushMatrix();
-			glTranslatef(0.0, 0.0, step);
-			glBindTexture(GL_TEXTURE_2D, tp.GetTexture(WINDOWLEDGE_CHANC_FRONT));
-			glCallList(14);
-		
-			glBindTexture(GL_TEXTURE_2D, tp.GetTexture(WINDOWLEDGE_CHANC_TOP));
-			glCallList(15);		
+		glTranslatef(0.0, 0.0, step);
+		glBindTexture(GL_TEXTURE_2D, tp.GetTexture(WINDOWLEDGE_CHANC_FRONT));
+		glCallList(14);
+
+		glBindTexture(GL_TEXTURE_2D, tp.GetTexture(WINDOWLEDGE_CHANC_TOP));
+		glCallList(15);
 		glPopMatrix();
 		if ((i == 0) || (i == 8)) step += 960.0;
 		step += 960.0;
@@ -1706,65 +1710,65 @@ void DisplayChancPosts ()
 		glTranslatef(0.0, 0.0, step);
 		glBindTexture(GL_TEXTURE_2D, tp.GetTexture(WINDOWPOST_CHANC_FRONT));
 		glCallList(11);
-			
+
 		glBindTexture(GL_TEXTURE_2D, tp.GetTexture(WINDOWPOST_CHANC_RIGHT));
 		glCallList(12);
-	
+
 		glBindTexture(GL_TEXTURE_2D, tp.GetTexture(WINDOWPOST_CHANC_LEFT));
 		glCallList(13);
 		if (i != 13)
 		{
 			glBindTexture(GL_TEXTURE_2D, tp.GetTexture(WINDOWLEDGE_CHANC_FRONT));
 			glCallList(14);
-		
+
 			glBindTexture(GL_TEXTURE_2D, tp.GetTexture(WINDOWLEDGE_CHANC_TOP));
 			glCallList(15);
 		}
-		step =+ 960.0;
+		step = +960.0;
 	}
 	glPopMatrix();
 
 	glBindTexture(GL_TEXTURE_2D, tp.GetTexture(WINDOW_LEDGE_END_1));
 	glCallList(235);
 	glPushMatrix();
-		glTranslatef(0.0, 320.0, 7447.0);
-		glCallList(235);
+	glTranslatef(0.0, 320.0, 7447.0);
+	glCallList(235);
 	glPopMatrix();
 	glPushMatrix();
-		glTranslatef(0.0, 1024.0, 0.0);
-		glCallList(235);
+	glTranslatef(0.0, 1024.0, 0.0);
+	glCallList(235);
 	glPopMatrix();
 	glPushMatrix();
-		glTranslatef(0.0, 320.0, 5527);
-		glCallList(235);
+	glTranslatef(0.0, 320.0, 5527);
+	glCallList(235);
 	glPopMatrix();
 	glPushMatrix();
-		glTranslatef(0.0, 320.0, 6551);
-		glCallList(235);
+	glTranslatef(0.0, 320.0, 6551);
+	glCallList(235);
 	glPopMatrix();
 	glPushMatrix();
-		glTranslatef(0.0, 320.0, 8471);
-		glCallList(235);
+	glTranslatef(0.0, 320.0, 8471);
+	glCallList(235);
 	glPopMatrix();
 	glPushMatrix();
-		glTranslatef(0.0, 1152.0, 19031.0);
-		glCallList(235);
+	glTranslatef(0.0, 1152.0, 19031.0);
+	glCallList(235);
 	glPopMatrix();
 
 	glBindTexture(GL_TEXTURE_2D, tp.GetTexture(WINDOW_LEDGE_END_2));
 	glCallList(236);
 	glCallList(237);
 	glPushMatrix();
-		glTranslatef(0.0, 0.0, -960.0);
-		glCallList(237);
+	glTranslatef(0.0, 0.0, -960.0);
+	glCallList(237);
 	glPopMatrix();
 	glPushMatrix();
-		glTranslatef(0.0, 0.0, -8640.0);
-		glCallList(237);
+	glTranslatef(0.0, 0.0, -8640.0);
+	glCallList(237);
 	glPopMatrix();
 	glPushMatrix();
-		glTranslatef(0.0, 0.0, -9600.0);
-		glCallList(237);
+	glTranslatef(0.0, 0.0, -9600.0);
+	glCallList(237);
 	glPopMatrix();
 
 	//glPushMatrix();
@@ -1774,29 +1778,30 @@ void DisplayChancPosts ()
 
 	// angled corner of window ledges
 	glPushMatrix();
-		glTranslatef(0.0, 1024.0, 0.0);
-		glCallList(236);
+	glTranslatef(0.0, 1024.0, 0.0);
+	glCallList(236);
 	glPopMatrix();
 	glPushMatrix();
-		glTranslatef(0.0, 320.0, 7383.0);
-		glCallList(236);
+	glTranslatef(0.0, 320.0, 7383.0);
+	glCallList(236);
 	glPopMatrix();
 	glPushMatrix();
-		glTranslatef(0.0, 320.0, 5463);
-		glCallList(236);
+	glTranslatef(0.0, 320.0, 5463);
+	glCallList(236);
 	glPopMatrix();
 	glPushMatrix();
-		glTranslatef(0.0, 320.0, 6551);
-		glCallList(236);
+	glTranslatef(0.0, 320.0, 6551);
+	glCallList(236);
 	glPopMatrix();
 	glPushMatrix();
-		glTranslatef(0.0, 320.0, 8471);
-		glCallList(236);
+	glTranslatef(0.0, 320.0, 8471);
+	glCallList(236);
 	glPopMatrix();
 	glPushMatrix();
-		glTranslatef(0.0, 1152.0, 19031.0);
-		glCallList(236);
+	glTranslatef(0.0, 1152.0, 19031.0);
+	glCallList(236);
 	glPopMatrix();
+
 }
 
 void DrawChancPosts ()
