@@ -1,8 +1,5 @@
 #include "JpegLoader.h"
 
-//int width = DEFAULT_WIDTH;
-//int height = DEFAULT_HEIGHT;
-
 void JpegLoader::BindTexture(const char * filename)
 {
 	int image;
