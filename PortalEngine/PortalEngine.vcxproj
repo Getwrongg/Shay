@@ -78,6 +78,10 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>C:\Users\Murdoch\source\repos\Shay\Dependancies\DevIL\include;C:\Users\Manu\source\repos\Shay\Dependancies\DevIL\include;C:\Users\Murdoch\source\repos\Shay\Dependancies\freeglut\include;C:\Users\Manu\source\repos\Shay\Dependancies\freeglut\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>C:\Users\Manu\source\repos\Shay\Dependancies\SDL2-2.0.8\lib;C:\Users\Manu\source\repos\Shay\Dependancies\freeglut\lib;C:\Users\Manu\source\repos\Shay\Dependancies\DevIL\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>freeglut.lib;DevIL.lib;SDL2.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>

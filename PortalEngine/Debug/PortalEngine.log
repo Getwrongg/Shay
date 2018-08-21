@@ -1,5 +1,1 @@
-﻿  PortalWorld.cpp
-JpegLoader.obj : warning LNK4006: "public: void __thiscall JpegLoader::BindTexture(char const *)" (?BindTexture@JpegLoader@@QAEXPBD@Z) already defined in PortalWorld.obj; second definition ignored
-JpegLoader.obj : warning LNK4006: "public: int __thiscall JpegLoader::LoadImageA(char const *)" (?LoadImageA@JpegLoader@@QAEHPBD@Z) already defined in PortalWorld.obj; second definition ignored
-JpegLoader.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
-  PortalEngine.vcxproj -> C:\Users\Manu\source\repos\Shay\Debug\PortalEngine.lib
+﻿  PortalEngine.vcxproj -> C:\Users\Manu\source\repos\Shay\Debug\PortalEngine.lib

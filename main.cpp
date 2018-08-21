@@ -10,6 +10,7 @@
 #include "texturedPolygons.h"
 
 #include "PortalWorld.cpp" // only works if use .cpp for some reason
+#include "JpegLoader.cpp"
 
 //--------------------------------------------------------------------------------------
 
@@ -451,7 +452,9 @@ int main(int argc, char **argv)
 //--------------------------------------------------------------------------------------
 void myinit()
 {
-	ilInit();
+	// sets up devil library
+	ilInit(); 
+
 	// set background (sky colour)
 	glClearColor(97.0/255.0, 140.0/255.0, 185.0/255.0, 1.0);
 	
