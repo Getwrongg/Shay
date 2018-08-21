@@ -8,7 +8,7 @@
 class PortalWorld
 {
 public:
-	PortalWorld();
+	PortalWorld(); // this will be main
 
 private:
 	void Display();
