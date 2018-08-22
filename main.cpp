@@ -9,8 +9,9 @@
 #include "camera.h"
 #include "texturedPolygons.h"
 
-#include "PortalWorld.cpp" // only works if use .cpp for some reason
+//#include "PortalWorld.cpp" // only works if use .cpp for some reason
 #include "JpegLoader.cpp"
+#include "main2.cpp"
 
 //--------------------------------------------------------------------------------------
 
@@ -441,6 +442,9 @@ int main(int argc, char **argv)
 
 	myinit();
 
+	inPortal = true;
+	main2();
+
 	//PortalWorld portal; // testing portalworld
 
 	//glutIgnoreKeyRepeat(1); // removed this so we can hold down to move up or down
@@ -489,8 +493,9 @@ void myinit()
 	// set number of bounding boxes required
 	cam.SetNoBoundingBoxes(19);
 	// set starting position of user
-	cam.Position(32720.0, 9536.0,	
-				 4800.0, 180.0);
+	//cam.Position(32720.0, 9536.0,	
+				// 4800.0, 180.0);
+	cam.Position(0, 0.5, 0, 180);
 	
 	CreatePlains();	
 	

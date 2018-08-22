@@ -1,280 +1,280 @@
 ﻿  main.cpp
-c:\users\manu\source\repos\shay\main.cpp(474): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
-c:\users\manu\source\repos\shay\main.cpp(612): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(771): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(777): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(787): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(478): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
+c:\users\manu\source\repos\shay\main.cpp(617): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(776): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(782): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
 c:\users\manu\source\repos\shay\main.cpp(792): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(1898): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(1924): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(1941): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(2180): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(2268): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(2280): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(2346): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(2347): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(2348): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(2349): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(2350): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(797): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(1903): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(1929): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(1946): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(2185): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(2273): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(2285): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(2351): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
 c:\users\manu\source\repos\shay\main.cpp(2352): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(2359): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(2360): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(2361): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(2362): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(2363): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(2353): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(2354): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(2355): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(2357): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(2364): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
 c:\users\manu\source\repos\shay\main.cpp(2365): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(2373): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(2374): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(2375): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(2376): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(2377): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(2366): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(2367): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(2368): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(2370): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(2378): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
 c:\users\manu\source\repos\shay\main.cpp(2379): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(2445): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(2449): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(2529): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(2380): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(2381): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(2382): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(2384): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(2450): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(2454): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
 c:\users\manu\source\repos\shay\main.cpp(2534): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(2538): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(2544): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(2548): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(2555): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(2559): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(2565): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(2582): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(2586): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(2592): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(2596): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(2635): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(2642): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(2653): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(2660): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(2683): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(2697): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(2717): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(2755): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(2756): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(2757): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(2758): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(2807): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(2815): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(2822): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(2835): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(2843): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(2909): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(2910): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(2911): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(2912): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(2921): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(2922): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(2923): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(2924): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3213): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(3414): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(3429): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(3445): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(3465): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(3488): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(3492): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(3511): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(3515): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(3539): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(3563): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(3624): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3625): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3626): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3627): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(2539): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(2543): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(2549): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(2553): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(2560): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(2564): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(2570): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(2587): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(2591): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(2597): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(2601): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(2640): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(2647): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(2658): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(2665): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(2688): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(2702): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(2722): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(2760): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(2761): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(2762): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(2763): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(2812): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(2820): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(2827): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(2840): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(2848): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(2914): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(2915): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(2916): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(2917): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(2926): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(2927): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(2928): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(2929): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3218): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(3419): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(3434): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(3450): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(3470): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(3493): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(3497): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(3516): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(3520): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(3544): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(3568): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
 c:\users\manu\source\repos\shay\main.cpp(3629): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3636): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3637): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3638): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3639): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3640): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3649): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3651): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3652): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3653): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3630): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3631): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3632): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3634): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3641): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3642): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3643): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3644): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3645): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
 c:\users\manu\source\repos\shay\main.cpp(3654): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3655): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3663): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3664): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3665): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3666): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3667): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3656): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3657): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3658): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3659): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3660): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
 c:\users\manu\source\repos\shay\main.cpp(3668): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3678): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3679): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3680): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3681): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3691): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3692): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3693): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3694): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3702): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3703): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3704): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3705): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3706): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3669): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3670): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3671): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3672): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3673): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3683): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3684): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3685): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3686): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3696): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3697): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3698): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3699): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
 c:\users\manu\source\repos\shay\main.cpp(3707): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3717): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3718): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3719): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3720): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3730): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3731): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3732): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3733): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3740): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3741): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3742): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3743): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3744): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3708): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3709): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3710): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3711): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3712): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3722): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3723): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3724): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3725): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3735): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3736): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3737): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3738): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
 c:\users\manu\source\repos\shay\main.cpp(3745): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
 c:\users\manu\source\repos\shay\main.cpp(3746): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3753): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3755): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3756): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3757): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3747): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3748): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3749): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3750): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3751): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
 c:\users\manu\source\repos\shay\main.cpp(3758): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3759): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3766): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3768): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3769): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3770): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3760): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3761): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3762): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3763): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3764): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
 c:\users\manu\source\repos\shay\main.cpp(3771): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3772): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3780): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3781): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3782): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3783): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3784): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3795): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3797): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3808): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3810): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3854): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(3856): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(3857): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(3858): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(3858): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3773): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3774): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3775): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3776): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3777): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3785): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3786): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3787): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3788): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3789): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3800): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3802): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3813): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3815): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
 c:\users\manu\source\repos\shay\main.cpp(3859): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(3860): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(3860): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3866): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(3868): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(3869): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(3870): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(3870): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3861): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(3862): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(3863): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(3863): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3864): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(3865): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(3865): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
 c:\users\manu\source\repos\shay\main.cpp(3871): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(3872): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(3872): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(3882): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(3884): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(3885): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(3886): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(3873): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(3874): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(3875): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(3875): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3876): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(3877): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(3877): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
 c:\users\manu\source\repos\shay\main.cpp(3887): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(3888): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(3894): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(3896): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(3897): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(3898): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(3889): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(3890): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(3891): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(3892): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(3893): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
 c:\users\manu\source\repos\shay\main.cpp(3899): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(3900): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(3929): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(3933): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(3988): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(4015): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(4029): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(4057): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(4084): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(4098): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(4257): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(4291): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(4322): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(4365): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(3901): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(3902): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(3903): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(3904): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(3905): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(3934): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(3938): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(3993): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(4020): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(4034): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(4062): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(4089): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(4103): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(4262): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(4296): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(4327): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
 c:\users\manu\source\repos\shay\main.cpp(4370): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(4501): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(4503): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(4504): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(4505): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(4375): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
 c:\users\manu\source\repos\shay\main.cpp(4506): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(4513): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(4515): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(4516): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(4517): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(4508): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(4509): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(4510): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(4511): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
 c:\users\manu\source\repos\shay\main.cpp(4518): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(4525): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(4527): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(4528): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(4529): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(4520): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(4521): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(4522): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(4523): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
 c:\users\manu\source\repos\shay\main.cpp(4530): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(4537): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(4539): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(4540): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(4541): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(4532): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(4533): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(4534): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(4535): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
 c:\users\manu\source\repos\shay\main.cpp(4542): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(4551): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(4552): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(4553): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(4554): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(4586): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(4597): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(4609): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(4643): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(4654): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(4666): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(4676): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(4689): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(4773): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(4784): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(4795): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(4807): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(4825): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(5051): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(5058): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(5065): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(5084): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(5084): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(5088): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(5088): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(5104): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(5104): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(5108): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(5108): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(5215): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(5224): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(5231): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(5238): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(5244): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(5245): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(5246): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(5257): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(5264): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(5271): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(5277): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(5278): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(5279): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\main.cpp(5291): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(5292): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(5294): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(5295): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(4544): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(4545): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(4546): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(4547): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(4556): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(4557): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(4558): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(4559): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(4591): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(4602): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(4614): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(4648): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(4659): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(4671): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(4681): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(4694): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(4778): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(4789): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(4800): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(4812): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(4830): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(5056): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(5063): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(5070): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(5089): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(5089): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(5093): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(5093): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(5109): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(5109): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(5113): warning C4244: 'argument': conversion from 'double' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(5113): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(5220): warning C4244: 'argument': conversion from 'GLdouble' to 'GLfloat', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(5229): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(5236): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(5243): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(5249): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(5250): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(5251): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(5262): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(5269): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(5276): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(5282): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(5283): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(5284): warning C4305: 'argument': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\main.cpp(5296): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
 c:\users\manu\source\repos\shay\main.cpp(5297): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(5298): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(5299): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
 c:\users\manu\source\repos\shay\main.cpp(5300): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(5301): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(5302): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
 c:\users\manu\source\repos\shay\main.cpp(5303): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(5304): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(5305): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(5306): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(5308): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
 c:\users\manu\source\repos\shay\main.cpp(5309): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
 c:\users\manu\source\repos\shay\main.cpp(5314): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
 c:\users\manu\source\repos\shay\main.cpp(5319): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(5325): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(5327): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(5328): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(5329): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(5324): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
 c:\users\manu\source\repos\shay\main.cpp(5330): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
-c:\users\manu\source\repos\shay\main.cpp(5331): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
 c:\users\manu\source\repos\shay\main.cpp(5332): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
 c:\users\manu\source\repos\shay\main.cpp(5333): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
 c:\users\manu\source\repos\shay\main.cpp(5334): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
 c:\users\manu\source\repos\shay\main.cpp(5335): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
 c:\users\manu\source\repos\shay\main.cpp(5336): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
 c:\users\manu\source\repos\shay\main.cpp(5337): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(5338): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(5339): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(5340): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(5341): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
+c:\users\manu\source\repos\shay\main.cpp(5342): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
   Shay.vcxproj -> C:\Users\Manu\source\repos\Shay\Debug\Shay.exe
