@@ -344,6 +344,15 @@ void DrawFaceBannerPosts();
 //draws solar panels on roof
 void DrawSolarPanels();
 
+//draws the portal stairs
+void StairPortal();
+
+//draws the pillars for the stairs
+void StairPillars();
+
+//the portal
+void portal();
+
 // calls display functions below to draw the backdrops
 void DrawBackdrop();
 // functions to display display lists (images) and bind them to a texture
@@ -541,6 +550,18 @@ void Display()
 		//for the solar panels
 		jpeg.BindTexture("data/SolarPanel.jpg");
 		DrawSolarPanels();
+
+		// for the stair portal
+		jpeg.BindTexture("data/concrete.jpg");
+		StairPortal();
+
+		//portal entrance
+		jpeg.BindTexture("data/portalswirl.jpg");
+		portal();
+
+		//for stair pillars
+		jpeg.BindTexture("data/stone.jpg");
+		StairPillars();
 
 		glPopMatrix();
 		glDisable(GL_TEXTURE_2D);
@@ -1680,6 +1701,160 @@ void DrawSolarPanels() {
 	glEnd();
 }
 
+
+void StairPortal() {
+
+	//--------------------------------------------------------------------------------------
+	//  CREATES THE STAIRS // made by jacob
+	//--------------------------------------------------------------------------------------
+	glBegin(GL_QUADS);
+	glColor3f(0.0f, 1.0f, 0.0f);    // Color Blue
+
+	//front frist step
+	glVertex3f(28000.0, 10100.0, 11500.0);    // Top Right 
+	glVertex3f(30000.0, 10100.0, 11500.0);    // Top Left 
+	glVertex3f(30000.0, 10000.0, 11500.0);    // Bottom Left
+	glVertex3f(28000.0, 10000.0, 11500.0);    // Bottom Right 
+	//top first tep
+	glVertex3f(28000.0, 10100.0, 11500.0);    // Top Right 
+	glVertex3f(30000.0, 10100.0, 11500.0);    // Top Left 
+	glVertex3f(30000.0, 10100.0, 11600.0);    // Bottom Left
+	glVertex3f(28000.0, 10100.0, 11600.0);    // Bottom Right 
+	//front of second step
+	glVertex3f(28000.0, 10200.0, 11600.0);    // Top Right 
+	glVertex3f(30000.0, 10200.0, 11600.0);    // Top Left 
+	glVertex3f(30000.0, 10100.0, 11600.0);    // Bottom Left
+	glVertex3f(28000.0, 10100.0, 11600.0);    // Bottom Right
+	//top of second step
+	glVertex3f(28000.0, 10200.0, 11600.0);    // Top Right 
+	glVertex3f(30000.0, 10200.0, 11600.0);    // Top Left 
+	glVertex3f(30000.0, 10200.0, 11700.0);    // Bottom Left
+	glVertex3f(28000.0, 10200.0, 11700.0);    // Bottom Right
+	//front of third step
+	glVertex3f(28000.0, 10300.0, 11700.0);    // Top Right 
+	glVertex3f(30000.0, 10300.0, 11700.0);    // Top Left 
+	glVertex3f(30000.0, 10200.0, 11700.0);    // Bottom Left
+	glVertex3f(28000.0, 10200.0, 11700.0);    // Bottom Right
+	//top of third step
+	glVertex3f(28000.0, 10300.0, 11700.0);    // Top Right 
+	glVertex3f(30000.0, 10300.0, 11700.0);    // Top Left 
+	glVertex3f(30000.0, 10300.0, 11800.0);    // Bottom Left
+	glVertex3f(28000.0, 10300.0, 11800.0);    // Bottom Right
+	//front of fourth step
+	glVertex3f(28000.0, 10300.0, 11800.0);    // Top Right 
+	glVertex3f(30000.0, 10300.0, 11800.0);    // Top Left 
+	glVertex3f(30000.0, 10400.0, 11800.0);    // Bottom Left
+	glVertex3f(28000.0, 10400.0, 11800.0);    // Bottom Right
+	//top of fourth step
+	glVertex3f(28000.0, 10400.0, 11800.0);    // Top Right 
+	glVertex3f(30000.0, 10400.0, 11800.0);    // Top Left 
+	glVertex3f(30000.0, 10400.0, 11900.0);    // Bottom Left
+	glVertex3f(28000.0, 10400.0, 11900.0);    // Bottom Right
+	//front of fith step
+	glVertex3f(28000.0, 10400.0, 11900.0);    // Top Right 
+	glVertex3f(30000.0, 10400.0, 11900.0);    // Top Left 
+	glVertex3f(30000.0, 10500.0, 11900.0);    // Bottom Left
+	glVertex3f(28000.0, 10500.0, 11900.0);    // Bottom Right
+	//top of fith step
+	glVertex3f(28000.0, 10500.0, 11900.0);    // Top Right 
+	glVertex3f(30000.0, 10500.0, 11900.0);    // Top Left 
+	glVertex3f(30000.0, 10500.0, 12000.0);    // Bottom Left
+	glVertex3f(28000.0, 10500.0, 12000.0);    // Bottom Right
+	//front of sixth step
+	glVertex3f(28000.0, 10500.0, 12000.0);    // Top Right 
+	glVertex3f(30000.0, 10500.0, 12000.0);    // Top Left 
+	glVertex3f(30000.0, 10600.0, 12000.0);    // Bottom Left
+	glVertex3f(28000.0, 10600.0, 12000.0);    // Bottom Right
+	//top of sizth step
+	glVertex3f(28000.0, 10600.0, 12000.0);    // Top Right 
+	glVertex3f(30000.0, 10600.0, 12000.0);    // Top Left 
+	glVertex3f(30000.0, 10600.0, 12600.0);    // Bottom Left
+	glVertex3f(28000.0, 10600.0, 12600.0);    // Bottom Right
+
+	glEnd();// End Drawing stairs
+	glFlush();
+
+}
+
+void StairPillars() {
+	//--------------------------------------------------------------------------------------
+	//  CREATES THE PILLARS AROUND THE PORTAL STAIRS
+	//--------------------------------------------------------------------------------------
+	glBegin(GL_QUADS);//Draws left side pillar
+	//front of left pillar
+	glVertex3f(30000.0, 11500.0, 11500.0);    // Top Right 
+	glVertex3f(30500.0, 11500.0, 11500.0);    // Top Left 
+	glVertex3f(30500.0, 10000.0, 11500.0);    // Bottom Left
+	glVertex3f(30000.0, 10000.0, 11500.0);    // Bottom Right 
+	//top of left pillar
+	glVertex3f(30000.0, 11500.0, 11500.0);    // Top Right 
+	glVertex3f(30500.0, 11500.0, 11500.0);    // Top Left 
+	glVertex3f(30500.0, 11500.0, 12600.0);    // Bottom Left
+	glVertex3f(30000.0, 11500.0, 12600.0);    // Bottom Right 
+	//back of left pillar
+	glVertex3f(30000.0, 11500.0, 12600.0);    // Top Right 
+	glVertex3f(30500.0, 11500.0, 12600.0);    // Top Left 
+	glVertex3f(30500.0, 10000.0, 12600.0);    // Bottom Left
+	glVertex3f(30000.0, 10000.0, 12600.0);    // Bottom Right 
+	//left face of left pillar
+	glVertex3f(30500.0, 11500.0, 11500.0);    // Top Right 
+	glVertex3f(30500.0, 11500.0, 12600.0);    // Top Left 
+	glVertex3f(30500.0, 10000.0, 12600.0);    // Bottom Left
+	glVertex3f(30500.0, 10000.0, 11500.0);    // Bottom Right 
+	//right face of left pillar
+	glVertex3f(30000.0, 11500.0, 11500.0);    // Top Right 
+	glVertex3f(30000.0, 11500.0, 12600.0);    // Top Left 
+	glVertex3f(30000.0, 10000.0, 12600.0);    // Bottom Left
+	glVertex3f(30000.0, 10000.0, 11500.0);    // Bottom Right 	
+	glEnd();// End Drawing The pillar
+	glFlush();
+
+	glBegin(GL_QUADS);//Draws right side pillar
+	//front of right pillar
+	glVertex3f(27500.0, 11500.0, 11500.0);    // Top Right 
+	glVertex3f(28000.0, 11500.0, 11500.0);    // Top Left 
+	glVertex3f(28000.0, 10000.0, 11500.0);    // Bottom Left
+	glVertex3f(27500.0, 10000.0, 11500.0);    // Bottom Right 
+	//top of left pillar
+	glVertex3f(27500.0, 11500.0, 11500.0);    // Top Right 
+	glVertex3f(28000.0, 11500.0, 11500.0);    // Top Left 
+	glVertex3f(28000.0, 11500.0, 12600.0);    // Bottom Left
+	glVertex3f(27500.0, 11500.0, 12600.0);    // Bottom Right 
+	//back of left pillar
+	glVertex3f(27500.0, 11500.0, 12600.0);    // Top Right 
+	glVertex3f(28000.0, 11500.0, 12600.0);    // Top Left 
+	glVertex3f(28000.0, 10000.0, 12600.0);    // Bottom Left
+	glVertex3f(27500.0, 10000.0, 12600.0);    // Bottom Right 
+	//left face of left pillar
+	glVertex3f(28000.0, 11500.0, 11500.0);    // Top Right 
+	glVertex3f(28000.0, 11500.0, 12600.0);    // Top Left 
+	glVertex3f(28000.0, 10000.0, 12600.0);    // Bottom Left
+	glVertex3f(28000.0, 10000.0, 11500.0);    // Bottom Right 
+	//right face of left pillar
+	glVertex3f(27500.0, 11500.0, 11500.0);    // Top Right 
+	glVertex3f(27500.0, 11500.0, 12600.0);    // Top Left 
+	glVertex3f(27500.0, 10000.0, 12600.0);    // Bottom Left
+	glVertex3f(27500.0, 10000.0, 11500.0);    // Bottom Right 	
+	glEnd();// End Drawing The pillar
+	glFlush();
+}
+
+//--------------------------------------------------------------------------------------
+//  CREATES THE PORTAL
+//--------------------------------------------------------------------------------------
+void portal() {
+
+	glBegin(GL_QUADS);//Draws the portal
+	//front of the portal
+	glVertex3f(28000.0, 11500.0, 12600.0);    // Top Right
+	glVertex3f(30000.0, 11500.0, 12600.0);    // Top Left 
+	glVertex3f(30000.0, 10000.0, 12600.0);     // Bottom Left
+	glVertex3f(28000.0, 10000.0, 12600.0);    // Bottom Right 
+		
+	glEnd();// End Drawing The portal front
+	glFlush();
+
+}
 
 
 //--------------------------------------------------------------------------------------
