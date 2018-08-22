@@ -1649,6 +1649,7 @@ void CreateTextures()
 	image = tp.LoadTexture("data/thanks.raw", 512, 512);
 	tp.CreateTexture(219, image, 512, 512);
 
+
 	glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL);	
 	glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST);
 
@@ -1696,7 +1697,7 @@ void DrawSolarPanels() {
 	glRotatef(90.0f, 1.0f, 45.0f, 45.0f);
 	glTexCoord2i(0, 0); glVertex3f(30000.0, 12150.0, 43000.0); // top left
 	glTexCoord2i(0, 1); glVertex3f(8000.0, 12150.0, 43000.0); // top right
-	glTexCoord2i(1, 1); glVertex3f(8000.0, 11500.0, 41150.0); // bottom right
+	glVertex3f(8000.0, 11500.0, 41150.0); // bottom right
 	glTexCoord2i(1, 0); glVertex3f(30000.0, 11500.0, 41150.0); // bottom left
 	glEnd();
 }
@@ -1710,16 +1711,16 @@ void StairPortal() {
 	glBegin(GL_QUADS);
 	glColor3f(0.0f, 1.0f, 0.0f);    // Color Blue
 
-	//front frist step
-	glVertex3f(28000.0, 10100.0, 11500.0);    // Top Right 
-	glVertex3f(30000.0, 10100.0, 11500.0);    // Top Left 
-	glVertex3f(30000.0, 10000.0, 11500.0);    // Bottom Left
-	glVertex3f(28000.0, 10000.0, 11500.0);    // Bottom Right 
+	//front frist step	
+	glTexCoord2i(0, 0); glVertex3f(28000.0, 10100.0, 11500.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(30000.0, 10100.0, 11500.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(30000.0, 10000.0, 11500.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(28000.0, 10000.0, 11500.0);    // Bottom Right 
 	//top first tep
-	glVertex3f(28000.0, 10100.0, 11500.0);    // Top Right 
-	glVertex3f(30000.0, 10100.0, 11500.0);    // Top Left 
-	glVertex3f(30000.0, 10100.0, 11600.0);    // Bottom Left
-	glVertex3f(28000.0, 10100.0, 11600.0);    // Bottom Right 
+	glTexCoord2i(0, 0); glVertex3f(28000.0, 10100.0, 11500.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(30000.0, 10100.0, 11500.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(30000.0, 10100.0, 11600.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(28000.0, 10100.0, 11600.0);    // Bottom Right 
 	//front of second step
 	glVertex3f(28000.0, 10200.0, 11600.0);    // Top Right 
 	glVertex3f(30000.0, 10200.0, 11600.0);    // Top Left 
@@ -1846,10 +1847,10 @@ void portal() {
 
 	glBegin(GL_QUADS);//Draws the portal
 	//front of the portal
-	glVertex3f(28000.0, 11500.0, 12600.0);    // Top Right
-	glVertex3f(30000.0, 11500.0, 12600.0);    // Top Left 
-	glVertex3f(30000.0, 10000.0, 12600.0);     // Bottom Left
-	glVertex3f(28000.0, 10000.0, 12600.0);    // Bottom Right 
+	glTexCoord2i(0, 0);glVertex3f(28000.0, 11500.0, 12600.0);    // Top Right
+	glTexCoord2i(0, 1);glVertex3f(30000.0, 11500.0, 12600.0);    // Top Left 
+	glTexCoord2i(1, 1);glVertex3f(30000.0, 10000.0, 12600.0);     // Bottom Left
+	glTexCoord2i(1, 0);glVertex3f(28000.0, 10000.0, 12600.0);    // Bottom Right 
 		
 	glEnd();// End Drawing The portal front
 	glFlush();
