@@ -542,9 +542,9 @@ void Display()
 		// display images
 		DrawBackdrop();
 
-		//jpeg.BindTexture("data/MyFace.jpg");
-		//DrawMyFaceBanner(); // for my face banner
-		//DrawFaceBannerPosts();
+		jpeg.BindTexture("data/MyFace.jpg");
+		DrawMyFaceBanner(); // for my face banner
+		DrawFaceBannerPosts();
 
 		//for the solar panels
 		jpeg.BindTexture("data/SolarPanel.jpg");

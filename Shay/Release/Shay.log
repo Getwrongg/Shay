@@ -278,7 +278,7 @@ c:\users\manu\source\repos\shay\main.cpp(5335): warning C4244: 'argument': conve
 c:\users\manu\source\repos\shay\main.cpp(5336): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
 c:\users\manu\source\repos\shay\main.cpp(5337): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
   Generating code
-  5 of 625 functions ( 0.8%) were compiled, the rest were copied from previous compilation.
+  5 of 627 functions ( 0.8%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     2 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
