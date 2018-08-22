@@ -44,17 +44,22 @@ void MyInit()
 	glMatrixMode(GL_MODELVIEW);
 }
 
+
+
 void Display2()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); /*clear the window to background colour specified by glClearColor(...)*/
 														/* viewing transformation  */
 	glLoadIdentity();
 	/* sets the camera to viewer array */
-	gluLookAt(	0.0, 0.5, 0.0,
-				0.0, 0.5, 0,
+	gluLookAt(	0.0, 0, -1.0,
+				0.0, 0, 5,
 				0.0f, 1.0f, 0.0f );
 
-	glutSolidCube(1);
+	glTranslatef(0, 0, 5);
+	glutWireCube(1);
+	//glBegin();
+
 
 	glutSwapBuffers();
 }
