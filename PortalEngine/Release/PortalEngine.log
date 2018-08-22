@@ -1,3 +1,3 @@
 ﻿  JpegLoader.cpp
-c:\users\manu\source\repos\shay\portalengine\jpegloader.h(2): fatal error C1083: Cannot open include file: 'GL/glut.h': No such file or directory
   PortalWorld.cpp
+  PortalEngine.vcxproj -> C:\Users\Manu\source\repos\Shay\Release\PortalEngine.lib
