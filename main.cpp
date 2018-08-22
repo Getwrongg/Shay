@@ -493,9 +493,8 @@ void myinit()
 	// set number of bounding boxes required
 	cam.SetNoBoundingBoxes(19);
 	// set starting position of user
-	//cam.Position(32720.0, 9536.0,	
-				// 4800.0, 180.0);
-	cam.Position(0, 0.5, 0, 180);
+	cam.Position(32720.0, 9536.0,	
+				 4800.0, 180.0);
 	
 	CreatePlains();	
 	

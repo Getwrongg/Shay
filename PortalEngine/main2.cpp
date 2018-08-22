@@ -17,14 +17,14 @@ int main2()
 	//glutReshapeFunc(reshape);
 	glutMainLoop();
 
-	system("PAUSE");
+	//system("PAUSE");
 
 	return 0;
 }
 
 void MyInit()
 {
-	//glEnable(GL_DEPTH_TEST);
+	glEnable(GL_DEPTH_TEST);
 	glClearColor(0, 1, 1, 0); /* draw on light blue background */
 	glColor3f(0.5, 0.0, 0.5);
 	glLineWidth(5.0);
@@ -48,15 +48,13 @@ void Display2()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); /*clear the window to background colour specified by glClearColor(...)*/
 														/* viewing transformation  */
-
 	glLoadIdentity();
 	/* sets the camera to viewer array */
-	gluLookAt(	0.0, 0, 0.0,
-				0.0, 50, 0,
+	gluLookAt(	0.0, 0.5, 0.0,
+				0.0, 0.5, 0,
 				0.0f, 1.0f, 0.0f );
 
-	glutSolidCube(5);
+	glutSolidCube(1);
 
-	//glFlush();
 	glutSwapBuffers();
 }
