@@ -543,7 +543,6 @@ void Display()
 		DrawBackdrop();
 
 		jpeg.BindTexture("data/MyFace.jpg");
-
 		DrawMyFaceBanner(); // for my face banner
 		DrawFaceBannerPosts();
 
@@ -552,7 +551,7 @@ void Display()
 		DrawSolarPanels();
 
 		// for the stair portal
-		jpeg.BindTexture("data/concrete.jpg");
+		jpeg.BindTexture("data/steps.jpg");
 		StairPortal();
 
 		//portal entrance
@@ -560,7 +559,7 @@ void Display()
 		portal();
 
 		//for stair pillars
-		jpeg.BindTexture("data/stone.jpg");
+		jpeg.BindTexture("data/PillarTexture.jpg");
 		StairPillars();
 
 		glPopMatrix();
@@ -1697,7 +1696,7 @@ void DrawSolarPanels() {
 	glRotatef(90.0f, 1.0f, 45.0f, 45.0f);
 	glTexCoord2i(0, 0); glVertex3f(30000.0, 12150.0, 43000.0); // top left
 	glTexCoord2i(0, 1); glVertex3f(8000.0, 12150.0, 43000.0); // top right
-	glVertex3f(8000.0, 11500.0, 41150.0); // bottom right
+	glTexCoord2i(1, 1); glVertex3f(8000.0, 11500.0, 41150.0); // bottom right
 	glTexCoord2i(1, 0); glVertex3f(30000.0, 11500.0, 41150.0); // bottom left
 	glEnd();
 }
@@ -1722,55 +1721,55 @@ void StairPortal() {
 	glTexCoord2i(1, 1); glVertex3f(30000.0, 10100.0, 11600.0);    // Bottom Left
 	glTexCoord2i(1, 0); glVertex3f(28000.0, 10100.0, 11600.0);    // Bottom Right 
 	//front of second step
-	glVertex3f(28000.0, 10200.0, 11600.0);    // Top Right 
-	glVertex3f(30000.0, 10200.0, 11600.0);    // Top Left 
-	glVertex3f(30000.0, 10100.0, 11600.0);    // Bottom Left
-	glVertex3f(28000.0, 10100.0, 11600.0);    // Bottom Right
+	glTexCoord2i(0, 0); glVertex3f(28000.0, 10200.0, 11600.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(30000.0, 10200.0, 11600.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(30000.0, 10100.0, 11600.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(28000.0, 10100.0, 11600.0);    // Bottom Right
 	//top of second step
-	glVertex3f(28000.0, 10200.0, 11600.0);    // Top Right 
-	glVertex3f(30000.0, 10200.0, 11600.0);    // Top Left 
-	glVertex3f(30000.0, 10200.0, 11700.0);    // Bottom Left
-	glVertex3f(28000.0, 10200.0, 11700.0);    // Bottom Right
+	glTexCoord2i(0, 0); glVertex3f(28000.0, 10200.0, 11600.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(30000.0, 10200.0, 11600.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(30000.0, 10200.0, 11700.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(28000.0, 10200.0, 11700.0);    // Bottom Right
 	//front of third step
-	glVertex3f(28000.0, 10300.0, 11700.0);    // Top Right 
-	glVertex3f(30000.0, 10300.0, 11700.0);    // Top Left 
-	glVertex3f(30000.0, 10200.0, 11700.0);    // Bottom Left
-	glVertex3f(28000.0, 10200.0, 11700.0);    // Bottom Right
+	glTexCoord2i(0, 0); glVertex3f(28000.0, 10300.0, 11700.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(30000.0, 10300.0, 11700.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(30000.0, 10200.0, 11700.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(28000.0, 10200.0, 11700.0);    // Bottom Right
 	//top of third step
-	glVertex3f(28000.0, 10300.0, 11700.0);    // Top Right 
-	glVertex3f(30000.0, 10300.0, 11700.0);    // Top Left 
-	glVertex3f(30000.0, 10300.0, 11800.0);    // Bottom Left
-	glVertex3f(28000.0, 10300.0, 11800.0);    // Bottom Right
+	glTexCoord2i(0, 0); glVertex3f(28000.0, 10300.0, 11700.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(30000.0, 10300.0, 11700.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(30000.0, 10300.0, 11800.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(28000.0, 10300.0, 11800.0);    // Bottom Right
 	//front of fourth step
-	glVertex3f(28000.0, 10300.0, 11800.0);    // Top Right 
-	glVertex3f(30000.0, 10300.0, 11800.0);    // Top Left 
-	glVertex3f(30000.0, 10400.0, 11800.0);    // Bottom Left
-	glVertex3f(28000.0, 10400.0, 11800.0);    // Bottom Right
+	glTexCoord2i(0, 0); glVertex3f(28000.0, 10300.0, 11800.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(30000.0, 10300.0, 11800.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(30000.0, 10400.0, 11800.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(28000.0, 10400.0, 11800.0);    // Bottom Right
 	//top of fourth step
-	glVertex3f(28000.0, 10400.0, 11800.0);    // Top Right 
-	glVertex3f(30000.0, 10400.0, 11800.0);    // Top Left 
-	glVertex3f(30000.0, 10400.0, 11900.0);    // Bottom Left
-	glVertex3f(28000.0, 10400.0, 11900.0);    // Bottom Right
+	glTexCoord2i(0, 0); glVertex3f(28000.0, 10400.0, 11800.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(30000.0, 10400.0, 11800.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(30000.0, 10400.0, 11900.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(28000.0, 10400.0, 11900.0);    // Bottom Right
 	//front of fith step
-	glVertex3f(28000.0, 10400.0, 11900.0);    // Top Right 
-	glVertex3f(30000.0, 10400.0, 11900.0);    // Top Left 
-	glVertex3f(30000.0, 10500.0, 11900.0);    // Bottom Left
-	glVertex3f(28000.0, 10500.0, 11900.0);    // Bottom Right
+	glTexCoord2i(0, 0); glVertex3f(28000.0, 10400.0, 11900.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(30000.0, 10400.0, 11900.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(30000.0, 10500.0, 11900.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(28000.0, 10500.0, 11900.0);    // Bottom Right
 	//top of fith step
-	glVertex3f(28000.0, 10500.0, 11900.0);    // Top Right 
-	glVertex3f(30000.0, 10500.0, 11900.0);    // Top Left 
-	glVertex3f(30000.0, 10500.0, 12000.0);    // Bottom Left
-	glVertex3f(28000.0, 10500.0, 12000.0);    // Bottom Right
+	glTexCoord2i(0, 0); glVertex3f(28000.0, 10500.0, 11900.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(30000.0, 10500.0, 11900.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(30000.0, 10500.0, 12000.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(28000.0, 10500.0, 12000.0);    // Bottom Right
 	//front of sixth step
-	glVertex3f(28000.0, 10500.0, 12000.0);    // Top Right 
-	glVertex3f(30000.0, 10500.0, 12000.0);    // Top Left 
-	glVertex3f(30000.0, 10600.0, 12000.0);    // Bottom Left
-	glVertex3f(28000.0, 10600.0, 12000.0);    // Bottom Right
+	glTexCoord2i(0, 0); glVertex3f(28000.0, 10500.0, 12000.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(30000.0, 10500.0, 12000.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(30000.0, 10600.0, 12000.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(28000.0, 10600.0, 12000.0);    // Bottom Right
 	//top of sizth step
-	glVertex3f(28000.0, 10600.0, 12000.0);    // Top Right 
-	glVertex3f(30000.0, 10600.0, 12000.0);    // Top Left 
-	glVertex3f(30000.0, 10600.0, 12600.0);    // Bottom Left
-	glVertex3f(28000.0, 10600.0, 12600.0);    // Bottom Right
+	glTexCoord2i(0, 0); glVertex3f(28000.0, 10600.0, 12000.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(30000.0, 10600.0, 12000.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(30000.0, 10600.0, 12600.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(28000.0, 10600.0, 12600.0);    // Bottom Right
 
 	glEnd();// End Drawing stairs
 	glFlush();
@@ -1783,59 +1782,59 @@ void StairPillars() {
 	//--------------------------------------------------------------------------------------
 	glBegin(GL_QUADS);//Draws left side pillar
 	//front of left pillar
-	glVertex3f(30000.0, 11500.0, 11500.0);    // Top Right 
-	glVertex3f(30500.0, 11500.0, 11500.0);    // Top Left 
-	glVertex3f(30500.0, 10000.0, 11500.0);    // Bottom Left
-	glVertex3f(30000.0, 10000.0, 11500.0);    // Bottom Right 
+	glTexCoord2i(0, 0); glVertex3f(30000.0, 11500.0, 11500.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(30500.0, 11500.0, 11500.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(30500.0, 10000.0, 11500.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(30000.0, 10000.0, 11500.0);    // Bottom Right 
 	//top of left pillar
-	glVertex3f(30000.0, 11500.0, 11500.0);    // Top Right 
-	glVertex3f(30500.0, 11500.0, 11500.0);    // Top Left 
-	glVertex3f(30500.0, 11500.0, 12600.0);    // Bottom Left
-	glVertex3f(30000.0, 11500.0, 12600.0);    // Bottom Right 
+	glTexCoord2i(0, 0); glVertex3f(30000.0, 11500.0, 11500.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(30500.0, 11500.0, 11500.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(30500.0, 11500.0, 12600.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(30000.0, 11500.0, 12600.0);    // Bottom Right 
 	//back of left pillar
-	glVertex3f(30000.0, 11500.0, 12600.0);    // Top Right 
-	glVertex3f(30500.0, 11500.0, 12600.0);    // Top Left 
-	glVertex3f(30500.0, 10000.0, 12600.0);    // Bottom Left
-	glVertex3f(30000.0, 10000.0, 12600.0);    // Bottom Right 
+	glTexCoord2i(0, 0); glVertex3f(30000.0, 11500.0, 12600.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(30500.0, 11500.0, 12600.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(30500.0, 10000.0, 12600.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(30000.0, 10000.0, 12600.0);    // Bottom Right 
 	//left face of left pillar
-	glVertex3f(30500.0, 11500.0, 11500.0);    // Top Right 
-	glVertex3f(30500.0, 11500.0, 12600.0);    // Top Left 
-	glVertex3f(30500.0, 10000.0, 12600.0);    // Bottom Left
-	glVertex3f(30500.0, 10000.0, 11500.0);    // Bottom Right 
+	glTexCoord2i(0, 0); glVertex3f(30500.0, 11500.0, 11500.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(30500.0, 11500.0, 12600.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(30500.0, 10000.0, 12600.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(30500.0, 10000.0, 11500.0);    // Bottom Right 
 	//right face of left pillar
-	glVertex3f(30000.0, 11500.0, 11500.0);    // Top Right 
-	glVertex3f(30000.0, 11500.0, 12600.0);    // Top Left 
-	glVertex3f(30000.0, 10000.0, 12600.0);    // Bottom Left
-	glVertex3f(30000.0, 10000.0, 11500.0);    // Bottom Right 	
+	glTexCoord2i(0, 0); glVertex3f(30000.0, 11500.0, 11500.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(30000.0, 11500.0, 12600.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(30000.0, 10000.0, 12600.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(30000.0, 10000.0, 11500.0);    // Bottom Right 	
 	glEnd();// End Drawing The pillar
 	glFlush();
 
 	glBegin(GL_QUADS);//Draws right side pillar
 	//front of right pillar
-	glVertex3f(27500.0, 11500.0, 11500.0);    // Top Right 
-	glVertex3f(28000.0, 11500.0, 11500.0);    // Top Left 
-	glVertex3f(28000.0, 10000.0, 11500.0);    // Bottom Left
-	glVertex3f(27500.0, 10000.0, 11500.0);    // Bottom Right 
+	glTexCoord2i(0, 0); glVertex3f(27500.0, 11500.0, 11500.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(28000.0, 11500.0, 11500.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(28000.0, 10000.0, 11500.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(27500.0, 10000.0, 11500.0);    // Bottom Right 
 	//top of left pillar
-	glVertex3f(27500.0, 11500.0, 11500.0);    // Top Right 
-	glVertex3f(28000.0, 11500.0, 11500.0);    // Top Left 
-	glVertex3f(28000.0, 11500.0, 12600.0);    // Bottom Left
-	glVertex3f(27500.0, 11500.0, 12600.0);    // Bottom Right 
+	glTexCoord2i(0, 0); glVertex3f(27500.0, 11500.0, 11500.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(28000.0, 11500.0, 11500.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(28000.0, 11500.0, 12600.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(27500.0, 11500.0, 12600.0);    // Bottom Right 
 	//back of left pillar
-	glVertex3f(27500.0, 11500.0, 12600.0);    // Top Right 
-	glVertex3f(28000.0, 11500.0, 12600.0);    // Top Left 
-	glVertex3f(28000.0, 10000.0, 12600.0);    // Bottom Left
-	glVertex3f(27500.0, 10000.0, 12600.0);    // Bottom Right 
+	glTexCoord2i(0, 0); glVertex3f(27500.0, 11500.0, 12600.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(28000.0, 11500.0, 12600.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(28000.0, 10000.0, 12600.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(27500.0, 10000.0, 12600.0);    // Bottom Right 
 	//left face of left pillar
-	glVertex3f(28000.0, 11500.0, 11500.0);    // Top Right 
-	glVertex3f(28000.0, 11500.0, 12600.0);    // Top Left 
-	glVertex3f(28000.0, 10000.0, 12600.0);    // Bottom Left
-	glVertex3f(28000.0, 10000.0, 11500.0);    // Bottom Right 
+	glTexCoord2i(0, 0); glVertex3f(28000.0, 11500.0, 11500.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(28000.0, 11500.0, 12600.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(28000.0, 10000.0, 12600.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(28000.0, 10000.0, 11500.0);    // Bottom Right 
 	//right face of left pillar
-	glVertex3f(27500.0, 11500.0, 11500.0);    // Top Right 
-	glVertex3f(27500.0, 11500.0, 12600.0);    // Top Left 
-	glVertex3f(27500.0, 10000.0, 12600.0);    // Bottom Left
-	glVertex3f(27500.0, 10000.0, 11500.0);    // Bottom Right 	
+	glTexCoord2i(0, 0); glVertex3f(27500.0, 11500.0, 11500.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(27500.0, 11500.0, 12600.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(27500.0, 10000.0, 12600.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(27500.0, 10000.0, 11500.0);    // Bottom Right 	
 	glEnd();// End Drawing The pillar
 	glFlush();
 }
