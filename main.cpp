@@ -9,7 +9,7 @@
 #include "camera.h"
 #include "texturedPolygons.h"
 
-//#include "PortalWorld.cpp" // only works if use .cpp for some reason
+// importing from PortalEngine project
 #include "JpegLoader.cpp"
 #include "main2.cpp"
 
@@ -442,10 +442,9 @@ int main(int argc, char **argv)
 
 	myinit();
 
+	// these two lines transition the program to portal world. Delete if you want to work on shay's world.
 	inPortal = true;
 	main2();
-
-	//PortalWorld portal; // testing portalworld
 
 	//glutIgnoreKeyRepeat(1); // removed this so we can hold down to move up or down
 	glutKeyboardUpFunc (releaseKeys);
