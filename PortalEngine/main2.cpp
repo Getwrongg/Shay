@@ -29,9 +29,9 @@ int main2()
 
 	MyInit();
 
-	glutDisplayFunc(Display2);
 	glutKeyboardFunc(keyboard);
-
+	glutDisplayFunc(Display2);
+	
 	glutMainLoop();
 
 	return 0;
