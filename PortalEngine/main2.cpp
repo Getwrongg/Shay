@@ -2,6 +2,17 @@
 
 #include <iostream>
 
+//--------------------------------------------------//
+//				Global Variables					//
+//--------------------------------------------------//
+GLfloat viewer[] = { 0.0, 0.0, 0.0,
+					 0.0, 0.0, 5.0,
+					 0.0, 1.0, 0.0 };
+
+
+//--------------------------------------------------//
+//				Method Prototypes					//
+//--------------------------------------------------//
 void Display2();
 void MyInit();
 
@@ -11,10 +22,7 @@ int main2()
 	MyInit();
 
 	glutDisplayFunc(Display2);
-	//glutIdleFunc(Display2);
 
-
-	//glutReshapeFunc(reshape);
 	glutMainLoop();
 
 	//system("PAUSE");
@@ -44,17 +52,15 @@ void MyInit()
 	glMatrixMode(GL_MODELVIEW);
 }
 
-
-
 void Display2()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); /*clear the window to background colour specified by glClearColor(...)*/
 														/* viewing transformation  */
 	glLoadIdentity();
 	/* sets the camera to viewer array */
-	gluLookAt(	0.0, 0, -1.0,
-				0.0, 0, 5,
-				0.0f, 1.0f, 0.0f );
+	gluLookAt(	viewer[0], viewer[1], viewer[2],
+				viewer[3], viewer[4], viewer[5],
+				viewer[6], viewer[7], viewer[8]	);
 
 	glTranslatef(0, 0, 5);
 	glutWireCube(1);
