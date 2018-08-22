@@ -9,8 +9,9 @@
 #include "camera.h"
 #include "texturedPolygons.h"
 
-#include "PortalWorld.cpp" // only works if use .cpp for some reason
+//#include "PortalWorld.cpp" // only works if use .cpp for some reason
 #include "JpegLoader.cpp"
+#include "main2.cpp"
 
 //--------------------------------------------------------------------------------------
 
@@ -440,6 +441,9 @@ int main(int argc, char **argv)
 	glutCreateWindow("Murdoch University Campus Tour");
 
 	myinit();
+
+	inPortal = true;
+	main2();
 
 	//PortalWorld portal; // testing portalworld
 

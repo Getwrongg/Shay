@@ -26,7 +26,7 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v141</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
@@ -100,7 +100,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\jacob\source\repos\Shay\Dependancies\glew-1.11.0\include;C:\Users\jacob\source\repos\Shay\Dependancies\freeglut\include;C:\Users\jacob\source\repos\Shay\Dependancies\DevIL\include;C:\Users\jacob\source\repos\Shay\PortalEngine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\jacob\source\repos\Shay\Dependancies\glew-1.11.0\include;C:\Users\jacob\source\repos\Shay\Dependancies\freeglut\include;C:\Users\jacob\source\repos\Shay\Dependancies\DevIL\include;C:\Users\jacob\source\repos\Shay\PortalEngine;C:\Users\Manu\source\repos\Shay\PortalEngine;C:\Users\Manu\source\repos\Shay\Dependancies\SDL2-2.0.8\include;C:\Users\Manu\source\repos\Shay\Dependancies\glew-1.11.0\include;C:\Users\Manu\source\repos\Shay\Dependancies\freeglut\include;C:\Users\Manu\source\repos\Shay\Dependancies\DevIL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -128,6 +128,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="JpegLoader.cpp" />
+    <ClCompile Include="main2.cpp" />
     <ClCompile Include="PortalWorld.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

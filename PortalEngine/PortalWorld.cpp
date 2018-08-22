@@ -4,10 +4,10 @@ PortalWorld::PortalWorld()
 {
 	std::cout << "Welcome to Portal World!" << std::endl;
 
-	//myinit();
+	//MyInit();
 
-	//glutDisplayFunc(Display);
-	//glutIdleFunc(Display);
+	///glutIdleFunc(Display2);
+	//glutIdleFunc(Display2);
 
 
 	// ONLY USE IF REQUIRE MOUSE MOVEMENT
@@ -17,9 +17,10 @@ PortalWorld::PortalWorld()
 	//glutReshapeFunc(reshape);
 	//glutMainLoop();
 
-	system("PAUSE");
-	exit(0);
+	//system("PAUSE");
+	//exit(0);
 
 }
+
 
 
