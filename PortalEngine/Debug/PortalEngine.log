@@ -1,8 +1,6 @@
-﻿  JpegLoader.cpp
-  main2.cpp
+﻿  main2.cpp
 c:\users\manu\source\repos\shay\portalengine\main2.cpp(92): warning C4305: '+=': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\portalengine\main2.cpp(95): warning C4305: '-=': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\portalengine\main2.cpp(98): warning C4305: '+=': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\portalengine\main2.cpp(101): warning C4305: '-=': truncation from 'double' to 'GLfloat'
-  Generating Code...
+c:\users\manu\source\repos\shay\portalengine\main2.cpp(96): warning C4305: '-=': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\portalengine\main2.cpp(99): warning C4305: '+=': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\portalengine\main2.cpp(102): warning C4305: '-=': truncation from 'double' to 'GLfloat'
   PortalEngine.vcxproj -> C:\Users\Manu\source\repos\Shay\Debug\PortalEngine.lib

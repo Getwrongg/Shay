@@ -1,8 +1,8 @@
 ﻿  main.cpp
 c:\users\manu\source\repos\shay\portalengine\main2.cpp(92): warning C4305: '+=': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\portalengine\main2.cpp(95): warning C4305: '-=': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\portalengine\main2.cpp(98): warning C4305: '+=': truncation from 'double' to 'GLfloat'
-c:\users\manu\source\repos\shay\portalengine\main2.cpp(101): warning C4305: '-=': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\portalengine\main2.cpp(96): warning C4305: '-=': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\portalengine\main2.cpp(99): warning C4305: '+=': truncation from 'double' to 'GLfloat'
+c:\users\manu\source\repos\shay\portalengine\main2.cpp(102): warning C4305: '-=': truncation from 'double' to 'GLfloat'
 c:\users\manu\source\repos\shay\main.cpp(477): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
 c:\users\manu\source\repos\shay\main.cpp(615): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
 c:\users\manu\source\repos\shay\main.cpp(774): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
