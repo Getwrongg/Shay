@@ -76,10 +76,10 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\manu\source\repos\Shay\Dependancies\glew-1.11.0\include;C:\Users\jacob\source\repos\Shay\Dependancies\glew-1.11.0\include;C:\Users\manu\source\repos\Shay\Dependancies\freeglut\include;C:\Users\jacob\source\repos\Shay\Dependancies\freeglut\include;C:\Users\manu\source\repos\Shay\Dependancies\DevIL\include;C:\Users\jacob\source\repos\Shay\Dependancies\DevIL\include;C:\Users\jacob\source\repos\Shay\PortalEngine;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\axel0\Desktop\ICT290\Shay\Dependancies\freeglut\include;C:\Users\axel0\Desktop\ICT290\Shay\Dependancies\DevIL\include;C:\Users\axel0\Desktop\ICT290\Shay\Dependancies\glew-1.11.0\include;C:\Users\axel0\Desktop\ICT290\Shay\Dependancies\SDL2-2.0.8\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>C:\Users\Manu\source\repos\Shay\Dependancies\SDL2-2.0.8\lib;C:\Users\Manu\source\repos\Shay\Dependancies\freeglut\lib;C:\Users\Manu\source\repos\Shay\Dependancies\DevIL\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>C:\Users\axel0\Desktop\ICT290\Shay\Dependancies\DevIL\lib;C:\Users\axel0\Desktop\ICT290\Shay\Dependancies\freeglut\lib;C:\Users\axel0\Desktop\ICT290\Shay\Dependancies\glew-1.11.0\lib;C:\Users\axel0\Desktop\ICT290\Shay\Dependancies\SDL2-2.0.8\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>freeglut.lib;DevIL.lib;SDL2.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
@@ -100,7 +100,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\jacob\source\repos\Shay\Dependancies\glew-1.11.0\include;C:\Users\jacob\source\repos\Shay\Dependancies\freeglut\include;C:\Users\jacob\source\repos\Shay\Dependancies\DevIL\include;C:\Users\jacob\source\repos\Shay\PortalEngine;C:\Users\Manu\source\repos\Shay\PortalEngine;C:\Users\Manu\source\repos\Shay\Dependancies\SDL2-2.0.8\include;C:\Users\Manu\source\repos\Shay\Dependancies\glew-1.11.0\include;C:\Users\Manu\source\repos\Shay\Dependancies\freeglut\include;C:\Users\Manu\source\repos\Shay\Dependancies\DevIL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\axel0\Desktop\ICT290\Shay\Dependancies\freeglut\include;C:\Users\axel0\Desktop\ICT290\Shay\Dependancies\DevIL\include;C:\Users\axel0\Desktop\ICT290\Shay\Dependancies\glew-1.11.0\include;C:\Users\axel0\Desktop\ICT290\Shay\Dependancies\SDL2-2.0.8\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -123,6 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Vector.h" />
     <ClInclude Include="JpegLoader.h" />
   </ItemGroup>
   <ItemGroup>

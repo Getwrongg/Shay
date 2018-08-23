@@ -355,7 +355,8 @@ void StairPillars();
 void portal();
 
 // calls display functions below to draw the backdrops
-void DrawBackdrop();
+void DrawBackdropOrigial();
+void DrawBackdropNew();
 // functions to display display lists (images) and bind them to a texture
 void DisplayAboveWindowBlock ();
 void DisplayBench ();
@@ -382,6 +383,7 @@ void DisplayLights ();
 void DisplayECL ();
 
 // calls functions to create display lists (below)
+void CreateJPEGTextures();
 void CreateTextureList();
 // creates display lists
 void DrawGrass ();
@@ -503,6 +505,8 @@ void myinit()
 	cam.InitiateBoundingBoxes();
 	
 	// load texture images and create display lists
+	CreateJPEGTextures();
+
 	CreateTextureList();
 	CreateTextures();
 
@@ -542,34 +546,18 @@ void Display()
 		IncrementFrameCount();
 		cam.SetMoveSpeed(stepIncrement);
 		cam.SetRotateSpeed(angleIncrement);
-		// display images
-		DrawBackdrop();
 
-		jpeg.BindTexture("data/MyFace.jpg");
-		DrawMyFaceBanner(); // for my face banner
-		DrawFaceBannerPosts();
+		// display original images
+		DrawBackdropOrigial();
+		// display new images
+		DrawBackdropNew();
 
-		//for the solar panels
-		jpeg.BindTexture("data/SolarPanel.jpg");
-		DrawSolarPanels();
-
-		// for the stair portal
-		jpeg.BindTexture("data/steps.jpg");
-		StairPortal();
-
-		//portal entrance
-		jpeg.BindTexture("data/portalswirl.jpg");
-		portal();
-
-		//for stair pillars
-		jpeg.BindTexture("data/PillarTexture.jpg");
-		StairPillars();
 
 		glPopMatrix();
 		glDisable(GL_TEXTURE_2D);
 
 		// clear buffers
-		glFlush();
+		//glFlush();
 		glutSwapBuffers();
 	}
 }
@@ -975,6 +963,30 @@ void DeleteImageFromMemory(unsigned char* tempImage)
 //--------------------------------------------------------------------------------------
 // Load and Create Textures
 //--------------------------------------------------------------------------------------
+
+#define FACE 0
+#define SOLAR_PANEL 1
+#define STEPS 2
+#define PORTAL_SWIRL 3
+#define PILLAR 4
+void CreateJPEGTextures() {
+	//Manu Face
+	jpeg.setJPEGTexList(jpeg.CreateTexture("data/MyFace.jpg"));
+
+	//Solar Panels
+	jpeg.setJPEGTexList(jpeg.CreateTexture("data/SolarPanel.jpg"));
+
+	//Steps
+	jpeg.setJPEGTexList(jpeg.CreateTexture("data/steps.jpg"));
+
+	//portal entrance
+	jpeg.setJPEGTexList(jpeg.CreateTexture("data/portalswirl.jpg"));
+
+	//for stair pillars
+	jpeg.setJPEGTexList(jpeg.CreateTexture("data/PillarTexture.jpg"));
+
+}
+
 void CreateTextures()
 {
 	glEnable(GL_DEPTH_TEST);
@@ -984,9 +996,6 @@ void CreateTextures()
 	tp.SetTextureCount(250);
 
 	// load and create textures
-
-	
-
 	image = tp.LoadTexture("data/abovechanctext.raw", 128, 1024);
 	tp.CreateTexture(ABOVE_CHANC_TEXT, image, 128, 1024);
 
@@ -1663,9 +1672,10 @@ void CreateTextures()
 //--------------------------------------------------------------------------------------
 void DrawMyFaceBanner() {
 	//glColor3f(1, 1, 0);
+	glBindTexture(GL_TEXTURE_2D, jpeg.getJPEGTexList(FACE));
 	glBegin(GL_POLYGON);
-	glTexCoord2i(0, 0); glVertex3f(30000.0, 11500.0, 20000.0); // left
-	glTexCoord2i(0, 1); glVertex3f(29000.0, 11500.0, 20000.0);
+	glTexCoord2i(0, 0); glVertex3f(30000.0, 12500.0, 20000.0); // left
+	glTexCoord2i(0, 1); glVertex3f(29000.0, 12500.0, 20000.0);
 	glTexCoord2i(1, 1); glVertex3f(29000.0, 10500.0, 20000.0);
 	glTexCoord2i(1, 0); glVertex3f(30000.0, 10500.0, 20000.0);
 	glEnd();
@@ -1695,6 +1705,7 @@ void DrawFaceBannerPosts()
 //  Called from the main display function to draw solar panels
 //--------------------------------------------------------------------------------------
 void DrawSolarPanels() {
+	glBindTexture(GL_TEXTURE_2D, jpeg.getJPEGTexList(SOLAR_PANEL));
 	glBegin(GL_POLYGON);
 	glRotatef(90.0f, 1.0f, 45.0f, 45.0f);
 	glTexCoord2i(0, 0); glVertex3f(30000.0, 12150.0, 43000.0); // top left
@@ -1710,6 +1721,7 @@ void StairPortal() {
 	//--------------------------------------------------------------------------------------
 	//  CREATES THE STAIRS // made by jacob
 	//--------------------------------------------------------------------------------------
+	glBindTexture(GL_TEXTURE_2D, jpeg.getJPEGTexList(STEPS));
 	glBegin(GL_QUADS);
 	glColor3f(0.0f, 1.0f, 0.0f);    // Color Blue
 
@@ -1775,7 +1787,7 @@ void StairPortal() {
 	glTexCoord2i(1, 0); glVertex3f(28000.0, 10600.0, 12600.0);    // Bottom Right
 
 	glEnd();// End Drawing stairs
-	glFlush();
+	//glFlush();
 
 }
 
@@ -1783,6 +1795,7 @@ void StairPillars() {
 	//--------------------------------------------------------------------------------------
 	//  CREATES THE PILLARS AROUND THE PORTAL STAIRS
 	//--------------------------------------------------------------------------------------
+	glBindTexture(GL_TEXTURE_2D, jpeg.getJPEGTexList(PILLAR));
 	glBegin(GL_QUADS);//Draws left side pillar
 	//front of left pillar
 	glTexCoord2i(0, 0); glVertex3f(30000.0, 11500.0, 11500.0);    // Top Right 
@@ -1810,7 +1823,7 @@ void StairPillars() {
 	glTexCoord2i(1, 1); glVertex3f(30000.0, 10000.0, 12600.0);    // Bottom Left
 	glTexCoord2i(1, 0); glVertex3f(30000.0, 10000.0, 11500.0);    // Bottom Right 	
 	glEnd();// End Drawing The pillar
-	glFlush();
+	//glFlush();
 
 	glBegin(GL_QUADS);//Draws right side pillar
 	//front of right pillar
@@ -1839,14 +1852,14 @@ void StairPillars() {
 	glTexCoord2i(1, 1); glVertex3f(27500.0, 10000.0, 12600.0);    // Bottom Left
 	glTexCoord2i(1, 0); glVertex3f(27500.0, 10000.0, 11500.0);    // Bottom Right 	
 	glEnd();// End Drawing The pillar
-	glFlush();
+	//glFlush();
 }
 
 //--------------------------------------------------------------------------------------
 //  CREATES THE PORTAL
 //--------------------------------------------------------------------------------------
 void portal() {
-
+	glBindTexture(GL_TEXTURE_2D, jpeg.getJPEGTexList(PORTAL_SWIRL));
 	glBegin(GL_QUADS);//Draws the portal
 	//front of the portal
 	glTexCoord2i(0, 0);glVertex3f(28000.0, 11500.0, 12600.0);    // Top Right
@@ -1855,15 +1868,34 @@ void portal() {
 	glTexCoord2i(1, 0);glVertex3f(28000.0, 10000.0, 12600.0);    // Bottom Right 
 		
 	glEnd();// End Drawing The portal front
-	glFlush();
+	//glFlush();
 
 }
 
 
+void DrawBackdropNew() {
+
+	DrawMyFaceBanner(); // for my face banner
+	DrawFaceBannerPosts();
+
+	//////for the solar panels
+	DrawSolarPanels();
+
+	////// for the stair portal
+	StairPortal();
+
+	//////portal entrance
+	portal();
+
+	//////for stair pillars
+	StairPillars();
+
+}
+
 //--------------------------------------------------------------------------------------
 //  Called from the main display function to draw the backdrop (all images)
 //--------------------------------------------------------------------------------------
-void DrawBackdrop()
+void DrawBackdropOrigial()
 {
 	DisplayAboveWindowBlock ();
 	DisplayBench ();
