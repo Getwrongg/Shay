@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <GL/glut.h>
 #include <IL/il.h>
+#include "Vector.h"
 
 #pragma once
 
@@ -15,13 +16,14 @@
 	*
 	* @todo
 	*
-	* @bug Program has memory leak
+	* @bug none
 	*/
 class JpegLoader
 {
 public:
+
 		/**
-		* @brief  Binds image to texture
+		* @brief  Creates and binds a texture returning the texture ID
 		*
 		* reads in image by calling LoadImage() then binds that image to a texture to use with opengl.
 		*
@@ -29,16 +31,12 @@ public:
 		*
 		* @return void
 		*/
-	void BindTexture(const char * filename);
+	GLuint CreateTexture(const char * filename);
 
-		/**
-		* @brief  Load jpeg image
-		*
-		* reads a jpeg image from file and returns it.
-		*
-		*@param const char * filename
-		*
-		* @return int image
-		*/
-	int LoadImage(const char * filename);
+	void setJPEGTexList(GLuint TexID);
+
+	GLuint getJPEGTexList(const int ID);
+
+private:
+	Vector<GLuint> JPEGTexList;
 };

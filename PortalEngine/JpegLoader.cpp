@@ -1,43 +1,43 @@
 #include "JpegLoader.h"
 
-void JpegLoader::BindTexture(const char * filename)
-{
-	int image;
-	image = LoadImage(filename);
+GLuint JpegLoader::CreateTexture(const char * filename){
 
-	/* OpenGL texture binding of the image loaded by DevIL  */
-
-	/*Causes small memory leak and not sure if needed*/
-	//GLuint texid;
-	//glGenTextures(1, &texid); /* Texture name generation */   
-	//glBindTexture(GL_TEXTURE_2D, texid); /* Binding of texture name */
-
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR); /* We will use linear interpolation for magnification filter */
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR); /* We will use linear interpolation for minifying filter */
-	glTexImage2D(GL_TEXTURE_2D, 0, ilGetInteger(IL_IMAGE_BPP), ilGetInteger(IL_IMAGE_WIDTH), ilGetInteger(IL_IMAGE_HEIGHT), 0, ilGetInteger(IL_IMAGE_FORMAT), GL_UNSIGNED_BYTE, ilGetData()); /* Texture specification */
-
-}
-
-int JpegLoader::LoadImage(const char * filename)
-{
-	ILboolean success;
 	ILuint image;
+	GLuint textureID;
 
 	ilGenImages(1, &image); // Generation of one image name
-	success = ilLoadImage(filename); // Loading of the image by DevIL
+	ilBindImage(image);
+	ilLoadImage(filename); // Loading of the image by DevIL
+	
+	int const width = ilGetInteger(IL_IMAGE_WIDTH);
+	int const height = ilGetInteger(IL_IMAGE_HEIGHT);
+	int const type = ilGetInteger(IL_IMAGE_TYPE);
+	int const format = ilGetInteger(IL_IMAGE_FORMAT);
 
-	if (success)
-	{
-		success = ilConvertImage(IL_RGBA, IL_UNSIGNED_BYTE);
-		if (!success)
-		{
-			return -1;
-		}
-	}
-	else
-	{
-		return -1;
-	}
+	glGenTextures(1, &textureID);
+	glBindTexture(GL_TEXTURE_2D, textureID);
 
-	return image;
+	glPixelStorei(GL_UNPACK_SWAP_BYTES, GL_FALSE);
+	glPixelStorei(GL_UNPACK_ROW_LENGTH, 0);
+	glPixelStorei(GL_UNPACK_SKIP_PIXELS, 0);
+	glPixelStorei(GL_UNPACK_SKIP_ROWS, 0);
+	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+
+	glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, type, ilGetData());
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+
+	ilDeleteImages(1, &image);
+
+	return textureID;
 }
+
+void JpegLoader::setJPEGTexList(GLuint TexID) {
+	JPEGTexList.setData(TexID);
+}
+
+GLuint JpegLoader::getJPEGTexList(const int ID) {
+	return JPEGTexList.getData(ID);
+}
+
+
+
