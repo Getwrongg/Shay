@@ -125,12 +125,10 @@
   <ItemGroup>
     <ClInclude Include="Vector.h" />
     <ClInclude Include="JpegLoader.h" />
-    <ClInclude Include="PortalWorld.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="JpegLoader.cpp" />
     <ClCompile Include="main2.cpp" />
-    <ClCompile Include="PortalWorld.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

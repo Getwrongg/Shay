@@ -45,7 +45,8 @@ CSound::CSound(char *filename, int iSoundID)
 
 CSound::~CSound()
 {
-	try {
+	try 
+	{
 		SDL_FreeWAV(m_data);
 	}
 	catch(int e){

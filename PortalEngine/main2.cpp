@@ -2,34 +2,44 @@
 
 #include <iostream>
 
-//--------------------------------------------------//
-//				Global Variables					//
-//--------------------------------------------------//
-GLfloat viewer[] = { 0.0, 0.0, 0.0,
+//--------------------------------------------------
+//	Global Variables					
+//--------------------------------------------------
+
+// global variable for camera settings
+GLfloat viewer[] = { 0.0, 1.0, 0.0,
 					 0.0, 0.0, 5.0,
 					 0.0, 1.0, 0.0 };
 
 
-//--------------------------------------------------//
-//				Method Prototypes					//
-//--------------------------------------------------//
+//--------------------------------------------------
+//	Method Prototypes					
+//--------------------------------------------------
 void Display2();
 void MyInit();
+void keyboard(unsigned char key, int x, int y);
+
+//--------------------------------------------------
+//	Main Program					
+//--------------------------------------------------
 
 int main2()
 {
 	std::cout << "Welcome to Portal World!" << std::endl;
+
 	MyInit();
 
+	glutKeyboardFunc(keyboard);
 	glutDisplayFunc(Display2);
-
+	
 	glutMainLoop();
-
-	//system("PAUSE");
 
 	return 0;
 }
 
+//--------------------------------------------------
+//	Initialize Settings
+//--------------------------------------------------
 void MyInit()
 {
 	glEnable(GL_DEPTH_TEST);
@@ -52,6 +62,9 @@ void MyInit()
 	glMatrixMode(GL_MODELVIEW);
 }
 
+//--------------------------------------------------
+//	Main Display Function
+//--------------------------------------------------
 void Display2()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); /*clear the window to background colour specified by glClearColor(...)*/
@@ -64,8 +77,28 @@ void Display2()
 
 	glTranslatef(0, 0, 5);
 	glutWireCube(1);
-	//glBegin();
-
 
 	glutSwapBuffers();
+}
+
+//--------------------------------------------------
+//	Keyboard Functions
+//--------------------------------------------------
+void keyboard(unsigned char key, int x, int y)
+{
+	switch (key)
+	{
+	case 'w':
+		viewer[2] += 0.1;
+		break;
+	case 's':
+		viewer[2] -= 0.1;
+		break;
+	case 'a':
+		viewer[0] += 0.1;
+		break;
+	case 'd':
+		viewer[0] -= 0.1;
+		break;
+	}
 }
