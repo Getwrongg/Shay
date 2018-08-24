@@ -445,8 +445,8 @@ int main(int argc, char **argv)
 	myinit();
 
 	// these two lines transition the program to portal world. Delete if you want to work on shay's world.
-	inPortal = true;
-	main2();
+	//inPortal = true;
+	//main2();
 
 	//glutIgnoreKeyRepeat(1); // removed this so we can hold down to move up or down
 	glutKeyboardUpFunc (releaseKeys);
@@ -964,25 +964,24 @@ void DeleteImageFromMemory(unsigned char* tempImage)
 // Load and Create Textures
 //--------------------------------------------------------------------------------------
 
-#define FACE 0
-#define SOLAR_PANEL 1
-#define STEPS 2
-#define PORTAL_SWIRL 3
-#define PILLAR 4
+
 void CreateJPEGTextures() {
-	//Manu Face
+	#define FACE 0
 	jpeg.setJPEGTexList(jpeg.CreateTexture("data/MyFace.jpg"));
 
-	//Solar Panels
+	#define POST 1
+	jpeg.setJPEGTexList(jpeg.CreateTexture("data/post.jpg"));
+
+	#define SOLAR_PANEL 2
 	jpeg.setJPEGTexList(jpeg.CreateTexture("data/SolarPanel.jpg"));
 
-	//Steps
+	#define STEPS 3
 	jpeg.setJPEGTexList(jpeg.CreateTexture("data/steps.jpg"));
 
-	//portal entrance
+	#define PORTAL_SWIRL 4
 	jpeg.setJPEGTexList(jpeg.CreateTexture("data/portalswirl.jpg"));
 
-	//for stair pillars
+	#define PILLAR 5
 	jpeg.setJPEGTexList(jpeg.CreateTexture("data/PillarTexture.jpg"));
 
 }
@@ -1684,6 +1683,7 @@ void DrawMyFaceBanner() {
 void DrawFaceBannerPosts()
 {
 	// draw left cylinder
+	glBindTexture(GL_TEXTURE_2D, jpeg.getJPEGTexList(POST));
 	glPushMatrix();
 	glTranslatef(30000, 11500, 20000);
 	glRotatef(90.0f, 1.0f, 0.0f, 0.0f);
