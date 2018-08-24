@@ -1,5 +1,5 @@
-#pragma once
 #include <vector>
+#pragma once
 /**
 * @class Vector
 * @brief templated vector, encapsulates the required parts of the STL vector, and is used as a minimal dynamic array

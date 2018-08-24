@@ -33,9 +33,9 @@ public:
 		*/
 	GLuint CreateTexture(const char * filename);
 
-	void setJPEGTexList(GLuint TexID);
+	void setJPEGTexList(const GLuint TexID);
 
-	GLuint getJPEGTexList(const int ID);
+	const GLuint getJPEGTexList(const int ID);
 
 private:
 	Vector<GLuint> JPEGTexList;

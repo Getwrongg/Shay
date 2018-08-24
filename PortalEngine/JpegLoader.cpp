@@ -31,11 +31,11 @@ GLuint JpegLoader::CreateTexture(const char * filename){
 	return textureID;
 }
 
-void JpegLoader::setJPEGTexList(GLuint TexID) {
+void JpegLoader::setJPEGTexList(const GLuint TexID) {
 	JPEGTexList.setData(TexID);
 }
 
-GLuint JpegLoader::getJPEGTexList(const int ID) {
+const GLuint JpegLoader::getJPEGTexList(const int ID){
 	return JPEGTexList.getData(ID);
 }
 
