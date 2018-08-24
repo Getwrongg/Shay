@@ -3,14 +3,23 @@
 #include <iostream>
 
 //--------------------------------------------------
+//	Texture #defines					
+//--------------------------------------------------
+#define SWIRL 0
+
+//--------------------------------------------------
 //	Global Variables					
 //--------------------------------------------------
 
 // global variable for camera settings
-GLfloat viewer[] = { 0.0, 1.0, 0.0,
+GLdouble viewer[] = { 0.0, 0.0, 0.0,
 					 0.0, 0.0, 5.0,
 					 0.0, 1.0, 0.0 };
 
+//--------------------------------------------------
+//	Object Declarations					
+//--------------------------------------------------
+JpegLoader j;
 
 //--------------------------------------------------
 //	Method Prototypes					
@@ -18,6 +27,8 @@ GLfloat viewer[] = { 0.0, 1.0, 0.0,
 void Display2();
 void MyInit();
 void keyboard(unsigned char key, int x, int y);
+void CreateTexturesPortalWorld();
+void DrawSwirl();
 
 //--------------------------------------------------
 //	Main Program					
@@ -60,6 +71,8 @@ void MyInit()
 
 	/* switch matrix mode back to 'model view'*/
 	glMatrixMode(GL_MODELVIEW);
+
+	CreateTexturesPortalWorld();
 }
 
 //--------------------------------------------------
@@ -74,11 +87,31 @@ void Display2()
 	gluLookAt(	viewer[0], viewer[1], viewer[2],
 				viewer[3], viewer[4], viewer[5],
 				viewer[6], viewer[7], viewer[8]	);
+	glEnable(GL_TEXTURE_2D);
 
 	glTranslatef(0, 0, 5);
-	glutWireCube(1);
+	DrawSwirl();
 
+	glDisable(GL_TEXTURE_2D);
 	glutSwapBuffers();
+}
+
+void CreateTexturesPortalWorld()
+{
+	// draw swirl
+	j.setJPEGTexList(j.CreateTexture("data/portalswirl.jpg"));
+}
+
+void DrawSwirl()
+{
+	glBindTexture(GL_TEXTURE_2D, j.getJPEGTexList(SWIRL));
+
+	glBegin(GL_POLYGON);
+	glTexCoord2i(0, 0); glVertex3f(-0.5, 1, 0);
+	glTexCoord2i(0, 1); glVertex3f(0.5, 1, 0);
+	glTexCoord2i(1, 1); glVertex3f(0.5, 0, 0);
+	glTexCoord2i(1, 0); glVertex3f(-0.5, 0, 0);
+	glEnd();
 }
 
 //--------------------------------------------------
