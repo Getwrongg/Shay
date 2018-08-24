@@ -90,6 +90,7 @@ void keyboard(unsigned char key, int x, int y)
 	{
 	case 'w':
 		viewer[2] += 0.1;
+		std::cout << "hello!" << std::endl;
 		break;
 	case 's':
 		viewer[2] -= 0.1;
@@ -100,5 +101,7 @@ void keyboard(unsigned char key, int x, int y)
 	case 'd':
 		viewer[0] -= 0.1;
 		break;
+	case 'q':
+		exit(0);
 	}
 }
