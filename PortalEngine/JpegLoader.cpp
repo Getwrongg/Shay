@@ -1,13 +1,20 @@
 #include "JpegLoader.h"
 
-GLuint JpegLoader::CreateTexture(const char * filename){
+
+void JpegLoader::CreateTexture(const std::string textureName, const char * filename){
 
 	ILuint image;
 	GLuint textureID;
 
 	ilGenImages(1, &image); // Generation of one image name
 	ilBindImage(image);
-	ilLoadImage(filename); // Loading of the image by DevIL
+	try {
+		if (!ilLoadImage(filename)) { // Loading of the image by DevIL
+			throw "Cannot Load File ";
+		}
+	}catch (const char* e) {
+		std::cout << e << filename << std::endl;
+		}
 	
 	int const width = ilGetInteger(IL_IMAGE_WIDTH);
 	int const height = ilGetInteger(IL_IMAGE_HEIGHT);
@@ -28,15 +35,20 @@ GLuint JpegLoader::CreateTexture(const char * filename){
 
 	ilDeleteImages(1, &image);
 
-	return textureID;
+	setTextureList(textureName, textureID);
 }
 
-void JpegLoader::setJPEGTexList(const GLuint TexID) {
-	JPEGTexList.setData(TexID);
+void JpegLoader::setTextureList(const std::string TName, const  GLuint TexID) {
+	if (TextureList.find(TName)->first == TName) {
+		std::cout << "TEXTURE NAME \""<<TName<<"\" ALREADY EXISTS, TEXTURE NOT LOADED" << std::endl;
+	}
+	else {
+		TextureList[TName]=TexID;
+	}
 }
 
-const GLuint JpegLoader::getJPEGTexList(const int ID){
-	return JPEGTexList.getData(ID);
+const GLuint JpegLoader::getTextureID(const std::string TName) const{
+	return TextureList.find(TName)->second;
 }
 
 

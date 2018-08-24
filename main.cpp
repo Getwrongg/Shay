@@ -3,7 +3,7 @@
 #include <GL/glut.h>
 #include <time.h>
 #include <IL/il.h>
-
+#include <fstream>
 
 #include <windows.h> // only used if mouse is required (not portable)
 #include "camera.h"
@@ -383,7 +383,7 @@ void DisplayLights ();
 void DisplayECL ();
 
 // calls functions to create display lists (below)
-void CreateJPEGTextures();
+void CreateJPGTextures();
 void CreateTextureList();
 // creates display lists
 void DrawGrass ();
@@ -445,8 +445,8 @@ int main(int argc, char **argv)
 	myinit();
 
 	// these two lines transition the program to portal world. Delete if you want to work on shay's world.
-	inPortal = true;
-	main2();
+	//inPortal = true;
+	//main2();
 
 	//glutIgnoreKeyRepeat(1); // removed this so we can hold down to move up or down
 	glutKeyboardUpFunc (releaseKeys);
@@ -505,10 +505,11 @@ void myinit()
 	cam.InitiateBoundingBoxes();
 	
 	// load texture images and create display lists
-	CreateJPEGTextures();
-
+	
 	CreateTextureList();
 	CreateTextures();
+
+	CreateJPGTextures();
 
 }
 
@@ -964,25 +965,19 @@ void DeleteImageFromMemory(unsigned char* tempImage)
 // Load and Create Textures
 //--------------------------------------------------------------------------------------
 
+void CreateJPGTextures() {
 
-void CreateJPEGTextures() {
-	#define FACE 0
-	jpeg.setJPEGTexList(jpeg.CreateTexture("data/MyFace.jpg"));
+	jpeg.CreateTexture("FACE", "data/MyFace.jpg");
 
-	#define POST 1
-	jpeg.setJPEGTexList(jpeg.CreateTexture("data/post.jpg"));
+	jpeg.CreateTexture("POST", "data/post.jpg");
 
-	#define SOLAR_PANEL 2
-	jpeg.setJPEGTexList(jpeg.CreateTexture("data/SolarPanel.jpg"));
+	jpeg.CreateTexture("SOLAR_PANEL", "data/SolarPanel.jpg");
 
-	#define STEPS 3
-	jpeg.setJPEGTexList(jpeg.CreateTexture("data/steps.jpg"));
+	jpeg.CreateTexture("STEPS", "data/steps.jpg");
 
-	#define PORTAL_SWIRL 4
-	jpeg.setJPEGTexList(jpeg.CreateTexture("data/portalswirl.jpg"));
+	jpeg.CreateTexture("PORTAL_SWIRL", "data/portalswirl.jpg");
 
-	#define PILLAR 5
-	jpeg.setJPEGTexList(jpeg.CreateTexture("data/PillarTexture.jpg"));
+	jpeg.CreateTexture("PILLAR", "data/PillarTexture.jpg");
 
 }
 
@@ -1481,7 +1476,6 @@ void CreateTextures()
 	image = tp.LoadTexture("data/windowledgeLibfb.raw", 1024, 32);
 	tp.CreateTexture(WINDOWLEDGE_LIB_B, image, 1024, 32);
 
-
 	image = tp.LoadTexture("data/windowledgeLibta.raw", 1024, 128);
 	tp.CreateTexture(WINDOWLEDGE_LIB_TOP_A, image, 1024, 128);
 
@@ -1671,7 +1665,7 @@ void CreateTextures()
 //--------------------------------------------------------------------------------------
 void DrawMyFaceBanner() {
 	//glColor3f(1, 1, 0);
-	glBindTexture(GL_TEXTURE_2D, jpeg.getJPEGTexList(FACE));
+	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("FACE"));
 	glBegin(GL_POLYGON);
 	glTexCoord2i(0, 0); glVertex3f(30000.0, 12500.0, 20000.0); // left
 	glTexCoord2i(0, 1); glVertex3f(29000.0, 12500.0, 20000.0);
@@ -1683,7 +1677,7 @@ void DrawMyFaceBanner() {
 void DrawFaceBannerPosts()
 {
 	// draw left cylinder
-	glBindTexture(GL_TEXTURE_2D, jpeg.getJPEGTexList(POST));
+	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("POST"));
 	glPushMatrix();
 	glTranslatef(30000, 11500, 20000);
 	glRotatef(90.0f, 1.0f, 0.0f, 0.0f);
@@ -1705,7 +1699,7 @@ void DrawFaceBannerPosts()
 //  Called from the main display function to draw solar panels
 //--------------------------------------------------------------------------------------
 void DrawSolarPanels() {
-	glBindTexture(GL_TEXTURE_2D, jpeg.getJPEGTexList(SOLAR_PANEL));
+	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("SOLAR_PANEL"));
 	glBegin(GL_POLYGON);
 	glRotatef(90.0f, 1.0f, 45.0f, 45.0f);
 	glTexCoord2i(0, 0); glVertex3f(30000.0, 12150.0, 43000.0); // top left
@@ -1721,7 +1715,7 @@ void StairPortal() {
 	//--------------------------------------------------------------------------------------
 	//  CREATES THE STAIRS // made by jacob
 	//--------------------------------------------------------------------------------------
-	glBindTexture(GL_TEXTURE_2D, jpeg.getJPEGTexList(STEPS));
+	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("STEPS"));
 	glBegin(GL_QUADS);
 	glColor3f(0.0f, 1.0f, 0.0f);    // Color Blue
 
@@ -1795,7 +1789,7 @@ void StairPillars() {
 	//--------------------------------------------------------------------------------------
 	//  CREATES THE PILLARS AROUND THE PORTAL STAIRS
 	//--------------------------------------------------------------------------------------
-	glBindTexture(GL_TEXTURE_2D, jpeg.getJPEGTexList(PILLAR));
+	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("PILLAR"));
 	glBegin(GL_QUADS);//Draws left side pillar
 	//front of left pillar
 	glTexCoord2i(0, 0); glVertex3f(30000.0, 11500.0, 11500.0);    // Top Right 
@@ -1859,7 +1853,7 @@ void StairPillars() {
 //  CREATES THE PORTAL
 //--------------------------------------------------------------------------------------
 void portal() {
-	glBindTexture(GL_TEXTURE_2D, jpeg.getJPEGTexList(PORTAL_SWIRL));
+	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("PORTAL_SWIRL"));
 	glBegin(GL_QUADS);//Draws the portal
 	//front of the portal
 	glTexCoord2i(0, 0);glVertex3f(28000.0, 11500.0, 12600.0);    // Top Right

@@ -1,9 +1,11 @@
+#pragma once
+
 #include <stdlib.h>
 #include <GL/glut.h>
 #include <IL/il.h>
-#include "Vector.h"
-
-#pragma once
+#include <iostream>
+#include <map>
+#include <string>
 
 	/**
 	* @class JpegLoader
@@ -23,38 +25,38 @@ class JpegLoader
 public:
 
 		/**
-		* @brief  Creates and binds a texture returning the texture ID
+		* @brief  Creates and binds a texture and creates a textureID for the imputed texture
 		*
-		* reads in image by calling LoadImage() then binds that image to a texture to use with opengl.
 		*
-		*@param const char * filename
 		*
-		* @return void
-		*/
-	GLuint CreateTexture(const char * filename);
-
-		/**
-		* @brief  Sets jpeg texture into a vector for storage
-		*
-		* 
-		*
-		*@param const GLuint TexID
+		*@param const string textureName, const char * filename
 		*
 		* @return void
 		*/
-	void setJPEGTexList(const GLuint TexID);
+	void CreateTexture(const std::string textureName, const char * filename);
 
 		/**
-		* @brief  Gets jpeg texture from a vector for use
+		* @brief  Gets textureID from the map for use
 		*
 		*
+		*@param const string TName
 		*
-		*@param const int ID
-		*
-		* @return const GLuint
+		* @return void
 		*/
-	const GLuint getJPEGTexList(const int ID);
+	const GLuint getTextureID(const std::string TName) const;
+
 
 private:
-	Vector<GLuint> JPEGTexList; // vector of type GLuint for storage of textures
+
+	std::map<std::string, GLuint> TextureList; // MAP to store type GLuint with a string as key for storage of textureIDs
+
+		/**
+		* @brief  Sets textureID into the map for storage
+		*
+		*
+		*@param const string TName, const GLuint TexID
+		*
+		* @return void
+		*/
+	void setTextureList(const std::string TName, const GLuint TexID);
 };

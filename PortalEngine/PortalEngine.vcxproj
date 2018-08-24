@@ -123,7 +123,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Vector.h" />
     <ClInclude Include="JpegLoader.h" />
   </ItemGroup>
   <ItemGroup>
