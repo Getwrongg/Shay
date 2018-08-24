@@ -33,10 +33,28 @@ public:
 		*/
 	GLuint CreateTexture(const char * filename);
 
+		/**
+		* @brief  Sets jpeg texture into a vector for storage
+		*
+		* 
+		*
+		*@param const GLuint TexID
+		*
+		* @return void
+		*/
 	void setJPEGTexList(const GLuint TexID);
 
+		/**
+		* @brief  Gets jpeg texture from a vector for use
+		*
+		*
+		*
+		*@param const int ID
+		*
+		* @return const GLuint
+		*/
 	const GLuint getJPEGTexList(const int ID);
 
 private:
-	Vector<GLuint> JPEGTexList;
+	Vector<GLuint> JPEGTexList; // vector of type GLuint for storage of textures
 };

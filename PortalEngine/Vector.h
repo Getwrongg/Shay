@@ -1,33 +1,49 @@
 #include <vector>
+
 #pragma once
-/**
-* @class Vector
-* @brief templated vector, encapsulates the required parts of the STL vector, and is used as a minimal dynamic array
-*/
+
+	/**
+	* @class Vector
+	* @brief  templated dynamic array
+	*
+	* encapsulates the required parts of the STL vector, and is used as a minimal dynamic array
+	*
+	* @author ClickBait Inc
+	* @version 01
+	* @date 24/08/2018 // date is in Australian format.
+	*
+	* @todo
+	*
+	* @bug none
+	*/
 template <class T>
 class Vector
 {
 public:
-	/**
-	* @brief Returns data from the array from a given indez
-	* @param i (const unsigned)
-	* @return const T&
-	*/
+		/**
+		* @brief  Returns data from the array from a given indez
+		*
+		*@param i (const unsigned)
+		*
+		* @return const T&
+		*/
 	const T & getData(const int i);
 
-	/**
-	* @brief Puts data into the array
-	* @param input (const T&)
-	* @return void
-	*/
+		/**
+		* @brief  Puts data into the array
+		*
+		*@param input (const T&)
+		*
+		* @return void
+		*/
 	void setData(const T & input);
 
-	/**
-	* @brief Allows the current amount of data in the array to be returned
-	*
-	* @return unsigned
-	*/
-
+		/**
+		* @brief clears the vector of data and resets the size
+		*
+		*
+		* @return void
+		*/
 	void clearVector();
 
 private:

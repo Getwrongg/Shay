@@ -42,6 +42,7 @@ int main2()
 
 	glutKeyboardFunc(keyboard);
 	glutDisplayFunc(Display2);
+	glutIdleFunc(Display2);
 	
 	glutMainLoop();
 
@@ -123,16 +124,19 @@ void keyboard(unsigned char key, int x, int y)
 	{
 	case 'w':
 		viewer[2] += 0.1;
-		std::cout << "hello!" << std::endl;
+		viewer[5] += 0.1;
 		break;
 	case 's':
 		viewer[2] -= 0.1;
+		viewer[5] -= 0.1;
 		break;
 	case 'a':
 		viewer[0] += 0.1;
+		viewer[3] += 0.1;
 		break;
 	case 'd':
 		viewer[0] -= 0.1;
+		viewer[3] -= 0.1;
 		break;
 	case 'q':
 		exit(0);
