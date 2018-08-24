@@ -51,7 +51,6 @@ public:
 	// creates a linked list for each quadrant of the world and places the bounding box
 	// data in each.  Then clears and deletes AABB array.
 	void InitiateBoundingBoxes() {m_colDetect.CreateLinkedList();}
-
 	// sets the co-ordinate of each plain
 	void SetPlains (const int tempType,
 				    const GLdouble tempXs, const GLdouble tempXe,

@@ -1,4 +1,9 @@
-﻿  main.cpp
+﻿  camera.cpp
+c:\users\manu\source\repos\shay\camera.cpp(200): warning C4244: 'argument': conversion from 'GLdouble' to 'const int', possible loss of data
+c:\users\manu\source\repos\shay\camera.cpp(211): warning C4244: 'argument': conversion from 'GLdouble' to 'const int', possible loss of data
+c:\users\manu\source\repos\shay\camera.cpp(242): warning C4244: 'argument': conversion from 'GLdouble' to 'const int', possible loss of data
+c:\users\manu\source\repos\shay\camera.cpp(252): warning C4244: 'argument': conversion from 'GLdouble' to 'const int', possible loss of data
+  main.cpp
 c:\users\manu\source\repos\shay\main.cpp(479): warning C4305: 'argument': truncation from 'double' to 'GLclampf'
 c:\users\manu\source\repos\shay\main.cpp(603): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
 c:\users\manu\source\repos\shay\main.cpp(762): warning C4244: 'argument': conversion from 'double' to 'int', possible loss of data
@@ -277,4 +282,5 @@ c:\users\manu\source\repos\shay\main.cpp(5369): warning C4244: 'argument': conve
 c:\users\manu\source\repos\shay\main.cpp(5370): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
 c:\users\manu\source\repos\shay\main.cpp(5371): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
 c:\users\manu\source\repos\shay\main.cpp(5372): warning C4244: 'argument': conversion from 'double' to 'const int', possible loss of data
+  Generating Code...
   Shay.vcxproj -> C:\Users\Manu\source\repos\Shay\Debug\Shay.exe
