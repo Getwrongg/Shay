@@ -123,12 +123,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="Cam.h" />
-    <ClInclude Include="Vector.h" />
     <ClInclude Include="JpegLoader.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Cam.cpp" />
     <ClCompile Include="JpegLoader.cpp" />
     <ClCompile Include="main2.cpp" />
   </ItemGroup>

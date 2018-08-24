@@ -3,11 +3,6 @@
 #include <iostream>
 
 //--------------------------------------------------
-//	Texture #defines					
-//--------------------------------------------------
-#define SWIRL 0
-
-//--------------------------------------------------
 //	Global Variables					
 //--------------------------------------------------
 
@@ -100,12 +95,12 @@ void Display2()
 void CreateTexturesPortalWorld()
 {
 	// draw swirl
-	j.setJPEGTexList(j.CreateTexture("data/portalswirl.jpg"));
+	j.CreateTexture("SWIRL", "data/portalswirl.jpg");
 }
 
 void DrawSwirl()
 {
-	glBindTexture(GL_TEXTURE_2D, j.getJPEGTexList(SWIRL));
+	glBindTexture(GL_TEXTURE_2D, j.getTextureID("SWIRL"));
 
 	glBegin(GL_POLYGON);
 	glTexCoord2i(0, 0); glVertex3f(-0.5, 1, 0);
