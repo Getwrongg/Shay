@@ -354,6 +354,9 @@ void StairPillars();
 //the portal
 void portal();
 
+//draws right side exit image
+void DrawRightSideExit();
+
 // calls display functions below to draw the backdrops
 void DrawBackdropOrigial();
 void DrawBackdropNew();
@@ -978,6 +981,14 @@ void CreateJPGTextures() {
 	jpeg.CreateTexture("PORTAL_SWIRL", "data/portalswirl.jpg");
 
 	jpeg.CreateTexture("PILLAR", "data/PillarTexture.jpg");
+
+	jpeg.CreateTexture("RIGHTEXIT", "data/RightSideExit.jpg");
+
+	jpeg.CreateTexture("SIRWALTERSCAFE", "data/SirWaltersCafe.jpg");
+
+	jpeg.CreateTexture("STONE", "data/steps.jpg");
+
+	jpeg.CreateTexture("SIRWALTEREXIT", "data/SirWalterExit.jpg");
 
 }
 
@@ -1866,6 +1877,94 @@ void portal() {
 
 }
 
+//draw the right side of campus exit picture
+void DrawRightSideExit() {
+
+	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("RIGHTEXIT"));
+	glBegin(GL_QUADS);//Draws left side exite picture
+	glTexCoord2i(1, 0); glVertex3f(2400.0, 12200.0, 10000.0);    // Top Right 
+	glTexCoord2i(1, 1); glVertex3f(4850.0, 11200.0, 10000.0);    // Top Left 
+	glTexCoord2i(0, 1); glVertex3f(4850.0, 10000.0, 10000.0);    // Bottom Left
+	glTexCoord2i(0, 0); glVertex3f(2400.0, 10000.0, 10000.0);    // Bottom Right 
+	
+	glEnd();
+}
+
+//draw sir walters entrance
+void SirWaltersEntrance() {
+
+
+	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("SIRWALTERSCAFE"));
+	glBegin(GL_QUADS);//Draws left side exite picture
+	//draws front entrnce
+	glRotatef(90.0f, 1.0f, 45.0f, 45.0f);
+	glTexCoord2i(0, 0); glVertex3f(2665.0, 10900.0, 11500.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2665.0, 10900.0, 13600.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2665.0, 10000.0, 13600.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2665.0, 10000.0, 11500.0);    // Bottom Right 	
+	glEnd();
+
+	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("STONE"));
+	glBegin(GL_QUADS);//Draws left side exite picture
+	//left side pillar
+	//right face
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 13600.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2600.0, 10900.0, 13600.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2600.0, 10000.0, 13600.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 13600.0);    // Bottom Right 
+	//front face
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 13600.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2700.0, 10900.0, 13400.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2700.0, 10000.0, 13400.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 13600.0);    // Bottom Right 
+	//left face
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 13400.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2600.0, 10900.0, 13400.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2600.0, 10000.0, 13400.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 13400.0);    // Bottom Right 
+
+	//right side pillar
+	//right face
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 11300.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2600.0, 10900.0, 11300.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2600.0, 10000.0, 11300.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 11300.0);    // Bottom Right 
+	//front face
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 11500.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2700.0, 10900.0, 11300.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2700.0, 10000.0, 11300.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 11500.0);    // Bottom Right 
+	//left face
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 11500.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2600.0, 10900.0, 11500.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2600.0, 10000.0, 11500.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 11500.0);    // Bottom Right 
+
+	//top pillar
+	//bottom face
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 13600.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2700.0, 10900.0, 13400.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2665.0, 10900.0, 13400.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2665.0, 10900.0, 13600.0);    // Bottom Right 	
+	////front face
+	//glTexCoord2i(0, 0); glVertex3f(2700.0, 11100.0, 13600.0);    // Top Right 
+	//glTexCoord2i(0, 1); glVertex3f(2700.0, 11100.0, 13400.0);    // Top Left 
+	//glTexCoord2i(1, 1); glVertex3f(2700.0, 11100.0, 13400.0);    // Bottom Left
+	//glTexCoord2i(1, 0); glVertex3f(2700.0, 11100.0, 13600.0);    // Bottom Right 	
+
+	glEnd();
+
+	//gap on side of sirwalters
+	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("SIRWALTEREXIT"));
+	glBegin(GL_QUADS);//Draws exit
+	glRotatef(90.0f, 1.0f, 45.0f, 45.0f);
+	glTexCoord2i(0, 0); glVertex3f(2665.0, 11900.0, 14700.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2665.0, 11900.0, 13600.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2665.0, 10000.0, 13600.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2665.0, 10000.0, 14700.0);    // Bottom Right 	
+	glEnd();
+
+}
 
 void DrawBackdropNew() {
 
@@ -1884,6 +1983,9 @@ void DrawBackdropNew() {
 	//////for stair pillars
 	StairPillars();
 
+	DrawRightSideExit();
+
+	SirWaltersEntrance();
 }
 
 //--------------------------------------------------------------------------------------
