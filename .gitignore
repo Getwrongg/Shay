@@ -5,5 +5,7 @@
 /.vs
 /Debug
 /Shay/Debug
+/Shay/Release
 /PortalEngine/Debug
+/PortalEngine/Release
 /x64
