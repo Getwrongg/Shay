@@ -77,6 +77,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>C:\Users\jacob\source\repos\Shay\Dependancies\freeglut\include;C:\Users\Manu\source\repos\Shay\Dependancies\freeglut\include;C:\Users\Manu\source\repos\Shay\Dependancies\DevIL\include;C:\Users\jacob\source\repos\Shay\Dependancies\DevIL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <AdditionalLibraryDirectories>C:\Users\axel0\Desktop\ICT290\Shay\Dependancies\DevIL\lib;C:\Users\axel0\Desktop\ICT290\Shay\Dependancies\freeglut\lib;C:\Users\axel0\Desktop\ICT290\Shay\Dependancies\glew-1.11.0\lib;C:\Users\axel0\Desktop\ICT290\Shay\Dependancies\SDL2-2.0.8\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
@@ -123,9 +124,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Cam.h" />
     <ClInclude Include="JpegLoader.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Cam.cpp" />
     <ClCompile Include="JpegLoader.cpp" />
     <ClCompile Include="main2.cpp" />
   </ItemGroup>

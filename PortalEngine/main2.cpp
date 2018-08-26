@@ -1,20 +1,18 @@
 #include "JpegLoader.h"
+#include "Cam.h"
 
 #include <iostream>
 
 //--------------------------------------------------
 //	Global Variables					
 //--------------------------------------------------
-
-// global variable for camera settings
-GLdouble viewer[] = { 0.0, 0.0, 0.0,
-					 0.0, 0.0, 5.0,
-					 0.0, 1.0, 0.0 };
+GLdouble moveSpeed = 0.3;
 
 //--------------------------------------------------
 //	Object Declarations					
 //--------------------------------------------------
 JpegLoader j;
+Cam ourCam;
 
 //--------------------------------------------------
 //	Method Prototypes					
@@ -49,6 +47,9 @@ int main2()
 //--------------------------------------------------
 void MyInit()
 {
+	// initialises up DevIL library
+	ilInit();
+
 	glEnable(GL_DEPTH_TEST);
 	glClearColor(0, 1, 1, 0); /* draw on light blue background */
 	glColor3f(0.5, 0.0, 0.5);
@@ -79,10 +80,9 @@ void Display2()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); /*clear the window to background colour specified by glClearColor(...)*/
 														/* viewing transformation  */
 	glLoadIdentity();
-	/* sets the camera to viewer array */
-	gluLookAt(	viewer[0], viewer[1], viewer[2],
-				viewer[3], viewer[4], viewer[5],
-				viewer[6], viewer[7], viewer[8]	);
+	// sets glLookAt to camera coordinates
+	ourCam.CallGluLookat();
+
 	glEnable(GL_TEXTURE_2D);
 
 	glTranslatef(0, 0, 5);
@@ -118,20 +118,16 @@ void keyboard(unsigned char key, int x, int y)
 	switch (key)
 	{
 	case 'w':
-		viewer[2] += 0.1;
-		viewer[5] += 0.1;
+		ourCam.MoveForwardBack(moveSpeed);
 		break;
 	case 's':
-		viewer[2] -= 0.1;
-		viewer[5] -= 0.1;
+		ourCam.MoveForwardBack(-moveSpeed);
 		break;
 	case 'a':
-		viewer[0] += 0.1;
-		viewer[3] += 0.1;
+		ourCam.MoveLeftRight(moveSpeed);
 		break;
 	case 'd':
-		viewer[0] -= 0.1;
-		viewer[3] -= 0.1;
+		ourCam.MoveLeftRight(-moveSpeed);
 		break;
 	case 'q':
 		exit(0);

@@ -18,12 +18,18 @@
     <ClInclude Include="JpegLoader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Cam.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="JpegLoader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="main2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Cam.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
