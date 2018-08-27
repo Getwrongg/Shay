@@ -24,39 +24,42 @@ class JpegLoader
 {
 public:
 
-		/**
-		* @brief  Creates and binds a texture and creates a textureID for the imputed texture
-		*
-		*
-		*
-		*@param const string textureName, const char * filename
-		*
-		* @return void
-		*/
+	/**
+	* @brief  Creates and binds a texture and creates a textureID for the imputed texture
+	*
+	*
+	*
+	*@param const string textureName, const char * filename
+	*
+	* @return void
+	*/
 	void CreateTexture(const std::string textureName, const char * filename);
 
-		/**
-		* @brief  Gets textureID from the map for use
-		*
-		*
-		*@param const string TName
-		*
-		* @return void
-		*/
+	/**
+	* @brief  Gets textureID from the map for use
+	*
+	*
+	*@param const string TName
+	*
+	* @return void
+	*/
 	const GLuint getTextureID(const std::string TName) const;
 
 
 private:
+	/**
+	* @brief  Sets textureID into the map for storage
+	*
+	*
+	*@param const string TName, const GLuint TexID
+	*
+	* @return void
+	*/
+	void setTextureList(const std::string TName, const GLuint TexID);
+
+	//--------------------------------------------------
+	//	Variables
+	//--------------------------------------------------
 
 	std::map<std::string, GLuint> TextureList; // MAP to store type GLuint with a string as key for storage of textureIDs
-
-		/**
-		* @brief  Sets textureID into the map for storage
-		*
-		*
-		*@param const string TName, const GLuint TexID
-		*
-		* @return void
-		*/
-	void setTextureList(const std::string TName, const GLuint TexID);
 };

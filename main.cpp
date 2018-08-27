@@ -451,7 +451,7 @@ int main(int argc, char **argv)
 	inPortal = true;
 	main2();
 
-	//glutIgnoreKeyRepeat(1); // removed this so we can hold down to move up or down
+	glutIgnoreKeyRepeat(1); // removed this so we can hold down to move up or down
 	glutKeyboardUpFunc (releaseKeys);
 	glutKeyboardFunc(keys);
 

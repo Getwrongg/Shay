@@ -18,6 +18,8 @@ Cam::Cam()
 	view[8] = 0.0;
 
 	moveSpeed = 0;
+	dirLR = 0;
+	dirFB = 0;
 }
 
 void Cam::CallGluLookat()
@@ -27,12 +29,12 @@ void Cam::CallGluLookat()
 				view[6], view[7], view[8]	);
 }
 
-void Cam::DirectionLeftRight(const GLdouble dir)
+void Cam::DirectionLeftRight(const int dir)
 {
 	dirLR = dir;
 }
 
-void Cam::DirectionForwardBack(const GLdouble dir)
+void Cam::DirectionForwardBack(const int dir)
 {
 	dirFB = dir;
 }
