@@ -6,7 +6,14 @@
 //--------------------------------------------------
 //	Global Variables					
 //--------------------------------------------------
-GLdouble moveSpeed = 0.3;
+
+// movespeed of camera
+GLdouble moveSpeed = 0.003;
+
+// used for position of the camera
+GLdouble pos[] = {	0.0, 0.0, 0.0,
+					0.0, 0.0, 5.0,
+					0.0, 1.0, 0.0 };
 
 //--------------------------------------------------
 //	Object Declarations					
@@ -19,7 +26,8 @@ Cam ourCam;
 //--------------------------------------------------
 void Display2();
 void MyInit();
-void keyboard(unsigned char key, int x, int y);
+void Keyboard(unsigned char key, int x, int y);
+void ReleaseKeyboard(unsigned char key, int x, int y);
 void CreateTexturesPortalWorld();
 void DrawSwirl();
 
@@ -33,7 +41,8 @@ int main2()
 
 	MyInit();
 
-	glutKeyboardFunc(keyboard);
+	glutKeyboardFunc(Keyboard);
+	glutKeyboardUpFunc(ReleaseKeyboard);
 	glutDisplayFunc(Display2);
 	glutIdleFunc(Display2);
 	
@@ -47,15 +56,14 @@ int main2()
 //--------------------------------------------------
 void MyInit()
 {
-	// initialises up DevIL library
+	// initialises DevIL library
 	ilInit();
 
 	glEnable(GL_DEPTH_TEST);
-	glClearColor(0, 1, 1, 0); /* draw on light blue background */
+	glClearColor(0, 1, 1, 0); 
 	glColor3f(0.5, 0.0, 0.5);
 	glLineWidth(5.0);
 
-	/* switch matrix mode to 'projection' and load an identity matrix as the projection matrix */
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 
@@ -66,8 +74,10 @@ void MyInit()
 
 	gluPerspective(fov, aspect, zNear, zFar);
 
-	/* switch matrix mode back to 'model view'*/
 	glMatrixMode(GL_MODELVIEW);
+
+	ourCam.SetMoveSpeed(moveSpeed); // sets movement speed of camera
+	ourCam.SetPosition(pos); // sets position of the camera in the world
 
 	CreateTexturesPortalWorld();
 }
@@ -77,11 +87,11 @@ void MyInit()
 //--------------------------------------------------
 void Display2()
 {
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); /*clear the window to background colour specified by glClearColor(...)*/
-														/* viewing transformation  */
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); 
 	glLoadIdentity();
-	// sets glLookAt to camera coordinates
-	ourCam.CallGluLookat();
+
+	// updates camera position
+	ourCam.UpdateCamera();
 
 	glEnable(GL_TEXTURE_2D);
 
@@ -113,23 +123,38 @@ void DrawSwirl()
 //--------------------------------------------------
 //	Keyboard Functions
 //--------------------------------------------------
-void keyboard(unsigned char key, int x, int y)
+void Keyboard(unsigned char key, int x, int y)
 {
 	switch (key)
 	{
 	case 'w':
-		ourCam.MoveForwardBack(moveSpeed);
+		ourCam.DirectionForwardBack(1);
 		break;
 	case 's':
-		ourCam.MoveForwardBack(-moveSpeed);
+		ourCam.DirectionForwardBack(-1);
 		break;
 	case 'a':
-		ourCam.MoveLeftRight(moveSpeed);
+		ourCam.DirectionLeftRight(1);
 		break;
 	case 'd':
-		ourCam.MoveLeftRight(-moveSpeed);
+		ourCam.DirectionLeftRight(-1);
 		break;
 	case 'q':
 		exit(0);
+	}
+}
+
+void ReleaseKeyboard(unsigned char key, int x, int y)
+{
+	switch (key)
+	{
+	case 'w':
+	case 's':
+		ourCam.DirectionForwardBack(0);
+		break;
+	case 'a':
+	case 'd':
+		ourCam.DirectionLeftRight(0);
+		break;
 	}
 }
