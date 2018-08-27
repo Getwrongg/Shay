@@ -5,8 +5,6 @@
 //  Shay Leary, April 2005
 //--------------------------------------------------------------------------------------
 
-#ifndef CAMERA_MAP_H
-#define CAMERA_MAP_H
 
 #include <GL/glut.h>
 
@@ -38,6 +36,5 @@ private:
     CameraMap &operator = (const CameraMap &cam) {};
 };
 
-#endif
 
 //--------------------------------------------------------------------------------------

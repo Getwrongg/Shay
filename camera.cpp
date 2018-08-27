@@ -33,8 +33,8 @@ Camera::Camera()
 	m_CollisionDetectionOn = true;
 
 	// sound objects
-	es = CEasySound::Instance();
-	stepSound = es->GetSound(es->Load("sounds/step.wav"));
+//	au_Player.loadSound("sounds/step.wav");
+
 }
 
 //--------------------------------------------------------------------------------------
@@ -205,7 +205,7 @@ void Camera::MoveFB()
 	else
 	{
 		// increment position
-		m_x += moveX;
+		m_x += moveX; 
 		m_z += moveZ;
 		// check plain
 		SetPlains(moveX, moveZ);
@@ -276,7 +276,7 @@ void Camera::SetPlains(const int & moveX, const int & moveZ)
 				
 				if ((m_plainNo != i) && m_plainHeight != m_Plain.GetYstart(i))
 				{
-	//				stepSound->Play();
+	//				au_Player.playSound();
 				}
 
 
