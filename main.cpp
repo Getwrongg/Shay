@@ -448,8 +448,8 @@ int main(int argc, char **argv)
 	myinit();
 
 	// these two lines transition the program to portal world. Delete if you want to work on shay's world.
-	inPortal = true;
-	main2();
+	//inPortal = true;
+	//main2();
 
 	//glutIgnoreKeyRepeat(1); // removed this so we can hold down to move up or down
 	glutKeyboardUpFunc (releaseKeys);
@@ -986,7 +986,7 @@ void CreateJPGTextures() {
 
 	jpeg.CreateTexture("SIRWALTERSCAFE", "data/SirWaltersCafe.jpg");
 
-	jpeg.CreateTexture("STONE", "data/steps.jpg");
+	jpeg.CreateTexture("STONE", "data/stone.jpg");
 
 	jpeg.CreateTexture("SIRWALTEREXIT", "data/SirWalterExit.jpg");
 
@@ -1957,7 +1957,6 @@ void SirWaltersEntrance() {
 	//gap on side of sirwalters
 	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("SIRWALTEREXIT"));
 	glBegin(GL_QUADS);//Draws exit
-	glRotatef(90.0f, 1.0f, 45.0f, 45.0f);
 	glTexCoord2i(0, 0); glVertex3f(2665.0, 11900.0, 14700.0);    // Top Right 
 	glTexCoord2i(0, 1); glVertex3f(2665.0, 11900.0, 13600.0);    // Top Left 
 	glTexCoord2i(1, 1); glVertex3f(2665.0, 10000.0, 13600.0);    // Bottom Left
