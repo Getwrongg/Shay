@@ -9,6 +9,7 @@
 
 // movespeed of camera
 GLdouble moveSpeed = 0.003;
+GLdouble rotateSpeed = 0.005;
 
 // used for position of the camera
 GLdouble pos[] = {	0.0, 0.0, 0.0,
@@ -97,6 +98,10 @@ void Display2()
 
 	glTranslatef(0, 0, 5);
 	DrawSwirl();
+
+		// shows position of the camera
+	//GLdouble *pos = ourCam.GetPosition();
+	//std::cout << pos[0] << "   " << pos[1] << "   " << pos[2] << std::endl;
 
 	glDisable(GL_TEXTURE_2D);
 	glutSwapBuffers();

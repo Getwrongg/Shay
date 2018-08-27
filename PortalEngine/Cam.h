@@ -84,7 +84,7 @@ public:
 	//--------------------------------------------------
 	//	Getters
 	//--------------------------------------------------
-	GLdouble & GetPosition();
+	GLdouble * GetPosition();
 	
 private:
 	
@@ -127,4 +127,6 @@ private:
 	GLdouble dirLR, dirFB; // direction either 1 or -1
 
 	GLdouble moveSpeed; // speed of camera movement
+
+	GLdouble rotateSpeed; // speed of camera rotation
 };

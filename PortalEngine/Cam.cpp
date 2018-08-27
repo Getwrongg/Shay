@@ -94,11 +94,11 @@ void Cam::SetMoveSpeed(const GLdouble speed)
 	moveSpeed = speed;
 }
 
-GLdouble & Cam::GetPosition()
+GLdouble * Cam::GetPosition()
 {
 	GLdouble pos[] = { view[3], view[4], view[5] };
 
-	return *pos;
+	return pos;
 }
 
 void Cam::SetPosition(const GLdouble pos[9])
