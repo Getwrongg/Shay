@@ -990,6 +990,10 @@ void CreateJPGTextures() {
 
 	jpeg.CreateTexture("SIRWALTEREXIT", "data/SirWalterExit.jpg");
 
+	jpeg.CreateTexture("CHATIME", "data/ChatTime.jpg");
+
+	jpeg.CreateTexture("WHITE", "data/white.jpg");
+
 }
 
 void CreateTextures()
@@ -1904,6 +1908,9 @@ void SirWaltersEntrance() {
 	glTexCoord2i(1, 0); glVertex3f(2665.0, 10000.0, 11500.0);    // Bottom Right 	
 	glEnd();
 
+	//--------------------------------------------------------------------------------------
+	//  CREATES THE PILLARS FOR SIR WALTERS ENTRANCE
+	//--------------------------------------------------------------------------------------
 	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("STONE"));
 	glBegin(GL_QUADS);//Draws left side exite picture
 	//left side pillar
@@ -1922,6 +1929,7 @@ void SirWaltersEntrance() {
 	glTexCoord2i(0, 1); glVertex3f(2600.0, 10900.0, 13400.0);    // Top Left 
 	glTexCoord2i(1, 1); glVertex3f(2600.0, 10000.0, 13400.0);    // Bottom Left
 	glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 13400.0);    // Bottom Right 
+
 
 	//right side pillar
 	//right face
@@ -1946,11 +1954,7 @@ void SirWaltersEntrance() {
 	glTexCoord2i(0, 1); glVertex3f(2700.0, 10900.0, 13400.0);    // Top Left 
 	glTexCoord2i(1, 1); glVertex3f(2665.0, 10900.0, 13400.0);    // Bottom Left
 	glTexCoord2i(1, 0); glVertex3f(2665.0, 10900.0, 13600.0);    // Bottom Right 	
-	////front face
-	//glTexCoord2i(0, 0); glVertex3f(2700.0, 11100.0, 13600.0);    // Top Right 
-	//glTexCoord2i(0, 1); glVertex3f(2700.0, 11100.0, 13400.0);    // Top Left 
-	//glTexCoord2i(1, 1); glVertex3f(2700.0, 11100.0, 13400.0);    // Bottom Left
-	//glTexCoord2i(1, 0); glVertex3f(2700.0, 11100.0, 13600.0);    // Bottom Right 	
+	
 
 	glEnd();
 
@@ -1963,6 +1967,124 @@ void SirWaltersEntrance() {
 	glTexCoord2i(1, 0); glVertex3f(2665.0, 10000.0, 14700.0);    // Bottom Right 	
 	glEnd();
 
+}
+
+//draws Chattime caffee
+void chaTime(){
+
+	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("CHATIME"));
+	glBegin(GL_QUADS);//Draws the chatime shop
+	glTexCoord2i(0, 0); glVertex3f(2665.0, 10900.0, 15500.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2665.0, 10900.0, 17200.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2665.0, 10300.0, 17200.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2665.0, 10300.0, 15500.0);    // Bottom Right 	
+
+	//white ledge top
+	glTexCoord2i(0, 0); glVertex3f(2765.0, 10300.0, 15500.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2765.0, 10300.0, 17200.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2665.0, 10300.0, 17200.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2665.0, 10300.0, 15500.0);    // Bottom Right 
+	//bottom of ledge
+	glTexCoord2i(0, 0); glVertex3f(2765.0, 10350.0, 15500.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2765.0, 10350.0, 17200.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2665.0, 10350.0, 17200.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2665.0, 10350.0, 15500.0);    // Bottom Right 
+	//front face
+	glTexCoord2i(0, 0); glVertex3f(2765.0, 10350.0, 15500.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2765.0, 10350.0, 17200.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2765.0, 10300.0, 17200.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2765.0, 10300.0, 15500.0);    // Bottom Right 
+	//right side
+	glTexCoord2i(0, 0); glVertex3f(2665.0, 10350.0, 15500.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2765.0, 10350.0, 15500.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2765.0, 10300.0, 15500.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2665.0, 10300.0, 15500.0);    // Bottom Right 
+	//left side
+	glTexCoord2i(0, 0); glVertex3f(2665.0, 10350.0, 17200.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2765.0, 10350.0, 17200.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2765.0, 10300.0, 17200.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2665.0, 10300.0, 17200.0);    // Bottom Right 
+	glEnd();
+
+	//--------------------------------------------------------------------------------------
+	//  CREATES THE PILLARS FOR CHATIME WINDOW
+	//--------------------------------------------------------------------------------------
+	//glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("STONE"));
+	//glBegin(GL_QUADS);//Draws Chatime window pillars
+	//right face
+	//glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 15500.0);    // Top Right 
+	//glTexCoord2i(0, 1); glVertex3f(2600.0, 10900.0, 15500.0);    // Top Left 
+	//glTexCoord2i(1, 1); glVertex3f(2600.0, 10000.0, 15500.0);    // Bottom Left
+	//glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 15500.0);    // Bottom Right 
+	////front face
+	//glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 13600.0);    // Top Right 
+	//glTexCoord2i(0, 1); glVertex3f(2700.0, 10900.0, 13400.0);    // Top Left 
+	//glTexCoord2i(1, 1); glVertex3f(2700.0, 10000.0, 13400.0);    // Bottom Left
+	//glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 13600.0);    // Bottom Right 
+	////left face
+	//glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 13400.0);    // Top Right 
+	//glTexCoord2i(0, 1); glVertex3f(2600.0, 10900.0, 13400.0);    // Top Left 
+	//glTexCoord2i(1, 1); glVertex3f(2600.0, 10000.0, 13400.0);    // Bottom Left
+	//glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 13400.0);    // Bottom Right 																 //right side pillar
+	////right face
+	//glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 11300.0);    // Top Right 
+	//glTexCoord2i(0, 1); glVertex3f(2600.0, 10900.0, 11300.0);    // Top Left 
+	//glTexCoord2i(1, 1); glVertex3f(2600.0, 10000.0, 11300.0);    // Bottom Left
+	//glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 11300.0);    // Bottom Right 
+	////front face
+	//glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 11500.0);    // Top Right 
+	//glTexCoord2i(0, 1); glVertex3f(2700.0, 10900.0, 11300.0);    // Top Left 
+	//glTexCoord2i(1, 1); glVertex3f(2700.0, 10000.0, 11300.0);    // Bottom Left
+	//glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 11500.0);    // Bottom Right 
+	////left face
+	//glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 11500.0);    // Top Right 
+	//glTexCoord2i(0, 1); glVertex3f(2600.0, 10900.0, 11500.0);    // Top Left 
+	//glTexCoord2i(1, 1); glVertex3f(2600.0, 10000.0, 11500.0);    // Bottom Left
+	//glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 11500.0);    // Bottom Right 
+
+	////top pillar
+	////bottom face
+	//glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 13600.0);    // Top Right 
+	//glTexCoord2i(0, 1); glVertex3f(2700.0, 10900.0, 13400.0);    // Top Left 
+	//glTexCoord2i(1, 1); glVertex3f(2665.0, 10900.0, 13400.0);    // Bottom Left
+	//glTexCoord2i(1, 0); glVertex3f(2665.0, 10900.0, 13600.0);    // Bottom Right 	
+
+
+	//glEnd();
+
+}
+
+//ChaTime Ledge
+void drawChaTimeLedge(){
+	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("WHITE"));
+	glBegin(GL_QUADS);//Draws the chatime ledge
+
+	//white ledge top
+	glTexCoord2i(0, 0); glVertex3f(2765.0, 10300.0, 15500.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2765.0, 10300.0, 17200.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2665.0, 10300.0, 17200.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2665.0, 10300.0, 15500.0);    // Bottom Right 
+	//bottom of ledge
+	glTexCoord2i(0, 0); glVertex3f(2765.0, 10350.0, 15500.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2765.0, 10350.0, 17200.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2665.0, 10350.0, 17200.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2665.0, 10350.0, 15500.0);    // Bottom Right 
+	//front face
+	glTexCoord2i(0, 0); glVertex3f(2765.0, 10350.0, 15500.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2765.0, 10350.0, 17200.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2765.0, 10300.0, 17200.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2765.0, 10300.0, 15500.0);    // Bottom Right 
+	//right side
+	glTexCoord2i(0, 0); glVertex3f(2665.0, 10350.0, 15500.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2765.0, 10350.0, 15500.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2765.0, 10300.0, 15500.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2665.0, 10300.0, 15500.0);    // Bottom Right 
+	//left side
+	glTexCoord2i(0, 0); glVertex3f(2665.0, 10350.0, 17200.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2765.0, 10350.0, 17200.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2765.0, 10300.0, 17200.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2665.0, 10300.0, 17200.0);    // Bottom Right 
+	glEnd();
 }
 
 void DrawBackdropNew() {
@@ -1985,6 +2107,10 @@ void DrawBackdropNew() {
 	DrawRightSideExit();
 
 	SirWaltersEntrance();
+
+	drawChaTimeLedge();
+
+	chaTime();
 }
 
 //--------------------------------------------------------------------------------------
