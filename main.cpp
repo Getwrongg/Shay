@@ -1,9 +1,12 @@
+#pragma once
 #include <stdlib.h>
 #include <math.h>
 #include <GL/glut.h>
 #include <time.h>
 #include <IL/il.h>
 #include <fstream>
+
+#include "audio.h"
 
 #include <windows.h> // only used if mouse is required (not portable)
 #include "camera.h"
@@ -297,6 +300,7 @@ float ratio;
 // screen width and height
 int width, height;
 
+
 // display campus map
 bool DisplayMap = false;
 // display welcome screen
@@ -311,7 +315,7 @@ bool displayECL = true;
 bool inPortal = false;
 
 // varibles used for tarnslating graphics etc
-GLdouble step, step2, stepLength;
+GLfloat step, step2, stepLength;
 
 // Glut Cylinder
 GLUquadricObj *glu_cylinder;
@@ -323,6 +327,7 @@ unsigned char* image = NULL;
 Camera cam;
 TexturedPolygons tp;
 JpegLoader jpeg;
+Audio game_audio;
 
 // initializes setting
 void myinit();
@@ -337,6 +342,9 @@ void movementKeys(int key, int x, int y);
 void releaseKeys(unsigned char key, int x, int y);
 void Mouse(int button, int state, int x, int y);
 void mouseMove(int x, int y);
+
+//audio loader
+void LoadGameSounds();
 
 	// draws banner with manu's face on it
 void DrawMyFaceBanner();
@@ -473,6 +481,7 @@ int main(int argc, char **argv)
 //--------------------------------------------------------------------------------------
 //  Initialize Settings
 //--------------------------------------------------------------------------------------
+
 void myinit()
 {
 	// sets up devil library
@@ -513,6 +522,8 @@ void myinit()
 	CreateTextures();
 
 	CreateJPGTextures();
+	LoadGameSounds();
+	game_audio.playAudio("AMBIENCE");
 
 }
 
@@ -590,9 +601,12 @@ void reshape(int w, int h)
 //--------------------------------------------------------------------------------------
 
 //--------------------------------------------------------------------------------------
+
+
 void keys(unsigned char key, int x, int y)
 {
 	int i = 0;
+
 	switch (key)
 	{
 		case 'a':
@@ -605,6 +619,7 @@ void keys(unsigned char key, int x, int y)
 
 		case 'w':
 			cam.DirectionFB(1.5);
+			game_audio.playAudio("STEPS");
 			break;
 
 		case 's':
@@ -963,6 +978,16 @@ void DeleteImageFromMemory(unsigned char* tempImage)
 }
 
 //--------------------------------------------------------------------------------------
+
+// Load Game Sounds
+
+void LoadGameSounds() {
+	
+	game_audio.CreateAudio("AMBIENCE", "sounds/ambience.wav");
+	game_audio.CreateAudio("STEPS", "sounds/walking.wav");
+}
+
+
 
 //--------------------------------------------------------------------------------------
 // Load and Create Textures

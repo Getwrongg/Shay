@@ -45,13 +45,7 @@ CSound::CSound(char *filename, int iSoundID)
 
 CSound::~CSound()
 {
-	try 
-	{
-		SDL_FreeWAV(m_data);
-	}
-	catch(int e){
-		std::cout << "An exception occurred. Exception Nr. " << e << '\n';
-	}	
+	SDL_FreeWAV(m_data);
 }
 
 

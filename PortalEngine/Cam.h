@@ -1,6 +1,6 @@
-#include <GL/glut.h>
-
 #pragma once
+
+#include <GL/glut.h>
 /**
 * @class Cam
 * @brief  used to represent a camera object

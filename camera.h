@@ -5,15 +5,15 @@
 //
 //  Shay Leary, March 2005
 //--------------------------------------------------------------------------------------
-#ifndef CAMERA_H
-#define CAMERA_H
+#pragma once
 
 #define PI 3.1415962654
 
 #include "collision.h"
 #include "cameraMap.h"
 #include "PlainLinkedList.h"
-#include "EasySound.h"
+#include "audio.h"
+
 
 //--------------------------------------------------------------------------------------
 
@@ -22,7 +22,7 @@ class Camera
 public:
 
 	Camera();
-	virtual ~Camera() {es->Unload(stepSound);}
+
 
 	//----------------------------------------------------------------------------------
 	
@@ -156,14 +156,13 @@ private:
 	Collision m_colDetect;
 	CameraMap m_map;
 	PlainLinkedList m_Plain;
+	Audio au_Player;
 
 	// These functions were set up to climb stairs, but are not used.
 	// The Plain object is used instead
 	void ClimbSteps(GLdouble stepStart, GLdouble stepFinish, GLdouble stepHeight, GLdouble stepWidth, int noSteps);
 	void CheckSteps();
 
-	CEasySound *es;
-	CSound* stepSound;
 
 	//----------------------------------------------------------------------------------
 
@@ -171,5 +170,3 @@ private:
     Camera (const Camera &cam) {};
     Camera &operator = (const Camera &cam) {};
 };
-
-#endif
