@@ -50,6 +50,15 @@
     <ClInclude Include="..\audio.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\EasySound.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Sound.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\SoundTime.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\AABB.CPP">

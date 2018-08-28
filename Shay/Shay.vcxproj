@@ -160,8 +160,11 @@
     <ClInclude Include="..\camera.h" />
     <ClInclude Include="..\cameraMap.h" />
     <ClInclude Include="..\collision.h" />
+    <ClInclude Include="..\EasySound.h" />
     <ClInclude Include="..\PlainLinkedList.h" />
     <ClInclude Include="..\PlainNode.h" />
+    <ClInclude Include="..\Sound.h" />
+    <ClInclude Include="..\SoundTime.h" />
     <ClInclude Include="..\texturedPolygons.h" />
   </ItemGroup>
   <ItemGroup>

@@ -1,6 +1,10 @@
 #pragma once
 
 #include <GL/glut.h>
+#include <math.h>
+
+#define PI 3.1415962654 // probs not needed
+
 /**
 * @class Cam
 * @brief  used to represent a camera object
@@ -29,7 +33,7 @@ public:
 	* @brief  sets either left or right direction for movement
 	*
 	*
-	*@param const GLdouble dir
+	*@param const int dir
 	*
 	* @return void
 	*/
@@ -39,11 +43,21 @@ public:
 	* @brief  sets either forward or backwards direction for movement
 	*
 	*
-	*@param const GLdouble dir
+	*@param const int dir
 	*
 	* @return void
 	*/
 	void DirectionForwardBack(const int dir);
+
+	/**
+	* @brief  sets the direction of rotate
+	*
+	*
+	*@param const GLdouble dir
+	*
+	* @return void
+	*/
+	void DirectionRotateLR(const GLdouble dir);
 
 	/**
 	* @brief moves the camera left or right
@@ -65,6 +79,8 @@ public:
 	*/
 	void MoveForwardBack();
 
+	void RotateLR();
+
 	/**
 	* @brief updates the position of the camera
 	*
@@ -79,6 +95,7 @@ public:
 	//	Setters
 	//--------------------------------------------------
 	void SetMoveSpeed(const GLdouble speed);
+	void SetRotateSpeed(const GLdouble speed);
 	void SetPosition(const GLdouble pos[9]);
 
 	//--------------------------------------------------
@@ -109,6 +126,16 @@ private:
 	bool CanMoveFB();
 
 	/**
+	* @brief asks if the camera can rotate left or right
+	*
+	* returns true if dirRotate is !0
+	*
+	*
+	* @return bool
+	*/
+	bool CanRotateLR();
+
+	/**
 	* @brief calls function gluLookAt()
 	*
 	* 
@@ -124,7 +151,10 @@ private:
 
 	GLdouble view[9]; // for gluLookAt
 
-	GLdouble dirLR, dirFB; // direction either 1 or -1
+	int dirLR, dirFB; // direction either 1 or -1
+
+	GLdouble dirRotate; // direction of rotation
+	GLdouble rotateAngle; // probs delete
 
 	GLdouble moveSpeed; // speed of camera movement
 

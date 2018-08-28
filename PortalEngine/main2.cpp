@@ -9,11 +9,15 @@
 
 // movespeed of camera
 GLdouble moveSpeed = 0.003;
-GLdouble rotateSpeed = 0.005;
+GLdouble rotateSpeed = 0.05;
+
+GLdouble deltaX = 0;
+GLdouble prevX = 0;
+GLdouble horizAngle = 0;
 
 // used for position of the camera
-GLdouble pos[] = {	0.0, 0.0, 0.0,
-					0.0, 0.0, 5.0,
+GLdouble pos[] = {	0.0, 0.0, 5.0,
+					0.0, 0.0, -1.0,
 					0.0, 1.0, 0.0 };
 
 //--------------------------------------------------
@@ -28,6 +32,7 @@ Cam ourCam;
 void Display2();
 void MyInit();
 void Keyboard(unsigned char key, int x, int y);
+void MouseMovement(int x, int y);
 void ReleaseKeyboard(unsigned char key, int x, int y);
 void CreateTexturesPortalWorld();
 void DrawSwirl();
@@ -46,6 +51,10 @@ int main2()
 	glutKeyboardUpFunc(ReleaseKeyboard);
 	glutDisplayFunc(Display2);
 	glutIdleFunc(Display2);
+
+	glutPassiveMotionFunc(MouseMovement);
+	glutSetCursor(GLUT_CURSOR_NONE); // hides cursor
+
 	
 	glutMainLoop();
 
@@ -78,6 +87,7 @@ void MyInit()
 	glMatrixMode(GL_MODELVIEW);
 
 	ourCam.SetMoveSpeed(moveSpeed); // sets movement speed of camera
+	ourCam.SetRotateSpeed(rotateSpeed); // sets rotate speed of camera
 	ourCam.SetPosition(pos); // sets position of the camera in the world
 
 	CreateTexturesPortalWorld();
@@ -96,8 +106,8 @@ void Display2()
 
 	glEnable(GL_TEXTURE_2D);
 
-	glTranslatef(0, 0, 5);
-	DrawSwirl();
+	//DrawSwirl();
+	glutWireCube(1.0);
 
 		// shows position of the camera
 	//GLdouble *pos = ourCam.GetPosition();
@@ -133,16 +143,16 @@ void Keyboard(unsigned char key, int x, int y)
 	switch (key)
 	{
 	case 'w':
-		ourCam.DirectionForwardBack(1);
-		break;
-	case 's':
 		ourCam.DirectionForwardBack(-1);
 		break;
+	case 's':
+		ourCam.DirectionForwardBack(1);
+		break;
 	case 'a':
-		ourCam.DirectionLeftRight(1);
+		ourCam.DirectionLeftRight(-1);
 		break;
 	case 'd':
-		ourCam.DirectionLeftRight(-1);
+		ourCam.DirectionLeftRight(1);
 		break;
 	case 'q':
 		exit(0);
@@ -162,4 +172,42 @@ void ReleaseKeyboard(unsigned char key, int x, int y)
 		ourCam.DirectionLeftRight(0);
 		break;
 	}
+}
+
+//--------------------------------------------------
+//	Mouse Functions
+//--------------------------------------------------
+
+void MouseMovement(int x, int y)
+{
+	/*if (x < 0)
+	{
+		ourCam.DirectionRotateLR(0);
+	}
+	else if (x > GLUT_WINDOW_WIDTH)
+	{
+		ourCam.DirectionRotateLR(0);
+	}
+	else if (x > GLUT_WINDOW_WIDTH / 2)
+	{
+		ourCam.DirectionRotateLR(-3);
+		//Display2();
+		glutWarpPointer(GLUT_WINDOW_WIDTH / 2, GLUT_WINDOW_HEIGHT / 2);
+	}
+	else if(x < GLUT_WINDOW_WIDTH / 2)
+	{
+		ourCam.DirectionRotateLR(3);
+		//Display2();
+		glutWarpPointer(GLUT_WINDOW_WIDTH / 2, GLUT_WINDOW_HEIGHT / 2);
+	}
+	else
+	{
+		ourCam.DirectionRotateLR(0);
+	}*/
+
+	
+	/*deltaX = x - prevX;
+	prevX = x;
+
+	horizAngle += deltaX * rotateSpeed;*/
 }
