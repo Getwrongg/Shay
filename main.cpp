@@ -1019,6 +1019,10 @@ void CreateJPGTextures() {
 
 	jpeg.CreateTexture("WHITE", "data/white.jpg");
 
+	jpeg.CreateTexture("STUDENTHUBENTRANCE", "data/StudentHubEntrance.jpg");
+
+	jpeg.CreateTexture("STUDENTHUBWINDOW1", "data/StudentHubWindow1.jpg");
+
 }
 
 void CreateTextures()
@@ -1902,8 +1906,6 @@ void portal() {
 	glTexCoord2i(1, 0);glVertex3f(28000.0, 10000.0, 12600.0);    // Bottom Right 
 		
 	glEnd();// End Drawing The portal front
-	//glFlush();
-
 }
 
 //draw the right side of campus exit picture
@@ -2127,6 +2129,34 @@ void drawChaTimeLedge(){
 	glEnd();
 }
 
+//draws student hub entrance anad windows
+void DrawStudentHubEntrance() {
+
+	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("STUDENTHUBENTRANCE"));
+	glBegin(GL_QUADS);//Draws the student hub entance shop
+	glTexCoord2i(0, 0); glVertex3f(2665.0, 10900.0, 18500.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2665.0, 10900.0, 20000.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2665.0, 10000.0, 20000.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2665.0, 10000.0, 18500.0);    // Bottom Right 
+	glEnd();
+
+	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("STUDENTHUBWINDOW1"));
+	glBegin(GL_QUADS);//Draws the student hub entance shop
+	glTexCoord2i(0, 0); glVertex3f(2665.0, 10900.0, 20200.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2665.0, 10900.0, 23000.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2665.0, 10300.0, 23000.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2665.0, 10300.0, 20200.0);    // Bottom Right 
+	glEnd();
+
+	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("STUDENTHUBWINDOW1"));
+	glBegin(GL_QUADS);//Draws the student hub entance shop
+	glTexCoord2i(0, 0); glVertex3f(2665.0, 10900.0, 23200.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2665.0, 10900.0, 26000.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2665.0, 10300.0, 26000.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2665.0, 10300.0, 23200.0);    // Bottom Right 
+	glEnd();
+}
+
 void DrawBackdropNew() {
 
 	DrawMyFaceBanner(); // for my face banner
@@ -2151,6 +2181,8 @@ void DrawBackdropNew() {
 	drawChaTimeLedge();
 
 	DrawHorizontalRoofPillar();
+
+	DrawStudentHubEntrance();
 
 	chaTime();
 }
