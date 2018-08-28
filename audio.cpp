@@ -31,11 +31,16 @@ const void Audio::CreateAudio(const std::string Audio_Name, const char* audiofil
 		std::cout << "AUDIO NAME \"" << Audio_Name << "\" ALREADY EXISTS, AUDIO FILE NOT LOADED" << std::endl;
 	}
 	else {
-		SDL_LoadWAV(audiofile, &tempAudio.au_audio, &tempAudio.au_buffer, &tempAudio.au_length);
-		tempAudio.au_ID = SDL_OpenAudioDevice(NULL, 0, &tempAudio.au_audio, NULL, 0);
-
-		Audio_Files[Audio_Name] = tempAudio;
-		Audio_Names.push_back(Audio_Name);
+		bool success;
+		success=SDL_LoadWAV(audiofile, &tempAudio.au_audio, &tempAudio.au_buffer, &tempAudio.au_length);
+		if (success) {
+			tempAudio.au_ID = SDL_OpenAudioDevice(NULL, 0, &tempAudio.au_audio, NULL, 0);
+			Audio_Files[Audio_Name] = tempAudio;
+			Audio_Names.push_back(Audio_Name);
+		}else
+		{
+			std::cout << "FAIL TO LOAD "<<audiofile << std::endl;
+		}
 	}
 
 }
