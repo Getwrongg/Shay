@@ -456,8 +456,8 @@ int main(int argc, char **argv)
 	myinit();
 
 	// these two lines transition the program to portal world. Delete if you want to work on shay's world.
-	inPortal = true;
-	main2();
+	//inPortal = true;
+	//main2();
 
 	glutIgnoreKeyRepeat(1); // removed this so we can hold down to move up or down
 	glutKeyboardUpFunc (releaseKeys);
@@ -1926,16 +1926,17 @@ void DrawRightSideExit() {
 void DrawHorizontalRoofPillar() {
 	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("STONE"));
 	glBegin(GL_QUADS);//Draws horizontal roof pillar 
+	//front
 	glTexCoord2i(0, 0); glVertex3f(4670.0, 11330.0, 10000.0);    // Top Right 
 	glTexCoord2i(0, 1); glVertex3f(4670.0, 11330.0, 41000.0);    // Top Left 
 	glTexCoord2i(1, 1); glVertex3f(4670.0, 11135.0, 41000.0);    // Bottom Left
 	glTexCoord2i(0, 1); glVertex3f(4670.0, 11135.0, 10000.0);    // Bottom Right 
-
+	//back
 	glTexCoord2i(0, 0); glVertex3f(4550.0, 11330.0, 10000.0);    // Top Right 
 	glTexCoord2i(0, 1); glVertex3f(4550.0, 11330.0, 41000.0);    // Top Left 
 	glTexCoord2i(1, 1); glVertex3f(4550.0, 11135.0, 41000.0);    // Bottom Left
 	glTexCoord2i(0, 1); glVertex3f(4550.0, 11135.0, 10000.0);    // Bottom Right
-
+	//bottom
 	glTexCoord2i(0, 0); glVertex3f(4670.0, 11135.0, 10000.0);    // Top Right 
 	glTexCoord2i(0, 1); glVertex3f(4670.0, 11135.0, 41000.0);    // Top Left 
 	glTexCoord2i(1, 1); glVertex3f(4550.0, 11135.0, 41000.0);    // Bottom Left
@@ -2142,21 +2143,166 @@ void DrawStudentHubEntrance() {
 	glTexCoord2i(1, 0); glVertex3f(2665.0, 10000.0, 18500.0);    // Bottom Right 
 	glEnd();
 
-	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("STUDENTHUBWINDOW1"));
-	glBegin(GL_QUADS);//Draws the student hub entance shop
-	glTexCoord2i(0, 0); glVertex3f(2665.0, 10900.0, 20200.0);    // Top Right 
-	glTexCoord2i(0, 1); glVertex3f(2665.0, 10900.0, 23000.0);    // Top Left 
-	glTexCoord2i(1, 1); glVertex3f(2665.0, 10300.0, 23000.0);    // Bottom Left
-	glTexCoord2i(1, 0); glVertex3f(2665.0, 10300.0, 20200.0);    // Bottom Right 
-	glEnd();
+	//Draw pillars right side student hub entracne
+	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("STONE"));
+	glBegin(GL_QUADS);//Draws middle pillar
+	//front of right pillar
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 18500.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2700.0, 10900.0, 18300.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2700.0, 10000.0, 18300.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 18500.0);    // Bottom Right 
+	//left side pillar
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 18500.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2600.0, 10900.0, 18500.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2600.0, 10000.0, 18500.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 18500.0);    // Bottom Right 
+	//right side pillar
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 18300.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2600.0, 10900.0, 18300.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2600.0, 10000.0, 18300.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 18300.0);    // Bottom Right 
+	glEnd();// End Drawing The pillar
+
+	//Draw pillars left side student hub entrance
+	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("STONE"));
+	glBegin(GL_QUADS);//Draws middle pillar
+	//front of right pillar
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 20000.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2700.0, 10900.0, 20200.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2700.0, 10000.0, 20200.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 20000.0);    // Bottom Right 
+	//left side pillar
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 20000.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2600.0, 10900.0, 20000.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2600.0, 10000.0, 20000.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 20000.0);    // Bottom Right 
+	//right side pillar
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 20200.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2600.0, 10900.0, 20200.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2600.0, 10000.0, 20200.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 20200.0);    // Bottom Right 
+	glEnd();// End Drawing The pillar
 
 	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("STUDENTHUBWINDOW1"));
 	glBegin(GL_QUADS);//Draws the student hub entance shop
-	glTexCoord2i(0, 0); glVertex3f(2665.0, 10900.0, 23200.0);    // Top Right 
-	glTexCoord2i(0, 1); glVertex3f(2665.0, 10900.0, 26000.0);    // Top Left 
-	glTexCoord2i(1, 1); glVertex3f(2665.0, 10300.0, 26000.0);    // Bottom Left
-	glTexCoord2i(1, 0); glVertex3f(2665.0, 10300.0, 23200.0);    // Bottom Right 
+	glTexCoord2i(0, 0); glVertex3f(2630.0, 10900.0, 20200.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2630.0, 10900.0, 23000.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2630.0, 10300.0, 23000.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2630.0, 10300.0, 20200.0);    // Bottom Right 
 	glEnd();
+
+	//Draw pillars inbetween student hub windows
+	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("STONE"));
+	glBegin(GL_QUADS);//Draws middle pillar
+	//front of right pillar
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 23000.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2700.0, 10900.0, 23200.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2700.0, 10000.0, 23200.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 23000.0);    // Bottom Right 
+	//left side pillar
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 23000.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2600.0, 10900.0, 23000.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2600.0, 10000.0, 23000.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 23000.0);    // Bottom Right 
+	//right side pillar
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 23200.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2600.0, 10900.0, 23200.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2600.0, 10000.0, 23200.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 23200.0);    // Bottom Right 
+	glEnd();// End Drawing The pillar
+
+	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("STUDENTHUBWINDOW1"));
+	glBegin(GL_QUADS);//Draws the student hub entance shop
+	glTexCoord2i(0, 0); glVertex3f(2630.0, 10900.0, 23200.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2630.0, 10900.0, 26000.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2630.0, 10300.0, 26000.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2630.0, 10300.0, 23200.0);    // Bottom Right 
+	glEnd();
+
+	//Draw pillars left side of left student hub window
+	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("STONE"));
+	glBegin(GL_QUADS);//Draws middle pillar
+	//front of right pillar
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 26000.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2700.0, 10900.0, 26200.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2700.0, 10000.0, 26200.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 26000.0);    // Bottom Right 
+	//left side pillar
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 26200.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2600.0, 10900.0, 26200.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2600.0, 10000.0, 26200.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 26200.0);    // Bottom Right 
+	//right side pillar
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 26000.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2600.0, 10900.0, 26000.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2600.0, 10000.0, 26000.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 26000.0);    // Bottom Right 
+	glEnd();// End Drawing The pillar
+
+	//--------------------------------------------------------------------------------------
+	//  CREATES STUDENT HUB LEDGE FOR RIGHT WINDOW
+    //--------------------------------------------------------------------------------------
+	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("WHITE"));
+	glBegin(GL_QUADS);//Draws the chatime ledge
+    //white ledge top
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10300.0, 20200.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2700.0, 10300.0, 23000.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2600.0, 10300.0, 23000.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2600.0, 10300.0, 20200.0);    // Bottom Right 
+	//bottom of ledge
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10350.0, 20200.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2700.0, 10350.0, 23000.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2600.0, 10350.0, 23000.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2600.0, 10350.0, 20200.0);    // Bottom Right 
+	//front face
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10350.0, 20200.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2700.0, 10350.0, 23000.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2700.0, 10300.0, 23000.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10300.0, 20200.0);    // Bottom Right 
+	//right side
+	glTexCoord2i(0, 0); glVertex3f(2600.0, 10350.0, 23000.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2700.0, 10350.0, 23000.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2700.0, 10300.0, 23000.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2600.0, 10300.0, 23000.0);    // Bottom Right 
+	//left side
+	glTexCoord2i(0, 0); glVertex3f(2600.0, 10350.0, 20200.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2700.0, 10350.0, 20200.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2700.0, 10300.0, 20200.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2600.0, 10300.0, 20200.0);    // Bottom Right 
+	glEnd();
+
+	//--------------------------------------------------------------------------------------
+	//  CREATES STUDENT HUB LEDGE FOR LEFT WINDOW
+	//--------------------------------------------------------------------------------------
+	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("WHITE"));
+	glBegin(GL_QUADS);//Draws the chatime ledge
+	//white ledge top
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10300.0, 23200.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2700.0, 10300.0, 26000.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2600.0, 10300.0, 26000.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2600.0, 10300.0, 23200.0);    // Bottom Right 
+	//bottom of ledge
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10350.0, 23200.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2700.0, 10350.0, 26000.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2600.0, 10350.0, 26000.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2600.0, 10350.0, 23200.0);    // Bottom Right 
+	//front face
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10350.0, 23200.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2700.0, 10350.0, 26000.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2700.0, 10300.0, 26000.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10300.0, 23200.0);    // Bottom Right 
+	//right side
+	glTexCoord2i(0, 0); glVertex3f(2600.0, 10350.0, 26000.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2700.0, 10350.0, 26000.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2700.0, 10300.0, 26000.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2600.0, 10300.0, 26000.0);    // Bottom Right 
+	//left side
+	glTexCoord2i(0, 0); glVertex3f(2600.0, 10350.0, 23200.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2700.0, 10350.0, 23200.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2700.0, 10300.0, 23200.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2600.0, 10300.0, 23200.0);    // Bottom Right 
+	glEnd();
+
 }
 
 void DrawBackdropNew() {
