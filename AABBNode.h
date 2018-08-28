@@ -6,8 +6,6 @@
 //  Shay Leary, March 2005
 //--------------------------------------------------------------------------------------
 
-#ifndef AABBNODE_H
-#define AABBNODE_H
 
 #include <vector>
 #include <GL/glut.h>
@@ -72,5 +70,4 @@ private:
     AABBNode &operator = (const AABBNode &newNode) {};
 };
 
-#endif
 //--------------------------------------------------------------------------------------
