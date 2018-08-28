@@ -5,6 +5,7 @@
 #include <vector>
 #include <SDL.h>
 
+
 struct Audio_Effect {
 	Uint32 au_length;
 	Uint8 *au_buffer;
