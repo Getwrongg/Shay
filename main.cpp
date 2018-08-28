@@ -1025,6 +1025,8 @@ void CreateJPGTextures() {
 
 	jpeg.CreateTexture("STUDENTHUBWINDOW1", "data/StudentHubWindow1.jpg");
 
+	jpeg.CreateTexture("COUNSELLINGENTRANCE", "data/CounsellingEntrance.jpg");
+
 }
 
 void CreateTextures()
@@ -2133,7 +2135,7 @@ void drawChaTimeLedge(){
 }
 
 //draws student hub entrance anad windows
-void DrawStudentHubEntrance() {
+void DrawStudentHub() {
 
 	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("STUDENTHUBENTRANCE"));
 	glBegin(GL_QUADS);//Draws the student hub entance shop
@@ -2305,6 +2307,17 @@ void DrawStudentHubEntrance() {
 
 }
 
+void DrawCounsellingEntrance() {
+
+	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("COUNSELLINGENTRANCE"));
+	glBegin(GL_QUADS);//Draws the student hub entance shop
+	glTexCoord2i(0, 0); glVertex3f(2665.0, 10900.0, 30000.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2665.0, 10900.0, 28800.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2665.0, 10000.0, 28800.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2665.0, 10000.0, 30000.0);    // Bottom Right 
+	glEnd();
+}
+
 void DrawBackdropNew() {
 
 	DrawMyFaceBanner(); // for my face banner
@@ -2330,7 +2343,9 @@ void DrawBackdropNew() {
 
 	DrawHorizontalRoofPillar();
 
-	DrawStudentHubEntrance();
+	DrawStudentHub();
+
+	DrawCounsellingEntrance();
 
 	chaTime();
 }
