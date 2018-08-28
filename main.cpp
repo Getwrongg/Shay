@@ -1021,6 +1021,10 @@ void CreateJPGTextures() {
 
 	jpeg.CreateTexture("WHITE", "data/white.jpg");
 
+	jpeg.CreateTexture("STUDENTHUBENTRANCE", "data/StudentHubEntrance.jpg");
+
+	jpeg.CreateTexture("STUDENTHUBWINDOW1", "data/StudentHubWindow1.jpg");
+
 }
 
 void CreateTextures()
@@ -1904,8 +1908,6 @@ void portal() {
 	glTexCoord2i(1, 0);glVertex3f(28000.0, 10000.0, 12600.0);    // Bottom Right 
 		
 	glEnd();// End Drawing The portal front
-	//glFlush();
-
 }
 
 //draw the right side of campus exit picture
@@ -1918,6 +1920,26 @@ void DrawRightSideExit() {
 	glTexCoord2i(0, 1); glVertex3f(4850.0, 10000.0, 10000.0);    // Bottom Left
 	glTexCoord2i(0, 0); glVertex3f(2400.0, 10000.0, 10000.0);    // Bottom Right 
 	
+	glEnd();
+}
+
+void DrawHorizontalRoofPillar() {
+	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("STONE"));
+	glBegin(GL_QUADS);//Draws horizontal roof pillar 
+	glTexCoord2i(0, 0); glVertex3f(4670.0, 11330.0, 10000.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(4670.0, 11330.0, 41000.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(4670.0, 11135.0, 41000.0);    // Bottom Left
+	glTexCoord2i(0, 1); glVertex3f(4670.0, 11135.0, 10000.0);    // Bottom Right 
+
+	glTexCoord2i(0, 0); glVertex3f(4550.0, 11330.0, 10000.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(4550.0, 11330.0, 41000.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(4550.0, 11135.0, 41000.0);    // Bottom Left
+	glTexCoord2i(0, 1); glVertex3f(4550.0, 11135.0, 10000.0);    // Bottom Right
+
+	glTexCoord2i(0, 0); glVertex3f(4670.0, 11135.0, 10000.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(4670.0, 11135.0, 41000.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(4550.0, 11135.0, 41000.0);    // Bottom Left
+	glTexCoord2i(0, 1); glVertex3f(4550.0, 11135.0, 10000.0);    // Bottom Right
 	glEnd();
 }
 
@@ -2036,48 +2058,43 @@ void chaTime(){
 	//--------------------------------------------------------------------------------------
 	//  CREATES THE PILLARS FOR CHATIME WINDOW
 	//--------------------------------------------------------------------------------------
-	//glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("STONE"));
-	//glBegin(GL_QUADS);//Draws Chatime window pillars
+	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("STONE"));
+	glBegin(GL_QUADS);//Draws Chatime window pillars
+	//right side pillar
 	//right face
-	//glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 15500.0);    // Top Right 
-	//glTexCoord2i(0, 1); glVertex3f(2600.0, 10900.0, 15500.0);    // Top Left 
-	//glTexCoord2i(1, 1); glVertex3f(2600.0, 10000.0, 15500.0);    // Bottom Left
-	//glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 15500.0);    // Bottom Right 
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 15500.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2600.0, 10900.0, 15500.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2600.0, 10000.0, 15500.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 15500.0);    // Bottom Right 
 	////front face
-	//glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 13600.0);    // Top Right 
-	//glTexCoord2i(0, 1); glVertex3f(2700.0, 10900.0, 13400.0);    // Top Left 
-	//glTexCoord2i(1, 1); glVertex3f(2700.0, 10000.0, 13400.0);    // Bottom Left
-	//glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 13600.0);    // Bottom Right 
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 15300.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2700.0, 10900.0, 15500.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2700.0, 10000.0, 15500.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 15300.0);    // Bottom Right 
+	//left face
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 15300.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2600.0, 10900.0, 15300.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2600.0, 10000.0, 15300.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 15300.0);    // Bottom Right
+	
+	//left side pillar
+	//right face
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 17200.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2600.0, 10900.0, 17200.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2600.0, 10000.0, 17200.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 17200.0);    // Bottom Right 
+	//front face
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 17200.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2700.0, 10900.0, 17400.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2700.0, 10000.0, 17400.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 17200.0);    // Bottom Right 
 	////left face
-	//glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 13400.0);    // Top Right 
-	//glTexCoord2i(0, 1); glVertex3f(2600.0, 10900.0, 13400.0);    // Top Left 
-	//glTexCoord2i(1, 1); glVertex3f(2600.0, 10000.0, 13400.0);    // Bottom Left
-	//glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 13400.0);    // Bottom Right 																 //right side pillar
-	////right face
-	//glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 11300.0);    // Top Right 
-	//glTexCoord2i(0, 1); glVertex3f(2600.0, 10900.0, 11300.0);    // Top Left 
-	//glTexCoord2i(1, 1); glVertex3f(2600.0, 10000.0, 11300.0);    // Bottom Left
-	//glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 11300.0);    // Bottom Right 
-	////front face
-	//glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 11500.0);    // Top Right 
-	//glTexCoord2i(0, 1); glVertex3f(2700.0, 10900.0, 11300.0);    // Top Left 
-	//glTexCoord2i(1, 1); glVertex3f(2700.0, 10000.0, 11300.0);    // Bottom Left
-	//glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 11500.0);    // Bottom Right 
-	////left face
-	//glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 11500.0);    // Top Right 
-	//glTexCoord2i(0, 1); glVertex3f(2600.0, 10900.0, 11500.0);    // Top Left 
-	//glTexCoord2i(1, 1); glVertex3f(2600.0, 10000.0, 11500.0);    // Bottom Left
-	//glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 11500.0);    // Bottom Right 
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 17400.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2600.0, 10900.0, 17400.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2600.0, 10000.0, 17400.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 17400.0);    // Bottom Right 
 
-	////top pillar
-	////bottom face
-	//glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 13600.0);    // Top Right 
-	//glTexCoord2i(0, 1); glVertex3f(2700.0, 10900.0, 13400.0);    // Top Left 
-	//glTexCoord2i(1, 1); glVertex3f(2665.0, 10900.0, 13400.0);    // Bottom Left
-	//glTexCoord2i(1, 0); glVertex3f(2665.0, 10900.0, 13600.0);    // Bottom Right 	
-
-
-	//glEnd();
+	glEnd();
 
 }
 
@@ -2114,6 +2131,34 @@ void drawChaTimeLedge(){
 	glEnd();
 }
 
+//draws student hub entrance anad windows
+void DrawStudentHubEntrance() {
+
+	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("STUDENTHUBENTRANCE"));
+	glBegin(GL_QUADS);//Draws the student hub entance shop
+	glTexCoord2i(0, 0); glVertex3f(2665.0, 10900.0, 18500.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2665.0, 10900.0, 20000.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2665.0, 10000.0, 20000.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2665.0, 10000.0, 18500.0);    // Bottom Right 
+	glEnd();
+
+	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("STUDENTHUBWINDOW1"));
+	glBegin(GL_QUADS);//Draws the student hub entance shop
+	glTexCoord2i(0, 0); glVertex3f(2665.0, 10900.0, 20200.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2665.0, 10900.0, 23000.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2665.0, 10300.0, 23000.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2665.0, 10300.0, 20200.0);    // Bottom Right 
+	glEnd();
+
+	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("STUDENTHUBWINDOW1"));
+	glBegin(GL_QUADS);//Draws the student hub entance shop
+	glTexCoord2i(0, 0); glVertex3f(2665.0, 10900.0, 23200.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2665.0, 10900.0, 26000.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2665.0, 10300.0, 26000.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2665.0, 10300.0, 23200.0);    // Bottom Right 
+	glEnd();
+}
+
 void DrawBackdropNew() {
 
 	DrawMyFaceBanner(); // for my face banner
@@ -2136,6 +2181,10 @@ void DrawBackdropNew() {
 	SirWaltersEntrance();
 
 	drawChaTimeLedge();
+
+	DrawHorizontalRoofPillar();
+
+	DrawStudentHubEntrance();
 
 	chaTime();
 }
