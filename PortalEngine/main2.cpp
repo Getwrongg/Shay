@@ -17,7 +17,6 @@ GLdouble rotateSpeed = 0.005;
 
 GLdouble deltaX = 0;
 GLdouble prevX = 0;
-GLdouble horizAngle = 0;
 
 // used for position of the camera
 GLdouble pos[] = {	0.0, 0.0, 5.0,
@@ -29,6 +28,7 @@ GLdouble pos[] = {	0.0, 0.0, 5.0,
 //--------------------------------------------------
 JpegLoader j;
 Cam ourCam;
+Player player;
 
 //--------------------------------------------------
 //	Method Prototypes					
@@ -100,6 +100,51 @@ void MyInit()
 }
 
 //--------------------------------------------------
+//	Main Display Function
+//--------------------------------------------------
+void Display2()
+{
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); 
+	glLoadIdentity();
+
+	// updates camera position
+	ourCam.UpdateCamera();
+
+	glEnable(GL_TEXTURE_2D);
+
+	//DrawSwirl();
+	player.DrawPlayer();
+
+	//glutWireCube(1.0);
+
+		// shows position of the camera
+	//GLdouble *pos = ourCam.GetPosition();
+	//std::cout << pos[0] << "   " << pos[1] << "   " << pos[2] << std::endl;
+
+	glDisable(GL_TEXTURE_2D);
+	glutSwapBuffers();
+}
+
+void CreateTexturesPortalWorld()
+{
+	// draw swirl
+	j.CreateTexture("SWIRL", "data/portalswirl.jpg");
+	player.LoadTexture("SWIRL2", "data/portalswirl.jpg");
+}
+
+void DrawSwirl()
+{
+	glBindTexture(GL_TEXTURE_2D, j.getTextureID("SWIRL"));
+
+	glBegin(GL_POLYGON);
+	glTexCoord2i(0, 0); glVertex3f(-0.5, 1, 0);
+	glTexCoord2i(0, 1); glVertex3f(0.5, 1, 0);
+	glTexCoord2i(1, 1); glVertex3f(0.5, 0, 0);
+	glTexCoord2i(1, 0); glVertex3f(-0.5, 0, 0);
+	glEnd();
+}
+
+//--------------------------------------------------
 //	Resize the screen without problems					
 //--------------------------------------------------
 void Resize(int w, int h)
@@ -123,48 +168,6 @@ void Resize(int w, int h)
 
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-}
-
-//--------------------------------------------------
-//	Main Display Function
-//--------------------------------------------------
-void Display2()
-{
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); 
-	glLoadIdentity();
-
-	// updates camera position
-	ourCam.UpdateCamera();
-
-	glEnable(GL_TEXTURE_2D);
-
-	DrawSwirl();
-	//glutWireCube(1.0);
-
-		// shows position of the camera
-	//GLdouble *pos = ourCam.GetPosition();
-	//std::cout << pos[0] << "   " << pos[1] << "   " << pos[2] << std::endl;
-
-	glDisable(GL_TEXTURE_2D);
-	glutSwapBuffers();
-}
-
-void CreateTexturesPortalWorld()
-{
-	// draw swirl
-	j.CreateTexture("SWIRL", "data/portalswirl.jpg");
-}
-
-void DrawSwirl()
-{
-	glBindTexture(GL_TEXTURE_2D, j.getTextureID("SWIRL"));
-
-	glBegin(GL_POLYGON);
-	glTexCoord2i(0, 0); glVertex3f(-0.5, 1, 0);
-	glTexCoord2i(0, 1); glVertex3f(0.5, 1, 0);
-	glTexCoord2i(1, 1); glVertex3f(0.5, 0, 0);
-	glTexCoord2i(1, 0); glVertex3f(-0.5, 0, 0);
-	glEnd();
 }
 
 //--------------------------------------------------
@@ -216,7 +219,6 @@ void MouseMovement(int x, int y)
 	prevX = x;
 
 	ourCam.Rotest(deltaX);
-
 
 	//glutWarpPointer(screenWidth / 2, screenHeight / 2);
 

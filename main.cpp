@@ -618,7 +618,7 @@ void keys(unsigned char key, int x, int y)
 			break;
 
 		case 'w':
-			cam.DirectionFB(1.5);
+			cam.DirectionFB((int)1.5);
 			game_audio.playAudio("STEPS");
 			break;
 
