@@ -1,5 +1,6 @@
 #include "JpegLoader.h"
 #include "Cam.h"
+#include "Player.h"
 
 #include <iostream>
 

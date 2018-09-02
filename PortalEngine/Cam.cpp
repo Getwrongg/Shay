@@ -3,19 +3,19 @@
 Cam::Cam()
 {
 	// Camera Position
-	view[0] = 0.0;
-	view[1] = 0.0;
-	view[2] = 5.0;
+	pos.x = 0;
+	pos.y = 5;
+	pos.z = 0;
 
 	// Look at
-	view[3] = 0.0;
-	view[4] = 0.0;
-	view[5] = -1.0;
+	look.x = 0;
+	look.y = 0;
+	look.z = 0;
 
 	// Up Vector
-	view[6] = 0.0;
-	view[7] = 1.0;
-	view[8] = 0.0;
+	upVector.x = 0;
+	upVector.y = 1;
+	upVector.z = 0;
 
 	moveSpeed = 0;
 	rotateSpeed = 0;
@@ -32,9 +32,9 @@ Cam::Cam()
 void Cam::CallGluLookat()
 {
 	//glLoadIdentity();
-	gluLookAt(	view[0], view[1], view[2],
-				view[3] + rotateVector[0], view[4] + rotateVector[1], view[5] + rotateVector[2],
-				view[6], view[7], view[8]	);
+	gluLookAt(	pos.x, pos.y, pos.z,
+				look.x + rotateVector[0], look.y + rotateVector[1], look.z + rotateVector[2],
+				upVector.x, upVector.y, upVector.z);
 }
 
 void Cam::DirectionLeftRight(const int dir)
@@ -73,14 +73,14 @@ bool Cam::CanMoveFB()
 
 void Cam::MoveLeftRight()
 {
-	view[0] += (dirLR * moveSpeed);
-	view[3] += (dirLR * moveSpeed);
+	pos.x += (dirLR * moveSpeed);
+	look.x += (dirLR * moveSpeed);
 }
 
 void Cam::MoveForwardBack()
 {
-	view[2] += (dirFB * moveSpeed);
-	view[5] += (dirFB * moveSpeed);
+	pos.z += (dirFB * moveSpeed);
+	look.z += (dirFB * moveSpeed);
 }
 
 void Cam::Rotest(GLdouble deltaX)
@@ -115,29 +115,27 @@ void Cam::SetRotateSpeed(const GLdouble speed)
 	rotateSpeed = speed;
 }
 
-GLdouble * Cam::GetPosition()
+Coordinates & Cam::GetPosition()
 {
-	GLdouble pos[] = { view[0], view[1], view[2] };
-
 	return pos;
 }
 
-void Cam::SetPosition(const GLdouble pos[9])
+void Cam::SetPosition(const GLdouble pos2[9])
 {
 	// looking at
-	view[0] = pos[0];
-	view[1] = pos[1];
-	view[2] = pos[2];
+	pos.x = pos2[0];
+	pos.y = pos2[1];
+	pos.z = pos2[2];
 
 	// position
-	view[3] = pos[3];
-	view[4] = pos[4];
-	view[5] = pos[5];
+	look.x = pos2[3];
+	look.y = pos2[4];
+	look.z = pos2[5];
 
 	// up vector
-	view[6] = pos[6];
-	view[7] = pos[7];
-	view[8] = pos[8];
+	upVector.x = pos2[6];
+	upVector.y = pos2[7];
+	upVector.z = pos2[8];
 
 	CallGluLookat();
 }

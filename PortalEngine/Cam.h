@@ -3,6 +3,8 @@
 #include <GL/glut.h>
 #include <math.h>
 
+#include "Structs.h"
+
 #define PI 3.1415962654 // probs not needed
 
 /**
@@ -91,7 +93,7 @@ public:
 	//--------------------------------------------------
 	//	Getters
 	//--------------------------------------------------
-	GLdouble * GetPosition();
+	Coordinates & GetPosition();
 	
 private:
 	
@@ -130,7 +132,10 @@ private:
 	//	Variables
 	//--------------------------------------------------
 
-	GLdouble view[9]; // for gluLookAt
+	//GLdouble view[9]; // for gluLookAt
+	Coordinates pos;
+	Coordinates look;
+	Coordinates upVector;
 
 	int dirLR, dirFB; // direction either 1 or -1
 
