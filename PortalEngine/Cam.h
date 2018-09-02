@@ -50,16 +50,6 @@ public:
 	void DirectionForwardBack(const int dir);
 
 	/**
-	* @brief  sets the direction of rotate
-	*
-	*
-	*@param const GLdouble dir
-	*
-	* @return void
-	*/
-	void DirectionRotateLR(const GLdouble dir);
-
-	/**
 	* @brief moves the camera left or right
 	*
 	* depending on DirectionLeftRight
@@ -79,7 +69,7 @@ public:
 	*/
 	void MoveForwardBack();
 
-	void RotateLR();
+	void Rotest(GLdouble deltaX);
 
 	/**
 	* @brief updates the position of the camera
@@ -125,15 +115,6 @@ private:
 	*/
 	bool CanMoveFB();
 
-	/**
-	* @brief asks if the camera can rotate left or right
-	*
-	* returns true if dirRotate is !0
-	*
-	*
-	* @return bool
-	*/
-	bool CanRotateLR();
 
 	/**
 	* @brief calls function gluLookAt()
@@ -153,8 +134,8 @@ private:
 
 	int dirLR, dirFB; // direction either 1 or -1
 
-	GLdouble dirRotate; // direction of rotation
 	GLdouble rotateAngle; // probs delete
+	GLdouble rotateVector[3];
 
 	GLdouble moveSpeed; // speed of camera movement
 

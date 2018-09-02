@@ -21,15 +21,19 @@ Cam::Cam()
 	rotateSpeed = 0;
 	dirLR = 0;
 	dirFB = 0;
-	dirRotate = 0;
+
+	// variables for rotation
 	rotateAngle = 0;
+	rotateVector[0] = 0;
+	rotateVector[1] = 0;
+	rotateVector[1] = 0;
 }
 
 void Cam::CallGluLookat()
 {
 	//glLoadIdentity();
 	gluLookAt(	view[0], view[1], view[2],
-				view[3], view[4], view[5],
+				view[3] + rotateVector[0], view[4] + rotateVector[1], view[5] + rotateVector[2],
 				view[6], view[7], view[8]	);
 }
 
@@ -41,11 +45,6 @@ void Cam::DirectionLeftRight(const int dir)
 void Cam::DirectionForwardBack(const int dir)
 {
 	dirFB = dir;
-}
-
-void Cam::DirectionRotateLR(const GLdouble dir)
-{
-	dirRotate = dir * rotateSpeed;
 }
 
 bool Cam::CanMoveLR()
@@ -72,18 +71,6 @@ bool Cam::CanMoveFB()
 	}
 }
 
-bool Cam::CanRotateLR()
-{
-	if (dirRotate/rotateSpeed < 0 || dirRotate/rotateSpeed > 0)
-	{
-		return true;
-	}
-	else
-	{
-		return false;
-	}
-}
-
 void Cam::MoveLeftRight()
 {
 	view[0] += (dirLR * moveSpeed);
@@ -96,15 +83,12 @@ void Cam::MoveForwardBack()
 	view[5] += (dirFB * moveSpeed);
 }
 
-void Cam::RotateLR()
+void Cam::Rotest(GLdouble deltaX)
 {
-	rotateAngle += dirRotate;
+	rotateAngle += deltaX * rotateSpeed;
 
-	view[3] = sin(rotateAngle);
-	view[5] = -cos(rotateAngle);
-
-	view[6] = sin(rotateAngle + (float)PI / 2.0);
-	view[8] = -cos(rotateAngle + (float)PI / 2.0);
+	rotateVector[0] = sin(rotateAngle);
+	rotateVector[2] = -cos(rotateAngle);
 }
 
 void Cam::UpdateCamera()
@@ -116,10 +100,6 @@ void Cam::UpdateCamera()
 	if (CanMoveFB())
 	{
 		MoveForwardBack();
-	}
-	if (CanRotateLR())
-	{
-		RotateLR();
 	}
 
 	CallGluLookat();
@@ -137,7 +117,7 @@ void Cam::SetRotateSpeed(const GLdouble speed)
 
 GLdouble * Cam::GetPosition()
 {
-	GLdouble pos[] = { view[3], view[4], view[5] };
+	GLdouble pos[] = { view[0], view[1], view[2] };
 
 	return pos;
 }
