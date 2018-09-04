@@ -13,16 +13,16 @@
 int screenWidth, screenHeight;
 
 // camera variables
-GLdouble moveSpeed = 0.003;
+GLdouble moveSpeed = 0.05;
 GLdouble rotateSpeed = 0.005;
-GLdouble angle = 0;
 
 int deltaX = 0;
-int deltaY = 0;
-//int prevX = 0;	
+int deltaY = 0;	
 
+// used to set camera position
 GLdouble pos[] = { 0, 0, 5 };
 GLdouble upVec[] = { 0, 1, 0 };
+GLdouble angle = 0;
 
 //--------------------------------------------------
 //	Object Declarations					
@@ -63,8 +63,6 @@ int main2()
 
 	glutPassiveMotionFunc(MouseMovement);
 	glutSetCursor(GLUT_CURSOR_NONE); // hides cursor
-
-	
 	
 	glutMainLoop();
 
@@ -123,11 +121,11 @@ void Display2()
 	//player.DrawPlayer();
 
 	world.Ground(); ///Draws the ground with texture
-
+	world.Bushes();
 	world.Axis();///Draws the axis for testing
 	world.Cubes();
 
-	glutWireCube(1.0);
+	//glutWireCube(1.0);
 
 	glDisable(GL_TEXTURE_2D);
 	glutSwapBuffers();
@@ -139,6 +137,8 @@ void CreateTexturesPortalWorld()
 	j.CreateTexture("SWIRL", "data/portalswirl.jpg");
 	player.LoadTexture("SWIRL2", "data/portalswirl.jpg");
 	world.CreateTextures("SWIRL3", "data/portalswirl.jpg");
+	
+	
 }
 
 void DrawSwirl()
@@ -185,10 +185,10 @@ void Keyboard(unsigned char key, int x, int y)
 	switch (key)
 	{
 	case 'w':
-		ourCam.DirectionForwardBack(-1);
+		ourCam.DirectionForwardBack(1);
 		break;
 	case 's':
-		ourCam.DirectionForwardBack(1);
+		ourCam.DirectionForwardBack(-1);
 		break;
 	case 'a':
 		ourCam.DirectionLeftRight(-1);
@@ -224,7 +224,6 @@ void MouseMovement(int x, int y)
 {
 	deltaX = x - (screenWidth / 2);
 	deltaY = y - (screenHeight / 2);
-	//prevX = x;
 
 	glutWarpPointer(screenWidth / 2, screenHeight / 2); // returns the cursur to the center of the screen after each frame
 
