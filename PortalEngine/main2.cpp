@@ -42,7 +42,6 @@ void Keyboard(unsigned char key, int x, int y);
 void MouseMovement(int x, int y);
 void ReleaseKeyboard(unsigned char key, int x, int y);
 void CreateTexturesPortalWorld();
-void DrawSwirl();
 
 //--------------------------------------------------
 //	Main Program					
@@ -117,7 +116,6 @@ void Display2()
 
 	glEnable(GL_TEXTURE_2D);
 
-	//DrawSwirl();
 	//player.DrawPlayer();
 
 	world.Ground(); ///Draws the ground with texture
@@ -133,22 +131,8 @@ void Display2()
 
 void CreateTexturesPortalWorld()
 {
-	// draw swirl
-	j.CreateTexture("SWIRL", "data/portalswirl.jpg");
 	player.LoadTexture("SWIRL2", "data/portalswirl.jpg");
 	world.CreateTextures("SWIRL3", "data/portalswirl.jpg");
-}
-
-void DrawSwirl()
-{
-	glBindTexture(GL_TEXTURE_2D, j.getTextureID("SWIRL"));
-
-	glBegin(GL_POLYGON);
-	glTexCoord2i(0, 0); glVertex3f(-0.5, 1, 0);
-	glTexCoord2i(0, 1); glVertex3f(0.5, 1, 0);
-	glTexCoord2i(1, 1); glVertex3f(0.5, 0, 0);
-	glTexCoord2i(1, 0); glVertex3f(-0.5, 0, 0);
-	glEnd();
 }
 
 //--------------------------------------------------
@@ -220,6 +204,7 @@ void ReleaseKeyboard(unsigned char key, int x, int y)
 
 void MouseMovement(int x, int y)
 {
+	// gets the difference between the current position of the mouse and the center of the screen
 	deltaX = x - (screenWidth / 2);
 	deltaY = y - (screenHeight / 2);
 
