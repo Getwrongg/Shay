@@ -9,6 +9,7 @@ class World
 {
 public:
 	World();
+	void CreateTextures(const std::string name, const char * filePath);
 	void Ground();
 	void Cubes();
 	void Axis();
