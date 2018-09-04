@@ -12,7 +12,6 @@ Cube::Cube(const GLdouble x1, const GLdouble y1, const GLdouble z1)
 	pos.z = z1;
 }
 
-
 Cube::~Cube()
 {
 }
