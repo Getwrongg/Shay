@@ -223,7 +223,7 @@ void MouseMovement(int x, int y)
 	deltaY = y - (screenHeight / 2);
 	//prevX = x;
 
-	glutWarpPointer(screenWidth / 2, screenHeight / 2);
+	glutWarpPointer(screenWidth / 2, screenHeight / 2); // returns the cursur to the center of the screen after each frame
 
-	ourCam.Rotate(deltaX, deltaY);
+	ourCam.Rotate(deltaX, deltaY); // rotates the camera
 }

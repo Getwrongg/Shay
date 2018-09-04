@@ -18,11 +18,11 @@ Cam::Cam()
 	upVector.z = 0;
 
 	moveSpeed = 0;
-	rotateSpeed = 0;
 	dirLR = 0;
 	dirFB = 0;
 
 	// variables for rotation
+	rotateSpeed = 0;
 	rotateAngle = 0;
 	rotateUD = 0;
 	rotateVector[0] = 0;
@@ -34,7 +34,7 @@ void Cam::CallGluLookat()
 {
 	//glLoadIdentity();
 	gluLookAt(	pos.x, pos.y, pos.z,
-				look.x + rotateVector[0], look.y + rotateVector[1], look.z + rotateVector[2],
+				pos.x + rotateVector[0], pos.y + rotateVector[1], pos.z + rotateVector[2],
 				upVector.x, upVector.y, upVector.z);
 }
 
@@ -86,8 +86,8 @@ void Cam::MoveForwardBack()
 
 void Cam::Rotate(int deltaX, int deltaY)
 {
-	rotateAngle -= deltaX * rotateSpeed; // maybe change to +=
-	rotateUD += deltaY * rotateSpeed;
+	rotateAngle += deltaX * rotateSpeed; // maybe change to +=
+	rotateUD -= deltaY * rotateSpeed;
 
 	rotateVector[0] = sin(rotateAngle);
 	rotateVector[2] = -cos(rotateAngle);
