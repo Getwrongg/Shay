@@ -50,7 +50,37 @@ void World::Ground()
 
 void World::Cubes()
 {
-	cube.Draw();
+
+	//First Pillar
+	cube.Draw(0, -1, 0);//bottom
+	cube.Draw(0, 0, 0);
+	cube.Draw(0, 1, 0);
+
+	cube.Draw(0, 4, 0);//top
+	cube.Draw(0, 5, 0);
+	cube.Draw(0, 6, 0);
+
+	//Second Pillar
+	cube.Draw(3, -1 ,0);//bottom
+	cube.Draw(3, 0, 0);
+	
+	
+	cube.Draw(3, 3, 0);//top
+	cube.Draw(3, 4, 0);
+	cube.Draw(3, 5, 0);
+	cube.Draw(3, 6, 0);
+
+	//Third Pillar
+	cube.Draw(6, -1, 0);//bottom
+	cube.Draw(6, 0, 0);
+	cube.Draw(6, 1, 0);
+
+	cube.Draw(6, 4, 0);//top
+	cube.Draw(6, 5, 0);
+	cube.Draw(6, 6, 0);
+
+	
+
 }
 
 

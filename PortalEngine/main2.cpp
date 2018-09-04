@@ -13,18 +13,16 @@
 int screenWidth, screenHeight;
 
 // camera variables
-GLdouble moveSpeed = 0.03;
+GLdouble moveSpeed = 0.005;
 GLdouble rotateSpeed = 0.005;
 
 int deltaX = 0;
-int deltaY = 0;
-//int prevX = 0;
+int deltaY = 0;	
 
-
-// used for position of the camera
-GLdouble pos[] = {	0.0, 0.0, 5.0,
-					0.0, 0.0, -1.0,
-					0.0, 1.0, 0.0 };
+// used to set camera position
+GLdouble pos[] = { 0, 0, 5 };
+GLdouble upVec[] = { 0, 1, 0 };
+GLdouble angle = 0;
 
 //--------------------------------------------------
 //	Object Declarations					
@@ -42,7 +40,6 @@ void MyInit();
 void Resize(int w, int h);
 void Keyboard(unsigned char key, int x, int y);
 void MouseMovement(int x, int y);
-void MouseButton(int button, int state, int x, int y); // not used atm
 void ReleaseKeyboard(unsigned char key, int x, int y);
 void CreateTexturesPortalWorld();
 void DrawSwirl();
@@ -66,8 +63,6 @@ int main2()
 
 	glutPassiveMotionFunc(MouseMovement);
 	glutSetCursor(GLUT_CURSOR_NONE); // hides cursor
-
-	
 	
 	glutMainLoop();
 
@@ -101,7 +96,7 @@ void MyInit()
 
 	ourCam.SetMoveSpeed(moveSpeed); // sets movement speed of camera
 	ourCam.SetRotateSpeed(rotateSpeed); // sets rotate speed of camera
-	ourCam.SetPosition(pos); // sets position of the camera in the world
+	ourCam.SetPosition(pos, upVec, angle); // sets position of the camera in the world
 
 	player.SetPosition(0, 0, 0); // sets position of the player
 
@@ -130,7 +125,7 @@ void Display2()
 	world.Axis();///Draws the axis for testing
 	world.Cubes();
 
-	glutWireCube(1.0);
+	//glutWireCube(1.0);
 
 	glDisable(GL_TEXTURE_2D);
 	glutSwapBuffers();
@@ -170,8 +165,6 @@ void Resize(int w, int h)
 		h = 1;
 	}
 
-	GLdouble aspect = 1.0 * (w / h);
-
 	glViewport(0, 0, (GLsizei)w, (GLsizei)h);
 
 	glMatrixMode(GL_PROJECTION);
@@ -179,7 +172,7 @@ void Resize(int w, int h)
 	gluPerspective(60.0, (GLfloat)w / (GLfloat)h, 0.1, 100.0);
 
 	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
+	//glLoadIdentity();
 }
 
 //--------------------------------------------------
@@ -190,10 +183,10 @@ void Keyboard(unsigned char key, int x, int y)
 	switch (key)
 	{
 	case 'w':
-		ourCam.DirectionForwardBack(-1);
+		ourCam.DirectionForwardBack(1);
 		break;
 	case 's':
-		ourCam.DirectionForwardBack(1);
+		ourCam.DirectionForwardBack(-1);
 		break;
 	case 'a':
 		ourCam.DirectionLeftRight(-1);
@@ -229,7 +222,6 @@ void MouseMovement(int x, int y)
 {
 	deltaX = x - (screenWidth / 2);
 	deltaY = y - (screenHeight / 2);
-	//prevX = x;
 
 	glutWarpPointer(screenWidth / 2, screenHeight / 2); // returns the cursur to the center of the screen after each frame
 

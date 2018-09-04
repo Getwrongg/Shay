@@ -12,7 +12,7 @@
 * @brief  used to represent a camera object
 *
 *
-* @author ClickBait Inc
+* @author ClickBait Inc - Manu Murray
 * @version 01
 * @date 27/08/2018 // date is in Australian format.
 *
@@ -51,7 +51,16 @@ public:
 	*/
 	void DirectionForwardBack(const int dir);
 
-	void Rotate(int deltaX, int deltaY);
+	/**
+	* @brief Rotates the camera LR and UP
+	*
+	* using the mouse input xy
+	*
+	* @param const int deltaX, const int deltaY
+	*
+	* @return void
+	*/
+	void Rotate(const int deltaX, const int deltaY);
 
 	/**
 	* @brief updates the position of the camera
@@ -68,7 +77,7 @@ public:
 	//--------------------------------------------------
 	void SetMoveSpeed(const GLdouble speed);
 	void SetRotateSpeed(const GLdouble speed);
-	void SetPosition(const GLdouble pos[9]);
+	void SetPosition(const GLdouble xyz[3], const GLdouble upVec[3], const GLdouble angle);
 
 	//--------------------------------------------------
 	//	Getters
@@ -131,18 +140,15 @@ private:
 	//	Variables
 	//--------------------------------------------------
 
-	//GLdouble view[9]; // for gluLookAt
-	Coordinates pos;
-	Coordinates look;
-	Coordinates upVector;
+	Coordinates pos; // position of the camera
+	Coordinates look; // used for mouse movement
+	Coordinates upVector; // used for strafing
 
 	int dirLR, dirFB; // direction either 1 or -1
 
-	GLdouble rotateAngle; // probs delete
+	GLdouble rotateAngle;
 	GLdouble rotateUD;
-	GLdouble rotateVector[3];
 
 	GLdouble moveSpeed; // speed of camera movement
-
 	GLdouble rotateSpeed; // speed of camera rotation
 };

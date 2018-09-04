@@ -25,17 +25,14 @@ Cam::Cam()
 	rotateSpeed = 0;
 	rotateAngle = 0;
 	rotateUD = 0;
-	rotateVector[0] = 0;
-	rotateVector[1] = 0;
-	rotateVector[2] = 0;
 }
 
 void Cam::CallGluLookat()
 {
 	//glLoadIdentity();
 	gluLookAt(	pos.x, pos.y, pos.z,
-				pos.x + rotateVector[0], pos.y + rotateVector[1], pos.z + rotateVector[2],
-				upVector.x, upVector.y, upVector.z);
+				pos.x + look.x, pos.y + look.y, pos.z + look.z,
+				0, 1, 0);
 }
 
 void Cam::DirectionLeftRight(const int dir)
@@ -74,24 +71,32 @@ bool Cam::CanMoveFB()
 
 void Cam::MoveLeftRight()
 {
-	pos.x += (dirLR * moveSpeed);
-	look.x += (dirLR * moveSpeed);
+	pos.z += (dirLR * (upVector.z) * moveSpeed);
+	pos.x += (dirLR * (upVector.x) * moveSpeed);
 }
 
 void Cam::MoveForwardBack()
 {
-	pos.z += (dirFB * moveSpeed);
-	look.z += (dirFB * moveSpeed);
+	pos.z += (dirFB * (look.z) * moveSpeed);
+	pos.x += (dirFB * (look.x) * moveSpeed);
 }
 
-void Cam::Rotate(int deltaX, int deltaY)
+void Cam::Rotate(const int deltaX, const int deltaY)
 {
-	rotateAngle += deltaX * rotateSpeed; // maybe change to +=
+	rotateAngle += deltaX * rotateSpeed;
 	rotateUD -= deltaY * rotateSpeed;
 
-	rotateVector[0] = sin(rotateAngle);
-	rotateVector[2] = -cos(rotateAngle);
-	rotateVector[1] = sin(rotateUD);
+	// left and right
+	look.x = sin(rotateAngle);
+	look.z = -cos(rotateAngle);
+
+	// up and down
+	look.y = sin(rotateUD);
+
+	// used to allow strafing
+	upVector.x = sin(rotateAngle+ (float)PI / 2.0);
+	upVector.z = -cos(rotateAngle + (float)PI / 2.0);
+
 
 }
 
@@ -124,22 +129,24 @@ Coordinates & Cam::GetPosition()
 	return pos;
 }
 
-void Cam::SetPosition(const GLdouble pos2[9])
+void Cam::SetPosition(const GLdouble xyz[3], const GLdouble upVec[3], const GLdouble angle)
 {
-	// looking at
-	pos.x = pos2[0];
-	pos.y = pos2[1];
-	pos.z = pos2[2];
-
 	// position
-	look.x = pos2[3];
-	look.y = pos2[4];
-	look.z = pos2[5];
+	pos.x = xyz[0];
+	pos.y = xyz[1];
+	pos.z = xyz[2];
 
 	// up vector
-	upVector.x = pos2[6];
-	upVector.y = pos2[7];
-	upVector.z = pos2[8];
+	upVector.x = upVec[0];
+	upVector.y = upVec[1];
+	upVector.z = upVec[2];
+
+	// looking at
+	rotateAngle = angle * (PI / 180);
+
+	// left and right
+	look.x = sin(rotateAngle);
+	look.z = -cos(rotateAngle);
 
 	CallGluLookat();
 }
