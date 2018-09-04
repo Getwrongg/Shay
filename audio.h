@@ -4,29 +4,29 @@
 #include <map>
 #include <vector>
 #include <SDL.h>
+#include <SDL_mixer.h>
 
+//http://lazyfoo.net/SDL_tutorials/lesson11/index.php
 
-struct Audio_Effect {
-	Uint32 au_length;
-	Uint8 *au_buffer;
-	SDL_AudioSpec au_audio;
-	SDL_AudioDeviceID au_ID;
-};
+//Channel Usage:
+//Channel 1: Ambience/Game Music
+//Channel 2: Walking steps
 
 class Audio
 {
 public:
 	Audio();
 	~Audio();
-	void playAudio(const std::string Audio_Name);
-	void stopAudio(const std::string Audio_Name);
 
-	const void CreateAudio(const std::string Audio_Name, const char* audiofile);
+	void playAudioChannel(const std::string Audio_Name, const int channel, const int playNum); //channel = channel to play this audio on, playNum = number of times to play audio: -1=loop, 0-1=play once
+	void playAudio(const std::string Audio_Name, const int playNum); // Play audio on any free channel
 
+	void pauseAudio(const int channel); //Pause all audio on inputed channel, -1 for all channels
+	const void LoadWAV(const std::string Audio_Name, const char* audiofile);
 	
 
 private:
-	std::map< std::string, Audio_Effect> Audio_Files;
+	std::map<std::string, Mix_Chunk*> Audio_Files;
 	std::vector<std::string> Audio_Names; //Only used for destructor 
 };
 

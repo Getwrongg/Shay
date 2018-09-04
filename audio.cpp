@@ -1,6 +1,45 @@
 #include "audio.h"
 
 
+Audio::Audio() {
+	SDL_Init(SDL_INIT_AUDIO);
+	Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 4096);
+}
+
+Audio::~Audio() {
+	for (int i = 0; i < Audio_Names.size(); i++) {
+		Mix_FreeChunk(Audio_Files.find(Audio_Names[i])->second);
+	}
+	Mix_CloseAudio();
+	SDL_Quit();
+}
+
+const void Audio::LoadWAV(const std::string Audio_Name, const char* audiofile) {
+	Audio_Files[Audio_Name] = Mix_LoadWAV(audiofile);
+	Audio_Names.push_back(Audio_Name);
+}
+
+void Audio::playAudioChannel(const std::string Audio_Name, const int channel, const int playNum) {
+	Mix_PlayChannel(channel, Audio_Files.find(Audio_Name)->second, playNum);
+}
+
+void Audio::playAudio(const std::string Audio_Name, const int playNum) {
+	Mix_PlayChannel(-1, Audio_Files.find(Audio_Name)->second, playNum);
+}
+
+void Audio::pauseAudio(const int channel) {
+	Mix_Pause(channel);
+}
+
+
+
+
+
+
+
+
+
+/*
 Audio::Audio(){
 	SDL_Init(SDL_INIT_AUDIO);
 }
@@ -44,3 +83,4 @@ const void Audio::CreateAudio(const std::string Audio_Name, const char* audiofil
 	}
 
 }
+*/

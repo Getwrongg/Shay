@@ -7,6 +7,11 @@
 #include <map>
 #include <string>
 
+//for gif?? https://stackoverflow.com/questions/49385200/loading-gif-with-devil-c
+//http://openil.sourceforge.net/docs/DevIL%20Manual.pdf
+
+
+
 	/**
 	* @class JpegLoader
 	* @brief  Used to load in .jpg images to use as textures.
@@ -55,7 +60,7 @@ private:
 	*
 	* @return void
 	*/
-	void setTextureList(const std::string TName, const GLuint TexID);
+	bool setTextureList(const std::string TName, const GLuint TexID);
 
 	//--------------------------------------------------
 	//	Variables

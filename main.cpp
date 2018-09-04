@@ -523,7 +523,7 @@ void myinit()
 
 	CreateJPGTextures();
 	LoadGameSounds();
-	game_audio.playAudio("AMBIENCE");
+	game_audio.playAudioChannel("AMBIENCE", 1, -2);
 
 }
 
@@ -619,11 +619,12 @@ void keys(unsigned char key, int x, int y)
 
 		case 'w':
 			cam.DirectionFB((int)1.5);
-			game_audio.playAudio("STEPS");
+			game_audio.playAudioChannel("STEPS", 2, -1);
 			break;
 
 		case 's':
 			cam.DirectionFB(-1);
+			game_audio.playAudioChannel("STEPS", 2, -1);
 			break;
 
 		// display campus map
@@ -741,6 +742,7 @@ void releaseKeys(unsigned char key, int x, int y)
 		case 'w':
 		case 's':
 			cam.DirectionFB(0);
+			game_audio.pauseAudio(2);
 			break;
 
 		
@@ -985,8 +987,9 @@ void DeleteImageFromMemory(unsigned char* tempImage)
 
 void LoadGameSounds() {
 	
-	game_audio.CreateAudio("AMBIENCE", "sounds/ambience.wav");
-	game_audio.CreateAudio("STEPS", "sounds/walking.wav");
+	//game_audio.LoadWAV("AMBIENCE", "sounds/ambience.wav");
+	game_audio.LoadWAV("STEPS", "sounds/walking.wav");
+	
 }
 
 
