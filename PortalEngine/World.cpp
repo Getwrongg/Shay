@@ -9,6 +9,8 @@ World::World()
 void World::CreateTextures(const std::string name, const char * filePath)
 {
 	j.CreateTexture("SWIRL", "data/portalswirl.jpg");
+	
+	j.CreateTexture("pillar", "data/pillarTexture.jpg");
 
 }
 
@@ -52,6 +54,7 @@ void World::Cubes()
 {
 
 	//First Pillar
+	glBindTexture(GL_TEXTURE_2D, j.getTextureID("pillar"));
 	cube.Draw(0, -1, 0);//bottom
 	cube.Draw(0, 0, 0);
 	cube.Draw(0, 1, 0);
@@ -80,7 +83,44 @@ void World::Cubes()
 	cube.Draw(6, 6, 0);
 
 	
-
+	
 }
 
+void World::Bushes()
+{
 
+	for (float i = -1.5; i > -3; i = i - 0.1) 
+	{
+		for (float j=2;j>0;j=j-0.1)
+		{
+			for(float k=-1;k<1;k=k+0.1)
+			{
+				glBegin(GL_TRIANGLES);
+				glVertex3f(-2, 0, 0);
+				glVertex3f(i, j, k);
+				glVertex3f(-1, 0, 0);
+				glEnd();
+			}
+			
+		}
+		
+	}
+
+	for (float i = -1.5; i < 0; i = i + 0.1)
+	{
+		for (float j = 2; j>0; j = j - 0.1)
+		{
+			for (float k = -1; k<1; k = k + 0.1)
+			{
+				glBegin(GL_TRIANGLES);
+				glVertex3f(-2, 0, 0);
+				glVertex3f(i, j, k);
+				glVertex3f(-1, 0, 0);
+				glEnd();
+			}
+		}
+
+	}
+	
+
+}

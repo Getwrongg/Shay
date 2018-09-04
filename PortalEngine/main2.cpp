@@ -13,7 +13,7 @@
 int screenWidth, screenHeight;
 
 // camera variables
-GLdouble moveSpeed = 0.005;
+GLdouble moveSpeed = 0.05;
 GLdouble rotateSpeed = 0.005;
 
 int deltaX = 0;
@@ -119,7 +119,7 @@ void Display2()
 	//player.DrawPlayer();
 
 	world.Ground(); ///Draws the ground with texture
-
+	world.Bushes();
 	world.Axis();///Draws the axis for testing
 	world.Cubes();
 
@@ -133,6 +133,8 @@ void CreateTexturesPortalWorld()
 {
 	player.LoadTexture("SWIRL2", "data/portalswirl.jpg");
 	world.CreateTextures("SWIRL3", "data/portalswirl.jpg");
+	
+	
 }
 
 //--------------------------------------------------
