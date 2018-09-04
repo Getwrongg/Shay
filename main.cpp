@@ -456,8 +456,8 @@ int main(int argc, char **argv)
 	myinit();
 
 	// these two lines transition the program to portal world. Delete if you want to work on shay's world.
-	/*inPortal = true;
-	main2();*/
+	inPortal = true;
+	main2();
 
 	glutIgnoreKeyRepeat(1); // removed this so we can hold down to move up or down
 	glutKeyboardUpFunc (releaseKeys);
@@ -619,12 +619,12 @@ void keys(unsigned char key, int x, int y)
 
 		case 'w':
 			cam.DirectionFB((int)1.5);
-			game_audio.playAudioChannel("STEPS", 2, -1);
+			game_audio.playAudioChannel("STEPS", 1, -1);
 			break;
 
 		case 's':
 			cam.DirectionFB(-1);
-			game_audio.playAudioChannel("STEPS", 2, -1);
+			game_audio.playAudioChannel("STEPS", 1, -1);
 			break;
 
 		// display campus map
@@ -742,7 +742,7 @@ void releaseKeys(unsigned char key, int x, int y)
 		case 'w':
 		case 's':
 			cam.DirectionFB(0);
-			game_audio.pauseAudio(2);
+			game_audio.stopAudio(1);
 			break;
 
 		
