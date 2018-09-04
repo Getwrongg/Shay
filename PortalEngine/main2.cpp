@@ -142,6 +142,7 @@ void CreateTexturesPortalWorld()
 	// draw swirl
 	j.CreateTexture("SWIRL", "data/portalswirl.jpg");
 	player.LoadTexture("SWIRL2", "data/portalswirl.jpg");
+	world.CreateTextures("SWIRL3", "data/portalswirl.jpg");
 }
 
 void DrawSwirl()
@@ -172,11 +173,11 @@ void Resize(int w, int h)
 
 	GLdouble aspect = 1.0 * (w / h);
 
+	glViewport(0, 0, (GLsizei)w, (GLsizei)h);
+
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-
-	glViewport(0, 0, w, h);
-	gluPerspective(60.0, aspect, 0.1, 100.0);
+	gluPerspective(60.0, (GLfloat)w / (GLfloat)h, 0.1, 100.0);
 
 	glMatrixMode(GL_MODELVIEW);
 	//glLoadIdentity();
