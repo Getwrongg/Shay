@@ -13,7 +13,7 @@
 int screenWidth, screenHeight;
 
 // camera variables
-GLdouble moveSpeed = 0.003;
+GLdouble moveSpeed = 0.03;
 GLdouble rotateSpeed = 0.005;
 GLdouble angle = 0;
 
@@ -127,7 +127,7 @@ void Display2()
 	world.Axis();///Draws the axis for testing
 	world.Cubes();
 
-	glutWireCube(1.0);
+	//glutWireCube(1.0);
 
 	glDisable(GL_TEXTURE_2D);
 	glutSwapBuffers();

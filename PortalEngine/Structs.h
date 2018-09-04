@@ -9,3 +9,4 @@ typedef struct
 {
 	GLdouble x, y, z;
 } Coordinates;
+
