@@ -25,9 +25,6 @@ Cam::Cam()
 	rotateSpeed = 0;
 	rotateAngle = 0;
 	rotateUD = 0;
-	rotateVector[0] = 0;
-	rotateVector[1] = 0;
-	rotateVector[2] = 0;
 }
 
 void Cam::CallGluLookat()

@@ -6,7 +6,6 @@ Cube::Cube()
 {
 }
 
-
 Cube::~Cube()
 {
 }

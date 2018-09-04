@@ -138,9 +138,8 @@ private:
 
 	int dirLR, dirFB; // direction either 1 or -1
 
-	GLdouble rotateAngle; // probs delete
+	GLdouble rotateAngle;
 	GLdouble rotateUD;
-	GLdouble rotateVector[3];
 
 	GLdouble moveSpeed; // speed of camera movement
 

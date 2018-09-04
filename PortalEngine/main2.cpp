@@ -18,7 +18,7 @@ GLdouble rotateSpeed = 0.005;
 GLdouble angle = 0;
 
 int deltaX = 0;
-int deltaY = 0;
+int deltaY = 0;	
 //int prevX = 0;	
 
 GLdouble pos[] = { 0, 0, 5 };
