@@ -126,23 +126,19 @@ Coordinates & Cam::GetPosition()
 	return pos;
 }
 
-void Cam::SetPosition(const GLdouble pos2[9], const GLdouble angle)
+void Cam::SetPosition(const GLdouble xyz[3], const GLdouble upVec[3], const GLdouble angle)
 {
-	// looking at
-	pos.x = pos2[0];
-	pos.y = pos2[1];
-	pos.z = pos2[2];
-
 	// position
-	look.x = pos2[3];
-	look.y = pos2[4];
-	look.z = pos2[5];
+	pos.x = xyz[0];
+	pos.y = xyz[1];
+	pos.z = xyz[2];
 
 	// up vector
-	upVector.x = pos2[6];
-	upVector.y = pos2[7];
-	upVector.z = pos2[8];
+	upVector.x = upVec[0];
+	upVector.y = upVec[1];
+	upVector.z = upVec[2];
 
+	// looking at
 	rotateAngle = angle * (PI / 180);
 
 	// left and right

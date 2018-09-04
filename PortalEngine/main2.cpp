@@ -21,11 +21,8 @@ int deltaX = 0;
 int deltaY = 0;
 //int prevX = 0;	
 
-
-// used for position of the camera
-GLdouble pos[] = {	0.0, 0.0, 5.0,
-					0.0, 0.0, 0.0,
-					0.0, 1.0, 0.0 };
+GLdouble pos[] = { 0, 0, 5 };
+GLdouble upVec[] = { 0, 1, 0 };
 
 //--------------------------------------------------
 //	Object Declarations					
@@ -43,7 +40,6 @@ void MyInit();
 void Resize(int w, int h);
 void Keyboard(unsigned char key, int x, int y);
 void MouseMovement(int x, int y);
-void MouseButton(int button, int state, int x, int y); // not used atm
 void ReleaseKeyboard(unsigned char key, int x, int y);
 void CreateTexturesPortalWorld();
 void DrawSwirl();
@@ -102,7 +98,7 @@ void MyInit()
 
 	ourCam.SetMoveSpeed(moveSpeed); // sets movement speed of camera
 	ourCam.SetRotateSpeed(rotateSpeed); // sets rotate speed of camera
-	ourCam.SetPosition(pos, angle); // sets position of the camera in the world
+	ourCam.SetPosition(pos, upVec, angle); // sets position of the camera in the world
 
 	player.SetPosition(0, 0, 0); // sets position of the player
 
@@ -170,8 +166,6 @@ void Resize(int w, int h)
 	{
 		h = 1;
 	}
-
-	GLdouble aspect = 1.0 * (w / h);
 
 	glViewport(0, 0, (GLsizei)w, (GLsizei)h);
 
