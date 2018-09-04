@@ -20,7 +20,7 @@ Audio::~Audio() {
 const void Audio::LoadWAV(const std::string Audio_Name, const char* audiofile) { //Sound Effects
 	Audio_Files[Audio_Name] = Mix_LoadWAV(audiofile);
 	if (Audio_Files[Audio_Name] == NULL) {
-		std::cout << "Unable to Load Audio File: " << audiofile << std::endl;
+		std::cout << "Unable to Load Audio File: " << audiofile << " With Error: " << Mix_GetError() << std::endl;
 		return;
 	}
 	Audio_Names.push_back(Audio_Name);
