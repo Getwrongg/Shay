@@ -1912,7 +1912,7 @@ void portal() {
 	glTexCoord2i(0, 1);glVertex3f(30000.0, 11500.0, 12600.0);    // Top Left 
 	glTexCoord2i(1, 1);glVertex3f(30000.0, 10000.0, 12600.0);     // Bottom Left
 	glTexCoord2i(1, 0);glVertex3f(28000.0, 10000.0, 12600.0);    // Bottom Right 
-		
+	
 	glEnd();// End Drawing The portal front
 }
 
