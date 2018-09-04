@@ -32,7 +32,7 @@ void Cam::CallGluLookat()
 	//glLoadIdentity();
 	gluLookAt(	pos.x, pos.y, pos.z,
 				pos.x + look.x, pos.y + look.y, pos.z + look.z,
-				upVector.x, upVector.y, upVector.z);
+				0, 1, 0);
 }
 
 void Cam::DirectionLeftRight(const int dir)
@@ -71,17 +71,19 @@ bool Cam::CanMoveFB()
 
 void Cam::MoveLeftRight()
 {
-	pos.x += (dirLR * moveSpeed);
+	pos.z += (dirLR * (upVector.z) * moveSpeed);
+	pos.x += (dirLR * (upVector.x) * moveSpeed);
 }
 
 void Cam::MoveForwardBack()
 {
-	pos.z += (dirFB * moveSpeed);
+	pos.z += (dirFB * (look.z) * moveSpeed);
+	pos.x += (dirFB * (look.x) * moveSpeed);
 }
 
-void Cam::Rotate(int deltaX, int deltaY)
+void Cam::Rotate(const int deltaX, const int deltaY)
 {
-	rotateAngle += deltaX * rotateSpeed; // maybe change to +=
+	rotateAngle += deltaX * rotateSpeed;
 	rotateUD -= deltaY * rotateSpeed;
 
 	// left and right
@@ -90,6 +92,10 @@ void Cam::Rotate(int deltaX, int deltaY)
 
 	// up and down
 	look.y = sin(rotateUD);
+
+	// used to allow strafing
+	upVector.x = sin(rotateAngle+ (float)PI / 2.0);
+	upVector.z = -cos(rotateAngle + (float)PI / 2.0);
 
 
 }

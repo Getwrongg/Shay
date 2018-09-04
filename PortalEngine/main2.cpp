@@ -13,16 +13,16 @@
 int screenWidth, screenHeight;
 
 // camera variables
-GLdouble moveSpeed = 0.03;
+GLdouble moveSpeed = 0.005;
 GLdouble rotateSpeed = 0.005;
-GLdouble angle = 0;
 
 int deltaX = 0;
 int deltaY = 0;	
-//int prevX = 0;	
 
+// used to set camera position
 GLdouble pos[] = { 0, 0, 5 };
 GLdouble upVec[] = { 0, 1, 0 };
+GLdouble angle = 0;
 
 //--------------------------------------------------
 //	Object Declarations					
@@ -63,8 +63,6 @@ int main2()
 
 	glutPassiveMotionFunc(MouseMovement);
 	glutSetCursor(GLUT_CURSOR_NONE); // hides cursor
-
-	
 	
 	glutMainLoop();
 
@@ -185,10 +183,10 @@ void Keyboard(unsigned char key, int x, int y)
 	switch (key)
 	{
 	case 'w':
-		ourCam.DirectionForwardBack(-1);
+		ourCam.DirectionForwardBack(1);
 		break;
 	case 's':
-		ourCam.DirectionForwardBack(1);
+		ourCam.DirectionForwardBack(-1);
 		break;
 	case 'a':
 		ourCam.DirectionLeftRight(-1);
@@ -224,7 +222,6 @@ void MouseMovement(int x, int y)
 {
 	deltaX = x - (screenWidth / 2);
 	deltaY = y - (screenHeight / 2);
-	//prevX = x;
 
 	glutWarpPointer(screenWidth / 2, screenHeight / 2); // returns the cursur to the center of the screen after each frame
 
