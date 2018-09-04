@@ -29,7 +29,7 @@ const void Audio::LoadWAV(const std::string Audio_Name, const char* audiofile) {
 const void Audio::LoadOGG(const std::string Music_Name, const char* audiofile) { //Music
 	Music_Files[Music_Name] = Mix_LoadMUS(audiofile);
 	if (Music_Files[Music_Name] == NULL) {
-		std::cout << "Unable to Load Music File: " << audiofile << std::endl;
+		std::cout << "Unable to Load Music File: " << audiofile <<" With Error: "<< Mix_GetError() << std::endl;
 		return;
 	}
 	Music_Names.push_back(Music_Name);
