@@ -91,7 +91,7 @@ void Cam::Rotest(GLdouble deltaX)
 	rotateVector[2] = -cos(rotateAngle);
 }
 
-void Cam::UpdateCamera()
+void Cam::Update()
 {
 	if (CanMoveLR())
 	{
