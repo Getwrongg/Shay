@@ -1,6 +1,7 @@
 #include "JpegLoader.h"
 #include "Cam.h"
 #include "Player.h"
+#include "World.h"
 
 #include <iostream>
 
@@ -12,7 +13,7 @@
 int screenWidth, screenHeight;
 
 // camera variables
-GLdouble moveSpeed = 0.003;
+GLdouble moveSpeed = 0.03;
 GLdouble rotateSpeed = 0.005;
 
 int deltaX = 0;
@@ -31,6 +32,7 @@ GLdouble pos[] = {	0.0, 0.0, 5.0,
 JpegLoader j;
 Cam ourCam;
 Player player;
+World world;
 
 //--------------------------------------------------
 //	Method Prototypes					
@@ -122,6 +124,11 @@ void Display2()
 
 	//DrawSwirl();
 	//player.DrawPlayer();
+
+	world.Ground(); ///Draws the ground with texture
+
+	world.Axis();///Draws the axis for testing
+	world.Cubes();
 
 	glutWireCube(1.0);
 
