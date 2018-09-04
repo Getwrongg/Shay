@@ -456,8 +456,8 @@ int main(int argc, char **argv)
 	myinit();
 
 	// these two lines transition the program to portal world. Delete if you want to work on shay's world.
-	inPortal = true;
-	main2();
+	//inPortal = true;
+	//main2();
 
 	glutIgnoreKeyRepeat(1); // removed this so we can hold down to move up or down
 	glutKeyboardUpFunc (releaseKeys);
@@ -523,7 +523,7 @@ void myinit()
 
 	CreateJPGTextures();
 	LoadGameSounds();
-	/*game_audio.playAudioChannel("AMBIENCE", 1, -2);*/
+	game_audio.playMusic("AMBIENCE", -1);
 
 }
 
@@ -1010,7 +1010,7 @@ void DeleteImageFromMemory(unsigned char* tempImage)
 
 void LoadGameSounds() {
 	
-	game_audio.LoadWAV("AMBIENCE", "sounds/ambience.wav");
+	game_audio.LoadOGG("AMBIENCE", "sounds/ambience.ogg");
 	game_audio.LoadWAV("STEPS", "sounds/walking.wav");
 	
 }
