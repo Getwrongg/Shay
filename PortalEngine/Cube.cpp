@@ -75,8 +75,3 @@ void Cube::Draw(const GLdouble x1, const GLdouble y1, const GLdouble z1)
 	
 	
 }
-
-void Cube::DrawBush(const GLdouble x1, const GLdouble y1, const GLdouble z1) {
-
-	glBegin(GL_TRIANGLES)
-}

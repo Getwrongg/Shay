@@ -13,6 +13,7 @@ public:
 	void Ground();
 	void Cubes();
 	void Axis();
+	void Bushes();
 
 private:
 	JpegLoader j;
