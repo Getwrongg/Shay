@@ -5,6 +5,20 @@
 
 #pragma once
 
+/**
+* @class Player
+* @brief  used to represent a the object of the player
+*
+* Which is a round ball with a texture and physics properties
+*
+* @author ClickBait Inc
+* @version 01
+* @date 04/09/2018 // date is in Australian format.
+*
+* @todo
+*
+* @bug none
+*/
 class Player
 {
 public:

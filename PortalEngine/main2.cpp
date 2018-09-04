@@ -11,12 +11,14 @@
 // height and width of the screen
 int screenWidth, screenHeight;
 
-// movespeed of camera
+// camera variables
 GLdouble moveSpeed = 0.003;
 GLdouble rotateSpeed = 0.005;
 
-GLdouble deltaX = 0;
-GLdouble prevX = 0;
+int deltaX = 0;
+int deltaY = 0;
+//int prevX = 0;
+
 
 // used for position of the camera
 GLdouble pos[] = {	0.0, 0.0, 5.0,
@@ -38,6 +40,7 @@ void MyInit();
 void Resize(int w, int h);
 void Keyboard(unsigned char key, int x, int y);
 void MouseMovement(int x, int y);
+void MouseButton(int button, int state, int x, int y); // not used atm
 void ReleaseKeyboard(unsigned char key, int x, int y);
 void CreateTexturesPortalWorld();
 void DrawSwirl();
@@ -54,13 +57,15 @@ int main2()
 
 	glutKeyboardFunc(Keyboard);
 	glutKeyboardUpFunc(ReleaseKeyboard);
+
 	glutDisplayFunc(Display2);
 	glutIdleFunc(Display2);
+	glutReshapeFunc(Resize);
 
 	glutPassiveMotionFunc(MouseMovement);
 	glutSetCursor(GLUT_CURSOR_NONE); // hides cursor
 
-	glutReshapeFunc(Resize);
+	
 	
 	glutMainLoop();
 
@@ -115,10 +120,10 @@ void Display2()
 
 	glEnable(GL_TEXTURE_2D);
 
-	DrawSwirl();
+	//DrawSwirl();
 	//player.DrawPlayer();
 
-	//glutWireCube(1.0);
+	glutWireCube(1.0);
 
 	glDisable(GL_TEXTURE_2D);
 	glutSwapBuffers();
@@ -214,13 +219,11 @@ void ReleaseKeyboard(unsigned char key, int x, int y)
 
 void MouseMovement(int x, int y)
 {
-	deltaX = x - prevX;
-	prevX = x;
+	deltaX = x - (screenWidth / 2);
+	deltaY = y - (screenHeight / 2);
+	//prevX = x;
 
-	ourCam.Rotest(deltaX);
+	glutWarpPointer(screenWidth / 2, screenHeight / 2);
 
-	//glutWarpPointer(screenWidth / 2, screenHeight / 2);
-
-	
-
+	ourCam.Rotate(deltaX, deltaY);
 }

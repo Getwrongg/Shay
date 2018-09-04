@@ -24,9 +24,10 @@ Cam::Cam()
 
 	// variables for rotation
 	rotateAngle = 0;
+	rotateUD = 0;
 	rotateVector[0] = 0;
 	rotateVector[1] = 0;
-	rotateVector[1] = 0;
+	rotateVector[2] = 0;
 }
 
 void Cam::CallGluLookat()
@@ -83,12 +84,15 @@ void Cam::MoveForwardBack()
 	look.z += (dirFB * moveSpeed);
 }
 
-void Cam::Rotest(GLdouble deltaX)
+void Cam::Rotate(int deltaX, int deltaY)
 {
-	rotateAngle += deltaX * rotateSpeed;
+	rotateAngle -= deltaX * rotateSpeed; // maybe change to +=
+	rotateUD -= deltaY * rotateSpeed;
 
 	rotateVector[0] = sin(rotateAngle);
 	rotateVector[2] = -cos(rotateAngle);
+	rotateVector[1] = sin(rotateUD);
+
 }
 
 void Cam::Update()
