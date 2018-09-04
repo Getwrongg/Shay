@@ -456,8 +456,8 @@ int main(int argc, char **argv)
 	myinit();
 
 	// these two lines transition the program to portal world. Delete if you want to work on shay's world.
-	//inPortal = true;
-	//main2();
+	/*inPortal = true;
+	main2();*/
 
 	glutIgnoreKeyRepeat(1); // removed this so we can hold down to move up or down
 	glutKeyboardUpFunc (releaseKeys);
@@ -523,7 +523,7 @@ void myinit()
 
 	CreateJPGTextures();
 	LoadGameSounds();
-	game_audio.playMusic("AMBIENCE", -1);
+	/*game_audio.playAudioChannel("AMBIENCE", 1, -2);*/
 
 }
 
@@ -619,12 +619,12 @@ void keys(unsigned char key, int x, int y)
 
 		case 'w':
 			cam.DirectionFB((int)1.5);
-			game_audio.playAudioChannel("STEPS", 1, -1);
+			game_audio.playAudioChannel("STEPS", 2, -1);
 			break;
 
 		case 's':
 			cam.DirectionFB(-1);
-			game_audio.playAudioChannel("STEPS", 1, -1);
+			game_audio.playAudioChannel("STEPS", 2, -1);
 			break;
 
 		// display campus map
@@ -742,7 +742,7 @@ void releaseKeys(unsigned char key, int x, int y)
 		case 'w':
 		case 's':
 			cam.DirectionFB(0);
-			game_audio.stopAudio(1);
+			game_audio.pauseAudio(2);
 			break;
 
 		
@@ -1009,9 +1009,8 @@ void DeleteImageFromMemory(unsigned char* tempImage)
 // Load Game Sounds
 
 void LoadGameSounds() {
-	//Music Files
-	game_audio.LoadOGG("AMBIENCE", "sounds/ambience.ogg"); //Doesnt WOrk yet
-	//Sound Files
+	
+	game_audio.LoadWAV("AMBIENCE", "sounds/ambience.wav");
 	game_audio.LoadWAV("STEPS", "sounds/walking.wav");
 	
 }
@@ -1800,7 +1799,7 @@ void PortalStructure()
 	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("STONE"));
 	glBegin(GL_QUADS);
 	//_______________________________________________JACOB_____________
-	//Front Left Corner (LEFT)
+	//FRONT LEFT PILLAR - FRONT
 	glTexCoord2i(0, 0); glVertex3f(25000.0, 11000.0, 16500.0);// top left
 	glTexCoord2i(0, 1); glVertex3f(25000.0, 11000.0, 15500.0);// top right
 	glTexCoord2i(1, 1); glVertex3f(25000.0, 10000.0, 15500.0);// bottom right
@@ -1822,7 +1821,7 @@ void PortalStructure()
 	glTexCoord2i(1, 0); glVertex3f(24000.0, 10000.0, 16500.0);
 	
 	//_______________________________________________JACOB_____________
-	//Front Right Corner (FRONT)
+	//FRONT RIGHT PILLAR - FRONT
 	glTexCoord2i(0, 0); glVertex3f(23000.0, 11000.0, 15500.0);// top left
 	glTexCoord2i(0, 1); glVertex3f(22000.0, 11000.0, 15500.0);// top right
 	glTexCoord2i(1, 1); glVertex3f(22000.0, 10000.0, 15500.0);// bottom right
@@ -1844,8 +1843,7 @@ void PortalStructure()
 	glTexCoord2i(1, 0); glVertex3f(22000.0, 10000.0, 16500.0);
 
 	//_______________________________________________JACOB_____________
-	//Back Left Corner
-	//LEFT
+	//BACK LEFT PILLAR - LEFT
 	glTexCoord2i(0, 0); glVertex3f(25000.0, 11000.0, 18500.0);// top left
 	glTexCoord2i(0, 1); glVertex3f(25000.0, 11000.0, 17500.0);// top right
 	glTexCoord2i(1, 1); glVertex3f(25000.0, 10000.0, 17500.0);// bottom right
@@ -1867,8 +1865,7 @@ void PortalStructure()
 	glTexCoord2i(1, 0); glVertex3f(24000.0, 10000.0, 18500.0);
 
 	//_______________________________________________JACOB_____________
-	//BACK Right Corner 
-	//FRONT
+	//BACK RIGHT PILLAR - FRONT
 	glTexCoord2i(0, 0); glVertex3f(23000.0, 11000.0, 17500.0);// top left
 	glTexCoord2i(0, 1); glVertex3f(22000.0, 11000.0, 17500.0);// top right
 	glTexCoord2i(1, 1); glVertex3f(22000.0, 10000.0, 17500.0);// bottom right
@@ -1888,6 +1885,7 @@ void PortalStructure()
 	glTexCoord2i(0, 1); glVertex3f(22000.0, 11000.0, 17500.0);
 	glTexCoord2i(1, 1); glVertex3f(22000.0, 10000.0, 17500.0);
 	glTexCoord2i(1, 0); glVertex3f(22000.0, 10000.0, 18500.0);
+
 	//_______________________________________________JACOB_____________
 	//TOP PLATFORM
 	glTexCoord2i(0, 0); glVertex3f(23000.0, 11000.0, 16500.0);// top left
@@ -1898,7 +1896,65 @@ void PortalStructure()
 	glEnd();
 
 	//_______________________________________________JACOB_____________
-	//CREATES STAIRS GOING BACKWARDS FROM TOP  TO BOTTOM
+	//STAIR BANISTAR
+	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("STONE"));
+	glBegin(GL_QUADS);
+	//LEFT SIDE STEPS - RIGHT BANNISTAR
+	//TOP
+	glTexCoord2i(0, 0); glVertex3f(27500.0, 10000.0, 17500.0);// top left
+	glTexCoord2i(0, 1); glVertex3f(27500.0, 10000.0, 17300.0);// top right
+	glTexCoord2i(1, 1); glVertex3f(24000.0, 11500.0, 17300.0);// bottom right
+	glTexCoord2i(1, 0); glVertex3f(24000.0, 11500.0, 17500.0);// bottom left
+	//LEFT 
+	glTexCoord2i(0, 0); glVertex3f(24000.0, 11500.0, 17500.0);
+	glTexCoord2i(0, 1); glVertex3f(27500.0, 10000.0, 17500.0);
+	glTexCoord2i(1, 1); glVertex3f(27500.0, 10000.0, 17500.0);
+	glTexCoord2i(1, 0); glVertex3f(24000.0, 10000.0, 17500.0);
+	//RIGHT
+	glTexCoord2i(0, 0); glVertex3f(24000.0, 11500.0, 17300.0);
+	glTexCoord2i(0, 1); glVertex3f(27500.0, 10000.0, 17300.0);
+	glTexCoord2i(1, 1); glVertex3f(27500.0, 10000.0, 17300.0);
+	glTexCoord2i(1, 0); glVertex3f(24000.0, 10000.0, 17300.0);
+	//_______________________________________________JACOB_____________
+	//LEFT SIDE STEPS - LEFT BANNISTAR
+	//TOP
+	glTexCoord2i(0, 0); glVertex3f(27500.0, 10000.0, 16500.0);// top left
+	glTexCoord2i(0, 1); glVertex3f(27500.0, 10000.0, 16300.0);// top right
+	glTexCoord2i(1, 1); glVertex3f(24000.0, 11500.0, 16300.0);// bottom right
+	glTexCoord2i(1, 0); glVertex3f(24000.0, 11500.0, 16500.0);// bottom left
+	//LEFT 
+	glTexCoord2i(0, 0); glVertex3f(24000.0, 11500.0, 16500.0);
+	glTexCoord2i(0, 1); glVertex3f(27500.0, 10000.0, 16500.0);
+	glTexCoord2i(1, 1); glVertex3f(27500.0, 10000.0, 16500.0);
+	glTexCoord2i(1, 0); glVertex3f(24000.0, 10000.0, 16500.0);
+	//RIGHT
+	glTexCoord2i(0, 0); glVertex3f(24000.0, 11500.0, 16300.0);
+	glTexCoord2i(0, 1); glVertex3f(27500.0, 10000.0, 16300.0);
+	glTexCoord2i(1, 1); glVertex3f(27500.0, 10000.0, 16300.0);
+	glTexCoord2i(1, 0); glVertex3f(24000.0, 10000.0, 16300.0);
+
+	//_______________________________________________JACOB_____________
+	//RIGHT SIDE STEPS - RIGHT BANNISTAR
+	//TOP
+	//glTexCoord2i(0, 0); glVertex3f(21850.0, 10000.0, 17500.0);// top left
+	//glTexCoord2i(0, 1); glVertex3f(21850.0, 10000.0, 17300.0);// top right
+	//glTexCoord2i(1, 1); glVertex3f(22000.0, 11500.0, 17300.0);// bottom right
+	//glTexCoord2i(1, 0); glVertex3f(22000.0, 11500.0, 17500.0);// bottom left
+	////LEFT 
+	//glTexCoord2i(0, 0); glVertex3f(22000.0, 11500.0, 17500.0);
+	//glTexCoord2i(0, 1); glVertex3f(21950.0, 10000.0, 17500.0);
+	//glTexCoord2i(1, 1); glVertex3f(21950.0, 10000.0, 17500.0);
+	//glTexCoord2i(1, 0); glVertex3f(22000.0, 10000.0, 17500.0);
+	////RIGHT
+	//glTexCoord2i(0, 0); glVertex3f(22000.0, 11500.0, 17300.0);
+	//glTexCoord2i(0, 1); glVertex3f(21950.0, 10000.0, 17300.0);
+	//glTexCoord2i(1, 1); glVertex3f(21950.0, 10000.0, 17300.0);
+	//glTexCoord2i(1, 0); glVertex3f(22000.0, 10000.0, 17300.0);
+
+	glEnd();
+
+	//_______________________________________________JACOB_____________
+	//CREATES STAIRS GOING BACKWARDS FROM TOP TO BOTTOM
 	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("STEPS"));
 	glBegin(GL_QUADS);
 	//FRONT SIDE STEPS - TOP
@@ -1952,14 +2008,210 @@ void PortalStructure()
 	glTexCoord2i(1, 1); glVertex3f(24000.0, 10000.0, 15500.0);
 	glTexCoord2i(1, 0); glVertex3f(24000.0, 10200.0, 15500.0);
 
-	//LEFT SIDE STEPS
-	//TOP
-	glTexCoord2i(0, 0); glVertex3f(24200.0, 11000.0, 16500.0);// top left
-	glTexCoord2i(0, 1); glVertex3f(24200.0, 11000.0, 17500.0);// top right
-	glTexCoord2i(1, 1); glVertex3f(24000.0, 11000.0, 17500.0);// bottom right
-	glTexCoord2i(1, 0); glVertex3f(24000.0, 11000.0, 16500.0);// bottom left
+	//_______________________________________________JACOB_____________
+	//LEFT SIDE STEPS - TOP 1
+	glTexCoord2i(0, 0); glVertex3f(24000.0, 11000.0, 16500.0);// top left
+	glTexCoord2i(0, 1); glVertex3f(24000.0, 11000.0, 17500.0);// top right
+	glTexCoord2i(1, 1); glVertex3f(24300.0, 11000.0, 17500.0);// bottom right
+	glTexCoord2i(1, 0); glVertex3f(24300.0, 11000.0, 16500.0);// bottom left
+	//FRONT 1
+	glTexCoord2i(0, 0); glVertex3f(24300.0, 11000.0, 16500.0);
+	glTexCoord2i(0, 1); glVertex3f(24300.0, 11000.0, 17500.0);
+	glTexCoord2i(1, 1); glVertex3f(24300.0, 10900.0, 17500.0);
+	glTexCoord2i(1, 0); glVertex3f(24300.0, 10900.0, 16500.0);
+	//TOP 2
+	glTexCoord2i(0, 0); glVertex3f(24300.0, 10900.0, 16500.0);
+	glTexCoord2i(0, 1); glVertex3f(24300.0, 10900.0, 17500.0);
+	glTexCoord2i(1, 1); glVertex3f(24600.0, 10900.0, 17500.0);
+	glTexCoord2i(1, 0); glVertex3f(24600.0, 10900.0, 16500.0);
+	//FRONT 2
+	glTexCoord2i(0, 0); glVertex3f(24600.0, 10900.0, 16500.0);
+	glTexCoord2i(0, 1); glVertex3f(24600.0, 10900.0, 17500.0);
+	glTexCoord2i(1, 1); glVertex3f(24600.0, 10800.0, 17500.0);
+	glTexCoord2i(1, 0); glVertex3f(24600.0, 10800.0, 16500.0);
+	//TOP 3
+	glTexCoord2i(0, 0); glVertex3f(24600.0, 10800.0, 16500.0);
+	glTexCoord2i(0, 1); glVertex3f(24600.0, 10800.0, 17500.0);
+	glTexCoord2i(1, 1); glVertex3f(24900.0, 10800.0, 17500.0);
+	glTexCoord2i(1, 0); glVertex3f(24900.0, 10800.0, 16500.0);
+	//FRONT 3
+	glTexCoord2i(0, 0); glVertex3f(24900.0, 10800.0, 16500.0);
+	glTexCoord2i(0, 1); glVertex3f(24900.0, 10800.0, 17500.0);
+	glTexCoord2i(1, 1); glVertex3f(24900.0, 10700.0, 17500.0);
+	glTexCoord2i(1, 0); glVertex3f(24900.0, 10700.0, 16500.0);
+	//TOP 4
+	glTexCoord2i(0, 0); glVertex3f(24900.0, 10700.0, 16500.0);
+	glTexCoord2i(0, 1); glVertex3f(24900.0, 10700.0, 17500.0);
+	glTexCoord2i(1, 1); glVertex3f(25200.0, 10700.0, 17500.0);
+	glTexCoord2i(1, 0); glVertex3f(25200.0, 10700.0, 16500.0);
+	//FRONT 4
+	glTexCoord2i(0, 0); glVertex3f(25200.0, 10700.0, 16500.0);
+	glTexCoord2i(0, 1); glVertex3f(25200.0, 10700.0, 17500.0);
+	glTexCoord2i(1, 1); glVertex3f(25200.0, 10600.0, 17500.0);
+	glTexCoord2i(1, 0); glVertex3f(25200.0, 10600.0, 16500.0);
+	//TOP 5
+	glTexCoord2i(0, 0); glVertex3f(25200.0, 10600.0, 16500.0);
+	glTexCoord2i(0, 1); glVertex3f(25200.0, 10600.0, 17500.0);
+	glTexCoord2i(1, 1); glVertex3f(25500.0, 10600.0, 17500.0);
+	glTexCoord2i(1, 0); glVertex3f(25500.0, 10600.0, 16500.0);
+	//FRONT 5
+	glTexCoord2i(0, 0); glVertex3f(25500.0, 10600.0, 16500.0);
+	glTexCoord2i(0, 1); glVertex3f(25500.0, 10600.0, 17500.0);
+	glTexCoord2i(1, 1); glVertex3f(25500.0, 10500.0, 17500.0);
+	glTexCoord2i(1, 0); glVertex3f(25500.0, 10500.0, 16500.0);
+	//TOP 6
+	glTexCoord2i(0, 0); glVertex3f(25500.0, 10500.0, 16500.0);
+	glTexCoord2i(0, 1); glVertex3f(25500.0, 10500.0, 17500.0);
+	glTexCoord2i(1, 1); glVertex3f(25800.0, 10500.0, 17500.0);
+	glTexCoord2i(1, 0); glVertex3f(25800.0, 10500.0, 16500.0);
+	//FRONT 6
+	glTexCoord2i(0, 0); glVertex3f(25800.0, 10500.0, 16500.0);
+	glTexCoord2i(0, 1); glVertex3f(25800.0, 10500.0, 17500.0);
+	glTexCoord2i(1, 1); glVertex3f(25800.0, 10400.0, 17500.0);
+	glTexCoord2i(1, 0); glVertex3f(25800.0, 10400.0, 16500.0);
+	//TOP 7
+	glTexCoord2i(0, 0); glVertex3f(25800.0, 10400.0, 16500.0);
+	glTexCoord2i(0, 1); glVertex3f(25800.0, 10400.0, 17500.0);
+	glTexCoord2i(1, 1); glVertex3f(26100.0, 10400.0, 17500.0);
+	glTexCoord2i(1, 0); glVertex3f(26100.0, 10400.0, 16500.0);
+	//FRONT 7
+	glTexCoord2i(0, 0); glVertex3f(26100.0, 10400.0, 16500.0);
+	glTexCoord2i(0, 1); glVertex3f(26100.0, 10400.0, 17500.0);
+	glTexCoord2i(1, 1); glVertex3f(26100.0, 10300.0, 17500.0);
+	glTexCoord2i(1, 0); glVertex3f(26100.0, 10300.0, 16500.0);
+	//TOP 8
+	glTexCoord2i(0, 0); glVertex3f(26100.0, 10300.0, 16500.0);
+	glTexCoord2i(0, 1); glVertex3f(26100.0, 10300.0, 17500.0);
+	glTexCoord2i(1, 1); glVertex3f(26400.0, 10300.0, 17500.0);
+	glTexCoord2i(1, 0); glVertex3f(26400.0, 10300.0, 16500.0);
+	//FRONT 8
+	glTexCoord2i(0, 0); glVertex3f(26400.0, 10300.0, 16500.0);
+	glTexCoord2i(0, 1); glVertex3f(26400.0, 10300.0, 17500.0);
+	glTexCoord2i(1, 1); glVertex3f(26400.0, 10200.0, 17500.0);
+	glTexCoord2i(1, 0); glVertex3f(26400.0, 10200.0, 16500.0);
+	//TOP 9
+	glTexCoord2i(0, 0); glVertex3f(26400.0, 10200.0, 16500.0);
+	glTexCoord2i(0, 1); glVertex3f(26400.0, 10200.0, 17500.0);
+	glTexCoord2i(1, 1); glVertex3f(26700.0, 10200.0, 17500.0);
+	glTexCoord2i(1, 0); glVertex3f(26700.0, 10200.0, 16500.0);
+	//FRONT 9
+	glTexCoord2i(0, 0); glVertex3f(26700.0, 10200.0, 16500.0);
+	glTexCoord2i(0, 1); glVertex3f(26700.0, 10200.0, 17500.0);
+	glTexCoord2i(1, 1); glVertex3f(26700.0, 10100.0, 17500.0);
+	glTexCoord2i(1, 0); glVertex3f(26700.0, 10100.0, 16500.0);
+	//TOP 10
+	glTexCoord2i(0, 0); glVertex3f(26700.0, 10100.0, 16500.0);
+	glTexCoord2i(0, 1); glVertex3f(26700.0, 10100.0, 17500.0);
+	glTexCoord2i(1, 1); glVertex3f(27000.0, 10100.0, 17500.0);
+	glTexCoord2i(1, 0); glVertex3f(27000.0, 10100.0, 16500.0);
+	//FRONT 10
+	glTexCoord2i(0, 0); glVertex3f(27000.0, 10100.0, 16500.0);
+	glTexCoord2i(0, 1); glVertex3f(27000.0, 10100.0, 17500.0);
+	glTexCoord2i(1, 1); glVertex3f(27000.0, 10000.0, 17500.0);
+	glTexCoord2i(1, 0); glVertex3f(27000.0, 10000.0, 16500.0);
 
-	
+	//_______________________________________________JACOB_____________
+	//RIGHT SIDE STEPS - TOP 1
+	glTexCoord2i(0, 0); glVertex3f(23000.0, 11000.0, 16500.0);// top left
+	glTexCoord2i(0, 1); glVertex3f(23000.0, 11000.0, 17500.0);// top right
+	glTexCoord2i(1, 1); glVertex3f(22700.0, 11000.0, 17500.0);// bottom right
+	glTexCoord2i(1, 0); glVertex3f(22700.0, 11000.0, 16500.0);// bottom left
+	//FRONT 1
+	glTexCoord2i(0, 0); glVertex3f(22700.0, 11000.0, 16500.0);
+	glTexCoord2i(0, 1); glVertex3f(22700.0, 11000.0, 17500.0);
+	glTexCoord2i(1, 1); glVertex3f(22700.0, 10900.0, 17500.0);
+	glTexCoord2i(1, 0); glVertex3f(22700.0, 10900.0, 16500.0);
+	//TOP 2
+	glTexCoord2i(0, 0); glVertex3f(22700.0, 10900.0, 16500.0);
+	glTexCoord2i(0, 1); glVertex3f(22700.0, 10900.0, 17500.0);
+	glTexCoord2i(1, 1); glVertex3f(22400.0, 10900.0, 17500.0);
+	glTexCoord2i(1, 0); glVertex3f(22400.0, 10900.0, 16500.0);
+	//FRONT 2
+	glTexCoord2i(0, 0); glVertex3f(22400.0, 10900.0, 16500.0);
+	glTexCoord2i(0, 1); glVertex3f(22400.0, 10900.0, 17500.0);
+	glTexCoord2i(1, 1); glVertex3f(22400.0, 10800.0, 17500.0);
+	glTexCoord2i(1, 0); glVertex3f(22400.0, 10800.0, 16500.0);
+	//TOP 3
+	glTexCoord2i(0, 0); glVertex3f(22400.0, 10800.0, 16500.0);
+	glTexCoord2i(0, 1); glVertex3f(22400.0, 10800.0, 17500.0);
+	glTexCoord2i(1, 1); glVertex3f(22100.0, 10800.0, 17500.0);
+	glTexCoord2i(1, 0); glVertex3f(22100.0, 10800.0, 16500.0);
+	//FRONT 3
+	glTexCoord2i(0, 0); glVertex3f(22100.0, 10800.0, 16500.0);
+	glTexCoord2i(0, 1); glVertex3f(22100.0, 10800.0, 17500.0);
+	glTexCoord2i(1, 1); glVertex3f(22100.0, 10700.0, 17500.0);
+	glTexCoord2i(1, 0); glVertex3f(22100.0, 10700.0, 16500.0);
+	//TOP 4
+	glTexCoord2i(0, 0); glVertex3f(22100.0, 10700.0, 16500.0);
+	glTexCoord2i(0, 1); glVertex3f(22100.0, 10700.0, 17500.0);
+	glTexCoord2i(1, 1); glVertex3f(21800.0, 10700.0, 17500.0);
+	glTexCoord2i(1, 0); glVertex3f(21800.0, 10700.0, 16500.0);
+	//FRONT 4
+	glTexCoord2i(0, 0); glVertex3f(21800.0, 10700.0, 16500.0);
+	glTexCoord2i(0, 1); glVertex3f(21800.0, 10700.0, 17500.0);
+	glTexCoord2i(1, 1); glVertex3f(21800.0, 10600.0, 17500.0);
+	glTexCoord2i(1, 0); glVertex3f(21800.0, 10600.0, 16500.0);
+	//TOP 5
+	glTexCoord2i(0, 0); glVertex3f(21800.0, 10600.0, 16500.0);
+	glTexCoord2i(0, 1); glVertex3f(21800.0, 10600.0, 17500.0);
+	glTexCoord2i(1, 1); glVertex3f(21500.0, 10600.0, 17500.0);
+	glTexCoord2i(1, 0); glVertex3f(21500.0, 10600.0, 16500.0);
+	//FRONT 5
+	glTexCoord2i(0, 0); glVertex3f(21500.0, 10600.0, 16500.0);
+	glTexCoord2i(0, 1); glVertex3f(21500.0, 10600.0, 17500.0);
+	glTexCoord2i(1, 1); glVertex3f(21500.0, 10500.0, 17500.0);
+	glTexCoord2i(1, 0); glVertex3f(21500.0, 10500.0, 16500.0);
+	//TOP 6
+	glTexCoord2i(0, 0); glVertex3f(21500.0, 10500.0, 16500.0);
+	glTexCoord2i(0, 1); glVertex3f(21500.0, 10500.0, 17500.0);
+	glTexCoord2i(1, 1); glVertex3f(21200.0, 10500.0, 17500.0);
+	glTexCoord2i(1, 0); glVertex3f(21200.0, 10500.0, 16500.0);
+	//FRONT 6
+	glTexCoord2i(0, 0); glVertex3f(21200.0, 10500.0, 16500.0);
+	glTexCoord2i(0, 1); glVertex3f(21200.0, 10500.0, 17500.0);
+	glTexCoord2i(1, 1); glVertex3f(21200.0, 10400.0, 17500.0);
+	glTexCoord2i(1, 0); glVertex3f(21200.0, 10400.0, 16500.0);
+	//TOP 7
+	glTexCoord2i(0, 0); glVertex3f(21200.0, 10400.0, 16500.0);
+	glTexCoord2i(0, 1); glVertex3f(21200.0, 10400.0, 17500.0);
+	glTexCoord2i(1, 1); glVertex3f(20900.0, 10400.0, 17500.0);
+	glTexCoord2i(1, 0); glVertex3f(20900.0, 10400.0, 16500.0);
+	//FRONT 7
+	glTexCoord2i(0, 0); glVertex3f(20900.0, 10400.0, 16500.0);
+	glTexCoord2i(0, 1); glVertex3f(20900.0, 10400.0, 17500.0);
+	glTexCoord2i(1, 1); glVertex3f(20900.0, 10300.0, 17500.0);
+	glTexCoord2i(1, 0); glVertex3f(20900.0, 10300.0, 16500.0);
+	//TOP 8
+	glTexCoord2i(0, 0); glVertex3f(20900.0, 10300.0, 16500.0);
+	glTexCoord2i(0, 1); glVertex3f(20900.0, 10300.0, 17500.0);
+	glTexCoord2i(1, 1); glVertex3f(20600.0, 10300.0, 17500.0);
+	glTexCoord2i(1, 0); glVertex3f(20600.0, 10300.0, 16500.0);
+	//FRONT 8
+	glTexCoord2i(0, 0); glVertex3f(20600.0, 10300.0, 16500.0);
+	glTexCoord2i(0, 1); glVertex3f(20600.0, 10300.0, 17500.0);
+	glTexCoord2i(1, 1); glVertex3f(20600.0, 10200.0, 17500.0);
+	glTexCoord2i(1, 0); glVertex3f(20600.0, 10200.0, 16500.0);
+	//TOP 9
+	glTexCoord2i(0, 0); glVertex3f(20600.0, 10200.0, 16500.0);
+	glTexCoord2i(0, 1); glVertex3f(20600.0, 10200.0, 17500.0);
+	glTexCoord2i(1, 1); glVertex3f(20300.0, 10200.0, 17500.0);
+	glTexCoord2i(1, 0); glVertex3f(20300.0, 10200.0, 16500.0);
+	//FRONT 9
+	glTexCoord2i(0, 0); glVertex3f(20300.0, 10200.0, 16500.0);
+	glTexCoord2i(0, 1); glVertex3f(20300.0, 10200.0, 17500.0);
+	glTexCoord2i(1, 1); glVertex3f(20300.0, 10100.0, 17500.0);
+	glTexCoord2i(1, 0); glVertex3f(20300.0, 10100.0, 16500.0);
+	//TOP 10
+	glTexCoord2i(0, 0); glVertex3f(20300.0, 10100.0, 16500.0);
+	glTexCoord2i(0, 1); glVertex3f(20300.0, 10100.0, 17500.0);
+	glTexCoord2i(1, 1); glVertex3f(20000.0, 10100.0, 17500.0);
+	glTexCoord2i(1, 0); glVertex3f(20000.0, 10100.0, 16500.0);
+	//FRONT 10
+	glTexCoord2i(0, 0); glVertex3f(20000.0, 10100.0, 16500.0);
+	glTexCoord2i(0, 1); glVertex3f(20000.0, 10100.0, 17500.0);
+	glTexCoord2i(1, 1); glVertex3f(20000.0, 10000.0, 17500.0);
+	glTexCoord2i(1, 0); glVertex3f(20000.0, 10000.0, 16500.0);
+		
 	glEnd();// End Drawing The portal front
 }
 
