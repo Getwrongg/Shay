@@ -51,6 +51,32 @@ public:
 	*/
 	void DirectionForwardBack(const int dir);
 
+	void Rotate(int deltaX, int deltaY);
+
+	/**
+	* @brief updates the position of the camera
+	*
+	* calls CallGluLookAt() - should be called in display
+	*
+	*
+	* @return void
+	*/
+	void Update();
+
+	//--------------------------------------------------
+	//	Setters
+	//--------------------------------------------------
+	void SetMoveSpeed(const GLdouble speed);
+	void SetRotateSpeed(const GLdouble speed);
+	void SetPosition(const GLdouble xyz[3], const GLdouble upVec[3], const GLdouble angle);
+
+	//--------------------------------------------------
+	//	Getters
+	//--------------------------------------------------
+	Coordinates & GetPosition();
+	
+private:
+
 	/**
 	* @brief moves the camera left or right
 	*
@@ -70,32 +96,6 @@ public:
 	* @return void
 	*/
 	void MoveForwardBack();
-
-	void Rotest(GLdouble deltaX);
-
-	/**
-	* @brief updates the position of the camera
-	*
-	* calls CallGluLookAt() - should be called in display
-	*
-	*
-	* @return void
-	*/
-	void Update();
-
-	//--------------------------------------------------
-	//	Setters
-	//--------------------------------------------------
-	void SetMoveSpeed(const GLdouble speed);
-	void SetRotateSpeed(const GLdouble speed);
-	void SetPosition(const GLdouble pos[9]);
-
-	//--------------------------------------------------
-	//	Getters
-	//--------------------------------------------------
-	Coordinates & GetPosition();
-	
-private:
 	
 	/**
 	* @brief asks if the camera can move left or right
@@ -116,7 +116,6 @@ private:
 	* @return bool
 	*/
 	bool CanMoveFB();
-
 
 	/**
 	* @brief calls function gluLookAt()
@@ -140,6 +139,7 @@ private:
 	int dirLR, dirFB; // direction either 1 or -1
 
 	GLdouble rotateAngle; // probs delete
+	GLdouble rotateUD;
 	GLdouble rotateVector[3];
 
 	GLdouble moveSpeed; // speed of camera movement

@@ -1,6 +1,7 @@
 #include "JpegLoader.h"
 #include "Cam.h"
 #include "Player.h"
+#include "World.h"
 
 #include <iostream>
 
@@ -11,17 +12,17 @@
 // height and width of the screen
 int screenWidth, screenHeight;
 
-// movespeed of camera
+// camera variables
 GLdouble moveSpeed = 0.003;
 GLdouble rotateSpeed = 0.005;
+GLdouble angle = 0;
 
-GLdouble deltaX = 0;
-GLdouble prevX = 0;
+int deltaX = 0;
+int deltaY = 0;
+//int prevX = 0;	
 
-// used for position of the camera
-GLdouble pos[] = {	0.0, 0.0, 5.0,
-					0.0, 0.0, -1.0,
-					0.0, 1.0, 0.0 };
+GLdouble pos[] = { 0, 0, 5 };
+GLdouble upVec[] = { 0, 1, 0 };
 
 //--------------------------------------------------
 //	Object Declarations					
@@ -29,6 +30,7 @@ GLdouble pos[] = {	0.0, 0.0, 5.0,
 JpegLoader j;
 Cam ourCam;
 Player player;
+World world;
 
 //--------------------------------------------------
 //	Method Prototypes					
@@ -54,13 +56,15 @@ int main2()
 
 	glutKeyboardFunc(Keyboard);
 	glutKeyboardUpFunc(ReleaseKeyboard);
+
 	glutDisplayFunc(Display2);
 	glutIdleFunc(Display2);
+	glutReshapeFunc(Resize);
 
 	glutPassiveMotionFunc(MouseMovement);
 	glutSetCursor(GLUT_CURSOR_NONE); // hides cursor
 
-	glutReshapeFunc(Resize);
+	
 	
 	glutMainLoop();
 
@@ -94,7 +98,7 @@ void MyInit()
 
 	ourCam.SetMoveSpeed(moveSpeed); // sets movement speed of camera
 	ourCam.SetRotateSpeed(rotateSpeed); // sets rotate speed of camera
-	ourCam.SetPosition(pos); // sets position of the camera in the world
+	ourCam.SetPosition(pos, upVec, angle); // sets position of the camera in the world
 
 	player.SetPosition(0, 0, 0); // sets position of the player
 
@@ -115,10 +119,15 @@ void Display2()
 
 	glEnable(GL_TEXTURE_2D);
 
-	DrawSwirl();
+	//DrawSwirl();
 	//player.DrawPlayer();
 
-	//glutWireCube(1.0);
+	world.Ground(); ///Draws the ground with texture
+
+	world.Axis();///Draws the axis for testing
+	world.Cubes();
+
+	glutWireCube(1.0);
 
 	glDisable(GL_TEXTURE_2D);
 	glutSwapBuffers();
@@ -129,6 +138,7 @@ void CreateTexturesPortalWorld()
 	// draw swirl
 	j.CreateTexture("SWIRL", "data/portalswirl.jpg");
 	player.LoadTexture("SWIRL2", "data/portalswirl.jpg");
+	world.CreateTextures("SWIRL3", "data/portalswirl.jpg");
 }
 
 void DrawSwirl()
@@ -157,16 +167,14 @@ void Resize(int w, int h)
 		h = 1;
 	}
 
-	GLdouble aspect = 1.0 * (w / h);
+	glViewport(0, 0, (GLsizei)w, (GLsizei)h);
 
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-
-	glViewport(0, 0, w, h);
-	gluPerspective(60.0, aspect, 0.1, 100.0);
+	gluPerspective(60.0, (GLfloat)w / (GLfloat)h, 0.1, 100.0);
 
 	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
+	//glLoadIdentity();
 }
 
 //--------------------------------------------------
@@ -214,13 +222,11 @@ void ReleaseKeyboard(unsigned char key, int x, int y)
 
 void MouseMovement(int x, int y)
 {
-	deltaX = x - prevX;
-	prevX = x;
+	deltaX = x - (screenWidth / 2);
+	deltaY = y - (screenHeight / 2);
+	//prevX = x;
 
-	ourCam.Rotest(deltaX);
+	glutWarpPointer(screenWidth / 2, screenHeight / 2); // returns the cursur to the center of the screen after each frame
 
-	//glutWarpPointer(screenWidth / 2, screenHeight / 2);
-
-	
-
+	ourCam.Rotate(deltaX, deltaY); // rotates the camera
 }
