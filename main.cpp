@@ -1057,6 +1057,10 @@ void CreateJPGTextures() {
 
 	jpeg.CreateTexture("LADIESTOILET", "data/LadiesToilet.jpg");
 
+	jpeg.CreateTexture("MALETOILET", "data/MaleToilets.jpg");
+
+	jpeg.CreateTexture("HIGHERWINDOW", "data/HigherWindow.jpg");
+
 }
 
 void CreateTextures()
@@ -2349,7 +2353,8 @@ void DrawCounsellingEntrance() {
 
 	//Draws the blue pillars around the counselling entrance
 	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("BLUE"));
-	glBegin(GL_QUADS);//Draws the chatime ledge
+	glBegin(GL_QUADS);
+	//right side pillar
 	//front right pillar
 	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 32800.0);    // Top Right 
 	glTexCoord2i(0, 1); glVertex3f(2700.0, 10900.0, 32600.0);    // Top Left 
@@ -2366,6 +2371,7 @@ void DrawCounsellingEntrance() {
 	glTexCoord2i(1, 1); glVertex3f(2600.0, 10000.0, 32800.0);    // Bottom Left
 	glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 32800.0);    // Bottom Right 
 
+	//left side pillar
 	//front of left pillar
 	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 34000.0);    // Top Right 
 	glTexCoord2i(0, 1); glVertex3f(2700.0, 10900.0, 34200.0);    // Top Left 
@@ -2381,18 +2387,98 @@ void DrawCounsellingEntrance() {
 	glTexCoord2i(0, 1); glVertex3f(2600.0, 10900.0, 34200.0);    // Top Left 
 	glTexCoord2i(1, 1); glVertex3f(2600.0, 10000.0, 34200.0);    // Bottom Left
 	glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 34200.0);    // Bottom Right
+
+	//DRAWS TOP PILLAR ABOVE DOOR
+	//front top pillar
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 11100.0, 35200.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2700.0, 11100.0, 32600.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2700.0, 10900.0, 32600.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10900.0, 35200.0);    // Bottom Right 
+																 //right of top pillar
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 11100.0, 35200.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2600.0, 11100.0, 35200.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2600.0, 10900.0, 35200.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10900.0, 35200.0);    // Bottom Right 
+																 //left of top pillar
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 11100.0, 32600.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2600.0, 11100.0, 32600.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2600.0, 10900.0, 32600.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10900.0, 32600.0);    // Bottom Right
+																 //bottom of top pillar
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 35200.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2600.0, 10900.0, 32600.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2600.0, 10900.0, 32600.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10900.0, 35200.0);    // Bottom Right 
+	glEnd();
+
+	//Create higher windows on left of entrance
+	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("HIGHERWINDOW"));
+	glBegin(GL_QUADS);//Draws the student hub entance shop
+	glTexCoord2i(0, 0); glVertex3f(2665.0, 10900.0, 34200.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2665.0, 10900.0, 35200.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2665.0, 10600.0, 35200.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2665.0, 10600.0, 34200.0);    // Bottom Right 
+	glTexCoord2i(0, 0); glVertex3f(2665.0, 10900.0, 35400.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2665.0, 10900.0, 36400.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2665.0, 10600.0, 36400.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2665.0, 10600.0, 35400.0);    // Bottom Right 
+	glEnd();
+
+	//pillar for inbetween the higher windows
+	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("STONE"));
+	glBegin(GL_QUADS);
+	//left side pillar
+	//front of  pillar
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 35200.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2700.0, 10900.0, 35400.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2700.0, 10000.0, 35400.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 35200.0);    // Bottom Right 
+																 //right of  pillar
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 35200.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2600.0, 10900.0, 35200.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2600.0, 10000.0, 35200.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 35200.0);    // Bottom Right
+																 //left of  pillar
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 35400.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2600.0, 10900.0, 35400.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2600.0, 10000.0, 35400.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 35400.0);    // Bottom Right
+																 //right side pillar
+																 //front of  pillar
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 36400.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2700.0, 10900.0, 36600.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2700.0, 10000.0, 36600.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 36400.0);    // Bottom Right 
+																 //right of  pillar
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 36600.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2600.0, 10900.0, 36600.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2600.0, 10000.0, 36600.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 36600.0);    // Bottom Right
+																 //left of  pillar
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 36400.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2600.0, 10900.0, 36400.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2600.0, 10000.0, 36400.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 36400.0);    // Bottom Right
 	glEnd();
 }
 
 void DrawToiletEntrance() {
 	//entrance to ladies toilets
-	//glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("LADIESTOILET"));
-	//glBegin(GL_QUADS);//Draws the student hub entance shop
-	//glTexCoord2i(0, 0); glVertex3f(2665.0, 10900.0, 34000.0);    // Top Right 
-	//glTexCoord2i(0, 1); glVertex3f(2665.0, 10900.0, 32800.0);    // Top Left 
-	//glTexCoord2i(1, 1); glVertex3f(2665.0, 10000.0, 32800.0);    // Bottom Left
-	//glTexCoord2i(1, 0); glVertex3f(2665.0, 10000.0, 34000.0);    // Bottom Right 
-	//glEnd();
+	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("LADIESTOILET"));
+	glBegin(GL_QUADS);//Draws the student hub entance shop
+	glTexCoord2i(0, 0); glVertex3f(2665.0, 10900.0, 28000.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2665.0, 10900.0, 29000.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2665.0, 10000.0, 29000.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2665.0, 10000.0, 28000.0);    // Bottom Right 
+	glEnd();
+	//entrance to male toilets
+	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("MALETOILET"));
+	glBegin(GL_QUADS);//Draws the student hub entance shop
+	glTexCoord2i(0, 0); glVertex3f(2665.0, 10900.0, 29200.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2665.0, 10900.0, 30200.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2665.0, 10000.0, 30200.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2665.0, 10000.0, 29200.0);    // Bottom Right 
+	glEnd();
 }
 
 void DrawBackdropNew() {
