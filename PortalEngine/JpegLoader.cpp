@@ -1,6 +1,5 @@
 #include "JpegLoader.h"
 
-
 void JpegLoader::CreateTexture(const std::string textureName, const char * filename){
 
 	ILuint image;
@@ -22,28 +21,34 @@ void JpegLoader::CreateTexture(const std::string textureName, const char * filen
 	int const format = ilGetInteger(IL_IMAGE_FORMAT);
 
 	glGenTextures(1, &textureID);
-	glBindTexture(GL_TEXTURE_2D, textureID);
 
-	glPixelStorei(GL_UNPACK_SWAP_BYTES, GL_FALSE);
-	glPixelStorei(GL_UNPACK_ROW_LENGTH, 0);
-	glPixelStorei(GL_UNPACK_SKIP_PIXELS, 0);
-	glPixelStorei(GL_UNPACK_SKIP_ROWS, 0);
-	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+	if (setTextureList(textureName, textureID)) {
+		glBindTexture(GL_TEXTURE_2D, textureID);
 
-	glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, type, ilGetData());
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+		glPixelStorei(GL_UNPACK_SWAP_BYTES, GL_FALSE);
+		glPixelStorei(GL_UNPACK_ROW_LENGTH, 0);
+		glPixelStorei(GL_UNPACK_SKIP_PIXELS, 0);
+		glPixelStorei(GL_UNPACK_SKIP_ROWS, 0);
+		glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
 
-	ilDeleteImages(1, &image);
+		glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, type, ilGetData());
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 
-	setTextureList(textureName, textureID);
+		ilDeleteImages(1, &image);
+	}
+	else {
+		return;
+	}
 }
 
-void JpegLoader::setTextureList(const std::string TName, const  GLuint TexID) {
+bool JpegLoader::setTextureList(const std::string TName, const  GLuint TexID) {
 	if (TextureList.find(TName)->first == TName) {
 		std::cout << "TEXTURE NAME \""<<TName<<"\" ALREADY EXISTS, TEXTURE NOT LOADED" << std::endl;
+		return false;
 	}
 	else {
 		TextureList[TName]=TexID;
+		return true;
 	}
 }
 

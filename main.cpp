@@ -456,8 +456,8 @@ int main(int argc, char **argv)
 	myinit();
 
 	// these two lines transition the program to portal world. Delete if you want to work on shay's world.
-	inPortal = true;
-	main2();
+	//inPortal = true;
+	//main2();
 
 	glutIgnoreKeyRepeat(1); // removed this so we can hold down to move up or down
 	glutKeyboardUpFunc (releaseKeys);
@@ -504,7 +504,7 @@ void myinit()
 	// turn collision detection on
 	cam.SetCollisionDetectionOn(true);
 	// set number of bounding boxes required
-	cam.SetNoBoundingBoxes(19);
+	cam.SetNoBoundingBoxes(50);
 	// set starting position of user
 	cam.Position(32720.0, 9536.0,	
 				 4800.0, 180.0);
@@ -523,7 +523,7 @@ void myinit()
 
 	CreateJPGTextures();
 	LoadGameSounds();
-	game_audio.playAudio("AMBIENCE");
+	game_audio.playAudioChannel("AMBIENCE", 1, -2);
 
 }
 
@@ -619,11 +619,12 @@ void keys(unsigned char key, int x, int y)
 
 		case 'w':
 			cam.DirectionFB((int)1.5);
-			game_audio.playAudio("STEPS");
+			game_audio.playAudioChannel("STEPS", 2, -1);
 			break;
 
 		case 's':
 			cam.DirectionFB(-1);
+			game_audio.playAudioChannel("STEPS", 2, -1);
 			break;
 
 		// display campus map
@@ -741,6 +742,7 @@ void releaseKeys(unsigned char key, int x, int y)
 		case 'w':
 		case 's':
 			cam.DirectionFB(0);
+			game_audio.pauseAudio(2);
 			break;
 
 		
@@ -914,6 +916,24 @@ void CreateBoundingBoxes()
 	cam.SetAABBMinX(16, 31444.0);
 	cam.SetAABBMaxZ(16, 10395.0);
 	cam.SetAABBMinZ(16, 4590.0);
+
+	// Portal Pillar 1 by Kennedy
+	cam.SetAABBMaxX(17, 28000.0);
+	cam.SetAABBMinX(17, 27500.0);
+	cam.SetAABBMaxZ(17, 12600.0);
+	cam.SetAABBMinZ(17, 11500.0);
+
+	// Portal Pillar 2 by Kennedy
+	cam.SetAABBMaxX(18, 30500.0);
+	cam.SetAABBMinX(18, 30000.0);
+	cam.SetAABBMaxZ(18, 12600.0);
+	cam.SetAABBMinZ(18, 11500.0);
+
+	// Portal Back Wall by Kennedy
+	cam.SetAABBMaxX(19, 30500.0);
+	cam.SetAABBMinX(19, 27500.0);
+	cam.SetAABBMaxZ(19, 12700.0);
+	cam.SetAABBMinZ(19, 12600.0);
 }
 
 //--------------------------------------------------------------------------------------
@@ -925,28 +945,28 @@ void CreatePlains()
 	cam.SetPlains (ZY_PLAIN, 4848.0 ,31568.0 ,9536.0, 10450.0 ,6200.0, 10000.0);
 
 	// flat land (pavement and grass)
-	cam.SetPlains (FLAT_PLAIN, 0.0, 36000.0 , 10450.0, 10450.0, 10000.0, 17000.0);
-	cam.SetPlains (FLAT_PLAIN, 0.0, 6500.0 , 10450.0, 10450.0, 17000.0, 40000.0);
-	cam.SetPlains (FLAT_PLAIN, 27000.0, 36000.0 , 10450.0, 10450.0, 17000.0, 40000.0);
-	cam.SetPlains (FLAT_PLAIN, 0.0, 36000.0 , 10450.0, 10450.0, 40000.0, 50000.0);
+	//cam.SetPlains (FLAT_PLAIN, 0.0, 36000.0 , 10450.0, 10450.0, 10000.0, 17000.0);
+	//cam.SetPlains (FLAT_PLAIN, 0.0, 6500.0 , 10450.0, 10450.0, 17000.0, 40000.0);
+	//cam.SetPlains (FLAT_PLAIN, 27000.0, 36000.0 , 10450.0, 10450.0, 17000.0, 40000.0);
+	//cam.SetPlains (FLAT_PLAIN, 0.0, 36000.0 , 10450.0, 10450.0, 40000.0, 50000.0);
 	
-	// top of lower hill
-	cam.SetPlains (FLAT_PLAIN, 9000.0, 22000.0 , 10650.0, 10650.0, 19000.0, 23000.0);
-	cam.SetPlains (FLAT_PLAIN, 9000.0, 10000.0 , 10650.0, 10650.0, 28000.0, 33000.0);
-	cam.SetPlains (FLAT_PLAIN, 9000.0, 22000.0 , 10650.0, 10650.0, 36000.0, 37000.0);
-	// sides of lower hill
-	cam.SetPlains (ZY_PLAIN, 6500.0, 27000.0 , 10450.0, 10650.0, 17000.0, 19000.0);
-	cam.SetPlains (ZY_PLAIN, 6500.0, 27000.0 , 10650.0, 10450.0, 37000.0, 40000.0);
-	cam.SetPlains (XY_PLAIN, 6500.0, 9000.0 , 10450.0, 10650.0, 17000.0, 40000.0);
-	cam.SetPlains (XY_PLAIN, 22000.0, 27000.0 , 10650.0, 10450.0, 17000.0, 40000.0);
+	//// top of lower hill
+	//cam.SetPlains (FLAT_PLAIN, 9000.0, 22000.0 , 10650.0, 10650.0, 19000.0, 23000.0);
+	//cam.SetPlains (FLAT_PLAIN, 9000.0, 10000.0 , 10650.0, 10650.0, 28000.0, 33000.0);
+	//cam.SetPlains (FLAT_PLAIN, 9000.0, 22000.0 , 10650.0, 10650.0, 36000.0, 37000.0);
+	//// sides of lower hill
+	//cam.SetPlains (ZY_PLAIN, 6500.0, 27000.0 , 10450.0, 10650.0, 17000.0, 19000.0);
+	//cam.SetPlains (ZY_PLAIN, 6500.0, 27000.0 , 10650.0, 10450.0, 37000.0, 40000.0);
+	//cam.SetPlains (XY_PLAIN, 6500.0, 9000.0 , 10450.0, 10650.0, 17000.0, 40000.0);
+	//cam.SetPlains (XY_PLAIN, 22000.0, 27000.0 , 10650.0, 10450.0, 17000.0, 40000.0);
 
-	// top of higher hill
-	cam.SetPlains (FLAT_PLAIN, 14000.0, 18000.0 , 10875.0, 108075.0, 28000.0, 33000.0);
-	// sides of higher hill
-	cam.SetPlains (ZY_PLAIN, 10000.0, 22000.0 , 10650.0, 10875.0, 23000.0, 28000.0);
-	cam.SetPlains (ZY_PLAIN, 10000.0, 22000.0 , 10875.0, 10650.0, 33000.0, 36000.0);
-	cam.SetPlains (XY_PLAIN, 10000.0, 14000.0 , 10650.0, 10875.0, 23000.0, 36000.0);
-	cam.SetPlains (XY_PLAIN, 18000.0, 22000.0 , 10875.0, 10650.0, 23000.0, 36000.0);
+	//// top of higher hill
+	//cam.SetPlains (FLAT_PLAIN, 14000.0, 18000.0 , 10875.0, 108075.0, 28000.0, 33000.0);
+	//// sides of higher hill
+	//cam.SetPlains (ZY_PLAIN, 10000.0, 22000.0 , 10650.0, 10875.0, 23000.0, 28000.0);
+	//cam.SetPlains (ZY_PLAIN, 10000.0, 22000.0 , 10875.0, 10650.0, 33000.0, 36000.0);
+	//cam.SetPlains (XY_PLAIN, 10000.0, 14000.0 , 10650.0, 10875.0, 23000.0, 36000.0);
+	//cam.SetPlains (XY_PLAIN, 18000.0, 22000.0 , 10875.0, 10650.0, 23000.0, 36000.0);
 
 	//entance steps
 	step = 10450.0;
@@ -965,6 +985,11 @@ void CreatePlains()
 
 	// temp plain to take down to ECL1
 	cam.SetPlains (ZY_PLAIN, 3200.0, 4800.0 , 10450.0, 9370.0, 53400.0, 57900.0);
+	
+	// Kennnedy New Plains
+	cam.SetPlains (ZY_PLAIN, 28000.0, 30000.0, 10450, 11050.0, 11500.0, 12100.0);
+	cam.SetPlains(FLAT_PLAIN, 28000.0, 30000.0, 11050.0, 11050, 12100.0, 12650.0);
+	cam.SetPlains(FLAT_PLAIN, 9000.0, 22000.0, 10450.0, 10450.0, 10000.0, 50000.0);
 }
 
 //--------------------------------------------------------------------------------------
@@ -985,8 +1010,9 @@ void DeleteImageFromMemory(unsigned char* tempImage)
 
 void LoadGameSounds() {
 	
-	game_audio.CreateAudio("AMBIENCE", "sounds/ambience.wav");
-	game_audio.CreateAudio("STEPS", "sounds/walking.wav");
+	//game_audio.LoadWAV("AMBIENCE", "sounds/ambience.wav");
+	game_audio.LoadWAV("STEPS", "sounds/walking.wav");
+	
 }
 
 
@@ -1030,6 +1056,10 @@ void CreateJPGTextures() {
 	jpeg.CreateTexture("BLUE", "data/blue.jpg");
 
 	jpeg.CreateTexture("LADIESTOILET", "data/LadiesToilet.jpg");
+
+	jpeg.CreateTexture("MALETOILET", "data/MaleToilets.jpg");
+
+	jpeg.CreateTexture("HIGHERWINDOW", "data/HigherWindow.jpg");
 
 }
 
@@ -2323,7 +2353,8 @@ void DrawCounsellingEntrance() {
 
 	//Draws the blue pillars around the counselling entrance
 	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("BLUE"));
-	glBegin(GL_QUADS);//Draws the chatime ledge
+	glBegin(GL_QUADS);
+	//right side pillar
 	//front right pillar
 	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 32800.0);    // Top Right 
 	glTexCoord2i(0, 1); glVertex3f(2700.0, 10900.0, 32600.0);    // Top Left 
@@ -2340,6 +2371,7 @@ void DrawCounsellingEntrance() {
 	glTexCoord2i(1, 1); glVertex3f(2600.0, 10000.0, 32800.0);    // Bottom Left
 	glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 32800.0);    // Bottom Right 
 
+	//left side pillar
 	//front of left pillar
 	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 34000.0);    // Top Right 
 	glTexCoord2i(0, 1); glVertex3f(2700.0, 10900.0, 34200.0);    // Top Left 
@@ -2355,18 +2387,98 @@ void DrawCounsellingEntrance() {
 	glTexCoord2i(0, 1); glVertex3f(2600.0, 10900.0, 34200.0);    // Top Left 
 	glTexCoord2i(1, 1); glVertex3f(2600.0, 10000.0, 34200.0);    // Bottom Left
 	glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 34200.0);    // Bottom Right
+
+	//DRAWS TOP PILLAR ABOVE DOOR
+	//front top pillar
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 11100.0, 35200.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2700.0, 11100.0, 32600.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2700.0, 10900.0, 32600.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10900.0, 35200.0);    // Bottom Right 
+																 //right of top pillar
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 11100.0, 35200.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2600.0, 11100.0, 35200.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2600.0, 10900.0, 35200.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10900.0, 35200.0);    // Bottom Right 
+																 //left of top pillar
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 11100.0, 32600.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2600.0, 11100.0, 32600.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2600.0, 10900.0, 32600.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10900.0, 32600.0);    // Bottom Right
+																 //bottom of top pillar
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 35200.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2600.0, 10900.0, 32600.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2600.0, 10900.0, 32600.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10900.0, 35200.0);    // Bottom Right 
+	glEnd();
+
+	//Create higher windows on left of entrance
+	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("HIGHERWINDOW"));
+	glBegin(GL_QUADS);//Draws the student hub entance shop
+	glTexCoord2i(0, 0); glVertex3f(2665.0, 10900.0, 34200.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2665.0, 10900.0, 35200.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2665.0, 10600.0, 35200.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2665.0, 10600.0, 34200.0);    // Bottom Right 
+	glTexCoord2i(0, 0); glVertex3f(2665.0, 10900.0, 35400.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2665.0, 10900.0, 36400.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2665.0, 10600.0, 36400.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2665.0, 10600.0, 35400.0);    // Bottom Right 
+	glEnd();
+
+	//pillar for inbetween the higher windows
+	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("STONE"));
+	glBegin(GL_QUADS);
+	//left side pillar
+	//front of  pillar
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 35200.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2700.0, 10900.0, 35400.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2700.0, 10000.0, 35400.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 35200.0);    // Bottom Right 
+																 //right of  pillar
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 35200.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2600.0, 10900.0, 35200.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2600.0, 10000.0, 35200.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 35200.0);    // Bottom Right
+																 //left of  pillar
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 35400.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2600.0, 10900.0, 35400.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2600.0, 10000.0, 35400.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 35400.0);    // Bottom Right
+																 //right side pillar
+																 //front of  pillar
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 36400.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2700.0, 10900.0, 36600.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2700.0, 10000.0, 36600.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 36400.0);    // Bottom Right 
+																 //right of  pillar
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 36600.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2600.0, 10900.0, 36600.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2600.0, 10000.0, 36600.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 36600.0);    // Bottom Right
+																 //left of  pillar
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 36400.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2600.0, 10900.0, 36400.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2600.0, 10000.0, 36400.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 36400.0);    // Bottom Right
 	glEnd();
 }
 
 void DrawToiletEntrance() {
 	//entrance to ladies toilets
-	//glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("LADIESTOILET"));
-	//glBegin(GL_QUADS);//Draws the student hub entance shop
-	//glTexCoord2i(0, 0); glVertex3f(2665.0, 10900.0, 34000.0);    // Top Right 
-	//glTexCoord2i(0, 1); glVertex3f(2665.0, 10900.0, 32800.0);    // Top Left 
-	//glTexCoord2i(1, 1); glVertex3f(2665.0, 10000.0, 32800.0);    // Bottom Left
-	//glTexCoord2i(1, 0); glVertex3f(2665.0, 10000.0, 34000.0);    // Bottom Right 
-	//glEnd();
+	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("LADIESTOILET"));
+	glBegin(GL_QUADS);//Draws the student hub entance shop
+	glTexCoord2i(0, 0); glVertex3f(2665.0, 10900.0, 28000.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2665.0, 10900.0, 29000.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2665.0, 10000.0, 29000.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2665.0, 10000.0, 28000.0);    // Bottom Right 
+	glEnd();
+	//entrance to male toilets
+	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("MALETOILET"));
+	glBegin(GL_QUADS);//Draws the student hub entance shop
+	glTexCoord2i(0, 0); glVertex3f(2665.0, 10900.0, 29200.0);    // Top Right 
+	glTexCoord2i(0, 1); glVertex3f(2665.0, 10900.0, 30200.0);    // Top Left 
+	glTexCoord2i(1, 1); glVertex3f(2665.0, 10000.0, 30200.0);    // Bottom Left
+	glTexCoord2i(1, 0); glVertex3f(2665.0, 10000.0, 29200.0);    // Bottom Right 
+	glEnd();
 }
 
 void DrawBackdropNew() {
