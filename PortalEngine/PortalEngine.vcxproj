@@ -76,7 +76,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\Murdoch\source\repos\Shay\Dependancies\freeglut\include;C:\Users\Murdoch\source\repos\Shay\Dependancies\DevIL\include;C:\Users\axel0\Desktop\Git Repo\Shay\Dependancies\DevIL\include;C:\Users\axel0\Desktop\Git Repo\Shay\Dependancies\freeglut\include;C:\Users\jacob\source\repos\Shay\Dependancies\freeglut\include;C:\Users\Manu\source\repos\Shay\Dependancies\freeglut\include;C:\Users\Manu\source\repos\Shay\Dependancies\DevIL\include;C:\Users\jacob\source\repos\Shay\Dependancies\DevIL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Chris\source\repos\Shay\Dependancies\DevIL\include;C:\Users\Chris\source\repos\Shay\Dependancies\freeglut\include;C:\Users\Murdoch\source\repos\Shay\Dependancies\freeglut\include;C:\Users\Murdoch\source\repos\Shay\Dependancies\DevIL\include;C:\Users\axel0\Desktop\Git Repo\Shay\Dependancies\DevIL\include;C:\Users\axel0\Desktop\Git Repo\Shay\Dependancies\freeglut\include;C:\Users\jacob\source\repos\Shay\Dependancies\freeglut\include;C:\Users\Manu\source\repos\Shay\Dependancies\freeglut\include;C:\Users\Manu\source\repos\Shay\Dependancies\DevIL\include;C:\Users\jacob\source\repos\Shay\Dependancies\DevIL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -125,15 +125,19 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Cam.h" />
+    <ClInclude Include="Cube.h" />
     <ClInclude Include="JpegLoader.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Structs.h" />
+    <ClInclude Include="World.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Cam.cpp" />
+    <ClCompile Include="Cube.cpp" />
     <ClCompile Include="JpegLoader.cpp" />
     <ClCompile Include="main2.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="World.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
