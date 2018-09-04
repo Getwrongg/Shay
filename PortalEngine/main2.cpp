@@ -12,7 +12,7 @@
 int screenWidth, screenHeight;
 
 // movespeed of camera
-GLdouble moveSpeed = 0.003;
+GLdouble moveSpeed = 0.03;
 GLdouble rotateSpeed = 0.005;
 
 GLdouble deltaX = 0;
@@ -113,9 +113,9 @@ void Display2()
 	glEnable(GL_TEXTURE_2D);
 
 	//DrawSwirl();
-	player.DrawPlayer();
+	//player.DrawPlayer();
 
-	//glutWireCube(1.0);
+	glutWireCube(1.0);
 
 		// shows position of the camera
 	//GLdouble *pos = ourCam.GetPosition();
