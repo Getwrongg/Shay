@@ -9,6 +9,8 @@ World::World()
 void World::CreateTextures(const std::string name, const char * filePath)
 {
 	j.CreateTexture("SWIRL", "data/portalswirl.jpg");
+	
+	j.CreateTexture("pillar", "data/pillarTexture.jpg");
 
 }
 
@@ -52,6 +54,7 @@ void World::Cubes()
 {
 
 	//First Pillar
+	glBindTexture(GL_TEXTURE_2D, j.getTextureID("pillar"));
 	cube.Draw(0, -1, 0);//bottom
 	cube.Draw(0, 0, 0);
 	cube.Draw(0, 1, 0);

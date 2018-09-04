@@ -139,6 +139,8 @@ void CreateTexturesPortalWorld()
 	j.CreateTexture("SWIRL", "data/portalswirl.jpg");
 	player.LoadTexture("SWIRL2", "data/portalswirl.jpg");
 	world.CreateTextures("SWIRL3", "data/portalswirl.jpg");
+	
+	
 }
 
 void DrawSwirl()
