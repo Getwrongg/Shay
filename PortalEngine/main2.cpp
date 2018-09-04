@@ -13,17 +13,18 @@
 int screenWidth, screenHeight;
 
 // camera variables
-GLdouble moveSpeed = 0.03;
+GLdouble moveSpeed = 0.003;
 GLdouble rotateSpeed = 0.005;
+GLdouble angle = 0;
 
 int deltaX = 0;
 int deltaY = 0;
-//int prevX = 0;
+//int prevX = 0;	
 
 
 // used for position of the camera
 GLdouble pos[] = {	0.0, 0.0, 5.0,
-					0.0, 0.0, -1.0,
+					0.0, 0.0, 0.0,
 					0.0, 1.0, 0.0 };
 
 //--------------------------------------------------
@@ -101,7 +102,7 @@ void MyInit()
 
 	ourCam.SetMoveSpeed(moveSpeed); // sets movement speed of camera
 	ourCam.SetRotateSpeed(rotateSpeed); // sets rotate speed of camera
-	ourCam.SetPosition(pos); // sets position of the camera in the world
+	ourCam.SetPosition(pos, angle); // sets position of the camera in the world
 
 	player.SetPosition(0, 0, 0); // sets position of the player
 
@@ -178,7 +179,7 @@ void Resize(int w, int h)
 	gluPerspective(60.0, aspect, 0.1, 100.0);
 
 	glMatrixMode(GL_MODELVIEW);
-	glLoadIdentity();
+	//glLoadIdentity();
 }
 
 //--------------------------------------------------

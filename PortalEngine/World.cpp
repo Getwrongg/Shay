@@ -30,8 +30,8 @@ void World::Axis()
 }
 void World::Ground() 
 {
-	j.CreateTexture("SWIRL", "data/portalswirl.jpg");
-	glBindTexture(GL_TEXTURE_2D, j.getTextureID("SWIRL"));
+	//j.CreateTexture("SWIRL", "data/portalswirl.jpg");
+	//glBindTexture(GL_TEXTURE_2D, j.getTextureID("SWIRL"));
 	
 	glBegin(GL_POLYGON);
 		glTexCoord2i(0, 0); glVertex3f(-40.0, -1, 100.0);

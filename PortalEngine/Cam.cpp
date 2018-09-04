@@ -34,7 +34,7 @@ void Cam::CallGluLookat()
 {
 	//glLoadIdentity();
 	gluLookAt(	pos.x, pos.y, pos.z,
-				pos.x + rotateVector[0], pos.y + rotateVector[1], pos.z + rotateVector[2],
+				pos.x + look.x, pos.y + look.y, pos.z + look.z,
 				upVector.x, upVector.y, upVector.z);
 }
 
@@ -75,13 +75,11 @@ bool Cam::CanMoveFB()
 void Cam::MoveLeftRight()
 {
 	pos.x += (dirLR * moveSpeed);
-	look.x += (dirLR * moveSpeed);
 }
 
 void Cam::MoveForwardBack()
 {
 	pos.z += (dirFB * moveSpeed);
-	look.z += (dirFB * moveSpeed);
 }
 
 void Cam::Rotate(int deltaX, int deltaY)
@@ -89,9 +87,13 @@ void Cam::Rotate(int deltaX, int deltaY)
 	rotateAngle += deltaX * rotateSpeed; // maybe change to +=
 	rotateUD -= deltaY * rotateSpeed;
 
-	rotateVector[0] = sin(rotateAngle);
-	rotateVector[2] = -cos(rotateAngle);
-	rotateVector[1] = sin(rotateUD);
+	// left and right
+	look.x = sin(rotateAngle);
+	look.z = -cos(rotateAngle);
+
+	// up and down
+	look.y = sin(rotateUD);
+
 
 }
 
@@ -124,7 +126,7 @@ Coordinates & Cam::GetPosition()
 	return pos;
 }
 
-void Cam::SetPosition(const GLdouble pos2[9])
+void Cam::SetPosition(const GLdouble pos2[9], const GLdouble angle)
 {
 	// looking at
 	pos.x = pos2[0];
@@ -140,6 +142,12 @@ void Cam::SetPosition(const GLdouble pos2[9])
 	upVector.x = pos2[6];
 	upVector.y = pos2[7];
 	upVector.z = pos2[8];
+
+	rotateAngle = angle * (PI / 180);
+
+	// left and right
+	look.x = sin(rotateAngle);
+	look.z = -cos(rotateAngle);
 
 	CallGluLookat();
 }
