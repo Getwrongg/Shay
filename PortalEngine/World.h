@@ -17,6 +17,7 @@ public:
 private:
 	JpegLoader j;
 	Cube cube;
+	
 
 };
 

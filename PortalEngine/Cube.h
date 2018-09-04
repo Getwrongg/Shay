@@ -4,9 +4,10 @@ class Cube
 {
 public:
 	Cube();
+	Cube(const GLdouble x1, const GLdouble y1, const GLdouble z1);
 	~Cube();
-	void Draw();
+	void Draw(const GLdouble x1, const GLdouble y1, const GLdouble z1);
 private:
-	Coordinates coo;
+	Coordinates pos;
 };
 
