@@ -12,7 +12,7 @@
 int screenWidth, screenHeight;
 
 // movespeed of camera
-GLdouble moveSpeed = 0.03;
+GLdouble moveSpeed = 0.003;
 GLdouble rotateSpeed = 0.005;
 
 GLdouble deltaX = 0;
@@ -96,6 +96,8 @@ void MyInit()
 	ourCam.SetRotateSpeed(rotateSpeed); // sets rotate speed of camera
 	ourCam.SetPosition(pos); // sets position of the camera in the world
 
+	player.SetPosition(0, 0, 0); // sets position of the player
+
 	CreateTexturesPortalWorld();
 }
 
@@ -108,18 +110,15 @@ void Display2()
 	glLoadIdentity();
 
 	// updates camera position
-	ourCam.UpdateCamera();
+	ourCam.Update();
+	//player.Update();
 
 	glEnable(GL_TEXTURE_2D);
 
-	//DrawSwirl();
+	DrawSwirl();
 	//player.DrawPlayer();
 
-	glutWireCube(1.0);
-
-		// shows position of the camera
-	//GLdouble *pos = ourCam.GetPosition();
-	//std::cout << pos[0] << "   " << pos[1] << "   " << pos[2] << std::endl;
+	//glutWireCube(1.0);
 
 	glDisable(GL_TEXTURE_2D);
 	glutSwapBuffers();

@@ -81,7 +81,7 @@ public:
 	*
 	* @return void
 	*/
-	void UpdateCamera();
+	void Update();
 
 	//--------------------------------------------------
 	//	Setters
