@@ -1,6 +1,7 @@
 #include "JpegLoader.h"
 #include "Cam.h"
 #include "Player.h"
+#include "World.h"
 
 #include <iostream>
 
@@ -29,6 +30,7 @@ GLdouble pos[] = {	0.0, 0.0, 5.0,
 JpegLoader j;
 Cam ourCam;
 Player player;
+World world;
 
 //--------------------------------------------------
 //	Method Prototypes					
@@ -107,6 +109,7 @@ void Display2()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); 
 	glLoadIdentity();
 
+	
 	// updates camera position
 	ourCam.UpdateCamera();
 
@@ -114,9 +117,13 @@ void Display2()
 
 	//DrawSwirl();
 	//player.DrawPlayer();
-
-	glutWireCube(1.0);
-
+	
+	world.Ground(); ///Draws the ground with texture
+	
+	world.Axis();///Draws the axis for testing
+	world.Cubes();
+	//glutWireCube(1.0);
+	
 		// shows position of the camera
 	//GLdouble *pos = ourCam.GetPosition();
 	//std::cout << pos[0] << "   " << pos[1] << "   " << pos[2] << std::endl;
