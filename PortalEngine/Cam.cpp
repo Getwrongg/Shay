@@ -87,7 +87,7 @@ void Cam::MoveForwardBack()
 void Cam::Rotate(int deltaX, int deltaY)
 {
 	rotateAngle -= deltaX * rotateSpeed; // maybe change to +=
-	rotateUD -= deltaY * rotateSpeed;
+	rotateUD += deltaY * rotateSpeed;
 
 	rotateVector[0] = sin(rotateAngle);
 	rotateVector[2] = -cos(rotateAngle);
