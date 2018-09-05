@@ -1887,13 +1887,33 @@ void PortalStructure()
 	glTexCoord2i(0, 1); glVertex3f(22000.0, 11000.0, 17500.0);
 	glTexCoord2i(1, 1); glVertex3f(22000.0, 10000.0, 17500.0);
 	glTexCoord2i(1, 0); glVertex3f(22000.0, 10000.0, 18500.0);
-
+	
 	//_______________________________________________JACOB_____________
 	//TOP PLATFORM
 	glTexCoord2i(0, 0); glVertex3f(23000.0, 11000.0, 16500.0);// top left
 	glTexCoord2i(0, 1); glVertex3f(23000.0, 11000.0, 17500.0);// top right
 	glTexCoord2i(1, 1); glVertex3f(24000.0, 11000.0, 17500.0);// bottom right
 	glTexCoord2i(1, 0); glVertex3f(24000.0, 11000.0, 16500.0);// bottom left
+
+	glTexCoord2i(0, 0); glVertex3f(23000.0, 11000.0, 18500.0);
+	glTexCoord2i(0, 1); glVertex3f(23000.0, 11000.0, 17500.0);
+	glTexCoord2i(1, 1); glVertex3f(24000.0, 11000.0, 17500.0);
+	glTexCoord2i(1, 0); glVertex3f(24000.0, 11000.0, 18500.0);
+
+	glTexCoord2i(0, 0); glVertex3f(22000.0, 11000.0, 18500.0);
+	glTexCoord2i(0, 1); glVertex3f(22000.0, 11000.0, 17500.0);
+	glTexCoord2i(1, 1); glVertex3f(25000.0, 11000.0, 17500.0);
+	glTexCoord2i(1, 0); glVertex3f(25000.0, 11000.0, 18500.0);
+
+	glTexCoord2i(0, 0); glVertex3f(24000.0, 11000.0, 16500.0);
+	glTexCoord2i(0, 1); glVertex3f(24000.0, 11000.0, 15500.0);
+	glTexCoord2i(1, 1); glVertex3f(25000.0, 11000.0, 15500.0);
+	glTexCoord2i(1, 0); glVertex3f(25000.0, 11000.0, 16500.0);
+
+	glTexCoord2i(0, 0); glVertex3f(22000.0, 11000.0, 16500.0);
+	glTexCoord2i(0, 1); glVertex3f(22000.0, 11000.0, 15500.0);
+	glTexCoord2i(1, 1); glVertex3f(23000.0, 11000.0, 15500.0);
+	glTexCoord2i(1, 0); glVertex3f(23000.0, 11000.0, 16500.0);
 
 	glEnd();
 
@@ -1938,20 +1958,38 @@ void PortalStructure()
 	//_______________________________________________JACOB_____________
 	//RIGHT SIDE STEPS - RIGHT BANNISTAR
 	//TOP
-	//glTexCoord2i(0, 0); glVertex3f(21850.0, 10000.0, 17500.0);// top left
-	//glTexCoord2i(0, 1); glVertex3f(21850.0, 10000.0, 17300.0);// top right
-	//glTexCoord2i(1, 1); glVertex3f(22000.0, 11500.0, 17300.0);// bottom right
-	//glTexCoord2i(1, 0); glVertex3f(22000.0, 11500.0, 17500.0);// bottom left
-	////LEFT 
-	//glTexCoord2i(0, 0); glVertex3f(22000.0, 11500.0, 17500.0);
-	//glTexCoord2i(0, 1); glVertex3f(21950.0, 10000.0, 17500.0);
-	//glTexCoord2i(1, 1); glVertex3f(21950.0, 10000.0, 17500.0);
-	//glTexCoord2i(1, 0); glVertex3f(22000.0, 10000.0, 17500.0);
-	////RIGHT
-	//glTexCoord2i(0, 0); glVertex3f(22000.0, 11500.0, 17300.0);
-	//glTexCoord2i(0, 1); glVertex3f(21950.0, 10000.0, 17300.0);
-	//glTexCoord2i(1, 1); glVertex3f(21950.0, 10000.0, 17300.0);
-	//glTexCoord2i(1, 0); glVertex3f(22000.0, 10000.0, 17300.0);
+	glTexCoord2i(0, 0); glVertex3f(19500.0, 10000.0, 17500.0);// top left
+	glTexCoord2i(0, 1); glVertex3f(19500.0, 10000.0, 17300.0);// top right
+	glTexCoord2i(1, 1); glVertex3f(23000.0, 11500.0, 17300.0);// bottom right
+	glTexCoord2i(1, 0); glVertex3f(23000.0, 11500.0, 17500.0);// bottom left
+	//LEFT 
+	glTexCoord2i(0, 0); glVertex3f(23000.0, 11500.0, 17500.0);
+	glTexCoord2i(0, 1); glVertex3f(19500.0, 10000.0, 17500.0);
+	glTexCoord2i(1, 1); glVertex3f(19500.0, 10000.0, 17500.0);
+	glTexCoord2i(1, 0); glVertex3f(23000.0, 10000.0, 17500.0);
+	//RIGHT
+	glTexCoord2i(0, 0); glVertex3f(23000.0, 11500.0, 17300.0);
+	glTexCoord2i(0, 1); glVertex3f(19500.0, 10000.0, 17300.0);
+	glTexCoord2i(1, 1); glVertex3f(19500.0, 10000.0, 17300.0);
+	glTexCoord2i(1, 0); glVertex3f(23000.0, 10000.0, 17300.0);
+
+	//_______________________________________________JACOB_____________
+	//RIGHT SIDE STEPS - LEFT BANNISTAR
+	//TOP
+	glTexCoord2i(0, 0); glVertex3f(19500.0, 10000.0, 16500.0);// top left
+	glTexCoord2i(0, 1); glVertex3f(19500.0, 10000.0, 16300.0);// top right
+	glTexCoord2i(1, 1); glVertex3f(23000.0, 11500.0, 16300.0);// bottom right
+	glTexCoord2i(1, 0); glVertex3f(23000.0, 11500.0, 16500.0);// bottom left
+	//LEFT 
+	glTexCoord2i(0, 0); glVertex3f(23000.0, 11500.0, 16500.0);
+	glTexCoord2i(0, 1); glVertex3f(19500.0, 10000.0, 16500.0);
+	glTexCoord2i(1, 1); glVertex3f(19500.0, 10000.0, 16500.0);
+	glTexCoord2i(1, 0); glVertex3f(23000.0, 10000.0, 16500.0);
+	//RIGHT
+	glTexCoord2i(0, 0); glVertex3f(23000.0, 11500.0, 16300.0);
+	glTexCoord2i(0, 1); glVertex3f(19500.0, 10000.0, 16300.0);
+	glTexCoord2i(1, 1); glVertex3f(19500.0, 10000.0, 16300.0);
+	glTexCoord2i(1, 0); glVertex3f(23000.0, 10000.0, 16300.0);
 
 	glEnd();
 
