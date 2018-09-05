@@ -88,7 +88,7 @@ void World::Cubes()
 
 void World::Bushes()
 {
-
+	//left half of bush
 	for (float i = -1.5; i > -3; i = i - 0.1) 
 	{
 		for (float j=2;j>0;j=j-0.1)
@@ -106,6 +106,7 @@ void World::Bushes()
 		
 	}
 
+	//right half of bush
 	for (float i = -1.5; i < 0; i = i + 0.1)
 	{
 		for (float j = 2; j>0; j = j - 0.1)

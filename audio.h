@@ -32,12 +32,12 @@ public:
 	Audio();
 	~Audio();
 
-	void playAudioChannel(const std::string Audio_Name, const int channel, const int playNum); //channel = channel to play this audio on, playNum = number of times to play audio: -1=loop, 0-1=play once
-	void playAudio(const std::string Audio_Name, const int playNum); // Play audio on any free channel
-	void playMusic(const std::string Music_Name, const int playNum);
+	void PlayAudioChannel(const std::string Audio_Name, const int channel, const int playNum); //channel = channel to play this audio on, playNum = number of times to play audio: -1=loop, 0-1=play once
+	void PlayAudio(const std::string Audio_Name, const int playNum); // Play audio on any free channel
+	void PlayMusic(const std::string Music_Name, const int playNum); // Play music, -1 to loop forever
 
-	void stopAudio(const int channel); //Pause all audio on inputed channel, -1 for all channels (not music)
-	void stopMusic(); //Stop current music
+	void StopAudio(const int channel); //Pause all audio on inputed channel, -1 for all channels (not music)
+	void StopMusic(); //Stop current music
 
 	const void LoadWAV(const std::string Audio_Name, const char* audiofile); //Sound Effects
 	const void LoadOGG(const std::string Audio_Name, const char* audiofile); //Music
