@@ -18,20 +18,20 @@ void World::Axis()
 {
 	glColor3f(1, 0, 0);
 	glBegin(GL_LINES);
-	glVertex3f(0.0, -0.9, 0.0);
-	glVertex3f(1.0, -0.9, 0.0);
+	glVertex3f(0.0f, -0.9f, 0.0f);
+	glVertex3f(1.0f, -0.9f, 0.0f);
 	glEnd();
 
 	glColor3f(0, 1, 0);
 	glBegin(GL_LINES);
-	glVertex3f(0.0, -0.9, 0.0);
-	glVertex3f(0.0, 2.0, 0.0);
+	glVertex3f(0.0f, -0.9f, 0.0f);
+	glVertex3f(0.0f, 2.0f, 0.0f);
 	glEnd();
 
 	glColor3f(0, 0, 1);
 	glBegin(GL_LINES);
-	glVertex3f(0.0, -0.9, 0.0);
-	glVertex3f(0.0, -0.9, 3.0);
+	glVertex3f(0.0f, -0.9f, 0.0f);
+	glVertex3f(0.0f, -0.9f, 3.0f);
 	glEnd();
 
 
@@ -89,11 +89,11 @@ void World::Cubes()
 void World::Bushes()
 {
 	//left half of bush
-	for (float i = -1.5; i > -3; i = i - 0.1) 
+	for (float i = -1.5f; i > -3; i = i - 0.1f)
 	{
-		for (float j=2;j>0;j=j-0.1)
+		for (float j = 2;j > 0; j = j - 0.1f)
 		{
-			for(float k=-1;k<1;k=k+0.1)
+			for(float k = -1; k < 1; k = k + 0.1f)
 			{
 				glBegin(GL_TRIANGLES);
 				glVertex3f(-2, 0, 0);
@@ -105,13 +105,13 @@ void World::Bushes()
 		}
 		
 	}
-
+	
 	//right half of bush
-	for (float i = -1.5; i < 0; i = i + 0.1)
+	for (float i = -1.5f; i < 0; i = i + 0.1f)
 	{
-		for (float j = 2; j>0; j = j - 0.1)
+		for (float j = 2; j > 0; j = j - 0.1f)
 		{
-			for (float k = -1; k<1; k = k + 0.1)
+			for (float k = -1; k < 1; k = k + 0.1f)
 			{
 				glBegin(GL_TRIANGLES);
 				glVertex3f(-2, 0, 0);
