@@ -91,7 +91,7 @@ void World::Bushes()
 	//left half of bush
 	for (float i = -1.5f; i > -3; i = i - 0.1f)
 	{
-		for (float j = 2;j > 0; j = j - 0.1f)
+		for (float j = 2; j > 0; j = j - 0.1f)
 		{
 			for(float k = -1; k < 1; k = k + 0.1f)
 			{
