@@ -916,24 +916,6 @@ void CreateBoundingBoxes()
 	cam.SetAABBMinX(16, 31444.0);
 	cam.SetAABBMaxZ(16, 10395.0);
 	cam.SetAABBMinZ(16, 4590.0);
-
-	// Portal Pillar 1 by Kennedy
-	cam.SetAABBMaxX(17, 28000.0);
-	cam.SetAABBMinX(17, 27500.0);
-	cam.SetAABBMaxZ(17, 12600.0);
-	cam.SetAABBMinZ(17, 11500.0);
-
-	// Portal Pillar 2 by Kennedy
-	cam.SetAABBMaxX(18, 30500.0);
-	cam.SetAABBMinX(18, 30000.0);
-	cam.SetAABBMaxZ(18, 12600.0);
-	cam.SetAABBMinZ(18, 11500.0);
-
-	// Portal Back Wall by Kennedy
-	cam.SetAABBMaxX(19, 30500.0);
-	cam.SetAABBMinX(19, 27500.0);
-	cam.SetAABBMaxZ(19, 12700.0);
-	cam.SetAABBMinZ(19, 12600.0);
 }
 
 //--------------------------------------------------------------------------------------
@@ -985,11 +967,39 @@ void CreatePlains()
 
 	// temp plain to take down to ECL1
 	cam.SetPlains (ZY_PLAIN, 3200.0, 4800.0 , 10450.0, 9370.0, 53400.0, 57900.0);
-	
-	// Kennnedy New Plains
-	cam.SetPlains (ZY_PLAIN, 28000.0, 30000.0, 10450, 11050.0, 11500.0, 12100.0);
-	cam.SetPlains(FLAT_PLAIN, 28000.0, 30000.0, 11050.0, 11050, 12100.0, 12650.0);
-	cam.SetPlains(FLAT_PLAIN, 9000.0, 22000.0, 10450.0, 10450.0, 10000.0, 50000.0);
+
+	// By Kennedy
+	// Portal Stairs Front
+	step = 11450.0;
+	stepLength = 16300.0;
+	for (int i = 0; i < 6; i++)
+	{
+		cam.SetPlains(FLAT_PLAIN, 23000.0, 24000.0, step, step, stepLength, stepLength + 200.0);
+		step -= 200.0;
+		stepLength -= 200.0;
+	}
+
+	// By Kennedy
+	// Portal Stairs Left
+	step = 11450.0;
+	stepLength = 24000.0;
+	for (int i = 0; i < 10; i++)
+	{
+		cam.SetPlains(FLAT_PLAIN, stepLength, stepLength + 300.0, step, step, 16500.0, 17500.0);
+		step -= 100.0;
+		stepLength += 300.0;
+	}
+
+	// By Kennedy
+	// Portal Stairs Right
+	step = 11450.0;
+	stepLength = 23000.0;
+	for (int i = 0; i < 10; i++)
+	{
+		cam.SetPlains(FLAT_PLAIN, stepLength, stepLength + 300.0, step, step, 16500.0, 17500.0);
+		step -= 100.0;
+		stepLength -= 300.0;
+	}
 }
 
 //--------------------------------------------------------------------------------------
