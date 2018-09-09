@@ -17,7 +17,7 @@
 	* @brief  Used to load in .jpg images to use as textures.
 	*
 	*
-	* @author ClickBait Inc
+	* @author ClickBait Inc - Mostly Shane Martinez, some Manu Murray
 	* @version 01
 	* @date 20/08/2018 // date is in Australian format.
 	*

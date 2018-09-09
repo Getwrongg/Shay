@@ -5,6 +5,19 @@
 #include "Structs.h"
 #include "Cube.h"
 
+/**
+* @class World
+* @brief
+*
+*
+* @author ClickBait Inc - Christopher Gemmell
+* @version 01
+* @date 03/09/2018 // date is in Australian format.
+*
+* @todo
+*
+* @bug none
+*/
 class World
 {
 public:

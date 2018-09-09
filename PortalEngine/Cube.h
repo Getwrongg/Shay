@@ -1,6 +1,20 @@
 #pragma once
 #include "Structs.h"
 #include "JpegLoader.h"
+
+/**
+* @class Cube
+* @brief  
+*
+*
+* @author ClickBait Inc - Christopher Gemmell
+* @version 01
+* @date 03/09/2018 // date is in Australian format.
+*
+* @todo
+*
+* @bug none
+*/
 class Cube
 {
 public:

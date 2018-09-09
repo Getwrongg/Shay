@@ -26,6 +26,19 @@
 //Channel 15: Free
 //Channel 16: Free
 
+/**
+* @class Audio
+* @brief Performs audio for the project
+*
+*
+* @author ClickBait Inc - Shane Martinez
+* @version 01
+* @date 27/08/2018 // date is in Australian format.
+*
+* @todo
+*
+* @bug none
+*/
 class Audio
 {
 public:

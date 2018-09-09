@@ -11,7 +11,7 @@
 *
 * Which is a round ball with a texture and physics properties
 *
-* @author ClickBait Inc
+* @author ClickBait Inc - Manu Murray
 * @version 01
 * @date 04/09/2018 // date is in Australian format.
 *

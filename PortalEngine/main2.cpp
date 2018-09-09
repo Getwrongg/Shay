@@ -204,6 +204,7 @@ void ReleaseKeyboard(unsigned char key, int x, int y)
 //	Mouse Functions
 //--------------------------------------------------
 
+// Manu Murray
 void MouseMovement(int x, int y)
 {
 	// gets the difference between the current position of the mouse and the center of the screen
