@@ -52,6 +52,16 @@ public:
 	void DirectionForwardBack(const int dir);
 
 	/**
+	* @brief  sets either up or down direction for movement
+	*
+	*
+	*@param const int dir
+	*
+	* @return void
+	*/
+	void DirectionUpDown(const int dir);
+
+	/**
 	* @brief Rotates the camera LR and UP
 	*
 	* using the mouse input xy
@@ -105,6 +115,16 @@ private:
 	* @return void
 	*/
 	void MoveForwardBack();
+
+	/**
+	* @brief moves the camera up or down
+	*
+	* depending on DirectionUpDown
+	*
+	*
+	* @return void
+	*/
+	void MoveUpDown();
 	
 	/**
 	* @brief asks if the camera can move left or right
@@ -127,6 +147,16 @@ private:
 	bool CanMoveFB();
 
 	/**
+	* @brief asks if the camera can move up or down
+	*
+	* returns true if dirUD is !0
+	*
+	*
+	* @return bool
+	*/
+	bool CanMoveUD();
+
+	/**
 	* @brief calls function gluLookAt()
 	*
 	* 
@@ -144,7 +174,7 @@ private:
 	Coordinates look; // used for mouse movement
 	Coordinates upVector; // used for strafing
 
-	int dirLR, dirFB; // direction either 1 or -1
+	int dirLR, dirFB, dirUD; // direction either 1 or -1
 
 	GLdouble rotateAngle;
 	GLdouble rotateUD;

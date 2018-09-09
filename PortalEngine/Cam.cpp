@@ -29,7 +29,6 @@ Cam::Cam()
 
 void Cam::CallGluLookat()
 {
-	//glLoadIdentity();
 	gluLookAt(	pos.x, pos.y, pos.z,
 				pos.x + look.x, pos.y + look.y, pos.z + look.z,
 				0, 1, 0);
@@ -43,6 +42,11 @@ void Cam::DirectionLeftRight(const int dir)
 void Cam::DirectionForwardBack(const int dir)
 {
 	dirFB = dir;
+}
+
+void Cam::DirectionUpDown(const int dir)
+{
+	dirUD = dir;
 }
 
 bool Cam::CanMoveLR()
@@ -69,6 +73,18 @@ bool Cam::CanMoveFB()
 	}
 }
 
+bool Cam::CanMoveUD()
+{
+	if (dirUD < 0 || dirUD > 0)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
 void Cam::MoveLeftRight()
 {
 	pos.z += (dirLR * (upVector.z) * moveSpeed);
@@ -79,6 +95,11 @@ void Cam::MoveForwardBack()
 {
 	pos.z += (dirFB * (look.z) * moveSpeed);
 	pos.x += (dirFB * (look.x) * moveSpeed);
+}
+
+void Cam::MoveUpDown()
+{
+	pos.y += dirUD * moveSpeed;
 }
 
 void Cam::Rotate(const int deltaX, const int deltaY)
@@ -109,6 +130,10 @@ void Cam::Update()
 	if (CanMoveFB())
 	{
 		MoveForwardBack();
+	}
+	if (CanMoveUD())
+	{
+		MoveUpDown();
 	}
 
 	CallGluLookat();

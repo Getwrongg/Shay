@@ -112,7 +112,6 @@ void Display2()
 
 	// updates camera position
 	ourCam.Update();
-	//player.Update();
 
 	glEnable(GL_TEXTURE_2D);
 
@@ -133,8 +132,6 @@ void CreateTexturesPortalWorld()
 {
 	player.LoadTexture("SWIRL2", "data/portalswirl.jpg");
 	world.CreateTextures("SWIRL3", "data/portalswirl.jpg");
-	
-	
 }
 
 //--------------------------------------------------
