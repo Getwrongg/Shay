@@ -300,6 +300,9 @@ float ratio;
 // screen width and height
 int width, height;
 
+// animation
+GLfloat rot = 0;
+
 
 // display campus map
 bool DisplayMap = false;
@@ -336,6 +339,7 @@ void myinit();
 void Display();
 void reshape(int w, int h);
 void keys(unsigned char key, int x, int y);
+void Animate();
 
 // keyboard and mouse functions
 void movementKeys(int key, int x, int y);
@@ -499,6 +503,9 @@ void myinit()
 	glu_cylinder = gluNewQuadric();
     gluQuadricTexture(glu_cylinder, GL_TRUE );
 
+	/*circle = gluNewQuadric();
+	gluQuadricTexture(circle, GL_TRUE);*/
+
 	// set the world co-ordinates (used to set quadrants for bounding boxes)
 	cam.SetWorldCoordinates(36000.0, 43200.0);
 	// turn collision detection on
@@ -562,6 +569,8 @@ void Display()
 		cam.SetMoveSpeed(stepIncrement);
 		cam.SetRotateSpeed(angleIncrement);
 
+		Animate(); // updates animation variables
+
 		// display original images
 		DrawBackdropOrigial();
 		// display new images
@@ -577,6 +586,13 @@ void Display()
 	}
 }
 
+//--------------------------------------------------------------------------------------
+//  Animate Function - Manu Murray
+//--------------------------------------------------------------------------------------
+void Animate()
+{
+	rot -= 3; // makes the portal spin
+}
 
 //--------------------------------------------------------------------------------------
 void reshape(int w, int h)
@@ -2267,14 +2283,59 @@ void PortalStructure()
 
 
 //--------------------------------------------------------------------------------------
-//  CREATES THE PORTAL ENTRANCE
+//  CREATES THE PORTAL ENTRANCE -  Manu Murray
 //--------------------------------------------------------------------------------------
 void portal() 
 {
 	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("PORTAL_SWIRL"));
+
+	glPushMatrix();
+
+	glTranslatef(23500, 11500, 18000); // translate back after scaling
+	glRotatef(rot, 0, 1, 0);
+	glScalef(0.5, 0.5, 0.5); // scale down size
+	glTranslatef(-23500, -11500, -18000); // translate to center to so you can scale
 	glBegin(GL_QUADS);//Draws the portal
+
+	//front
+	glTexCoord2i(0, 0); glVertex3f(23000.0, 12000.0, 18500.0);// top left
+	glTexCoord2i(0, 1); glVertex3f(24000.0, 12000.0, 18500.0);// top right
+	glTexCoord2i(1, 1); glVertex3f(24000.0, 11000.0, 18500.0);// bottom right
+	glTexCoord2i(1, 0); glVertex3f(23000.0, 11000.0, 18500.0);// bottom left
 			
+	//back
+	glTexCoord2i(0, 0); glVertex3f(23000.0, 12000.0, 17500.0);// top left
+	glTexCoord2i(0, 1); glVertex3f(24000.0, 12000.0, 17500.0);// top right
+	glTexCoord2i(1, 1); glVertex3f(24000.0, 11000.0, 17500.0);// bottom right
+	glTexCoord2i(1, 0); glVertex3f(23000.0, 11000.0, 17500.0);// bottom left
+
+	//right
+	glTexCoord2i(0, 0); glVertex3f(23000.0, 12000.0, 17500.0);// top left
+	glTexCoord2i(0, 1); glVertex3f(23000.0, 12000.0, 18500.0);// top right
+	glTexCoord2i(1, 1); glVertex3f(23000.0, 11000.0, 18500.0);// bottom right
+	glTexCoord2i(1, 0); glVertex3f(23000.0, 11000.0, 17500.0);// bottom left
+
+	//left														  
+	glTexCoord2i(0, 0); glVertex3f(24000.0, 12000.0, 17500.0);// top left
+	glTexCoord2i(0, 1); glVertex3f(24000.0, 12000.0, 18500.0);// top right
+	glTexCoord2i(1, 1); glVertex3f(24000.0, 11000.0, 18500.0);// bottom right
+	glTexCoord2i(1, 0); glVertex3f(24000.0, 11000.0, 17500.0);// bottom left
+
+	//bottom
+	glTexCoord2i(0, 0); glVertex3f(23000.0, 11000.0, 17500.0);// top left
+	glTexCoord2i(0, 1); glVertex3f(24000.0, 11000.0, 17500.0);// top right
+	glTexCoord2i(1, 1); glVertex3f(24000.0, 11000.0, 18500.0);// bottom right
+	glTexCoord2i(1, 0); glVertex3f(23000.0, 11000.0, 18500.0);// bottom left
+
+	//top
+	glTexCoord2i(0, 0); glVertex3f(23000.0, 12000.0, 17500.0);// top left
+	glTexCoord2i(0, 1); glVertex3f(24000.0, 12000.0, 17500.0);// top right
+	glTexCoord2i(1, 1); glVertex3f(24000.0, 12000.0, 18500.0);// bottom right
+	glTexCoord2i(1, 0); glVertex3f(23000.0, 12000.0, 18500.0);// bottom left
+
 	glEnd();
+
+	glPopMatrix();
 }
 
 
