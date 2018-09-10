@@ -301,7 +301,7 @@ float ratio;
 int width, height;
 
 // animation
-GLfloat rot = 0;
+GLfloat rot = 0; // rotation value for portal
 
 
 // display campus map
@@ -314,8 +314,11 @@ bool DisplayExit = false;
 bool lightsOn;
 // display ECL block
 bool displayECL = true;
+
 // in portal or not. if true don't display shay's world
 bool inPortal = false;
+
+bool atPortal = false;
 
 // varibles used for tarnslating graphics etc
 GLfloat step, step2, stepLength;
@@ -340,6 +343,7 @@ void Display();
 void reshape(int w, int h);
 void keys(unsigned char key, int x, int y);
 void Animate();
+void EnterPortal();
 
 // keyboard and mouse functions
 void movementKeys(int key, int x, int y);
@@ -459,18 +463,17 @@ int main(int argc, char **argv)
 
 	myinit();
 
-	// these two lines transition the program to portal world. Delete if you want to work on shay's world.
 	//inPortal = true;
 	//main2();
-
-	glutIgnoreKeyRepeat(1); // removed this so we can hold down to move up or down
-	glutKeyboardUpFunc (releaseKeys);
-	glutKeyboardFunc(keys);
+	EnterPortal(); // doesn't do anything in main
 
 	glutDisplayFunc(Display);
 	glutIdleFunc(Display);
 	glutMouseFunc(Mouse);
-	
+
+	glutIgnoreKeyRepeat(1); // removed this so we can hold down to move up or down
+	glutKeyboardUpFunc (releaseKeys);
+	glutKeyboardFunc(keys);
 
 	// ONLY USE IF REQUIRE MOUSE MOVEMENT
 	glutPassiveMotionFunc(mouseMove);
@@ -569,6 +572,7 @@ void Display()
 		cam.SetMoveSpeed(stepIncrement);
 		cam.SetRotateSpeed(angleIncrement);
 
+		//EnterPortal(); // checks if player is ready to enter portal engine
 		Animate(); // updates animation variables
 
 		// display original images
@@ -592,6 +596,21 @@ void Display()
 void Animate()
 {
 	rot -= 3; // makes the portal spin
+}
+
+//--------------------------------------------------------------------------------------
+//  Transition to PortalEngine - Manu Murray
+//--------------------------------------------------------------------------------------
+void EnterPortal()
+{
+	//23500, 11500, 18000 - center of portal cube
+	if (cam.GetLR() <= 23600.0 & cam.GetLR() >= 23400.0)
+	{
+		inPortal = true;
+		main2();
+	}
+
+	std::cout << cam.GetLR() << std::endl;
 }
 
 //--------------------------------------------------------------------------------------
