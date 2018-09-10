@@ -105,6 +105,12 @@ void Cam::MoveUpDown()
 void Cam::Rotate(const int deltaX, const int deltaY)
 {
 	rotateAngle += deltaX * rotateSpeed;
+	if (rotateUD > 1.7) { //Stops camera from looking to high
+		rotateUD = 1.7;
+	}
+	if (rotateUD < -1.7) { // Stops camera from looking to low
+		rotateUD = -1.7;
+	}
 	rotateUD -= deltaY * rotateSpeed;
 
 	// left and right
@@ -117,8 +123,6 @@ void Cam::Rotate(const int deltaX, const int deltaY)
 	// used to allow strafing
 	upVector.x = sin(rotateAngle+ (float)PI / 2.0);
 	upVector.z = -cos(rotateAngle + (float)PI / 2.0);
-
-
 }
 
 void Cam::Update()
@@ -171,7 +175,7 @@ void Cam::SetPosition(const GLdouble xyz[3], const GLdouble upVec[3], const GLdo
 
 	// left and right
 	look.x = sin(rotateAngle);
-	look.z = -cos(rotateAngle);
+	look.z = -cos(rotateAngle); 
 
 	CallGluLookat();
 }
