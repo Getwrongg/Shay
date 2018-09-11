@@ -1,6 +1,7 @@
 #pragma once
-#include "Structs.h"
 #include "JpegLoader.h"
+#include "Structs.h"
+
 
 /**
 * @class Cube
@@ -22,6 +23,7 @@ public:
 	Cube(const GLdouble x1, const GLdouble y1, const GLdouble z1);
 	~Cube();
 	void Draw(const GLdouble x1, const GLdouble y1, const GLdouble z1);
+	void CreateTexture();
 	
 private:
 	JpegLoader j;

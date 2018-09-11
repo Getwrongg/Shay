@@ -1,4 +1,5 @@
 #pragma once
+#include "JpegLoader.h"
 #include <stdlib.h>
 #include <math.h>
 #include <GL/glut.h>
@@ -13,7 +14,7 @@
 #include "texturedPolygons.h"
 
 // importing from PortalEngine project
-#include "JpegLoader.cpp"
+
 #include "main2.cpp"
 
 //--------------------------------------------------------------------------------------
@@ -497,6 +498,8 @@ void myinit()
 {
 	// sets up devil library
 	ilInit(); 
+	// sets up glew
+	glewInit();
 
 	// set background (sky colour)
 	glClearColor(97.0/255.0, 140.0/255.0, 335.0/255.0, 1.0);

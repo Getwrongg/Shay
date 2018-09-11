@@ -32,6 +32,7 @@ Cam ourCam;
 Player player;
 World world;
 
+
 //--------------------------------------------------
 //	Method Prototypes					
 //--------------------------------------------------
@@ -123,7 +124,7 @@ void Display2()
 	//player.DrawPlayer();
 
 	world.Ground(); ///Draws the ground with texture
-	world.Bushes();
+	world.DrawBushes();
 	world.Axis();///Draws the axis for testing
 	world.Cubes();
 
@@ -137,6 +138,7 @@ void CreateTexturesPortalWorld()
 {
 	player.LoadTexture("SWIRL2", "data/portalswirl.jpg");
 	world.CreateTextures("SWIRL3", "data/portalswirl.jpg");
+	
 }
 
 //--------------------------------------------------

@@ -1,7 +1,7 @@
 #pragma once
-
-#include <GL/glut.h>
 #include "JpegLoader.h"
+#include <GL/glut.h>
+
 #include "Structs.h"
 #include "Cube.h"
 
@@ -26,7 +26,8 @@ public:
 	void Ground();
 	void Cubes();
 	void Axis();
-	void Bushes();
+	void Bushes(const GLdouble x1, const GLdouble y1, const GLdouble z1);
+	void DrawBushes();
 
 private:
 	JpegLoader j;
