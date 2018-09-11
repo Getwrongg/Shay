@@ -26,7 +26,8 @@ public:
 	void Ground();
 	void Cubes();
 	void Axis();
-	void Bushes();
+	void Bushes(const GLdouble x1, const GLdouble y1, const GLdouble z1);
+	void DrawBushes();
 
 private:
 	JpegLoader j;

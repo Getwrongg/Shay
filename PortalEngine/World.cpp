@@ -9,8 +9,9 @@ World::World()
 void World::CreateTextures(const std::string name, const char * filePath)
 {
 	j.CreateTexture("SWIRL", "data/portalswirl.jpg");
+	j.CreateTexture("green", "data/green.jpg");
+	cube.CreateTexture();
 	
-	j.CreateTexture("pillar", "data/pillarTexture.jpg");
 
 }
 
@@ -86,8 +87,19 @@ void World::Cubes()
 	
 }
 
-void World::Bushes()
+void World::DrawBushes() {
+	Bushes(0,-1,-4);
+	Bushes(5,-1,-4);
+	Bushes(10,-1,-4);
+
+}
+
+void World::Bushes(const GLdouble x1, const GLdouble y1, const GLdouble z1)
 {
+	
+	
+	glPushMatrix();
+	glTranslatef(x1, y1, z1);
 	//left half of bush
 	for (float i = -1.5f; i > -3; i = i - 0.1f)
 	{
@@ -95,10 +107,11 @@ void World::Bushes()
 		{
 			for(float k = -1; k < 1; k = k + 0.1f)
 			{
+				
 				glBegin(GL_TRIANGLES);
-				glVertex3f(-2, 0, 0);
-				glVertex3f(i, j, k);
-				glVertex3f(-1, 0, 0);
+					glVertex3f(-2, 0, 0);
+					glVertex3f(i, j, k);
+					glVertex3f(-1, 0, 0);
 				glEnd();
 			}
 			
@@ -114,14 +127,14 @@ void World::Bushes()
 			for (float k = -1; k < 1; k = k + 0.1f)
 			{
 				glBegin(GL_TRIANGLES);
-				glVertex3f(-2, 0, 0);
-				glVertex3f(i, j, k);
-				glVertex3f(-1, 0, 0);
+					glVertex3f(-2, 0, 0);
+					glVertex3f(i, j, k);
+					glVertex3f(-1, 0, 0);
 				glEnd();
 			}
 		}
 
 	}
-	
+	glPopMatrix();
 
 }
