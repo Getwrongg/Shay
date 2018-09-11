@@ -463,10 +463,6 @@ int main(int argc, char **argv)
 
 	myinit();
 
-	//inPortal = true;
-	//main2();
-	EnterPortal(); // doesn't do anything in main
-
 	glutDisplayFunc(Display);
 	glutIdleFunc(Display);
 	glutMouseFunc(Mouse);
@@ -485,6 +481,14 @@ int main(int argc, char **argv)
 	return(0);
 }
 
+int main3() {
+
+		inPortal = true;
+		main2();
+		//EnterPortal(); // doesn't do anything in main
+
+		return 0;
+}
 //--------------------------------------------------------------------------------------
 //  Initialize Settings
 //--------------------------------------------------------------------------------------
@@ -572,7 +576,7 @@ void Display()
 		cam.SetMoveSpeed(stepIncrement);
 		cam.SetRotateSpeed(angleIncrement);
 
-		//EnterPortal(); // checks if player is ready to enter portal engine
+		EnterPortal(); // checks if player is ready to enter portal engine
 		Animate(); // updates animation variables
 
 		// display original images
@@ -607,7 +611,7 @@ void EnterPortal()
 	if (cam.GetLR() <= 23600.0 & cam.GetLR() >= 23400.0)
 	{
 		inPortal = true;
-		main2();
+		main3();
 	}
 
 	std::cout << cam.GetLR() << std::endl;

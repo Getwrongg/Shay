@@ -51,16 +51,21 @@ int main2()
 {
 	std::cout << "Welcome to Portal World!" << std::endl;
 
-	MyInit();
-
-	glutKeyboardFunc(Keyboard);
-	glutKeyboardUpFunc(ReleaseKeyboard);
+	MyInit();	
 
 	glutDisplayFunc(Display2);
 	glutIdleFunc(Display2);
-	glutReshapeFunc(Resize);
+	glutMouseFunc(NULL);
+	
+
+	glutIgnoreKeyRepeat(NULL);
+	glutKeyboardUpFunc(ReleaseKeyboard);
+	glutKeyboardFunc(Keyboard);
 
 	glutPassiveMotionFunc(MouseMovement);
+	ShowCursor(FALSE);
+
+	glutReshapeFunc(Resize);
 	glutSetCursor(GLUT_CURSOR_NONE); // hides cursor
 	
 	glutMainLoop();
@@ -166,6 +171,7 @@ void Keyboard(unsigned char key, int x, int y)
 	switch (key)
 	{
 	case 'w':
+		std::cout << "w is clicked" << std::endl;
 		ourCam.DirectionForwardBack(1);
 		break;
 	case 's':
