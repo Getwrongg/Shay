@@ -1,6 +1,7 @@
 #pragma once
-#include "Structs.h"
 #include "JpegLoader.h"
+#include "Structs.h"
+
 
 /**
 * @class Cube

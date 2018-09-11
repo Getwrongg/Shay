@@ -1,7 +1,8 @@
+#include "JpegLoader.h"
 #include <GL/glut.h>
 
 #include "Structs.h"
-#include "JpegLoader.h"
+
 
 #pragma once
 

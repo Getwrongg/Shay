@@ -1,7 +1,7 @@
 #pragma once
-
-#include <GL/glut.h>
 #include "JpegLoader.h"
+#include <GL/glut.h>
+
 #include "Structs.h"
 #include "Cube.h"
 
