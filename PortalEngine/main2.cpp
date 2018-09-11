@@ -124,7 +124,8 @@ void Display2()
 	//player.DrawPlayer();
 
 	world.Ground(); ///Draws the ground with texture
-	world.DrawBushes();
+	//world.DrawBushes();//Draws Bushes
+	world.SkyCylinder();
 	world.Axis();///Draws the axis for testing
 	world.Cubes();
 

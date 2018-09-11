@@ -9,7 +9,7 @@ World::World()
 void World::CreateTextures(const std::string name, const char * filePath)
 {
 	j.CreateTexture("SWIRL", "data/portalswirl.jpg");
-	j.CreateTexture("green", "data/green.jpg");
+	
 	cube.CreateTexture();
 	
 
@@ -37,17 +37,40 @@ void World::Axis()
 
 
 }
+
+void World::SkyCylinder()
+{
+	
+
+	glPushMatrix();
+	GLUquadricObj *glu_cylinder;
+
+	glu_cylinder = gluNewQuadric();
+	gluQuadricTexture(glu_cylinder, GL_TRUE);
+
+	glTranslatef(-50, 1, 1);
+	glRotatef(180.0f, 1.0f, 0.0f, 1.0f);
+	gluQuadricDrawStyle(glu_cylinder, GLU_FILL); //GLUquadricObj * qobj = gluNewQuadric();
+	gluCylinder(glu_cylinder, 10, 25, 2000, 200, 200);
+	glPopMatrix();
+
+	glPopMatrix();
+
+	
+}
+
 void World::Ground() 
 {
 	
+	
 	glBindTexture(GL_TEXTURE_2D, j.getTextureID("SWIRL"));
 	
-	glBegin(GL_POLYGON);
+	/*glBegin(GL_POLYGON);
 		glTexCoord2i(0, 0); glVertex3f(-40.0, -1, 100.0);
 		glTexCoord2i(0, 1); glVertex3f(40.0, -1, 100.0);
 		glTexCoord2i(1, 1); glVertex3f(40.0, -1, -100.0);
 		glTexCoord2i(1, 0); glVertex3f(-40.0, -1, -100.0);
-	glEnd();
+	glEnd();*/
 
 }
 
@@ -55,7 +78,6 @@ void World::Cubes()
 {
 
 	//First Pillar
-	glBindTexture(GL_TEXTURE_2D, j.getTextureID("pillar"));
 	cube.Draw(0, -1, 0);//bottom
 	cube.Draw(0, 0, 0);
 	cube.Draw(0, 1, 0);
@@ -83,6 +105,37 @@ void World::Cubes()
 	cube.Draw(6, 5, 0);
 	cube.Draw(6, 6, 0);
 
+	//Fourth Pillar
+	cube.Draw(9, 2, 0);
+	cube.Draw(9, 3, 0);
+
+	//Fifth Pillar
+	cube.Draw(12, 1, 0);
+	cube.Draw(12, 2, 0);
+	cube.Draw(12, 3, 0);
+	cube.Draw(12, 4, 0);
+	cube.Draw(12, 5, 0);
+
+	//Sixth Pillar
+	cube.Draw(15, 0, 0);
+	cube.Draw(15, 1, 0);
+	cube.Draw(15, 5, 0);
+	cube.Draw(15, 6, 0);
+
+
+	//top railing pillar
+	for (int i = 0; i <= 15; i++)
+	{
+		cube.Draw(i, 7, 0);
+	}
+
+	//bottom railing pillar
+	for (int i = 0; i <= 15; i++)
+	{
+		cube.Draw(i, -1, 0);
+	}
+		
+	
 	
 	
 }

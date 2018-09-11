@@ -28,6 +28,7 @@ public:
 	void Axis();
 	void Bushes(const GLdouble x1, const GLdouble y1, const GLdouble z1);
 	void DrawBushes();
+	void SkyCylinder();
 
 private:
 	JpegLoader j;

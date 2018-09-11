@@ -463,7 +463,8 @@ int main(int argc, char **argv)
 	glutCreateWindow("Murdoch University Campus Tour");
 
 	myinit();
-
+	inPortal = true;
+	main2();
 	glutDisplayFunc(Display);
 	glutIdleFunc(Display);
 	glutMouseFunc(Mouse);
