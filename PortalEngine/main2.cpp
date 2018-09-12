@@ -12,14 +12,14 @@
 // height and width of the screen
 int screenWidth, screenHeight;
 
+int deltaX = 0;
+int deltaY = 0;	
+
+
 // camera variables
 GLdouble moveSpeed = 0.05;
 GLdouble rotateSpeed = 0.005;
 
-int deltaX = 0;
-int deltaY = 0;	
-
-// used to set camera position
 GLdouble pos[] = { 0, 0, 5 };
 GLdouble upVec[] = { 0, 1, 0 };
 GLdouble angle = 0;
