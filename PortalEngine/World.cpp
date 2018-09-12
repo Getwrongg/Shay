@@ -8,7 +8,7 @@ World::World()
 
 void World::CreateTextures(const std::string name, const char * filePath)
 {
-	j.CreateTexture("SWIRL", "data/portalswirl.jpg");
+	j.CreateTexture("SWIRL", "data/kaleidoscope2.jpg");
 	
 	cube.CreateTexture();
 	
@@ -38,6 +38,10 @@ void World::Axis()
 
 }
 
+void World::AnimatePortalWorld() {
+	rotates=rotates+rotateSPEED;
+}
+
 void World::SkyCylinder()
 {
 	
@@ -47,11 +51,13 @@ void World::SkyCylinder()
 
 	glu_cylinder = gluNewQuadric();
 	gluQuadricTexture(glu_cylinder, GL_TRUE);
-
+	
 	glTranslatef(-50, 1, 1);
-	glRotatef(180.0f, 1.0f, 0.0f, 1.0f);
+	glRotatef(180, 1.0f, 0.0f, 1);
+	glRotatef(rotates, 1.0f, 0.0f, rotates);
+	
 	gluQuadricDrawStyle(glu_cylinder, GLU_FILL); //GLUquadricObj * qobj = gluNewQuadric();
-	gluCylinder(glu_cylinder, 10, 25, 2000, 200, 200);
+	gluCylinder(glu_cylinder, 25, 25, 250, 200, 200);
 	glPopMatrix();
 
 	glPopMatrix();

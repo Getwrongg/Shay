@@ -38,6 +38,7 @@ World world;
 //--------------------------------------------------
 void Display2();
 void MyInit();
+void AnimatePortalWorld();
 void Resize(int w, int h);
 void Keyboard(unsigned char key, int x, int y);
 void MouseMovement(int x, int y);
@@ -93,7 +94,7 @@ void MyInit()
 	GLdouble fov = 60.0;
 	GLdouble aspect = 1.0;
 	GLdouble zNear = 0.1;
-	GLdouble zFar = 100.0;
+	GLdouble zFar = 1000.0;
 
 	gluPerspective(fov, aspect, zNear, zFar);
 
@@ -129,10 +130,16 @@ void Display2()
 	world.Axis();///Draws the axis for testing
 	world.Cubes();
 
+	AnimatePortalWorld();
+
 	//glutWireCube(1.0);
 
 	glDisable(GL_TEXTURE_2D);
 	glutSwapBuffers();
+}
+
+void AnimatePortalWorld() {
+	world.AnimatePortalWorld();
 }
 
 void CreateTexturesPortalWorld()

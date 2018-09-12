@@ -18,6 +18,8 @@
 *
 * @bug none
 */
+
+
 class World
 {
 public:
@@ -28,12 +30,13 @@ public:
 	void Axis();
 	void Bushes(const GLdouble x1, const GLdouble y1, const GLdouble z1);
 	void DrawBushes();
+	void AnimatePortalWorld();
 	void SkyCylinder();
 
 private:
 	JpegLoader j;
 	Cube cube;
-	
-
+	float rotates = 1;
+	float rotateSPEED = 1;
 };
 

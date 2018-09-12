@@ -603,6 +603,7 @@ void Display()
 //--------------------------------------------------------------------------------------
 void Animate()
 {
+	world.AnimatePortalWorld();
 	rot -= 3; // makes the portal spin
 }
 
@@ -635,7 +636,7 @@ void reshape(int w, int h)
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	glViewport(0, 0, w, h);
-	gluPerspective(45,ratio,1,250000);	
+	gluPerspective(45,ratio,0.1,250000);	
 	glMatrixMode(GL_MODELVIEW);
 }
 
