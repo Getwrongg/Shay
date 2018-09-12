@@ -1,7 +1,8 @@
 #pragma once
-#include "JpegLoader.h"
+
 #include <stdlib.h>
 #include <math.h>
+#include <GL/glew.h>
 #include <GL/glut.h>
 #include <time.h>
 #include <IL/il.h>
@@ -9,13 +10,14 @@
 
 #include "audio.h"
 
-#include <windows.h> // only used if mouse is required (not portable)
 #include "camera.h"
 #include "texturedPolygons.h"
 
 // importing from PortalEngine project
 
-#include "main2.cpp"
+//#include "main2.cpp"
+#include "World.h"
+#include "JpegLoader.h"
 
 //--------------------------------------------------------------------------------------
 
@@ -319,8 +321,6 @@ bool displayECL = true;
 // in portal or not. if true don't display shay's world
 bool inPortal = false;
 
-bool atPortal = false;
-
 // varibles used for tarnslating graphics etc
 GLfloat step, step2, stepLength;
 
@@ -335,6 +335,7 @@ Camera cam;
 TexturedPolygons tp;
 JpegLoader jpeg;
 Audio game_audio;
+World portalWorld;
 
 // initializes setting
 void myinit();
@@ -451,6 +452,11 @@ void CreatePlains();
 // deletes image and clears memory
 void DeleteImageFromMemory(unsigned char* tempImage);
 
+void ChooseDisplay();
+void CreateTexturesPortalWorld();
+void Display2();
+void AnimatePortalWorld();
+
 //--------------------------------------------------------------------------------------
 //  Main function 
 //--------------------------------------------------------------------------------------
@@ -463,19 +469,26 @@ int main(int argc, char **argv)
 	glutCreateWindow("Murdoch University Campus Tour");
 
 	myinit();
-	inPortal = true;
-	main2();
-	glutDisplayFunc(Display);
-	glutIdleFunc(Display);
+
+	// sets it to start in portal world
+		//cam.Position(0.0, 0.0, 5.0, 0);
+
+		//// set the world co-ordinates (used to set quadrants for bounding boxes)
+		//cam.SetWorldCoordinates(-50, -50);
+		//// turn collision detection on
+		//cam.SetCollisionDetectionOn(false);
+		//inPortal = true;
+
+	glutDisplayFunc(ChooseDisplay);
+	glutIdleFunc(ChooseDisplay);
 	glutMouseFunc(Mouse);
 
 	glutIgnoreKeyRepeat(1); // removed this so we can hold down to move up or down
 	glutKeyboardUpFunc (releaseKeys);
 	glutKeyboardFunc(keys);
-
-	// ONLY USE IF REQUIRE MOUSE MOVEMENT
+	
 	glutPassiveMotionFunc(mouseMove);
-	ShowCursor(FALSE);
+	glutSetCursor(GLUT_CURSOR_NONE);
 
 	glutReshapeFunc(reshape);
 	glutMainLoop();
@@ -483,13 +496,19 @@ int main(int argc, char **argv)
 	return(0);
 }
 
-int main3() {
-
-		inPortal = true;
-		main2();
-		//EnterPortal(); // doesn't do anything in main
-
-		return 0;
+//--------------------------------------------------------------------------------------
+//  Initialize Settings - Manu Murray
+//--------------------------------------------------------------------------------------
+void ChooseDisplay() 
+{
+	if (!inPortal)
+	{
+		Display();
+	}
+	else
+	{
+		Display2();
+	}
 }
 //--------------------------------------------------------------------------------------
 //  Initialize Settings
@@ -506,16 +525,13 @@ void myinit()
 	glClearColor(97.0/255.0, 140.0/255.0, 335.0/255.0, 1.0);
 	
 	// set perpsective
-	gluLookAt(0.0, 1.75, 0.0, 
-		      0.0, 1.75, -1,
+	gluLookAt(0.0, 0, 5.0, 
+		      0.0, 0, 0,
 			  0.0f,1.0f,0.0f);
 	
 	// settings for glut cylinders
 	glu_cylinder = gluNewQuadric();
     gluQuadricTexture(glu_cylinder, GL_TRUE );
-
-	/*circle = gluNewQuadric();
-	gluQuadricTexture(circle, GL_TRUE);*/
 
 	// set the world co-ordinates (used to set quadrants for bounding boxes)
 	cam.SetWorldCoordinates(36000.0, 43200.0);
@@ -533,6 +549,18 @@ void myinit()
 	CreateBoundingBoxes();
 	// copies bounding boxes from array to linked lists (one fopr each quadrant)
 	cam.InitiateBoundingBoxes();
+
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+
+	GLdouble fov = 45.0;
+	GLdouble aspect = 1.0;
+	GLdouble zNear = 0.1;
+	GLdouble zFar = 1000.0;
+
+	gluPerspective(fov, aspect, zNear, zFar);
+
+	/*glMatrixMode(GL_MODELVIEW);*/
 	
 	// load texture images and create display lists
 	
@@ -540,6 +568,8 @@ void myinit()
 	CreateTextures();
 
 	CreateJPGTextures();
+	CreateTexturesPortalWorld();
+
 	LoadGameSounds();
 	game_audio.PlayMusic("AMBIENCE", -1); //Play Game Music
 
@@ -552,50 +582,76 @@ void myinit()
 
 void Display()
 {
-	if (!inPortal)
+	glLoadIdentity();
+	// check for movement
+	cam.CheckCamera();
+
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+	// DISPLAY TEXTURES
+	//enable texture mapping
+	glEnable(GL_TEXTURE_2D);
+	glPushMatrix();
+	// displays the welcome screen
+	if (DisplayWelcome) cam.DisplayWelcomeScreen(width, height, 1, tp.GetTexture(WELCOME));
+	// displays the exit screen
+	if (DisplayExit) cam.DisplayWelcomeScreen(width, height, 0, tp.GetTexture(EXIT));
+	// displays the map
+	if (DisplayMap) cam.DisplayMap(width, height, tp.GetTexture(MAP));
+	// display no exit sign (position check should really be in an object, but didn't have time)
+	if ((cam.GetLR() > 35500.0) && (cam.GetFB() < 25344.0) ||
+		(cam.GetLR() > 34100.0) && (cam.GetFB() > 41127.0))
 	{
-		// check for movement
-		cam.CheckCamera();
-
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-		// DISPLAY TEXTURES
-		//enable texture mapping
-		glEnable(GL_TEXTURE_2D);
-		glPushMatrix();
-		// displays the welcome screen
-		if (DisplayWelcome) cam.DisplayWelcomeScreen(width, height, 1, tp.GetTexture(WELCOME));
-		// displays the exit screen
-		if (DisplayExit) cam.DisplayWelcomeScreen(width, height, 0, tp.GetTexture(EXIT));
-		// displays the map
-		if (DisplayMap) cam.DisplayMap(width, height, tp.GetTexture(MAP));
-		// display no exit sign (position check should really be in an object, but didn't have time)
-		if ((cam.GetLR() > 35500.0) && (cam.GetFB() < 25344.0) ||
-			(cam.GetLR() > 34100.0) && (cam.GetFB() > 41127.0))
-		{
-			cam.DisplayNoExit(width, height, tp.GetTexture(NO_EXIT));
-		}
-		// set the movement and rotation speed according to frame count
-		IncrementFrameCount();
-		cam.SetMoveSpeed(stepIncrement);
-		cam.SetRotateSpeed(angleIncrement);
-
-		EnterPortal(); // checks if player is ready to enter portal engine
-		Animate(); // updates animation variables
-
-		// display original images
-		DrawBackdropOrigial();
-		// display new images
-		DrawBackdropNew();
-
-
-		glPopMatrix();
-		glDisable(GL_TEXTURE_2D);
-
-		// clear buffers
-		//glFlush();
-		glutSwapBuffers();
+		cam.DisplayNoExit(width, height, tp.GetTexture(NO_EXIT));
 	}
+	// set the movement and rotation speed according to frame count
+	IncrementFrameCount();
+	cam.SetMoveSpeed(stepIncrement);
+	cam.SetRotateSpeed(angleIncrement);
+
+	EnterPortal(); // checks if player is ready to enter portal engine
+	Animate(); // updates animation variables
+
+				// display original images
+	DrawBackdropOrigial();
+	// display new images
+	DrawBackdropNew();
+
+	glPopMatrix();
+	glDisable(GL_TEXTURE_2D);
+
+	// clear buffers
+	//glFlush();
+	glutSwapBuffers();
+}
+
+void Display2()
+{
+	glLoadIdentity();
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+	// updates camera position
+	cam.CheckCamera();
+
+	IncrementFrameCount();
+	cam.SetMoveSpeed(stepIncrement);
+	cam.SetRotateSpeed(angleIncrement);
+
+	glEnable(GL_TEXTURE_2D);
+	glPushMatrix();
+
+	//player.DrawPlayer();
+
+	//portalWorld.Ground(); //Draws the ground with texture
+	//world.DrawBushes();//Draws Bushes
+	portalWorld.SkyCylinder();
+	portalWorld.Axis();//Draws the axis for testing
+	portalWorld.Cubes();
+
+	AnimatePortalWorld();
+
+	glDisable(GL_TEXTURE_2D);
+	glutSwapBuffers();
 }
 
 //--------------------------------------------------------------------------------------
@@ -603,20 +659,32 @@ void Display()
 //--------------------------------------------------------------------------------------
 void Animate()
 {
-	world.AnimatePortalWorld();
 	rot -= 3; // makes the portal spin
 }
 
+void AnimatePortalWorld()
+{
+	portalWorld.AnimatePortalWorld();
+}
+
 //--------------------------------------------------------------------------------------
-//  Transition to PortalEngine - Manu Murray
+//  Transition to PortalWorld - Manu Murray
 //--------------------------------------------------------------------------------------
 void EnterPortal()
 {
 	//23500, 11500, 18000 - center of portal cube
-	if (cam.GetLR() <= 23600.0 & cam.GetLR() >= 23400.0)
+	if (cam.GetLR() <= 23600.0 & cam.GetLR() >= 23400.0 & cam.GetFB() <= 18100 & cam.GetFB() >= 17900)
 	{
 		inPortal = true;
-		main3();
+
+		cam.Position(0.0, 0.0, 5.0, 0);
+		cam.DirectionFB(0);
+		cam.DirectionLR(0);
+
+		// set the world co-ordinates (used to set quadrants for bounding boxes)
+		cam.SetWorldCoordinates(-50, -50);
+		// turn collision detection on
+		cam.SetCollisionDetectionOn(false);
 	}
 
 	std::cout << cam.GetLR() << std::endl;
@@ -643,9 +711,6 @@ void reshape(int w, int h)
 //--------------------------------------------------------------------------------------
 // Keyboard Functions
 //--------------------------------------------------------------------------------------
-
-//--------------------------------------------------------------------------------------
-
 
 void keys(unsigned char key, int x, int y)
 {
@@ -823,13 +888,13 @@ void mouseMove(int x, int y)
 		else if (x > width/2.0)
 		{
 			cam.DirectionRotateLR(3);
-			Display();
+			//glutPostRedisplay();
 			glutWarpPointer(width/2.0,height/2.0);
 		}
 		else if (x < width/2.0)
 		{
 			cam.DirectionRotateLR(-3);
-			Display();
+			//glutPostRedisplay();
 			glutWarpPointer(width/2.0,height/2.0);
 		}
 		else
@@ -841,12 +906,12 @@ void mouseMove(int x, int y)
 
 		else if (y > height/2.0) {
 			cam.DirectionLookUD(-2);
-			Display();
+			//glutPostRedisplay();
 			glutWarpPointer(width/2.0,height/2.0);
 		}
 		else if (y < height/2.0) {
 			cam.DirectionLookUD(2);
-			Display();
+			//glutPostRedisplay();
 			glutWarpPointer(width/2.0,height/2.0);
 		}
 		else
@@ -1077,6 +1142,11 @@ void LoadGameSounds() {
 // Load and Create Textures
 //--------------------------------------------------------------------------------------
 
+void CreateTexturesPortalWorld()
+{
+	portalWorld.CreateTextures("SWIRL3", "data/portalswirl.jpg");
+}
+
 void CreateJPGTextures() {
 
 	jpeg.CreateTexture("FACE", "data/MyFace.jpg");
@@ -1116,7 +1186,6 @@ void CreateJPGTextures() {
 	jpeg.CreateTexture("MALETOILET", "data/MaleToilets.jpg");
 
 	jpeg.CreateTexture("HIGHERWINDOW", "data/HigherWindow.jpg");
-
 }
 
 void CreateTextures()
@@ -6519,11 +6588,18 @@ void IncrementFrameCount()
 {
 	double t = ((GLdouble)(clock()-lastClock))/(GLdouble)CLOCKS_PER_SEC;  
 	frameCount ++;
+	int speed = 1400;
+
+	// slows down movement speed when in portal world
+	if (inPortal)
+	{
+		speed = 20;
+	}
 
 	// reset after t
 	if (t > 0.1)
 	{
-		stepIncrement = t/frameCount * 1400;
+		stepIncrement = t/frameCount * speed;
 		angleIncrement = t/frameCount;
 		frameCount = 0;
 		lastClock = clock();

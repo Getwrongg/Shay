@@ -38,13 +38,14 @@ void World::Axis()
 
 }
 
-void World::AnimatePortalWorld() {
-	rotates=rotates+rotateSPEED;
+void World::AnimatePortalWorld() 
+{
+	rotates = rotates + rotateSPEED;
 }
 
 void World::SkyCylinder()
 {
-	
+	glBindTexture(GL_TEXTURE_2D, j.getTextureID("SWIRL"));
 
 	glPushMatrix();
 	GLUquadricObj *glu_cylinder;
@@ -58,25 +59,19 @@ void World::SkyCylinder()
 	
 	gluQuadricDrawStyle(glu_cylinder, GLU_FILL); //GLUquadricObj * qobj = gluNewQuadric();
 	gluCylinder(glu_cylinder, 25, 25, 250, 200, 200);
-	glPopMatrix();
-
-	glPopMatrix();
-
-	
+	glPopMatrix();	
 }
 
 void World::Ground() 
-{
-	
-	
+{	
 	glBindTexture(GL_TEXTURE_2D, j.getTextureID("SWIRL"));
 	
-	/*glBegin(GL_POLYGON);
+	glBegin(GL_POLYGON);
 		glTexCoord2i(0, 0); glVertex3f(-40.0, -1, 100.0);
 		glTexCoord2i(0, 1); glVertex3f(40.0, -1, 100.0);
 		glTexCoord2i(1, 1); glVertex3f(40.0, -1, -100.0);
 		glTexCoord2i(1, 0); glVertex3f(-40.0, -1, -100.0);
-	glEnd();*/
+	glEnd();
 
 }
 

@@ -142,12 +142,10 @@ void AnimatePortalWorld() {
 	world.AnimatePortalWorld();
 }
 
-void CreateTexturesPortalWorld()
-{
-	player.LoadTexture("SWIRL2", "data/portalswirl.jpg");
-	world.CreateTextures("SWIRL3", "data/portalswirl.jpg");
-	
-}
+//void CreateTexturesPortalWorld()
+//{
+//	world.CreateTextures("SWIRL3", "data/portalswirl.jpg");
+//}
 
 //--------------------------------------------------
 //	Resize the screen without problems					

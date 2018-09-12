@@ -199,7 +199,7 @@ void Camera::MoveFB()
 			// check plain
 			SetPlains(moveX, moveZ);
 			// redisplay
-			callGLLookAt();
+			//callGLLookAt();
 		}
 	}
 	else
@@ -210,7 +210,7 @@ void Camera::MoveFB()
 		// check plain
 		SetPlains(moveX, moveZ);
 		// redisplay
-		callGLLookAt();
+		//callGLLookAt();
 	}	
 }
 
@@ -241,7 +241,7 @@ void Camera::MoveLR()
 			// check plain
 			SetPlains(moveX, moveZ);
 			// redisplay
-			callGLLookAt();
+			//callGLLookAt();
 		}
 	}
 	else
@@ -251,7 +251,7 @@ void Camera::MoveLR()
 		m_z += moveZ;
 		SetPlains(moveX, moveZ);
 		// redisplay
-		callGLLookAt();
+		//callGLLookAt();
 	}
 }
 
@@ -327,13 +327,13 @@ void Camera::MoveUD()
 		if (!(m_colDetect.Collide(m_x + m_lookXX, startY + m_lookYY, m_z + m_lookZZ)))
 		{
 			m_y += m_deltaMoveUD * (m_lookYY) * m_moveSpeed;
-			callGLLookAt();
+			//callGLLookAt();
 		}
 	}
 	else
 	{
 		m_y += m_deltaMoveUD * (m_lookYY) * m_moveSpeed;
-		callGLLookAt();
+		//callGLLookAt();
 	}
 }
 
@@ -347,7 +347,7 @@ void Camera::RotateLR()
 	m_lookZ = -cos(m_rotateAngleLR);
 	m_lookXX = sin(m_rotateAngleLR + (float) PI/2.0);
 	m_lookZZ = -cos(m_rotateAngleLR + (float) PI/2.0);
-	callGLLookAt();
+	//callGLLookAt();
 }
 
 //----------------------------------------------------------------------------------------
@@ -357,7 +357,7 @@ void Camera::LookUD()
 {
 	m_rotateAngleUD += m_deltaAngleUD;
 	m_lookY = sin(m_rotateAngleUD);
-	callGLLookAt();
+	//callGLLookAt();
 }
 
 //----------------------------------------------------------------------------------------
@@ -382,22 +382,22 @@ void Camera::Position (GLdouble const & tempX, GLdouble const & tempY,
 	m_deltaAngleUD = 0.0;
 
 	// redislay
-	callGLLookAt();
+	//callGLLookAt();
 }
 
 void Camera::FreeLookYUP() {
 	m_y += 1000;
-	callGLLookAt();
+	//callGLLookAt();
 }
 
 void Camera::FreeLookYDown() {
 	m_y -= 1000;
-	callGLLookAt();
+	//callGLLookAt();
 }
 void Camera::FreeLookXZ() {
 	m_x += m_lookX*1000;
 	m_z += m_lookZ*1000;
-	callGLLookAt();
+	//callGLLookAt();
 }
 
 
@@ -411,6 +411,8 @@ void Camera::CheckCamera()
 	if (MoveUDOK()) MoveUD();
 	if (RotateLROK()) RotateLR();
 	if (LookUDOK()) LookUD();
+
+	callGLLookAt();
 }
 
 
@@ -419,7 +421,7 @@ void Camera::CheckCamera()
 //----------------------------------------------------------------------------------------
 void Camera::callGLLookAt()
 {
-	glLoadIdentity();
+	//glLoadIdentity();
 	gluLookAt(m_x, m_y, m_z, 
 		      m_x + m_lookX, m_y + m_lookY, m_z + m_lookZ,
 			  0.0f, 1.0f, 0.0f);
