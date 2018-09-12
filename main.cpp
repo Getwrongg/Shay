@@ -646,8 +646,14 @@ void Display()
 //--------------------------------------------------------------------------------------
 //  PortalWorld Display Function - Manu Murray
 //--------------------------------------------------------------------------------------
+bool texUnload = false;
 void Display2()
 {
+	if (texUnload==false) { 
+		jpeg.UnloadAllTextures(); //Removes all textures loaded in from JpegLoader from GPU memory (not RAM) therefore reducing GPU memory usage 
+		texUnload = true;
+	}
+
 	glLoadIdentity();
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
