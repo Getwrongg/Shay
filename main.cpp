@@ -490,12 +490,8 @@ int main(int argc, char **argv)
 
 	myinit();
 
-	// sets it to start in portal world
-		//cam.Position(0.0, 0.0, 5.0, 0);
-
-		//// turn shays collision detection off
-		//cam.SetCollisionDetectionOn(false);
-		//inPortal = true;
+	// uncomment to go straight to portal world
+	//inPortal = true;
 
 	glutDisplayFunc(ChooseDisplay);
 	glutIdleFunc(ChooseDisplay);
