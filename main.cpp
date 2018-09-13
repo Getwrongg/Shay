@@ -357,8 +357,6 @@ void myinit();
 void Display();
 void reshape(int w, int h);
 void keys(unsigned char key, int x, int y);
-void Animate();
-void EnterPortal();
 
 // keyboard and mouse functions
 void movementKeys(int key, int x, int y);
@@ -465,12 +463,16 @@ void CreatePlains();
 // deletes image and clears memory
 void DeleteImageFromMemory(unsigned char* tempImage);
 
+// Stuff for portal world
 void ChooseDisplay();
 void CreateTexturesPortalWorld();
 void Display2();
 void AnimatePortalWorld();
 void ChooseMouse(int x, int y);
 void MouseMovement(int x, int y);
+
+void Animate();
+void EnterPortal();
 
 void ChooseKeyboard(unsigned char key, int x, int y);
 void ChooseReleaseKeys(unsigned char key, int x, int y);
@@ -725,12 +727,6 @@ void Display2()
 	// updates camera position
 	ourCam.Update();
 
-	/*cam.CheckCamera();
-
-	IncrementFrameCount();
-	cam.SetMoveSpeed(stepIncrement);
-	cam.SetRotateSpeed(angleIncrement);*/
-
 	glEnable(GL_TEXTURE_2D);
 	glPushMatrix();
 
@@ -824,13 +820,13 @@ void Resize(int w, int h)
 		h = 1;
 	}
 
+	std::cout << "Using resize()" << std::endl;
+
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	glViewport(0, 0, (GLsizei)w, (GLsizei)h);
 	
 	gluPerspective(45.0, (GLfloat)w / (GLfloat)h, 0.1, 100.0);
-
-	std::cout << "Using resize()" << std::endl;
 
 	glMatrixMode(GL_MODELVIEW);
 }
