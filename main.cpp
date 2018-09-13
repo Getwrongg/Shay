@@ -471,11 +471,15 @@ void Display2();
 void AnimatePortalWorld();
 void ChooseMouse(int x, int y);
 void MouseMovement(int x, int y);
+
 void ChooseKeyboard(unsigned char key, int x, int y);
 void ChooseReleaseKeys(unsigned char key, int x, int y);
+void ChooseReshapeFunc(int w, int h);
 
 void Keyboard(unsigned char key, int x, int y);
 void ReleaseKeyboard(unsigned char key, int x, int y);
+
+void Resize(int w, int h);
 
 //--------------------------------------------------------------------------------------
 //  Main function 
@@ -503,8 +507,8 @@ int main(int argc, char **argv)
 	
 	glutPassiveMotionFunc(ChooseMouse);
 	glutSetCursor(GLUT_CURSOR_NONE);
-
-	glutReshapeFunc(reshape);
+	glutReshapeFunc(ChooseReshapeFunc);
+	
 	glutMainLoop();
 
 	return(0);
@@ -571,6 +575,21 @@ void ChooseMouse(int x, int y)
 }
 
 //--------------------------------------------------------------------------------------
+//  Choose which reshape function to use - Manu Murray
+//--------------------------------------------------------------------------------------
+void ChooseReshapeFunc(int w, int h)
+{
+	if (!inPortal)
+	{
+		reshape(w, h);
+	}
+	else
+	{
+		Resize(w, h);
+	}
+}
+
+//--------------------------------------------------------------------------------------
 //  Initialize Settings
 //--------------------------------------------------------------------------------------
 
@@ -610,7 +629,7 @@ void myinit()
 	// copies bounding boxes from array to linked lists (one fopr each quadrant)
 	cam.InitiateBoundingBoxes();
 
-	glMatrixMode(GL_PROJECTION);
+	/*glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 
 	GLdouble fov = 45.0;
@@ -620,7 +639,7 @@ void myinit()
 
 	gluPerspective(fov, aspect, zNear, zFar);
 
-	glMatrixMode(GL_MODELVIEW);
+	glMatrixMode(GL_MODELVIEW);*/
 
 	ourCam.SetMoveSpeed(moveSpeed); // sets movement speed of camera
 	ourCam.SetRotateSpeed(rotateSpeed); // sets rotate speed of camera
@@ -646,7 +665,7 @@ void myinit()
 
 void Display()
 {
-	glLoadIdentity();
+	//glLoadIdentity();
 	// check for movement
 	cam.CheckCamera();
 
@@ -784,7 +803,35 @@ void reshape(int w, int h)
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 	glViewport(0, 0, w, h);
-	gluPerspective(45,ratio,0.1,250000);	
+
+	// increased znear to 10 from 0.1 to fix flashing jpegs
+	gluPerspective(45, ratio, 10, 250000);
+	
+	glMatrixMode(GL_MODELVIEW);
+}
+
+//--------------------------------------------------------------------------------------
+// Resize function for portalWorld - Manu Murray
+//--------------------------------------------------------------------------------------
+void Resize(int w, int h)
+{
+	width = w;
+	height = h;
+
+	// prevents trying to make a window of zero width
+	if (h == 0)
+	{
+		h = 1;
+	}
+
+	glMatrixMode(GL_PROJECTION);
+	glLoadIdentity();
+	glViewport(0, 0, (GLsizei)w, (GLsizei)h);
+	
+	gluPerspective(45.0, (GLfloat)w / (GLfloat)h, 0.1, 100.0);
+
+	std::cout << "Using resize()" << std::endl;
+
 	glMatrixMode(GL_MODELVIEW);
 }
 
@@ -797,7 +844,6 @@ void Keyboard(unsigned char key, int x, int y)
 	switch (key)
 	{
 	case 'w':
-		std::cout << "w is clicked" << std::endl;
 		ourCam.DirectionForwardBack(1);
 		break;
 	case 's':
@@ -993,10 +1039,8 @@ void Mouse(int button, int state, int x, int y)
 }
 
 //--------------------------------------------------------------------------------------
-//  Mouse Movements (NOT USED)
-//  Can be used to rotate around screen using mouse, but keyboard used instead
+//  Mouse looking - Manu Murray
 //--------------------------------------------------------------------------------------
-
 void MouseMovement(int x, int y)
 {
 	// gets the difference between the current position of the mouse and the center of the screen
@@ -1008,6 +1052,10 @@ void MouseMovement(int x, int y)
 	ourCam.Rotate(deltaX, deltaY); // rotates the camera
 }
 
+//--------------------------------------------------------------------------------------
+//  Mouse Movements (NOT USED)
+//  Can be used to rotate around screen using mouse, but keyboard used instead
+//--------------------------------------------------------------------------------------
 void mouseMove(int x, int y)
 {
 		if (x < 0)
