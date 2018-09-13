@@ -39,6 +39,7 @@ void JpegLoader::CreateTexture(const std::string textureName, const char * filen
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 
 		ilDeleteImages(1, &image);
+		Texture_Names.push_back(textureName);
 	}
 	else {
 		return;
@@ -58,6 +59,14 @@ bool JpegLoader::setTextureList(const std::string TName, const  GLuint TexID) {
 
 const GLuint JpegLoader::getTextureID(const std::string TName) const{
 	return TextureList.find(TName)->second;
+}
+
+void JpegLoader::UnloadAllTextures() {
+	GLuint tempID;
+	for (int i = 0; i < Texture_Names.size(); i++) {
+		tempID = getTextureID(Texture_Names[i]);
+		glDeleteTextures(1, &tempID);
+	}
 }
 
 
