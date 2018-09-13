@@ -524,6 +524,52 @@ void ChooseDisplay()
 		Display2();
 	}
 }
+
+//--------------------------------------------------------------------------------------
+//  Choose which keyboard to run - Manu Murray
+//--------------------------------------------------------------------------------------
+void ChooseKeyboard(unsigned char key, int x, int y)
+{
+	if (!inPortal)
+	{
+		keys(key, x, y);
+	}
+	else
+	{
+		Keyboard(key, x, y);
+	}
+}
+
+//--------------------------------------------------------------------------------------
+//  Choose which keyboard release to run - Manu Murray
+//--------------------------------------------------------------------------------------
+void ChooseReleaseKeys(unsigned char key, int x, int y)
+{
+	if (!inPortal)
+	{
+		releaseKeys(key, x, y);
+	}
+	else
+	{
+		ReleaseKeyboard(key, x, y);
+	}
+}
+
+//--------------------------------------------------------------------------------------
+//  Choose which mouse look function to use - Manu Murray
+//--------------------------------------------------------------------------------------
+void ChooseMouse(int x, int y)
+{
+	if (!inPortal)
+	{
+		mouseMove(x, y);
+	}
+	else
+	{
+		MouseMovement(x, y);
+	}
+}
+
 //--------------------------------------------------------------------------------------
 //  Initialize Settings
 //--------------------------------------------------------------------------------------
@@ -740,36 +786,6 @@ void reshape(int w, int h)
 // Keyboard Functions
 //--------------------------------------------------------------------------------------
 
-//--------------------------------------------------------------------------------------
-//  Choose which keyboard to run - Manu Murray
-//--------------------------------------------------------------------------------------
-void ChooseKeyboard(unsigned char key, int x, int y)
-{
-	if (!inPortal)
-	{
-		keys(key, x, y);
-	}
-	else
-	{
-		Keyboard(key, x, y);
-	}
-}
-
-//--------------------------------------------------------------------------------------
-//  Choose which keyboard release to run - Manu Murray
-//--------------------------------------------------------------------------------------
-void ChooseReleaseKeys(unsigned char key, int x, int y)
-{
-	if (!inPortal)
-	{
-		releaseKeys(key, x, y);
-	}
-	else
-	{
-		ReleaseKeyboard(key, x, y);
-	}
-}
-
 void Keyboard(unsigned char key, int x, int y)
 {
 	switch (key)
@@ -974,18 +990,6 @@ void Mouse(int button, int state, int x, int y)
 //  Mouse Movements (NOT USED)
 //  Can be used to rotate around screen using mouse, but keyboard used instead
 //--------------------------------------------------------------------------------------
-
-void ChooseMouse(int x, int y)
-{
-	if (!inPortal)
-	{
-		mouseMove(x, y);
-	}
-	else
-	{
-		MouseMovement(x, y);
-	}
-}
 
 void MouseMovement(int x, int y)
 {
