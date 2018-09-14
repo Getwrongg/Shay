@@ -294,6 +294,8 @@ GLdouble rotationSpeed = 0.005;
 
 
 //--------------------------------------------------------------------------------------
+// used for animation
+#define TIMERSECS 10
 
 GLdouble stepIncrement;
 GLdouble angleIncrement;
@@ -304,9 +306,6 @@ clock_t lastClock = 0;
 float ratio;
 // screen width and height
 int width, height;
-
-// animation
-GLfloat rot = 0; // rotation value for portal
 
 // display campus map
 bool DisplayMap = false;
@@ -322,6 +321,11 @@ bool displayECL = true;
 // in portal or not. if true don't display shay's world
 bool inPortal = false;
 
+// animation
+GLfloat rot = 0; // rotation value for portal
+
+GLfloat startTime, prevTime;
+
 // varibles used for tarnslating graphics etc
 GLfloat step, step2, stepLength;
 
@@ -336,8 +340,7 @@ Camera cam;
 TexturedPolygons tp;
 JpegLoader jpeg;
 Audio game_audio;
-//World portalWorld;
-Cam ourCam;
+
 PortalWorld portalLogic;
 
 // initializes setting
@@ -455,7 +458,7 @@ void DeleteImageFromMemory(unsigned char* tempImage);
 
 // Stuff for portal world
 // animates the portal
-void Animate();
+void Animate(int);
 // collision for entering portal world
 void EnterPortal();
 
@@ -494,6 +497,8 @@ int main(int argc, char **argv)
 	glutPassiveMotionFunc(ChooseMouseLook);
 	glutSetCursor(GLUT_CURSOR_NONE);
 	glutReshapeFunc(ChooseReshapeFunc);
+
+	glutTimerFunc(TIMERSECS, Animate, 0);
 	
 	glutMainLoop();
 
@@ -515,6 +520,9 @@ void ChooseDisplay()
 	}
 }
 
+//--------------------------------------------------------------------------------------
+//  Choose which display to run - Manu Murray
+//--------------------------------------------------------------------------------------
 void ChooseMouse(int button, int state, int x, int y)
 {
 	// both options do the same for now
@@ -677,7 +685,7 @@ void Display()
 	cam.SetRotateSpeed(angleIncrement);
 
 	EnterPortal(); // checks if player is ready to enter portal engine
-	Animate(); // updates animation variables
+	//Animate(); // updates animation variables
 
 	// display original images
 	DrawBackdropOrigial();
@@ -695,9 +703,20 @@ void Display()
 //--------------------------------------------------------------------------------------
 //  Animate Function - Manu Murray
 //--------------------------------------------------------------------------------------
-void Animate()
+void Animate(int)
 {
-	rot -= 3; // makes the portal spin
+	glutTimerFunc(TIMERSECS, Animate, 0);
+
+	float currTime = glutGet(GLUT_ELAPSED_TIME) / 1000.0;     // to convert the returned into seconds
+	float timeSincePrevFrame = currTime - prevTime;	// time since previous frame
+
+	rot -= 200 * timeSincePrevFrame; // makes the portal spin
+	//rot -= 5;
+	portalLogic.AnimatePortalWorld();
+
+	prevTime = currTime;
+
+	glutPostRedisplay();
 }
 
 //--------------------------------------------------------------------------------------
@@ -6617,18 +6636,11 @@ void IncrementFrameCount()
 {
 	double t = ((GLdouble)(clock()-lastClock))/(GLdouble)CLOCKS_PER_SEC;  
 	frameCount ++;
-	int speed = 1400;
-
-	// slows down movement speed when in portal world
-	if (inPortal)
-	{
-		speed = 20;
-	}
 
 	// reset after t
 	if (t > 0.1)
 	{
-		stepIncrement = t/frameCount * speed;
+		stepIncrement = t/frameCount * 1400;
 		angleIncrement = t/frameCount;
 		frameCount = 0;
 		lastClock = clock();

@@ -127,6 +127,6 @@ private:
 	Cam ourCam;
 	World world;
 
-	int width, height;
+	int width, height; // not used atm
 };
 

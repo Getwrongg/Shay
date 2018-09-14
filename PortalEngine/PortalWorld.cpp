@@ -66,8 +66,6 @@ void PortalWorld::Display()
 	world.Axis();//Draws the axis for testing
 	world.Cubes();
 
-	AnimatePortalWorld();
-
 	glDisable(GL_TEXTURE_2D);
 	glutSwapBuffers();
 }
