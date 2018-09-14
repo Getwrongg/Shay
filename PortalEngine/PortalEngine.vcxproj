@@ -128,6 +128,7 @@
     <ClInclude Include="Cube.h" />
     <ClInclude Include="JpegLoader.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PortalWorld.h" />
     <ClInclude Include="Structs.h" />
     <ClInclude Include="World.h" />
   </ItemGroup>
@@ -135,8 +136,8 @@
     <ClCompile Include="Cam.cpp" />
     <ClCompile Include="Cube.cpp" />
     <ClCompile Include="JpegLoader.cpp" />
-    <ClCompile Include="main2.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PortalWorld.cpp" />
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,9 +1,10 @@
 #pragma once
-#include "JpegLoader.h"
+#include <GL/glew.h>
 #include <GL/glut.h>
 
 #include "Structs.h"
 #include "Cube.h"
+#include "JpegLoader.h"
 
 /**
 * @class World

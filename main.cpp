@@ -19,6 +19,7 @@
 #include "World.h"
 #include "JpegLoader.h"
 #include "Cam.h"
+#include "PortalWorld.h"
 
 //--------------------------------------------------------------------------------------
 
@@ -307,18 +308,6 @@ int width, height;
 // animation
 GLfloat rot = 0; // rotation value for portal
 
-
-// camera variables
-GLdouble moveSpeed = 0.05;
-GLdouble rotateSpeed = 0.005;
-
-int deltaX = 0, deltaY = 0;
-
-GLdouble pos[] = { 0, 0, 5 };
-GLdouble upVec[] = { 0, 1, 0 };
-GLdouble angle = 0;
-
-
 // display campus map
 bool DisplayMap = false;
 // display welcome screen
@@ -347,8 +336,9 @@ Camera cam;
 TexturedPolygons tp;
 JpegLoader jpeg;
 Audio game_audio;
-World portalWorld;
+//World portalWorld;
 Cam ourCam;
+PortalWorld portalLogic;
 
 // initializes setting
 void myinit();
@@ -464,24 +454,18 @@ void CreatePlains();
 void DeleteImageFromMemory(unsigned char* tempImage);
 
 // Stuff for portal world
-void ChooseDisplay();
-void CreateTexturesPortalWorld();
-void Display2();
-void AnimatePortalWorld();
-void ChooseMouse(int x, int y);
-void MouseMovement(int x, int y);
-
+// animates the portal
 void Animate();
+// collision for entering portal world
 void EnterPortal();
 
+// used to choose which function to call in mainLoop
+void ChooseDisplay();
+void ChooseMouseLook(int x, int y);
 void ChooseKeyboard(unsigned char key, int x, int y);
 void ChooseReleaseKeys(unsigned char key, int x, int y);
 void ChooseReshapeFunc(int w, int h);
-
-void Keyboard(unsigned char key, int x, int y);
-void ReleaseKeyboard(unsigned char key, int x, int y);
-
-void Resize(int w, int h);
+void ChooseMouse(int button, int state, int x, int y);
 
 //--------------------------------------------------------------------------------------
 //  Main function 
@@ -501,13 +485,13 @@ int main(int argc, char **argv)
 
 	glutDisplayFunc(ChooseDisplay);
 	glutIdleFunc(ChooseDisplay);
-	glutMouseFunc(Mouse);
+	glutMouseFunc(ChooseMouse);
 
 	glutIgnoreKeyRepeat(1); // removed this so we can hold down to move up or down
 	glutKeyboardUpFunc (ChooseReleaseKeys);
 	glutKeyboardFunc(ChooseKeyboard);
 	
-	glutPassiveMotionFunc(ChooseMouse);
+	glutPassiveMotionFunc(ChooseMouseLook);
 	glutSetCursor(GLUT_CURSOR_NONE);
 	glutReshapeFunc(ChooseReshapeFunc);
 	
@@ -527,7 +511,21 @@ void ChooseDisplay()
 	}
 	else
 	{
-		Display2();
+		portalLogic.Display();
+	}
+}
+
+void ChooseMouse(int button, int state, int x, int y)
+{
+	// both options do the same for now
+	if (!inPortal)
+	{
+		Mouse(button, state, x, y);
+	}
+	else
+	{
+		//Mouse(button, state, x, y);
+		glutMouseFunc(NULL); // not sure if works
 	}
 }
 
@@ -542,7 +540,7 @@ void ChooseKeyboard(unsigned char key, int x, int y)
 	}
 	else
 	{
-		Keyboard(key, x, y);
+		portalLogic.Keyboard(key, x, y);
 	}
 }
 
@@ -557,14 +555,14 @@ void ChooseReleaseKeys(unsigned char key, int x, int y)
 	}
 	else
 	{
-		ReleaseKeyboard(key, x, y);
+		portalLogic.ReleaseKeyboard(key, x, y);
 	}
 }
 
 //--------------------------------------------------------------------------------------
 //  Choose which mouse look function to use - Manu Murray
 //--------------------------------------------------------------------------------------
-void ChooseMouse(int x, int y)
+void ChooseMouseLook(int x, int y)
 {
 	if (!inPortal)
 	{
@@ -572,7 +570,7 @@ void ChooseMouse(int x, int y)
 	}
 	else
 	{
-		MouseMovement(x, y);
+		portalLogic.MouseMovement(x, y);
 	}
 }
 
@@ -587,7 +585,7 @@ void ChooseReshapeFunc(int w, int h)
 	}
 	else
 	{
-		Resize(w, h);
+		portalLogic.Resize(w, h);
 	}
 }
 
@@ -630,22 +628,6 @@ void myinit()
 	CreateBoundingBoxes();
 	// copies bounding boxes from array to linked lists (one fopr each quadrant)
 	cam.InitiateBoundingBoxes();
-
-	/*glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-
-	GLdouble fov = 45.0;
-	GLdouble aspect = 1.0;
-	GLdouble zNear = 0.1;
-	GLdouble zFar = 1000.0;
-
-	gluPerspective(fov, aspect, zNear, zFar);
-
-	glMatrixMode(GL_MODELVIEW);*/
-
-	ourCam.SetMoveSpeed(moveSpeed); // sets movement speed of camera
-	ourCam.SetRotateSpeed(rotateSpeed); // sets rotate speed of camera
-	ourCam.SetPosition(pos, upVec, angle); // sets position of the camera in the world
 	
 	// load texture images and create display lists
 	
@@ -653,7 +635,7 @@ void myinit()
 	CreateTextures();
 
 	CreateJPGTextures();
-	CreateTexturesPortalWorld();
+	//CreateTexturesPortalWorld();
 
 	LoadGameSounds();
 	game_audio.PlayMusic("AMBIENCE", -1); //Play Game Music
@@ -711,54 +693,11 @@ void Display()
 }
 
 //--------------------------------------------------------------------------------------
-//  PortalWorld Display Function - Manu Murray
-//--------------------------------------------------------------------------------------
-bool texUnload = false;
-void Display2()
-{
-	if (texUnload==false) { 
-		jpeg.UnloadAllTextures(); //Removes all textures loaded in from JpegLoader from GPU memory (not RAM) therefore reducing GPU memory usage 
-		texUnload = true;
-	}
-
-	glLoadIdentity();
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-	// updates camera position
-	ourCam.Update();
-
-	glEnable(GL_TEXTURE_2D);
-	glPushMatrix();
-
-	//player.DrawPlayer();
-
-	//portalWorld.Ground(); //Draws the ground with texture
-	//world.DrawBushes();//Draws Bushes
-
-	portalWorld.SkyCylinder();
-	portalWorld.Axis();//Draws the axis for testing
-	portalWorld.Cubes();
-
-	AnimatePortalWorld();
-
-	glDisable(GL_TEXTURE_2D);
-	glutSwapBuffers();
-}
-
-//--------------------------------------------------------------------------------------
 //  Animate Function - Manu Murray
 //--------------------------------------------------------------------------------------
 void Animate()
 {
 	rot -= 3; // makes the portal spin
-}
-
-//--------------------------------------------------------------------------------------
-//  PortalWorld Animate Function - Shane Martinez
-//--------------------------------------------------------------------------------------
-void AnimatePortalWorld()
-{
-	portalWorld.AnimatePortalWorld();
 }
 
 //--------------------------------------------------------------------------------------
@@ -772,14 +711,12 @@ void EnterPortal()
 		inPortal = true;
 		game_audio.StopAudio(1);
 
-		//// moves camera to the right spot
-		//cam.Position(0.0, 0.0, 5.0, 0);
-		//// stops movement so the camera doesn't go past the starting point
-		//cam.DirectionFB(0);
-		//cam.DirectionLR(0);
+		// initialises portalworld variables
+		portalLogic.MyInit();
+
+		// unloads all jpeg textures from shays world
+		jpeg.UnloadAllTextures(); //Removes all textures loaded in from JpegLoader from GPU memory (not RAM) therefore reducing GPU memory usage 
 		
-		//// turn shays collision detection off
-		//cam.SetCollisionDetectionOn(false);
 	}
 
 	std::cout << cam.GetLR() << std::endl;
@@ -807,69 +744,8 @@ void reshape(int w, int h)
 }
 
 //--------------------------------------------------------------------------------------
-// Resize function for portalWorld - Manu Murray
-//--------------------------------------------------------------------------------------
-void Resize(int w, int h)
-{
-	width = w;
-	height = h;
-
-	// prevents trying to make a window of zero width
-	if (h == 0)
-	{
-		h = 1;
-	}
-
-	std::cout << "Using resize()" << std::endl;
-
-	glMatrixMode(GL_PROJECTION);
-	glLoadIdentity();
-	glViewport(0, 0, (GLsizei)w, (GLsizei)h);
-	
-	gluPerspective(45.0, (GLfloat)w / (GLfloat)h, 0.1, 100.0);
-
-	glMatrixMode(GL_MODELVIEW);
-}
-
-//--------------------------------------------------------------------------------------
 // Keyboard Functions
 //--------------------------------------------------------------------------------------
-
-void Keyboard(unsigned char key, int x, int y)
-{
-	switch (key)
-	{
-	case 'w':
-		ourCam.DirectionForwardBack(1);
-		break;
-	case 's':
-		ourCam.DirectionForwardBack(-1);
-		break;
-	case 'a':
-		ourCam.DirectionLeftRight(-1);
-		break;
-	case 'd':
-		ourCam.DirectionLeftRight(1);
-		break;
-	case 'q':
-		exit(0);
-	}
-}
-
-void ReleaseKeyboard(unsigned char key, int x, int y)
-{
-	switch (key)
-	{
-	case 'w':
-	case 's':
-		ourCam.DirectionForwardBack(0);
-		break;
-	case 'a':
-	case 'd':
-		ourCam.DirectionLeftRight(0);
-		break;
-	}
-}
 
 void keys(unsigned char key, int x, int y)
 {
@@ -1035,21 +911,6 @@ void Mouse(int button, int state, int x, int y)
 }
 
 //--------------------------------------------------------------------------------------
-//  Mouse looking - Manu Murray
-//--------------------------------------------------------------------------------------
-void MouseMovement(int x, int y)
-{
-	// gets the difference between the current position of the mouse and the center of the screen
-	deltaX = x - (width / 2);
-	deltaY = y - (height / 2);
-
-	glutWarpPointer(width / 2, height / 2); // returns the cursur to the center of the screen after each frame
-
-	ourCam.Rotate(deltaX, deltaY); // rotates the camera
-}
-
-//--------------------------------------------------------------------------------------
-//  Mouse Movements (NOT USED)
 //  Can be used to rotate around screen using mouse, but keyboard used instead
 //--------------------------------------------------------------------------------------
 void mouseMove(int x, int y)
@@ -1314,11 +1175,6 @@ void LoadGameSounds() {
 //--------------------------------------------------------------------------------------
 // Load and Create Textures
 //--------------------------------------------------------------------------------------
-
-void CreateTexturesPortalWorld()
-{
-	portalWorld.CreateTextures("SWIRL3", "data/portalswirl.jpg");
-}
 
 void CreateJPGTextures() {
 
