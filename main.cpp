@@ -1234,7 +1234,12 @@ void CreateJPGTextures() {
 	jpeg.CreateTexture("MALETOILET", "data/MaleToilets.jpg");
 
 	jpeg.CreateTexture("HIGHERWINDOW", "data/HigherWindow.jpg");
+
+	jpeg.CreateTexture("LEFTSIDENORTHEXIT", "data/leftSideNorthExit.jpg");
+
+	jpeg.CreateTexture("RIGHTSIDENORTHEXIT", "data/rightSideNorthExit.jpg");
 }
+
 
 void CreateTextures()
 {
@@ -3074,6 +3079,29 @@ void DrawToiletEntrance() {
 	glEnd();
 }
 
+void drawNorthExit()
+{
+	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("RIGHTSIDENORTHEXIT"));
+	glBegin(GL_QUADS);
+
+	glTexCoord2i(0, 0); glVertex3f(4500.0, 12000.0, 45400.0);
+	glTexCoord2i(0, 1); glVertex3f(2600.0, 12000.0, 45400.0);
+	glTexCoord2i(1, 1); glVertex3f(2600.0, 10000.0, 45400.0);
+	glTexCoord2i(1, 0); glVertex3f(4500.0, 10000.0, 45400.0);
+
+	glEnd();
+
+	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("LEFTSIDENORTHEXIT"));
+	glBegin(GL_QUADS);
+
+	glTexCoord2i(0, 0); glVertex3f(6600.0, 12000.0, 45400.0);
+	glTexCoord2i(0, 1); glVertex3f(4500.0, 12000.0, 45400.0);
+	glTexCoord2i(1, 1); glVertex3f(4500.0, 10000.0, 45400.0);
+	glTexCoord2i(1, 0); glVertex3f(6600.0, 10000.0, 45400.0);
+
+	glEnd();
+}
+
 void DrawBackdropNew() {
 
 	DrawMyFaceBanner(); // for my face banner
@@ -3104,6 +3132,8 @@ void DrawBackdropNew() {
 	DrawToiletEntrance();
 
 	chaTime();
+
+	drawNorthExit();
 }
 
 //--------------------------------------------------------------------------------------
