@@ -176,9 +176,9 @@ private:
 
 	int dirLR, dirFB, dirUD; // direction either 1 or -1
 
-	GLdouble rotateAngle;
-	GLdouble rotateUD;
+	GLfloat rotateAngle;
+	GLfloat rotateUD;
 
-	GLdouble moveSpeed; // speed of camera movement
-	GLdouble rotateSpeed; // speed of camera rotation
+	GLfloat moveSpeed; // speed of camera movement
+	GLfloat rotateSpeed; // speed of camera rotation
 };

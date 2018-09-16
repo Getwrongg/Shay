@@ -1,19 +1,17 @@
 #include "Cube.h"
 
-
 Cube::Cube()
 {
-	
+	pos.x = 0.0;
+	pos.y = 0.0;
+	pos.z = 0.0;
 }
-Cube::Cube(const GLdouble x1, const GLdouble y1, const GLdouble z1)
+
+Cube::Cube(const GLfloat x1, const GLfloat y1, const GLfloat z1)
 {
 	pos.x = x1;
 	pos.y = y1;
 	pos.z = z1;
-}
-
-Cube::~Cube()
-{
 }
 
 void Cube::CreateTexture() {
@@ -21,7 +19,7 @@ void Cube::CreateTexture() {
 	j.CreateTexture("bottompillar", "data/bottompillar.jpg");
 }
 
-void Cube::Draw(const GLdouble x1, const GLdouble y1, const GLdouble z1)
+void Cube::Draw(const GLfloat x1, const GLfloat y1, const GLfloat z1)
 {
 	
 	glPushMatrix();

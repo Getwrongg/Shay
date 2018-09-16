@@ -125,15 +125,15 @@ void World::Cubes()
 
 
 	//top railing pillar
-	for (int i = 0; i <= 15; i++)
+	for (float i = 0; i <= 15; i++)
 	{
-		cube.Draw(i, 7, 0);
+		cube.Draw(i, 7.0f, 0.0f);
 	}
 
 	//bottom railing pillar
-	for (int i = 0; i <= 15; i++)
+	for (float i = 0; i <= 15; i++)
 	{
-		cube.Draw(i, -1, 0);
+		cube.Draw(i, -1.0f, 0.0f);
 	}
 		
 	
@@ -148,7 +148,7 @@ void World::DrawBushes() {
 
 }
 
-void World::Bushes(const GLdouble x1, const GLdouble y1, const GLdouble z1)
+void World::Bushes(const GLfloat x1, const GLfloat y1, const GLfloat z1)
 {
 	
 	
