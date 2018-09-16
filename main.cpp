@@ -3041,19 +3041,42 @@ void DrawToiletEntrance() {
 
 void drawNorthExit()
 {
+	//RIGHT SIDE IMADE
 	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("RIGHTSIDENORTHEXIT"));
 	glBegin(GL_QUADS);
+
 	glTexCoord2i(0, 0); glVertex3f(4500.0, 12000.0, 45400.0);
 	glTexCoord2i(0, 1); glVertex3f(2600.0, 12000.0, 45400.0);
 	glTexCoord2i(1, 1); glVertex3f(2600.0, 10000.0, 45400.0);
 	glTexCoord2i(1, 0); glVertex3f(4500.0, 10000.0, 45400.0);
+
 	glEnd();
+
+	//LEFT SIDE IMAGE
 	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("LEFTSIDENORTHEXIT"));
 	glBegin(GL_QUADS);
+
 	glTexCoord2i(0, 0); glVertex3f(6600.0, 12000.0, 45400.0);
 	glTexCoord2i(0, 1); glVertex3f(4500.0, 12000.0, 45400.0);
 	glTexCoord2i(1, 1); glVertex3f(4500.0, 10000.0, 45400.0);
 	glTexCoord2i(1, 0); glVertex3f(6600.0, 10000.0, 45400.0);
+
+	glEnd();
+
+	//ROOF OF NORTH EXIT
+	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("STONE"));
+	glBegin(GL_QUADS);
+
+	glTexCoord2i(0, 0); glVertex3f(6600.0, 11800.0, 45400.0);
+	glTexCoord2i(0, 1); glVertex3f(2600.0, 11800.0, 45400.0);
+	glTexCoord2i(1, 1); glVertex3f(2600.0, 11800.0, 43100.0);
+	glTexCoord2i(1, 0); glVertex3f(6600.0, 11800.0, 43100.0);
+
+	glTexCoord2i(0, 0); glVertex3f(6600.0, 12150.0, 43100.0);
+	glTexCoord2i(0, 1); glVertex3f(2600.0, 12150.0, 43100.0);
+	glTexCoord2i(1, 1); glVertex3f(2600.0, 11800.0, 43100.0);
+	glTexCoord2i(1, 0); glVertex3f(6600.0, 11800.0, 43100.0);
+
 	glEnd();
 }
 
