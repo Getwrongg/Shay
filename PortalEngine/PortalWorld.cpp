@@ -17,6 +17,9 @@ PortalWorld::PortalWorld()
 	upVec[0] = 0.0;
 	upVec[1] = 1.0;
 	upVec[2] = 0.0;
+
+	width = 1280;
+	height = 720;
 }
 
 void PortalWorld::MyInit()
@@ -35,10 +38,10 @@ void PortalWorld::MyInit()
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
 
-	GLdouble fov = 45.0;
-	GLdouble aspect = 1.0;
-	GLdouble zNear = 0.1;
-	GLdouble zFar = 1000.0;
+	GLfloat fov = 45.0f;
+	GLfloat aspect = 1.0f * width/height;
+	GLfloat zNear = 0.1f;
+	GLfloat zFar = 1000.0f;
 
 	gluPerspective(fov, aspect, zNear, zFar);
 
@@ -83,10 +86,10 @@ void PortalWorld::CreateTexturesPortalWorld()
 void PortalWorld::MouseMovement(int x, int y)
 {
 	// gets the difference between the current position of the mouse and the center of the screen
-	deltaX = x - (GLUT_WINDOW_WIDTH / 2);
-	deltaY = y - (GLUT_WINDOW_HEIGHT / 2);
+	deltaX = x - (width / 2);
+	deltaY = y - (height / 2);
 
-	glutWarpPointer(GLUT_WINDOW_WIDTH / 2, GLUT_WINDOW_HEIGHT / 2); // returns the cursur to the center of the screen after each frame
+	glutWarpPointer(width / 2, height / 2); // returns the cursur to the center of the screen after each frame
 
 	ourCam.Rotate(deltaX, deltaY); // rotates the camera
 }
@@ -102,13 +105,17 @@ void PortalWorld::Resize(int w, int h)
 		h = 1;
 	}
 
-	std::cout << "Using resize()" << std::endl;
-
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	glViewport(0, 0, (GLsizei)w, (GLsizei)h);
 
-	gluPerspective(45.0, (GLfloat)w / (GLfloat)h, 0.1, 1000.0);
+	glViewport(0, 0, w, h);
+
+	GLfloat fov = 45.0f;
+	GLfloat aspect = 1.0f * width / height;
+	GLfloat zNear = 0.1f;
+	GLfloat zFar = 1000.0f;
+
+	gluPerspective(fov, aspect, zNear, zFar);
 
 	glMatrixMode(GL_MODELVIEW);
 }
