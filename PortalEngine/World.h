@@ -29,7 +29,7 @@ public:
 	void Ground();
 	void Cubes();
 	void Axis();
-	void Bushes(const GLdouble x1, const GLdouble y1, const GLdouble z1);
+	void Bushes(const GLfloat x1, const GLfloat y1, const GLfloat z1);
 	void DrawBushes();
 	void AnimatePortalWorld();
 	void SkyCylinder();

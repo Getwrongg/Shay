@@ -19,14 +19,53 @@
 class Cube
 {
 public:
+
+	/**
+	* @author Christopher Gemmel
+	*
+	* @brief default constructor
+	*
+	* 
+	*
+	*
+	*/
 	Cube();
-	Cube(const GLdouble x1, const GLdouble y1, const GLdouble z1);
-	~Cube();
-	void Draw(const GLdouble x1, const GLdouble y1, const GLdouble z1);
+
+	/**
+	* @author Christopher Gemmel
+	*
+	* @brief constructor that takes in values
+	*
+	* @param const GLdouble x1, const GLdouble y1, const GLdouble z1
+	*
+	* 
+	*/
+	Cube(const GLfloat x1, const GLfloat y1, const GLfloat z1);
+
+	/**
+	* @author Christopher Gemmel
+	*
+	* @brief method that draws a cube to the screen
+	*
+	* @param const GLdouble x1, const GLdouble y1, const GLdouble z1
+	*
+	* @return void
+	*/
+	void Draw(const GLfloat x1, const GLfloat y1, const GLfloat z1);
+
+	/**
+	* @author Christopher Gemmel
+	*
+	* @brief creates texture to be used in cube
+	*
+	* 
+	*
+	* @return void
+	*/
 	void CreateTexture();
 	
 private:
-	JpegLoader j;
-	Coordinates pos;
+	JpegLoader j; // object to load in jpeg textures
+	Coordinates pos; // struct that holds position of cube
 };
 

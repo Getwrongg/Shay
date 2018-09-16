@@ -17,6 +17,6 @@
 */
 typedef struct 
 {
-	GLdouble x, y, z;
+	GLfloat x, y, z;
 } Coordinates;
 

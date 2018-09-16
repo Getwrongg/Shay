@@ -609,7 +609,7 @@ void myinit()
 	glewInit();
 
 	// set background (sky colour)
-	glClearColor(97.0/255.0, 140.0/255.0, 335.0/255.0, 1.0);
+	glClearColor(97.0f/255.0f, 140.0f/255.0f, 335.0f/255.0f, 1.0f);
 	
 	// set perpsective
 	gluLookAt(0.0, 0, 5.0, 
@@ -707,8 +707,8 @@ void Animate(int)
 {
 	glutTimerFunc(TIMERSECS, Animate, 0);
 
-	float currTime = glutGet(GLUT_ELAPSED_TIME) / 1000.0;     // to convert the returned into seconds
-	float timeSincePrevFrame = currTime - prevTime;	// time since previous frame
+	GLfloat currTime = glutGet(GLUT_ELAPSED_TIME) / 1000.0f;     // to convert the returned into seconds
+	GLfloat timeSincePrevFrame = currTime - prevTime;	// time since previous frame
 
 	rot -= 200 * timeSincePrevFrame; // makes the portal spin
 	//rot -= 5;
@@ -725,7 +725,7 @@ void Animate(int)
 void EnterPortal()
 {
 	//23500, 11500, 18000 - center of portal cube
-	if (cam.GetLR() <= 23600.0 & cam.GetLR() >= 23400.0 & cam.GetFB() <= 18100 & cam.GetFB() >= 17900)
+	if ((cam.GetLR() <= 23600.0 & cam.GetLR() >= 23400.0) & (cam.GetFB() <= 18100 & cam.GetFB() >= 17900))
 	{
 		inPortal = true;
 		game_audio.StopAudio(1);
@@ -942,13 +942,13 @@ void mouseMove(int x, int y)
 		{
 			cam.DirectionRotateLR(3);
 			//glutPostRedisplay();
-			glutWarpPointer(width/2.0,height/2.0);
+			glutWarpPointer(width/2,height/2);
 		}
 		else if (x < width/2.0)
 		{
 			cam.DirectionRotateLR(-3);
 			//glutPostRedisplay();
-			glutWarpPointer(width/2.0,height/2.0);
+			glutWarpPointer(width/2,height/2);
 		}
 		else
 			cam.DirectionRotateLR(0);
@@ -960,12 +960,12 @@ void mouseMove(int x, int y)
 		else if (y > height/2.0) {
 			cam.DirectionLookUD(-2);
 			//glutPostRedisplay();
-			glutWarpPointer(width/2.0,height/2.0);
+			glutWarpPointer(width/2,height/2);
 		}
 		else if (y < height/2.0) {
 			cam.DirectionLookUD(2);
 			//glutPostRedisplay();
-			glutWarpPointer(width/2.0,height/2.0);
+			glutWarpPointer(width/2,height/2);
 		}
 		else
 			cam.DirectionLookUD(0);
@@ -1195,11 +1195,8 @@ void LoadGameSounds() {
 // Load and Create Textures
 //--------------------------------------------------------------------------------------
 
-void CreateJPGTextures() {
-
-	jpeg.CreateTexture("FACE", "data/MyFace.jpg");
-
-	jpeg.CreateTexture("POST", "data/post.jpg");
+void CreateJPGTextures() 
+{
 
 	jpeg.CreateTexture("SOLAR_PANEL", "data/SolarPanel.jpg");
 
@@ -1914,41 +1911,6 @@ void CreateTextures()
 
 	
 }
-
-//--------------------------------------------------------------------------------------
-//  Called from the main display function to draw manu's face banner
-//--------------------------------------------------------------------------------------
-void DrawMyFaceBanner() {
-	//glColor3f(1, 1, 0);
-	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("FACE"));
-	glBegin(GL_POLYGON);
-	glTexCoord2i(0, 0); glVertex3f(30000.0, 12500.0, 20000.0); // left
-	glTexCoord2i(0, 1); glVertex3f(29000.0, 12500.0, 20000.0);
-	glTexCoord2i(1, 1); glVertex3f(29000.0, 10500.0, 20000.0);
-	glTexCoord2i(1, 0); glVertex3f(30000.0, 10500.0, 20000.0);
-	glEnd();
-}
-
-void DrawFaceBannerPosts()
-{
-	// draw left cylinder
-	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("POST"));
-	glPushMatrix();
-	glTranslatef(30000, 11500, 20000);
-	glRotatef(90.0f, 1.0f, 0.0f, 0.0f);
-	gluQuadricDrawStyle(glu_cylinder, GLU_FILL); //GLUquadricObj * qobj = gluNewQuadric();
-	gluCylinder(glu_cylinder, 10, 25, 2000, 200, 200);
-	glPopMatrix();
-
-	// draww right cylinder
-	glPushMatrix();
-	glTranslatef(29000, 11500, 20000);
-	glRotatef(90.0f, 1.0f, 0.0f, 0.0f);
-	gluQuadricDrawStyle(glu_cylinder, GLU_FILL); //GLUquadricObj * qobj = gluNewQuadric();
-	gluCylinder(glu_cylinder, 10, 25, 2000, 200, 200);
-	glPopMatrix();
-}
-
 
 //--------------------------------------------------------------------------------------
 //  Called from the main display function to draw solar panels
@@ -3074,11 +3036,8 @@ void DrawToiletEntrance() {
 	glEnd();
 }
 
-void DrawBackdropNew() {
-
-	DrawMyFaceBanner(); // for my face banner
-	DrawFaceBannerPosts();
-
+void DrawBackdropNew() 
+{
 	//////for the solar panels
 	DrawSolarPanels();
 
@@ -3426,7 +3385,7 @@ void DisplayAboveWindowBlock ()
 	glCallList(23);
 	glCallList(95);
 	glPushMatrix();	
-		glTranslatef(99.84, 0.0, 0.0);
+		glTranslatef(99.84f, 0.0f, 0.0f);
 		glCallList(95);
 	glPopMatrix();
 	glCallList(231);
@@ -3434,7 +3393,7 @@ void DisplayAboveWindowBlock ()
 	glCallList(45);
 	glCallList(53);	// aboves posts
 	glPushMatrix();	
-		glTranslatef(128.0, 0.0, 0.0);
+		glTranslatef(128.0f, 0.0f, 0.0f);
 		glCallList(53);
 	glPopMatrix();
 	glCallList(68);
@@ -3592,40 +3551,40 @@ void DrawAboveWindowBlock ()
 	glNewList(232, GL_COMPILE);
 		glBegin(GL_QUADS);
 			glTexCoord2f(0.0, 0.0);
-			glVertex3f(31768.0 + 45, 11162, 41011.2 - 45);
-			glTexCoord2f(10.54, 0.0);
-			glVertex3f(33848+ 45, 11920, 43095.2 -45 );
-			glTexCoord2f(10.54, 1.0);
-			glVertex3f(33848.0- 45, 11920, 43095.2 +45);
-			glTexCoord2f(0.0, 1.0);
-			glVertex3f(31768.0- 45, 11162, 41011.2 + 45);
+			glVertex3f(31768.0f + 45, 11162, 41011.2f - 45);
+			glTexCoord2f(10.54f, 0.0f);
+			glVertex3f(33848+ 45, 11920, 43095.2f -45 );
+			glTexCoord2f(10.54f, 1.0f);
+			glVertex3f(33848.0f- 45, 11920, 43095.2f +45);
+			glTexCoord2f(0.0f, 1.0f);
+			glVertex3f(31768.0f- 45, 11162, 41011.2f + 45);
 		glEnd();
 	glEndList();
 
 	glNewList(233, GL_COMPILE);
 		glBegin(GL_QUADS);
 			glTexCoord2f(0.0, 0.0);
-			glVertex3f(31768.0 - 45, 11162, 41011.2 + 45);
-			glTexCoord2f(10.54, 0.0);
-			glVertex3f(33848- 45, 11920, 43095.2 +45 );
-			glTexCoord2f(10.54, 0.75);
-			glVertex3f(33848.0- 45, 11920 +192, 43095.2 +45);
-			glTexCoord2f(0.0, 0.75);
-			glVertex3f(31768.0- 45, 11162 +192, 41011.2 + 45);
+			glVertex3f(31768.0f - 45, 11162, 41011.2f + 45);
+			glTexCoord2f(10.54f, 0.0f);
+			glVertex3f(33848- 45, 11920, 43095.2f +45 );
+			glTexCoord2f(10.54f, 0.75f);
+			glVertex3f(33848.0f- 45, 11920 +192, 43095.2f +45);
+			glTexCoord2f(0.0f, 0.75f);
+			glVertex3f(31768.0f- 45, 11162 +192, 41011.2f + 45);
 		glEnd();
 	glEndList();
 
 
 	glNewList(234, GL_COMPILE);
 		glBegin(GL_QUADS);
-			glTexCoord2f(0.0, 0.0);
-			glVertex3f(31768.0 + 45, 11162, 41011.2 - 45);
-			glTexCoord2f(10.54, 0.0);
-			glVertex3f(33848+ 45, 11920, 43095.2 -45 );
-			glTexCoord2f(10.54, 0.75);
-			glVertex3f(33848.0+ 45, 11920 +192, 43095.2 -45);
+			glTexCoord2f(0.0f, 0.0f);
+			glVertex3f(31768.0f + 45, 11162, 41011.2f - 45);
+			glTexCoord2f(10.54f, 0.0f);
+			glVertex3f(33848+ 45, 11920, 43095.2f -45 );
+			glTexCoord2f(10.54f, 0.75f);
+			glVertex3f(33848.0f+ 45, 11920 +192, 43095.2f -45);
 			glTexCoord2f(0.0, 0.75);
-			glVertex3f(31768.0+ 45, 11162 +192, 41011.2 - 45);
+			glVertex3f(31768.0f+ 45, 11162 +192, 41011.2f - 45);
 		glEnd();
 	glEndList();
 
@@ -4001,10 +3960,10 @@ void DrawPhysSciPosts ()
 		glBegin(GL_QUADS);
 			glTexCoord2f(0.0, 0.0);
 			glVertex3f(33808.0, 10288.0, 38239.0);
-			glTexCoord2f(0.0, 0.315);
-			glVertex3f(33808.0, 10288.0, 38239.0 + (1024.0 * 0.315));
-			glTexCoord2f(1.0, 0.315);
-			glVertex3f(33928.0, 10332.0, 38239.0 + (1024.0 * 0.315));
+			glTexCoord2f(0.0f, 0.315f);
+			glVertex3f(33808.0f, 10288.0f, 38239.0f + (1024.0f * 0.315f));
+			glTexCoord2f(1.0f, 0.315f);
+			glVertex3f(33928.0f, 10332.0f, 38239.0f + (1024.0f * 0.315f));
 			glTexCoord2f(1.0, 0.0);
 			glVertex3f(33928.0, 10332.0, 38239.0);
 		glEnd();
@@ -4153,26 +4112,26 @@ void DrawLibraryPosts ()
 	tp.CreateDisplayList (XY, 60, 1024.0, 32.0, 22440.0, 10320.0, 43056.0, 0.5313, 1.0);
 	glNewList(62, GL_COMPILE);
 		glBegin(GL_QUADS);
-			glTexCoord2f(0.0, 0.0);
-			glVertex3f(21896.0, 10352.0, 43056.0);
-			glTexCoord2f(0.5313, 0.0);
-			glVertex3f(21896.0 + (1024.0 * 0.5313), 10352.0, 43056.0);
-			glTexCoord2f(0.5313, 1.0);
-			glVertex3f(21896.0 + (1024.0 * 0.5313), 10396.0, 43176.0);
-			glTexCoord2f(0.0, 1.0);
-			glVertex3f(21896.0 , 10396.0, 43176.0);
+			glTexCoord2f(0.0f, 0.0f);
+			glVertex3f(21896.0f, 10352.0f, 43056.0f);
+			glTexCoord2f(0.5313f, 0.0f);
+			glVertex3f(21896.0f + (1024.0f * 0.5313f), 10352.0f, 43056.0f);
+			glTexCoord2f(0.5313f, 1.0f);
+			glVertex3f(21896.0f + (1024.0f * 0.5313f), 10396.0f, 43176.0f);
+			glTexCoord2f(0.0f, 1.0f);
+			glVertex3f(21896.0f , 10396.0f, 43176.0f);
 		glEnd();
 	glEndList();
 	glNewList(63, GL_COMPILE);
 		glBegin(GL_QUADS);
-			glTexCoord2f(0.0, 0.0);
-			glVertex3f(22440.0, 10352.0, 43056.0);
-			glTexCoord2f(0.5313, 0.0);
-			glVertex3f(22440.0 + (1024.0 * 0.5313), 10352.0, 43056.0);
-			glTexCoord2f(0.5313, 1.0);
-			glVertex3f(22440.0 + (1024.0 * 0.5313), 10396.0, 43176.0);
-			glTexCoord2f(0.0, 1.0);
-			glVertex3f(22440.0 , 10396.0, 43176.0);
+			glTexCoord2f(0.0f, 0.0f);
+			glVertex3f(22440.0f, 10352.0f, 43056.0f);
+			glTexCoord2f(0.5313f, 0.0f);
+			glVertex3f(22440.0f + (1024.0f * 0.5313f), 10352.0f, 43056.0f);
+			glTexCoord2f(0.5313f, 1.0f);
+			glVertex3f(22440.0f + (1024.0f * 0.5313f), 10396.0f, 43176.0f);
+			glTexCoord2f(0.0f, 1.0f);
+			glVertex3f(22440.0f , 10396.0f, 43176.0f);
 		glEnd();
 	glEndList();
 	
@@ -4868,196 +4827,196 @@ void DrawRoof()
 	// Chanc Top of Roof
 	glNewList(214, GL_COMPILE);
 		glBegin(GL_QUADS);
-			glTexCoord2f(0.0, 0.0);
-			glVertex3f(31740.0, 11364.0, 8100.0);
-			glTexCoord2f(0.0, 257.9);
-			glVertex3f(31740.0, 11364.0, 8100.0 + (128.0 * 257.9));
-			glTexCoord2f(2.0, 273.4);
-			glVertex3f(33848.0, 12140.72, 8100.0 + (128.0 * 273.4));
-			glTexCoord2f(2.0, 0.0);
-			glVertex3f(33848.0, 12140.72, 8100.0);
+			glTexCoord2f(0.0f, 0.0f);
+			glVertex3f(31740.0f, 11364.0f, 8100.0f);
+			glTexCoord2f(0.0f, 257.9f);
+			glVertex3f(31740.0f, 11364.0f, 8100.0f + (128.0f * 257.9f));
+			glTexCoord2f(2.0f, 273.4f);
+			glVertex3f(33848.0f, 12140.72f, 8100.0f + (128.0f * 273.4f));
+			glTexCoord2f(2.0f, 0.0f);
+			glVertex3f(33848.0f, 12140.72f, 8100.0f);
 		glEnd();
 		glEndList();
 	// Canteen Top of Roof
 	glNewList(215, GL_COMPILE);
 		glBegin(GL_QUADS);
-			glTexCoord2f(0.0, 0.0);
-			glVertex3f(2608.0, 12140.72, 8100.0);
-			glTexCoord2f(0.0, 273.4);
-			glVertex3f(2608.0, 12140.72, 8100.0 + (128.0 * 273.4));
-			glTexCoord2f(2.0, 257.9);
-			glVertex3f(4716.0, 11364.0, 8100.0 + (128.0 * 257.9));
-			glTexCoord2f(2.0, 0.0);
-			glVertex3f(4716.0, 11364.0, 8100.0);
+			glTexCoord2f(0.0f, 0.0f);
+			glVertex3f(2608.0f, 12140.72f, 8100.0f);
+			glTexCoord2f(0.0f, 273.4f);
+			glVertex3f(2608.0f, 12140.72f, 8100.0f + (128.0f * 273.4f));
+			glTexCoord2f(2.0f, 257.9f);
+			glVertex3f(4716.0f, 11364.0f, 8100.0f + (128.0f * 257.9f));
+			glTexCoord2f(2.0f, 0.0f);
+			glVertex3f(4716.0f, 11364.0f, 8100.0f);
 		glEnd();
 	glEndList();
 	// Library Top of Roof
 	glNewList(216, GL_COMPILE);
 		glBegin(GL_QUADS);
-			glTexCoord2f(0.0, 0.0);
-			glVertex3f(4716.0, 11364.0, 40983.2);
-			glTexCoord2f(211.125, 0.0);
-			glVertex3f(4716.0 + (128.0 * 211.125), 11364.0, 40983.2);
-			glTexCoord2f(227.59, 16.15);
-			glVertex3f(4716.0 + (128.0 * 227.59), 12140.72, 43095.2);
-			glTexCoord2f(-16.47, 16.15);
-			glVertex3f(2608.0, 12140.72, 43095.2);
+			glTexCoord2f(0.0f, 0.0f);
+			glVertex3f(4716.0f, 11364.0f, 40983.2f);
+			glTexCoord2f(211.125f, 0.0f);
+			glVertex3f(4716.0f + (128.0f * 211.125f), 11364.0f, 40983.2f);
+			glTexCoord2f(227.59f, 16.15f);
+			glVertex3f(4716.0f + (128.0f * 227.59f), 12140.72f, 43095.2f);
+			glTexCoord2f(-16.47f, 16.15f);
+			glVertex3f(2608.0f, 12140.72f, 43095.2f);
 		glEnd();
 	glEndList();
 	// Chanc Side Planks
 	glNewList(250, GL_COMPILE);
 		glBegin(GL_QUADS);
-			glTexCoord2f(0.0, 0.0);
-			glVertex3f(31868.0, 11366.0, 8100.0);
-			glTexCoord2f(0.0, 257.9);
-			glVertex3f(31868.0, 11366.0, 8100.0 + (128.0 * 257.9));
-			glTexCoord2f(16.48, 273.4);
-			glVertex3f(33848.0, 12094.72, 8100.0 + (128.0 * 273.4));
-			glTexCoord2f(16.48, 0.0);
-			glVertex3f(33848.0, 12094.72, 8100.0);
+			glTexCoord2f(0.0f, 0.0f);
+			glVertex3f(31868.0f, 11366.0f, 8100.0f);
+			glTexCoord2f(0.0f, 257.9f);
+			glVertex3f(31868.0f, 11366.0f, 8100.0f + (128.0f * 257.9f));
+			glTexCoord2f(16.48f, 273.4f);
+			glVertex3f(33848.0f, 12094.72f, 8100.0f + (128.0f * 273.4f));
+			glTexCoord2f(16.48f, 0.0f);
+			glVertex3f(33848.0f, 12094.72f, 8100.0f);
 		glEnd();
 	glEndList();
 	// Chanc Side Beams Bottom
 	glNewList(253, GL_COMPILE);
 		glBegin(GL_QUADS);
-			glTexCoord2f(0.0, 0.0);
-			glVertex3f(31868.0, 11284.0, 10105.0);
-			glTexCoord2f(0.0, 1.0);
-			glVertex3f(31868.0, 11284.0, 10137.0);
-			glTexCoord2f(16.48, 1.0);
-			glVertex3f(33848.0, 12012.72, 10137.0);
-			glTexCoord2f(16.48, 0.0);
-			glVertex3f(33848.0, 12012.72, 10105.0);
+			glTexCoord2f(0.0f, 0.0f);
+			glVertex3f(31868.0f, 11284.0f, 10105.0f);
+			glTexCoord2f(0.0f, 1.0f);
+			glVertex3f(31868.0f, 11284.0f, 10137.0f);
+			glTexCoord2f(16.48f, 1.0f);
+			glVertex3f(33848.0f, 12012.72f, 10137.0f);
+			glTexCoord2f(16.48f, 0.0f);
+			glVertex3f(33848.0f, 12012.72f, 10105.0f);
 		glEnd();
 	glEndList();
 	// Chanc Side Beams Side
 	glNewList(255, GL_COMPILE);
 		glBegin(GL_QUADS);
-			glTexCoord2f(0.0, 0.0);
-			glVertex3f(31868.0, 11284.0, 10105.0);
-			glTexCoord2f(0.0, 1.0);
-			glVertex3f(31868.0, 11284.0 + 82.0, 10105.0);
-			glTexCoord2f(16.48, 1.0);
-			glVertex3f(33848.0, 12012.72 + 82.0, 10105.0);
-			glTexCoord2f(16.48, 0.0);
-			glVertex3f(33848.0, 12012.72, 10105.0);
+			glTexCoord2f(0.0f, 0.0f);
+			glVertex3f(31868.0f, 11284.0f, 10105.0f);
+			glTexCoord2f(0.0f, 1.0f);
+			glVertex3f(31868.0f, 11284.0f + 82.0f, 10105.0f);
+			glTexCoord2f(16.48f, 1.0f);
+			glVertex3f(33848.0f, 12012.72f + 82.0f, 10105.0f);
+			glTexCoord2f(16.48f, 0.0f);
+			glVertex3f(33848.0f, 12012.72f, 10105.0f);
 		glEnd();
 	glEndList();
 	// Chanc Side Planks (between chanc and phys sci)
 	glNewList(251, GL_COMPILE);
 		glBegin(GL_QUADS);
-			glTexCoord2f(0.0, 0.0);
-			glVertex3f(35748.0, 11366.0, 22046.0);
-			glTexCoord2f(0.0, 25.79);
-			glVertex3f(35748.0, 11366.0, 22046.0 + (128.0 * 25.79));
-			glTexCoord2f(15.82, 25.79);
-			glVertex3f(33848.0, 12065.28, 22046.0 + (128.0 * 25.79));
-			glTexCoord2f(15.82, 0.0);
-			glVertex3f(33848.0, 12065.28, 22046.0);
+			glTexCoord2f(0.0f, 0.0f);
+			glVertex3f(35748.0f, 11366.0f, 22046.0f);
+			glTexCoord2f(0.0f, 25.79f);
+			glVertex3f(35748.0f, 11366.0f, 22046.0f + (128.0f * 25.79f));
+			glTexCoord2f(15.82f, 25.79f);
+			glVertex3f(33848.0f, 12065.28f, 22046.0f + (128.0f * 25.79f));
+			glTexCoord2f(15.82f, 0.0f);
+			glVertex3f(33848.0f, 12065.28f, 22046.0f);
 		glEnd();
 	glEndList();
 	// Chanc Side Beams Bottom (between phys sci and chanc)
 	glNewList(254, GL_COMPILE);
 		glBegin(GL_QUADS);
-			glTexCoord2f(0.0, 0.0);
-			glVertex3f(35748.0, 11284.0, 22096.0);
-			glTexCoord2f(0.0, 1.0);
-			glVertex3f(35748.0, 11284.0, 22096.0 + 32.0);
-			glTexCoord2f(15.82, 1.0);
-			glVertex3f(33848.0, 11983.28, 22096.0 + 32.0);
-			glTexCoord2f(15.82, 0.0);
-			glVertex3f(33848.0, 11983.28, 22096.0);
+			glTexCoord2f(0.0f, 0.0f);
+			glVertex3f(35748.0f, 11284.0f, 22096.0f);
+			glTexCoord2f(0.0f, 1.0f);
+			glVertex3f(35748.0f, 11284.0f, 22096.0f + 32.0f);
+			glTexCoord2f(15.82f, 1.0f);
+			glVertex3f(33848.0f, 11983.28f, 22096.0f + 32.0f);
+			glTexCoord2f(15.82f, 0.0f);
+			glVertex3f(33848.0f, 11983.28f, 22096.0f);
 		glEnd();
 	glEndList();
 	// Chanc Side Beams Side (between phys sci and chanc)
 	glNewList(256, GL_COMPILE);
 		glBegin(GL_QUADS);
-			glTexCoord2f(0.0, 0.0);
-			glVertex3f(35748.0, 11284.0, 22096.0);
-			glTexCoord2f(0.0, 1.0);
-			glVertex3f(35748.0, 11284.0 + 82.0, 22096.0);
-			glTexCoord2f(15.82, 1.0);
-			glVertex3f(33848.0, 11983.28 + 82.0, 22096.0);
-			glTexCoord2f(15.82, 0.0);
-			glVertex3f(33848.0, 11983.28, 22096.0);
+			glTexCoord2f(0.0f, 0.0f);
+			glVertex3f(35748.0f, 11284.0f, 22096.0f);
+			glTexCoord2f(0.0f, 1.0f);
+			glVertex3f(35748.0f, 11284.0f + 82.0f, 22096.0f);
+			glTexCoord2f(15.82f, 1.0f);
+			glVertex3f(33848.0f, 11983.28f + 82.0f, 22096.0f);
+			glTexCoord2f(15.82f, 0.0f);
+			glVertex3f(33848.0f, 11983.28f, 22096.0f);
 		glEnd();
 	glEndList();
 	// Chanc Side Planks (between phys sci and library)
 	glNewList(252, GL_COMPILE);
 		glBegin(GL_QUADS);
-			glTexCoord2f(0.0, 0.0);
-			glVertex3f(36108.0, 11019.68, 41127.0);
-			glTexCoord2f(0.0, 15.1);
-			glVertex3f(36108.0, 11019.68, 41127.0 + (128.0 * 15.1));
-			glTexCoord2f(19.44, 15.1);
-			glVertex3f(33848.0, 12061.55, 41127.0 + (128.0 * 15.1));
-			glTexCoord2f(19.44, 0.0);
-			glVertex3f(33848.0, 12061.55, 41127.0);
+			glTexCoord2f(0.0f, 0.0f);
+			glVertex3f(36108.0f, 11019.68f, 41127.0f);
+			glTexCoord2f(0.0f, 15.1f);
+			glVertex3f(36108.0f, 11019.68f, 41127.0f + (128.0f * 15.1f));
+			glTexCoord2f(19.44f, 15.1f);
+			glVertex3f(33848.0f, 12061.55f, 41127.0f + (128.0f * 15.1f));
+			glTexCoord2f(19.44f, 0.0f);
+			glVertex3f(33848.0f, 12061.55f, 41127.0f);
 		glEnd();
 	glEndList();
 	// Chanc Side Beams Bottom (between phys sci and library)
 	glNewList(298, GL_COMPILE);
 		glBegin(GL_QUADS);
-			glTexCoord2f(0.0, 0.0);
-			glVertex3f(36108.0, 10937.68, 41226.0);
-			glTexCoord2f(0.0, 1.0);
-			glVertex3f(36108.0, 10937.68, 41226.0 + 32.0);
-			glTexCoord2f(19.44, 1.0);
-			glVertex3f(33848.0, 11979.55, 41226.0 + 32.0);
-			glTexCoord2f(19.44, 0.0);
-			glVertex3f(33848.0, 11979.55, 41226.0);
+			glTexCoord2f(0.0f, 0.0f);
+			glVertex3f(36108.0f, 10937.68f, 41226.0f);
+			glTexCoord2f(0.0f, 1.0f);
+			glVertex3f(36108.0f, 10937.68f, 41226.0f + 32.0f);
+			glTexCoord2f(19.44f, 1.0f);
+			glVertex3f(33848.0f, 11979.55f, 41226.0f + 32.0f);
+			glTexCoord2f(19.44f, 0.0f);
+			glVertex3f(33848.0f, 11979.55f, 41226.0f);
 		glEnd();
 	glEndList();
 	// Chanc Side Beams Side (between phys sci and library)
 	glNewList(299, GL_COMPILE);
 		glBegin(GL_QUADS);
-			glTexCoord2f(0.0, 0.0);
-			glVertex3f(36108.0, 10937.68, 41226.0);
-			glTexCoord2f(0.0, 1.0);
-			glVertex3f(36108.0, 10937.68 + 82.0, 41226.0);
-			glTexCoord2f(19.44, 1.0);
-			glVertex3f(33848.0, 11979.55 + 82.0, 41226.0);
-			glTexCoord2f(19.44, 0.0);
-			glVertex3f(33848.0, 11979.55, 41226.0);
+			glTexCoord2f(0.0f, 0.0f);
+			glVertex3f(36108.0f, 10937.68f, 41226.0f);
+			glTexCoord2f(0.0f, 1.0f);
+			glVertex3f(36108.0f, 10937.68f + 82.0f, 41226.0f);
+			glTexCoord2f(19.44f, 1.0f);
+			glVertex3f(33848.0f, 11979.55f + 82.0f, 41226.0f);
+			glTexCoord2f(19.44f, 0.0f);
+			glVertex3f(33848.0f, 11979.55f, 41226.0f);
 		glEnd();
 	glEndList();
 	// Library Side Planks
 	glNewList(257, GL_COMPILE);
 		glBegin(GL_QUADS);
-			glTexCoord2f(0.0, 0.0);
-			glVertex3f(4541.0, 11366.0, 43056.0 - 1942.0);
-			glTexCoord2f(213.45, 0.0);
-			glVertex3f(4541.0 + (128.0 * 213.45), 11366.0, 43056.0 - 1942.0);
-			glTexCoord2f(228.6, 16.15);
-			glVertex3f(4541.0 + (128.0 * 213.45) + 1940.0, 12080.0, 43056.0);
-			glTexCoord2f(-15.1, 16.15);
-			glVertex3f(2608.0, 12080.0, 43056.0);
+			glTexCoord2f(0.0f, 0.0f);
+			glVertex3f(4541.0f, 11366.0f, 43056.0f - 1942.0f);
+			glTexCoord2f(213.45f, 0.0f);
+			glVertex3f(4541.0f + (128.0f * 213.45f), 11366.0f, 43056.0f - 1942.0f);
+			glTexCoord2f(228.6f, 16.15f);
+			glVertex3f(4541.0f + (128.0f * 213.45f) + 1940.0f, 12080.0f, 43056.0f);
+			glTexCoord2f(-15.1f, 16.15f);
+			glVertex3f(2608.0f, 12080.0f, 43056.0f);
 		glEnd();
 	glEndList();
 	// Library Side Beams Bottom
 	glNewList(296, GL_COMPILE);
 		glBegin(GL_QUADS);
-			glTexCoord2f(0.0, 0.0);
-			glVertex3f(4541.0, 11283.0, 41114.0);
-			glTexCoord2f(0.0, 1.0);
-			glVertex3f(4573.0, 11283.0, 41114.0);
-			glTexCoord2f(16.15, 1.0);
-			glVertex3f(4573.0, 11997.0, 43056.0);
-			glTexCoord2f(16.15, 0.0);
-			glVertex3f(4541.0, 11997.0, 43056.0);
+			glTexCoord2f(0.0, 0.0f);
+			glVertex3f(4541.0f, 11283.0f, 41114.0f);
+			glTexCoord2f(0.0f, 1.0f);
+			glVertex3f(4573.0f, 11283.0f, 41114.0f);
+			glTexCoord2f(16.15f, 1.0f);
+			glVertex3f(4573.0f, 11997.0f, 43056.0f);
+			glTexCoord2f(16.15f, 0.0f);
+			glVertex3f(4541.0f, 11997.0f, 43056.0f);
 		glEnd();
 	glEndList();
 	// Library Side Beams
 	glNewList(297, GL_COMPILE);
 		glBegin(GL_QUADS);
-			glTexCoord2f(0.0, 0.0);
-			glVertex3f(4541.0, 11283.0, 41114.0);
-			glTexCoord2f(0.0, 1.0);
-			glVertex3f(4541.0, 11365.0, 41114.0);
-			glTexCoord2f(16.15, 1.0);
-			glVertex3f(4541.0, 12079.0, 43056.0);
-			glTexCoord2f(16.15, 0.0);
-			glVertex3f(4541.0, 11997.0, 43056.0);
+			glTexCoord2f(0.0f, 0.0f);
+			glVertex3f(4541.0f, 11283.0f, 41114.0f);
+			glTexCoord2f(0.0f, 1.0f);
+			glVertex3f(4541.0f, 11365.0f, 41114.0f);
+			glTexCoord2f(16.15f, 1.0f);
+			glVertex3f(4541.0f, 12079.0f, 43056.0f);
+			glTexCoord2f(16.15f, 0.0f);
+			glVertex3f(4541.0f, 11997.0f, 43056.0f);
 		glEnd();
 	glEndList();
 
@@ -5099,26 +5058,26 @@ void DrawAngledRoofBeam (int listNo, GLdouble x, GLdouble y, GLdouble z, GLdoubl
 {
 	glNewList(listNo, GL_COMPILE);
 		glBegin(GL_QUADS);
-			glTexCoord2f(0.0, 0.0);
-			glVertex3f(x, y, z + 32.0);
-			glTexCoord2f(0.0, 1.0);
+			glTexCoord2f(0.0f, 0.0f);
+			glVertex3f(x, y, z + 32.0f);
+			glTexCoord2f(0.0f, 1.0f);
 			glVertex3f(x, y, z);
-			glTexCoord2f(beamSize, 1.0);
-			glVertex3f(33848.0, 12012.72, z);
-			glTexCoord2f(beamSize, 0.0);
-			glVertex3f(33848.0, 12012.72, z + 32.0);
+			glTexCoord2f(beamSize, 1.0f);
+			glVertex3f(33848.0f, 12012.72f, z);
+			glTexCoord2f(beamSize, 0.0f);
+			glVertex3f(33848.0f, 12012.72f, z + 32.0f);
 		glEnd();
 	glEndList();
 	glNewList(listNo + 5, GL_COMPILE);
 		glBegin(GL_QUADS);
-			glTexCoord2f(0.0, 0.0);
+			glTexCoord2f(0.0f, 0.0f);
 			glVertex3f(x, y, z);
-			glTexCoord2f(0.0, 1.0);
-			glVertex3f(x, y + 82.0, z);
-			glTexCoord2f(beamSize, 1.0);
-			glVertex3f(33848.0, 12012.72 + 82.0, z);
-			glTexCoord2f(beamSize, 0.0);
-			glVertex3f(33848.0, 12012.72, z);
+			glTexCoord2f(0.0f, 1.0f);
+			glVertex3f(x, y + 82.0f, z);
+			glTexCoord2f(beamSize, 1.0f);
+			glVertex3f(33848.0f, 12012.72f + 82.0f, z);
+			glTexCoord2f(beamSize, 0.0f);
+			glVertex3f(33848.0f, 12012.72f, z);
 		glEnd();
 	glEndList();
 }
@@ -5127,26 +5086,26 @@ void DrawAngledRoofBeam2 (int listNo, GLdouble x, GLdouble y, GLdouble z, GLdoub
 {
 	glNewList(listNo, GL_COMPILE);
 		glBegin(GL_QUADS);
-			glTexCoord2f(0.0, 0.0);
+			glTexCoord2f(0.0f, 0.0f);
 			glVertex3f(x, y, z);
-			glTexCoord2f(1.0, 0.0);
-			glVertex3f(x + 32.0, y, z);
-			glTexCoord2f(1.0, beamSize);
-			glVertex3f(x + 32.0, 11998.0, 43056);
-			glTexCoord2f(0.0, beamSize);
-			glVertex3f(x, 11998.0, 43056);
+			glTexCoord2f(1.0f, 0.0f);
+			glVertex3f(x + 32.0f, y, z);
+			glTexCoord2f(1.0f, beamSize);
+			glVertex3f(x + 32.0f, 11998.0f, 43056);
+			glTexCoord2f(0.0f, beamSize);
+			glVertex3f(x, 11998.0f, 43056);
 		glEnd();
 	glEndList();
 	glNewList(listNo + 5, GL_COMPILE);
 		glBegin(GL_QUADS);
-			glTexCoord2f(0.0, 0.0);
+			glTexCoord2f(0.0f, 0.0f);
 			glVertex3f(x, y, z);
-			glTexCoord2f(1.0, 0.0);
-			glVertex3f(x, y + 82.0, z);
-			glTexCoord2f(1.0, beamSize);
-			glVertex3f(x, 11998.0 + 82.0, 43056);
-			glTexCoord2f(0.0, beamSize);
-			glVertex3f(x, 11998.0, 43056);
+			glTexCoord2f(1.0f, 0.0f);
+			glVertex3f(x, y + 82.0f, z);
+			glTexCoord2f(1.0f, beamSize);
+			glVertex3f(x, 11998.0f + 82.0f, 43056);
+			glTexCoord2f(0.0f, beamSize);
+			glVertex3f(x, 11998.0f, 43056);
 		glEnd();
 	glEndList();
 }
@@ -5486,7 +5445,7 @@ void DisplayExtras ()
 	for (int i = 317; i < 319; i++) glCallList(i);
 	glBindTexture(GL_TEXTURE_2D, tp.GetTexture(DRINKS_SIDE));
 	glPushMatrix();
-		glTranslatef(-1152.0, 0.0, 0.0);
+		glTranslatef(-1152.0f, 0.0f, 0.0f);
 		glCallList(317);
 	glPopMatrix();
 
@@ -5495,7 +5454,7 @@ void DisplayExtras ()
 	glBindTexture(GL_TEXTURE_2D, tp.GetTexture(DRINKS_EDGE));
 	glCallList(320);
 	glPushMatrix();
-		glTranslatef(-1136.0, 0.0, 0.0);
+		glTranslatef(-1136.0f, 0.0f, 0.0f);
 		glCallList(320);
 	glPopMatrix();
 
@@ -5503,19 +5462,19 @@ void DisplayExtras ()
 	for (int i = 321; i < 323; i++) glCallList(i);
 	glCallList(320);
 	glPushMatrix();
-		glTranslatef(317.12, 0.0, 0.0);
+		glTranslatef(317.12f, 0.0f, 0.0f);
 		glCallList(321);
 	glPopMatrix();
 	glCallList(320);
 	glPushMatrix();
-		glTranslatef(255.0, 0.0, 0.0);
+		glTranslatef(255.0f, 0.0f, 0.0f);
 		glCallList(322);
 	glPopMatrix();
 
 	glBindTexture(GL_TEXTURE_2D, tp.GetTexture(MACHINE_SIDES_2));
 	glCallList(323);
 	glPushMatrix();
-		glTranslatef(350.0, 0.0, 0.0);
+		glTranslatef(350.0f, 0.0f, 0.0f);
 		glCallList(323);
 	glPopMatrix();
 
@@ -5537,7 +5496,7 @@ void DisplayExtras ()
 	for (int i = 0; i < 2; i++)
 	{
 		glPushMatrix();
-			glTranslatef(0.0, 0.0, step);
+			glTranslatef(0.0f, 0.0f, step);
 			glBindTexture(GL_TEXTURE_2D, tp.GetTexture(sign));
 			glCallList(328);
 
@@ -5547,7 +5506,7 @@ void DisplayExtras ()
 			glBindTexture(GL_TEXTURE_2D, tp.GetTexture(STA_TRAVEL_BRACKET));
 			glCallList(330);
 			glPushMatrix();
-				glTranslatef(0.0, 0.0, 64.0);
+				glTranslatef(0.0f, 0.0f, 64.0f);
 				glCallList(330);
 			glPopMatrix();
 
@@ -5557,7 +5516,7 @@ void DisplayExtras ()
 			glBindTexture(GL_TEXTURE_2D, tp.GetTexture(STA_TRAVEL_BOTTOM));
 			glCallList(332);
 		glPopMatrix();
-		step -= 3840.0;
+		step -= 3840.0f;
 		sign = GS_SIGN;
 		signBack = GS_SIGN_2;
 		signEdge = GS_SIGN_EDGE;
@@ -5568,7 +5527,7 @@ void DisplayExtras ()
 	for (int i= 0; i < 2; i++)
 	{
 		glPushMatrix();
-			glTranslatef(step, 0.0, 0.0);
+			glTranslatef(step, 0.0f, 0.0f);
 
 			glBindTexture(GL_TEXTURE_2D, tp.GetTexture(TELEPHONE_BACK));
 			glCallList(333);
@@ -5577,7 +5536,7 @@ void DisplayExtras ()
 			glBindTexture(GL_TEXTURE_2D, tp.GetTexture(TELEPHONE_SIDE_1));
 			glCallList(335);
 			glPushMatrix();
-				glTranslatef(285.0, 0.0, 0.0);
+				glTranslatef(285.0f, 0.0f, 0.0f);
 				glCallList(335);
 			glPopMatrix();
 			glBindTexture(GL_TEXTURE_2D, tp.GetTexture(TELEPHONE_FRONT_2));
@@ -5585,7 +5544,7 @@ void DisplayExtras ()
 			glBindTexture(GL_TEXTURE_2D, tp.GetTexture(TELEPHONE_MAIN_SIDE));
 			glCallList(337);
 			glPushMatrix();
-				glTranslatef(285.0, 0.0, 0.0);
+				glTranslatef(285.0f, 0.0f, 0.0f);
 				glCallList(337);
 			glPopMatrix();
 
@@ -5596,7 +5555,7 @@ void DisplayExtras ()
 			glBindTexture(GL_TEXTURE_2D, tp.GetTexture(TELEPHONE_SIDE_2));
 			glCallList(339);
 			glPushMatrix();
-				glTranslatef(285.0, 0.0, 0.0);
+				glTranslatef(285.0f, 0.0f, 0.0f);
 				glCallList(339);
 			glPopMatrix();
 
@@ -5611,19 +5570,19 @@ void DisplayExtras ()
 			glCallList(348);
 			glCallList(349);
 			glPushMatrix();
-				glTranslatef(0.0, 0.0, 168.2);
+				glTranslatef(0.0f, 0.0f, 168.2f);
 				glCallList(349);
 			glPopMatrix();
 			glCallList(388);
 			glPushMatrix();
-				glTranslatef(275.2, 0.0, 0.0);
+				glTranslatef(275.2f, 0.0f, 0.0f);
 				glCallList(388);
 			glPopMatrix();
 
 			glBindTexture(GL_TEXTURE_2D, tp.GetTexture(TELEPHONE_FRONT_3));
 			glCallList(395);
 			glPushMatrix();
-				glTranslatef(269.0, 0.0, 0.0);
+				glTranslatef(269.0f, 0.0f, 0.0f);
 				glCallList(395);
 			glPopMatrix();
 		
@@ -5639,13 +5598,13 @@ void DisplayExtras ()
 
 	glBindTexture(GL_TEXTURE_2D, tp.GetTexture(KBLT_SIDE_1));
 	glPushMatrix();
-		glTranslatef(-2496.0, 0.0, 0.0);
+		glTranslatef(-2496.0f, 0.0f, 0.0f);
 		glCallList(345);
 	glPopMatrix();	
 
 	glBindTexture(GL_TEXTURE_2D, tp.GetTexture(KBLT_SIDE_2));
 	glPushMatrix();
-		glTranslatef(-2316.0, 0.0, 0.0);			
+		glTranslatef(-2316.0f, 0.0f, 0.0f);			
 		glCallList(346);
 	glPopMatrix();
 
@@ -5654,7 +5613,7 @@ void DisplayExtras ()
 	glCallList(347);
 	glBindTexture(GL_TEXTURE_2D, tp.GetTexture(TOILET_MEN));
 	glPushMatrix();
-		glTranslatef(0.0, 0.0, 1920.0);			
+		glTranslatef(0.0f, 0.0f, 1920.0f);			
 		glCallList(347);
 	glPopMatrix();
 
@@ -5662,7 +5621,7 @@ void DisplayExtras ()
 	glBindTexture(GL_TEXTURE_2D, tp.GetTexture(TICKET_LEDGE));
 	glCallList(419);
 	glPushMatrix();
-		glTranslatef(0.0, 32.0, 0.0);			
+		glTranslatef(0.0f, 32.0f, 0.0f);			
 		glCallList(419);
 	glPopMatrix();
 
@@ -5672,7 +5631,7 @@ void DisplayExtras ()
 	glBindTexture(GL_TEXTURE_2D, tp.GetTexture(TICKET_LEDGE_EDGE_2));
 	glCallList(421);
 	glPushMatrix();
-		glTranslatef(1208.0, 0.0, 0.0);			
+		glTranslatef(1208.0f, 0.0f, 0.0f);			
 		glCallList(421);
 	glPopMatrix();
 }
@@ -5745,62 +5704,62 @@ void DrawExtras ()
 											  25250.0, 25345.34, 25345.34, 25173.0, 6, 4);
 	glNewList(338, GL_COMPILE);
 		glBegin(GL_QUADS);
-			glTexCoord2f(0.0, 0.0);
-			glVertex3f(33890.0, 10633.0, 25178.0);
-			glTexCoord2f(0.527, 0.0);
-			glVertex3f(34160.0, 10633.0, 25178.0);
-			glTexCoord2f(0.473, 0.54);
-			glVertex3f(34132.0, 10697.84, 25201.6);
-			glTexCoord2f(0.055, 0.54);
-			glVertex3f(33918.0, 10697.84, 25201.6);
+			glTexCoord2f(0.0f, 0.0f);
+			glVertex3f(33890.0f, 10633.0f, 25178.0f);
+			glTexCoord2f(0.527f, 0.0f);
+			glVertex3f(34160.0f, 10633.0f, 25178.0f);
+			glTexCoord2f(0.473f, 0.54f);
+			glVertex3f(34132.0f, 10697.84f, 25201.6f);
+			glTexCoord2f(0.055f, 0.54f);
+			glVertex3f(33918.0f, 10697.84f, 25201.6f);
 		glEnd();
 	glEndList();
 	glNewList(341, GL_COMPILE);
 		glBegin(GL_QUADS);
-			glTexCoord2f(0.0, 0.0);
-			glVertex3f(33891.0, 10633.0, 25178.0);
-			glTexCoord2f(0.0, 0.637);
-			glVertex3f(33891.0, 10633.0, 25341.0);
-			glTexCoord2f(0.54, 0.538);
-			glVertex3f(33918.5, 10697.84, 25315.6);
-			glTexCoord2f(0.54, 0.1);
-			glVertex3f(33918.5, 10697.84, 25201.6);
+			glTexCoord2f(0.0f, 0.0f);
+			glVertex3f(33891.0f, 10633.0f, 25178.0f);
+			glTexCoord2f(0.0f, 0.637f);
+			glVertex3f(33891.0f, 10633.0f, 25341.0f);
+			glTexCoord2f(0.54f, 0.538f);
+			glVertex3f(33918.5f, 10697.84f, 25315.6f);
+			glTexCoord2f(0.54f, 0.1f);
+			glVertex3f(33918.5f, 10697.84f, 25201.6f);
 		glEnd();
 	glEndList();
 	glNewList(342, GL_COMPILE);
 		glBegin(GL_QUADS);
-			glTexCoord2f(0.0, 0.0);
-			glVertex3f(34159.5, 10633.0, 25178.0);
-			glTexCoord2f(0.0, 0.637);
-			glVertex3f(34159.5, 10633.0, 25341.0);
-			glTexCoord2f(0.54, 0.538);
-			glVertex3f(34132.0, 10697.84, 25315.6);
-			glTexCoord2f(0.54, 0.1);
-			glVertex3f(34132.0, 10697.84, 25201.6);
+			glTexCoord2f(0.0f, 0.0f);
+			glVertex3f(34159.5f, 10633.0f, 25178.0f);
+			glTexCoord2f(0.0f, 0.637f);
+			glVertex3f(34159.5f, 10633.0f, 25341.0f);
+			glTexCoord2f(0.54f, 0.538f);
+			glVertex3f(34132.0f, 10697.84f, 25315.6f);
+			glTexCoord2f(0.54f, 0.1f);
+			glVertex3f(34132.0f, 10697.84f, 25201.6f);
 		glEnd();
 	glEndList();
 	glNewList(340, GL_COMPILE);
 		glBegin(GL_QUADS);
-			glTexCoord2f(0.0, 0.0);
-			glVertex3f(33890.0, 10631.0, 25341.0);
-			glTexCoord2f(0.527, 0.0);
-			glVertex3f(34160.0, 10631.0, 25341.0);
-			glTexCoord2f(0.473, 0.535);
-			glVertex3f(34132.0, 10697.84, 25315.4);
-			glTexCoord2f(0.055, 0.535);
-			glVertex3f(33918.0, 10697.84, 25315.4);
+			glTexCoord2f(0.0f, 0.0f);
+			glVertex3f(33890.0f, 10631.0f, 25341.0f);
+			glTexCoord2f(0.527f, 0.0f);
+			glVertex3f(34160.0f, 10631.0f, 25341.0f);
+			glTexCoord2f(0.473f, 0.535f);
+			glVertex3f(34132.0f, 10697.84f, 25315.4f);
+			glTexCoord2f(0.055f, 0.535f);
+			glVertex3f(33918.0f, 10697.84f, 25315.4f);
 		glEnd();
 	glEndList();
 	glNewList(395, GL_COMPILE);
 		glBegin(GL_QUADS);
-			glTexCoord2f(0.0, 0.0);
-			glVertex3f(33882.0, 10268.0, 25250.0);
-			glTexCoord2f(1.0, 0.0);
-			glVertex3f(33898.0, 10268.0, 25250.0);
-			glTexCoord2f(1.0, 0.729);
-			glVertex3f(33898.0, 10598.24, 25173.0);
-			glTexCoord2f(0.0, 0.729);
-			glVertex3f(33882.0, 10598.24, 25173.0);
+			glTexCoord2f(0.0f, 0.0f);
+			glVertex3f(33882.0f, 10268.0f, 25250.0f);
+			glTexCoord2f(1.0f, 0.0f);
+			glVertex3f(33898.0f, 10268.0f, 25250.0f);
+			glTexCoord2f(1.0f, 0.729f);
+			glVertex3f(33898.0f, 10598.24f, 25173.0f);
+			glTexCoord2f(0.0f, 0.729f);
+			glVertex3f(33882.0f, 10598.24f, 25173.0f);
 		glEnd();
 	glEndList();
 
@@ -6469,30 +6428,30 @@ void DisplayStepBricks ()
 			for (int i = 488; i < 493; i ++) glCallList(i);
 
 			glPushMatrix();
-				glTranslatef(31572.0, 9222.0, 6126.0);
-				glRotatef( -18.69, 1.0f, 0.0f, 0.0f );
-				glTranslatef(-31572.0, -9222.0, -6126.0);
+				glTranslatef(31572.0f, 9222.0f, 6126.0f);
+				glRotatef( -18.69f, 1.0f, 0.0f, 0.0f );
+				glTranslatef(-31572.0f, -9222.0f, -6126.0f);
 				glCallList(493);
 			glPopMatrix();
 
 			glPushMatrix();
-				glTranslatef(31572.0, 9461.0, 7213.0);
-				glRotatef( -20.31, 1.0f, 0.0f, 0.0f );
-				glTranslatef(-31572.0, -9462.0, -7213.0);
+				glTranslatef(31572.0f, 9461.0f, 7213.0f);
+				glRotatef( -20.31f, 1.0f, 0.0f, 0.0f );
+				glTranslatef(-31572.0f, -9462.0f, -7213.0f);
 				glCallList(494);
 			glPopMatrix();
 
 			glPushMatrix();
-				glTranslatef(31572.0, 9722.0, 8302.0);
-				glRotatef( -17.35, 1.0f, 0.0f, 0.0f );
-				glTranslatef(-31572.0, -9722.0, -8302.0);
+				glTranslatef(31572.0f, 9722.0f, 8302.0f);
+				glRotatef( -17.35f, 1.0f, 0.0f, 0.0f );
+				glTranslatef(-31572.0f, -9722.0f, -8302.0f);
 				glCallList(495);
 			glPopMatrix();
 
 			glPushMatrix();
-				glTranslatef(31572.0, 9939.0, 9332.4);
-				glRotatef( -19.83, 1.0f, 0.0f, 0.0f );
-				glTranslatef(-31572.0, -9942.0, -9332.4);
+				glTranslatef(31572.0f, 9939.0f, 9332.4f);
+				glRotatef( -19.83f, 1.0f, 0.0f, 0.0f );
+				glTranslatef(-31572.0f, -9942.0f, -9332.4f);
 				glCallList(496);
 			glPopMatrix();
 		glPopMatrix();
@@ -6502,30 +6461,30 @@ void DisplayStepBricks ()
 	glBindTexture(GL_TEXTURE_2D, tp.GetTexture(WALL_BRICK_STEPS_COVER));
 	for (int i = 497; i < 502; i ++) glCallList(i);
 	glPushMatrix();
-		glTranslatef(31572.0, 9222.0, 6126.0);
-		glRotatef( -18.69, 1.0f, 0.0f, 0.0f );
-		glTranslatef(-31572.0, -9222.0, -6126.0);
+		glTranslatef(31572.0f, 9222.0f, 6126.0f);
+		glRotatef( -18.69f, 1.0f, 0.0f, 0.0f );
+		glTranslatef(-31572.0f, -9222.0f, -6126.0f);
 		glCallList(502);
 	glPopMatrix();
 
 	glPushMatrix();
-		glTranslatef(31572.0, 9462.0, 7213.0);
-		glRotatef( -20.21, 1.0f, 0.0f, 0.0f );
-		glTranslatef(-31572.0, -9462.0, -7213.0);
+		glTranslatef(31572.0f, 9462.0f, 7213.0f);
+		glRotatef( -20.21f, 1.0f, 0.0f, 0.0f );
+		glTranslatef(-31572.0f, -9462.0f, -7213.0f);
 		glCallList(503);
 	glPopMatrix();
 
 	glPushMatrix();
-		glTranslatef(31572.0, 9722.0, 8302.0);
-		glRotatef( -17.35, 1.0f, 0.0f, 0.0f );
-		glTranslatef(-31572.0, -9722.0, -8302.0);
+		glTranslatef(31572.0f, 9722.0f, 8302.0f);
+		glRotatef( -17.35f, 1.0f, 0.0f, 0.0f );
+		glTranslatef(-31572.0f, -9722.0f, -8302.0f);
 		glCallList(504);
 	glPopMatrix();
 
 	glPushMatrix();
-		glTranslatef(31572.0, 9939.0, 9332.4);
-		glRotatef( -19.83, 1.0f, 0.0f, 0.0f );
-		glTranslatef(-31572.0, -9942.0, -9332.4);
+		glTranslatef(31572.0f, 9939.0f, 9332.4f);
+		glRotatef( -19.83f, 1.0f, 0.0f, 0.0f );
+		glTranslatef(-31572.0f, -9942.0f, -9332.4f);
 		glCallList(505);
 	glPopMatrix();
 

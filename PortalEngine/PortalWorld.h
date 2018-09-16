@@ -108,8 +108,16 @@ public:
 	*/
 	void MyInit();
 
-	// doesn't run
-	void Resize(int x, int y);
+	/**
+	* @author Manu Murray
+	*
+	* @brief ensures the window resizes properly
+	*
+	* @param int w, int h
+	*
+	* @return void
+	*/
+	void Resize(int w, int h);
 
 private:
 	// camera variables
