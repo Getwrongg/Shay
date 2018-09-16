@@ -26,6 +26,8 @@ PortalWorld::PortalWorld()
 	// screen width and height
 	width = 1280;
 	height = 720;
+
+	showFaces = false;
 }
 
 void PortalWorld::MyInit()
@@ -69,7 +71,11 @@ void PortalWorld::Display()
 	ourCam.Update();
 
 	glEnable(GL_TEXTURE_2D);
-	glPushMatrix();
+
+	if (showFaces)
+	{
+		DisplayPics();
+	}
 
 	world.SkyCylinder();
 	world.Axis();//Draws the axis for testing
@@ -87,6 +93,10 @@ void PortalWorld::AnimatePortalWorld()
 void PortalWorld::CreateTexturesPortalWorld()
 {
 	world.CreateTextures("SWIRL3", "data/portalswirl.jpg");
+
+	pic.CreateTexture("Manu", "data/manu.jpg");
+	pic.CreateTexture("Chris", "data/chris.jpg");
+	pic.CreateTexture("Shane", "data/shane.jpg");
 }
 
 void PortalWorld::MouseMovement(int x, int y)
@@ -142,6 +152,11 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 	case 'd':
 		ourCam.DirectionLeftRight(1);
 		break;
+	case 27: // escape button
+		ourCam.SetMoveSpeed(0.0f);
+		ourCam.SetRotateSpeed(0.0f);
+		showFaces = true;
+		break;
 	case 'q':
 		exit(0);
 	}
@@ -162,4 +177,74 @@ void PortalWorld::ReleaseKeyboard(unsigned char key, int x, int y)
 	}
 }
 
+void PortalWorld::Mouse(int button, int state, int x, int y)
+{
+	// exit tour if clicked on exit splash screen
+	if ((button == GLUT_LEFT_BUTTON) && (state == GLUT_DOWN))
+	{
+		if (showFaces)
+		{
+			exit(1);
+		}
+	}
+}
 
+void PortalWorld::WriteCaptions() {
+	int	i;
+	char name1[] = "Shane";
+	char name2[] = "Chris";
+	char name3[] = "Manu";
+	char name4[] = "Click left mouse button to quit";
+
+	glRasterPos3i(230, 330, 0);
+	for (i = 0; i< sizeof(name1); i++)
+		glutBitmapCharacter(GLUT_BITMAP_9_BY_15, name1[i]);
+
+	glRasterPos3i(370, 680, 0);
+	for (i = 0; i< sizeof(name2); i++)
+		glutBitmapCharacter(GLUT_BITMAP_9_BY_15, name2[i]);
+
+	glRasterPos3i(530, 330, 0);
+	for (i = 0; i< sizeof(name3); i++)
+		glutBitmapCharacter(GLUT_BITMAP_9_BY_15, name3[i]);
+
+	glRasterPos3i(340, 750, 0);
+	for (i = 0; i< sizeof(name4); i++)
+		glutBitmapCharacter(GLUT_BITMAP_9_BY_15, name4[i]);
+}
+
+void PortalWorld::DrawFace1() {
+	pic.getTextureID("Chris");
+	glBegin(GL_QUADS);
+	glTexCoord2i(0, 0); glVertex2i(300, 400);
+	glTexCoord2i(0, 1); glVertex2i(300, 650);
+	glTexCoord2i(1, 1); glVertex2i(500, 650);
+	glTexCoord2i(1, 0); glVertex2i(500, 400);
+	glEnd();
+}
+
+void PortalWorld::DisplayPics() 
+{
+	glDisable(GL_COLOR_MATERIAL);
+	glDisable(GL_LIGHTING);
+	glDisable(GL_LIGHT0);
+	glDisable(GL_DEPTH_TEST);
+
+	glMatrixMode(GL_PROJECTION);     // Make a simple 2D projection on the entire window
+	glLoadIdentity();
+	gluOrtho2D(0, 1280, 0, 720);
+
+	glMatrixMode(GL_MODELVIEW);    // Set the matrix mode to object modeling
+
+	WriteCaptions();
+
+	DrawFace1();
+
+	/*bindTexture(filename[1]);
+	drawFace2();
+
+	bindTexture(filename[2]);
+	drawFace3();*/
+
+	//glutSwapBuffers();
+}

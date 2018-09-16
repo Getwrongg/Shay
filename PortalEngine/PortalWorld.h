@@ -1,5 +1,6 @@
 #include "World.h"
 #include "Cam.h"
+#include "JpegLoader.h"
 
 
 #pragma once
@@ -119,6 +120,14 @@ public:
 	*/
 	void Resize(int w, int h);
 
+	void Mouse(int button, int state, int x, int y);
+
+	void WriteCaptions();
+
+	void DrawFace1();
+
+	void DisplayPics();
+
 private:
 	// camera variables
 	GLdouble moveSpeed; // walking sensitivity
@@ -134,7 +143,10 @@ private:
 	// objects for portal world
 	Cam ourCam;
 	World world;
+	JpegLoader pic;
 
 	int width, height; // not used atm
+
+	bool showFaces;
 };
 

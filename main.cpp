@@ -532,8 +532,7 @@ void ChooseMouse(int button, int state, int x, int y)
 	}
 	else
 	{
-		//Mouse(button, state, x, y);
-		glutMouseFunc(NULL); // not sure if works
+		portalLogic.Mouse(button, state, x, y);
 	}
 }
 
