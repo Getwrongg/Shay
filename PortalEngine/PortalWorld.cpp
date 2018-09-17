@@ -74,7 +74,7 @@ void PortalWorld::Display()
 
 	if (DisplayExit == true)
 	{
-		DisplayPics();
+		DisplayExitScreen();
 	}
 
 	world.SkyCylinder();
@@ -162,7 +162,7 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 		if (DisplayExit == false)
 		{			
 			DisplayExit = true;
-			DisplayPics();
+			DisplayExitScreen();
 		}
 		else
 		{
@@ -193,7 +193,7 @@ void PortalWorld::Mouse(int button, int state, int x, int y)
 }
 
 
-void PortalWorld::DisplayPics() 
+void PortalWorld::DisplayExitScreen() 
 {
 	glPushMatrix();
 	glMatrixMode(GL_PROJECTION);
