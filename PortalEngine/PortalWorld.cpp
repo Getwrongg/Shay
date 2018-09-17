@@ -209,12 +209,13 @@ void PortalWorld::DisplayExitScreen()
 
 
 	glBindTexture(GL_TEXTURE_2D, pic.getTextureID("EXITSCREEN"));
-
+	glTranslatef(-256, -100, 0);
+	glScalef(2, 2, 0);
 	glBegin(GL_QUADS);
-	glTexCoord2i(0, 0); glVertex2i(450, 50);
-	glTexCoord2i(0, 1); glVertex2i(450, 300);
-	glTexCoord2i(1, 1); glVertex2i(650, 300);
-	glTexCoord2i(1, 0); glVertex2i(650, 50);
+	glTexCoord2i(0, 0); glVertex2i(100, 50);
+	glTexCoord2i(0, 1); glVertex2i(100, 300);
+	glTexCoord2i(1, 1); glVertex2i(400, 300);
+	glTexCoord2i(1, 0); glVertex2i(400, 50);
 	glEnd();
 	// Reset Perspective Projection
 	glMatrixMode(GL_PROJECTION);
