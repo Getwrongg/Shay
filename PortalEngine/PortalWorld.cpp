@@ -202,7 +202,17 @@ void PortalWorld::DisplayPics()
 
 	glMatrixMode(GL_PROJECTION);     // Make a simple 2D projection on the entire window
 	glLoadIdentity();
-	gluOrtho2D(50, 50, 0.01, 1000);
+	gluOrtho2D(0, 800, 0, 800);
+	//glOrtho(0.0, 800, 800, 0.0, 0.0, 100.0);
+
+	glBindTexture(GL_TEXTURE_2D, pic.getTextureID("EXITSCREEN"));
+
+	glBegin(GL_QUADS);
+	glTexCoord2i(0, 0); glVertex2i(450, 50);
+	glTexCoord2i(0, 1); glVertex2i(450, 300);
+	glTexCoord2i(1, 1); glVertex2i(650, 300);
+	glTexCoord2i(1, 0); glVertex2i(650, 50);
+	glEnd();
 
 	glMatrixMode(GL_MODELVIEW);    // Set the matrix mode to object modeling
 

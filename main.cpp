@@ -724,7 +724,7 @@ void Animate(int)
 void EnterPortal()
 {
 	//23500, 11500, 18000 - center of portal cube
-	if ((cam.GetLR() <= 23600.0 & cam.GetLR() >= 23400.0) & (cam.GetFB() <= 18100 & cam.GetFB() >= 17900))
+	if ((cam.GetLR() <= 23700.0 & cam.GetLR() >= 23300.0) & (cam.GetFB() <= 18200 & cam.GetFB() >= 17800))
 	{
 		inPortal = true;
 		game_audio.StopAudio(1);
