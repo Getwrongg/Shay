@@ -74,7 +74,7 @@ void PortalWorld::Display()
 
 	if (DisplayExit == true)
 	{
-		DisplayPics();
+		DisplayExitScreen();
 	}
 
 	world.SkyCylinder();
@@ -157,20 +157,41 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 		DisplayExit = true;
 		break;
 	case 'q':
-		ourCam.SetMoveSpeed(0.0f);
-		ourCam.SetRotateSpeed(0.0f);
+		
 		if (DisplayExit == false)
 		{			
+			ourCam.SetMoveSpeed(0.0f);
+			ourCam.SetRotateSpeed(0.0f);
+
 			DisplayExit = true;
-			DisplayPics();
+
+			
+			
+			DisplayExitScreen();
 		}
 		else
 		{
-			exit(0);
+			exit(1);
 		}
 		
 	}
 }
+
+void PortalWorld::DisplayExitScreen()
+{
+	glClearColor(0.0f, 1.0f, 0.0f, 0.0f);
+	glClearDepth(0.0f);
+
+	glBindTexture(GL_TEXTURE_2D, pic.getTextureID("EXITSCREEN"));
+	glBegin(GL_QUADS);
+	//FRONT
+	glTexCoord2i(0, 0); glVertex2i(0, 0);
+	glTexCoord2i(0, 1); glVertex2i(0, height);
+	glTexCoord2i(1, 1); glVertex2i(width, height);
+	glTexCoord2i(1, 0); glVertex2i(width, 0);
+	glEnd();
+}
+
 
 void PortalWorld::ReleaseKeyboard(unsigned char key, int x, int y)
 {
@@ -189,22 +210,16 @@ void PortalWorld::ReleaseKeyboard(unsigned char key, int x, int y)
 
 void PortalWorld::Mouse(int button, int state, int x, int y)
 {
+	if ((button == GLUT_LEFT_BUTTON) && (state == GLUT_DOWN))
+	{
+		if ((DisplayExit) && (x <= width / 2.0 + 256.0) && (x >= width / 2.0 - 256.0)
+			&& (y <= height / 2.0 + 256.0) && (y >= height / 2.0 - 256.0))
+		{			
+			exit(1);
+		}
+	}
 
 }
 
 
-void PortalWorld::DisplayPics() 
-{
-	glDisable(GL_COLOR_MATERIAL);
-	glDisable(GL_LIGHTING);
-	glDisable(GL_LIGHT0);
-	glDisable(GL_DEPTH_TEST);
 
-	glMatrixMode(GL_PROJECTION);     // Make a simple 2D projection on the entire window
-	glLoadIdentity();
-	gluOrtho2D(50, 50, 0.01, 1000);
-
-	glMatrixMode(GL_MODELVIEW);    // Set the matrix mode to object modeling
-
-	//glutSwapBuffers();
-}

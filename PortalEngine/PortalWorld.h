@@ -122,7 +122,7 @@ public:
 
 	void Mouse(int button, int state, int x, int y);
 
-	void DisplayPics();
+	void DisplayExitScreen();
 
 private:
 	// camera variables
