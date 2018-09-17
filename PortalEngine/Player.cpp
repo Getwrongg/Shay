@@ -1,7 +1,5 @@
 #include "Player.h"
 
-
-
 Player::Player()
 {
 	pos.x = 0;

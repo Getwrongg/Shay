@@ -101,7 +101,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>C:\Users\jacob\source\repos\Shay\Dependancies\glew-1.11.0\include;C:\Users\axel0\Desktop\Git Repo\Shay\Dependancies\DevIL\include;C:\Users\axel0\Desktop\Git Repo\Shay\Dependancies\freeglut\include;C:\Users\jacob\source\repos\Shay\Dependancies\freeglut\include;C:\Users\jacob\source\repos\Shay\Dependancies\DevIL\include;C:\Users\Murdoch\source\repos\Shay\Dependancies\freeglut\include;C:\Users\Murdoch\source\repos\Shay\Dependancies\DevIL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\Manu\source\repos\Shay\Dependancies\glew-1.11.0\include;C:\Users\Manu\source\repos\Shay\Dependancies\freeglut\include;C:\Users\Manu\source\repos\Shay\Dependancies\DevIL\include;C:\Users\jacob\source\repos\Shay\Dependancies\glew-1.11.0\include;C:\Users\axel0\Desktop\Git Repo\Shay\Dependancies\DevIL\include;C:\Users\axel0\Desktop\Git Repo\Shay\Dependancies\freeglut\include;C:\Users\jacob\source\repos\Shay\Dependancies\freeglut\include;C:\Users\jacob\source\repos\Shay\Dependancies\DevIL\include;C:\Users\Murdoch\source\repos\Shay\Dependancies\freeglut\include;C:\Users\Murdoch\source\repos\Shay\Dependancies\DevIL\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>

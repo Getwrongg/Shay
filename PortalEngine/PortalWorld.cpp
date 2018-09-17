@@ -195,15 +195,18 @@ void PortalWorld::Mouse(int button, int state, int x, int y)
 
 void PortalWorld::DisplayPics() 
 {
-	glDisable(GL_COLOR_MATERIAL);
-	glDisable(GL_LIGHTING);
-	glDisable(GL_LIGHT0);
-	glDisable(GL_DEPTH_TEST);
-
-	glMatrixMode(GL_PROJECTION);     // Make a simple 2D projection on the entire window
+	glPushMatrix();
+	glMatrixMode(GL_PROJECTION);
+	glPushMatrix();
 	glLoadIdentity();
-	gluOrtho2D(0, 800, 0, 800);
-	//glOrtho(0.0, 800, 800, 0.0, 0.0, 100.0);
+	gluOrtho2D(0, width, 0, height);
+	glScalef(1, -1, 1);
+
+	// move to centre of screen
+	glTranslatef(width / 2 - 256.0, -height / 2 - 256.0, 0);
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+
 
 	glBindTexture(GL_TEXTURE_2D, pic.getTextureID("EXITSCREEN"));
 
@@ -213,8 +216,13 @@ void PortalWorld::DisplayPics()
 	glTexCoord2i(1, 1); glVertex2i(650, 300);
 	glTexCoord2i(1, 0); glVertex2i(650, 50);
 	glEnd();
+	// Reset Perspective Projection
+	glMatrixMode(GL_PROJECTION);
+	glPopMatrix();
+	glMatrixMode(GL_MODELVIEW);
+	glPopMatrix();
 
-	glMatrixMode(GL_MODELVIEW);    // Set the matrix mode to object modeling
+	    // Set the matrix mode to object modeling
 
 	//glutSwapBuffers();
 }

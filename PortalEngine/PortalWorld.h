@@ -2,7 +2,6 @@
 #include "Cam.h"
 #include "JpegLoader.h"
 
-
 #pragma once
 
 /**
