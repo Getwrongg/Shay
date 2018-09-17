@@ -1234,6 +1234,10 @@ void CreateJPGTextures()
 	jpeg.CreateTexture("LEFTSIDENORTHEXIT", "data/leftSideNorthExit.jpg");
 
 	jpeg.CreateTexture("RIGHTSIDENORTHEXIT", "data/rightSideNorthExit.jpg");
+
+	jpeg.CreateTexture("UNISHOPWINDOW", "data/uniShopWindow.jpg");
+
+	jpeg.CreateTexture("NOTICEBOARD", "data/noticeBoard.jpg");
 }
 
 void CreateTextures()
@@ -3060,23 +3064,125 @@ void drawNorthExit()
 	glTexCoord2i(0, 1); glVertex3f(4500.0, 12000.0, 45400.0);
 	glTexCoord2i(1, 1); glVertex3f(4500.0, 10000.0, 45400.0);
 	glTexCoord2i(1, 0); glVertex3f(6600.0, 10000.0, 45400.0);
-
 	glEnd();
 
 	//ROOF OF NORTH EXIT
 	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("STONE"));
 	glBegin(GL_QUADS);
-
+	//TOP
 	glTexCoord2i(0, 0); glVertex3f(6600.0, 11800.0, 45400.0);
 	glTexCoord2i(0, 1); glVertex3f(2600.0, 11800.0, 45400.0);
 	glTexCoord2i(1, 1); glVertex3f(2600.0, 11800.0, 43100.0);
 	glTexCoord2i(1, 0); glVertex3f(6600.0, 11800.0, 43100.0);
-
+	//FRONT
 	glTexCoord2i(0, 0); glVertex3f(6600.0, 12150.0, 43100.0);
 	glTexCoord2i(0, 1); glVertex3f(2600.0, 12150.0, 43100.0);
 	glTexCoord2i(1, 1); glVertex3f(2600.0, 11800.0, 43100.0);
 	glTexCoord2i(1, 0); glVertex3f(6600.0, 11800.0, 43100.0);
+	glEnd();
 
+	//UNI SHOP WINDOW
+	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("UNISHOPWINDOW"));
+	glBegin(GL_QUADS);
+
+	glTexCoord2i(0, 0); glVertex3f(2665.0, 10900.0, 44200.0);
+	glTexCoord2i(0, 1); glVertex3f(2665.0, 10900.0, 43300.0);
+	glTexCoord2i(1, 1); glVertex3f(2665.0, 10000.0, 43300.0);
+	glTexCoord2i(1, 0); glVertex3f(2665.0, 10000.0, 44200.0);
+	glEnd();
+
+	//UNI SHOP WINDOW PILLARS
+	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("STONE"));
+	glBegin(GL_QUADS);
+	//RIGHT SIDE PILLAR - FRONT
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 43100.0);
+	glTexCoord2i(0, 1); glVertex3f(2700.0, 10900.0, 43300.0);
+	glTexCoord2i(1, 1); glVertex3f(2700.0, 10000.0, 43300.0);
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 43100.0);
+	//LEFT
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 43100.0);
+	glTexCoord2i(0, 1); glVertex3f(2600.0, 10900.0, 43100.0);
+	glTexCoord2i(1, 1); glVertex3f(2600.0, 10000.0, 43100.0);
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 43100.0);
+	//RIGHT
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 43300.0);
+	glTexCoord2i(0, 1); glVertex3f(2600.0, 10900.0, 43300.0);
+	glTexCoord2i(1, 1); glVertex3f(2600.0, 10000.0, 43300.0);
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 43300.0);
+
+	//LEFT SIDE PILLAR - FRONT
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 44200.0);
+	glTexCoord2i(0, 1); glVertex3f(2700.0, 10900.0, 44400.0);
+	glTexCoord2i(1, 1); glVertex3f(2700.0, 10000.0, 44400.0);
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 44200.0);
+	//LEFT
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 44400.0);
+	glTexCoord2i(0, 1); glVertex3f(2600.0, 10900.0, 44400.0);
+	glTexCoord2i(1, 1); glVertex3f(2600.0, 10000.0, 44400.0);
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 44400.0);
+	//RIGHT
+	glTexCoord2i(0, 0); glVertex3f(2700.0, 10900.0, 44200.0);
+	glTexCoord2i(0, 1); glVertex3f(2600.0, 10900.0, 44200.0);
+	glTexCoord2i(1, 1); glVertex3f(2600.0, 10000.0, 44200.0);
+	glTexCoord2i(1, 0); glVertex3f(2700.0, 10000.0, 44200.0);
+	
+	glEnd();
+}
+
+void drawNoticeBoards() 
+{
+	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("NOTICEBOARD"));
+	glBegin(GL_QUADS);
+	//NOTICE BOARD 1
+	//FRONT
+	glTexCoord2i(0, 0); glVertex3f(2665.0, 10700.0, 38200.0);
+	glTexCoord2i(0, 1); glVertex3f(2665.0, 10700.0, 37300.0);
+	glTexCoord2i(1, 1); glVertex3f(2665.0, 10200.0, 37300.0);
+	glTexCoord2i(1, 0); glVertex3f(2665.0, 10200.0, 38200.0);
+	//:EFT
+	glTexCoord2i(0, 0); glVertex3f(2665.0, 10700.0, 37300.0);
+	glTexCoord2i(0, 1); glVertex3f(2600.0, 10700.0, 37300.0);
+	glTexCoord2i(1, 1); glVertex3f(2600.0, 10200.0, 37300.0);
+	glTexCoord2i(1, 0); glVertex3f(2665.0, 10200.0, 37300.0);
+	//RIGHT
+	glTexCoord2i(0, 0); glVertex3f(2665.0, 10700.0, 38200.0);
+	glTexCoord2i(0, 1); glVertex3f(2600.0, 10700.0, 38200.0);
+	glTexCoord2i(1, 1); glVertex3f(2600.0, 10200.0, 38200.0);
+	glTexCoord2i(1, 0); glVertex3f(2665.0, 10200.0, 38200.0);
+
+	//NOTICE BOARD 2
+	//FRONT
+	glTexCoord2i(0, 0); glVertex3f(2665.0, 10700.0, 39400.0);
+	glTexCoord2i(0, 1); glVertex3f(2665.0, 10700.0, 38300.0);
+	glTexCoord2i(1, 1); glVertex3f(2665.0, 10200.0, 38300.0);
+	glTexCoord2i(1, 0); glVertex3f(2665.0, 10200.0, 39400.0);
+	//:EFT
+	glTexCoord2i(0, 0); glVertex3f(2665.0, 10700.0, 38300.0);
+	glTexCoord2i(0, 1); glVertex3f(2600.0, 10700.0, 38300.0);
+	glTexCoord2i(1, 1); glVertex3f(2600.0, 10200.0, 38300.0);
+	glTexCoord2i(1, 0); glVertex3f(2665.0, 10200.0, 38300.0);
+	//RIGHT
+	glTexCoord2i(0, 0); glVertex3f(2665.0, 10700.0, 39400.0);
+	glTexCoord2i(0, 1); glVertex3f(2600.0, 10700.0, 39400.0);
+	glTexCoord2i(1, 1); glVertex3f(2600.0, 10200.0, 39400.0);
+	glTexCoord2i(1, 0); glVertex3f(2665.0, 10200.0, 39400.0);
+
+	//NOTICE BOARD 3
+	//FRONT
+	glTexCoord2i(0, 0); glVertex3f(2665.0, 10700.0, 39500.0);
+	glTexCoord2i(0, 1); glVertex3f(2665.0, 10700.0, 40600.0);
+	glTexCoord2i(1, 1); glVertex3f(2665.0, 10200.0, 40600.0);
+	glTexCoord2i(1, 0); glVertex3f(2665.0, 10200.0, 39500.0);
+	//:EFT
+	glTexCoord2i(0, 0); glVertex3f(2665.0, 10700.0, 39500.0);
+	glTexCoord2i(0, 1); glVertex3f(2600.0, 10700.0, 39500.0);
+	glTexCoord2i(1, 1); glVertex3f(2600.0, 10200.0, 39500.0);
+	glTexCoord2i(1, 0); glVertex3f(2665.0, 10200.0, 39500.0);
+	//RIGHT
+	glTexCoord2i(0, 0); glVertex3f(2665.0, 10700.0, 40600.0);
+	glTexCoord2i(0, 1); glVertex3f(2600.0, 10700.0, 40600.0);
+	glTexCoord2i(1, 1); glVertex3f(2600.0, 10200.0, 40600.0);
+	glTexCoord2i(1, 0); glVertex3f(2665.0, 10200.0, 40600.0);
 	glEnd();
 }
 
@@ -3109,6 +3215,8 @@ void DrawBackdropNew()
 	chaTime();
 
 	drawNorthExit();
+
+	drawNoticeBoards();
 }
 
 //--------------------------------------------------------------------------------------
