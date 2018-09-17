@@ -807,7 +807,15 @@ void keys(unsigned char key, int x, int y)
 
 		case 'q':
 		case 'Q':
-			exit(0);
+			if (DisplayExit == false)
+			{
+				DisplayExit = true;
+			}
+			else
+			{
+				exit(0);
+			}
+			
 			break;
 
 		case 27:
@@ -3187,16 +3195,12 @@ void drawNoticeBoards()
 }
 
 void DrawBackdropNew() 
-{
-	//////for the solar panels
+{	
 	DrawSolarPanels();
 
-	////// for the stair portal
 	PortalStructure();
 
-	//////portal entrance
 	portal();
-
 
 	DrawRightSideExit();
 
