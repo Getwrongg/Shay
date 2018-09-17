@@ -608,7 +608,7 @@ void myinit()
 	glewInit();
 
 	// set background (sky colour)
-	glClearColor(97.0f/255.0f, 140.0f/255.0f, 335.0f/255.0f, 1.0f);
+	//glClearColor(97.0f/255.0f, 140.0f/255.0f, 335.0f/255.0f, 1.0f);
 	
 	// set perpsective
 	gluLookAt(0.0, 0, 5.0, 
