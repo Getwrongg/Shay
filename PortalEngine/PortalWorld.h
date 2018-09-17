@@ -122,10 +122,6 @@ public:
 
 	void Mouse(int button, int state, int x, int y);
 
-	void WriteCaptions();
-
-	void DrawFace1();
-
 	void DisplayPics();
 
 private:
@@ -147,6 +143,6 @@ private:
 
 	int width, height; // not used atm
 
-	bool showFaces;
+	bool DisplayExit;
 };
 
