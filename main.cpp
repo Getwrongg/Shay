@@ -86,7 +86,7 @@ GLdouble rotationSpeed = 0.005;
 #define	WINDOWPOST_LIB_RIGHT		36
 // Door Post Textures
 #define DOOR_POST_SECURITY			37
-// Window Ledge Textures
+// Window Ledge Texturesw
 #define WINDOWLEDGE_PS_FRONT		38
 #define WINDOWLEDGE_PS_TOP			39
 #define WINDOWLEDGE_PS_BOTT			40
@@ -1081,6 +1081,44 @@ void CreateBoundingBoxes()
 	cam.SetAABBMinX(16, 31444.0);
 	cam.SetAABBMaxZ(16, 10395.0);
 	cam.SetAABBMinZ(16, 4590.0);
+
+	// Kennedy's Bounding Boxes For Portal Structure
+	// Front Left Pillar 
+	cam.SetAABBMaxX(17, 25000.0);
+	cam.SetAABBMinX(17, 24000.0);
+	cam.SetAABBMaxZ(17, 16500.0);
+	cam.SetAABBMinZ(17, 15500.0);
+
+	// Front Right Pillar 
+	cam.SetAABBMaxX(18, 23000.0);
+	cam.SetAABBMinX(18, 22000.0);
+	cam.SetAABBMaxZ(18, 16500.0);
+	cam.SetAABBMinZ(18, 15500.0);
+
+	//Left Side Steps - Right Bannister
+	cam.SetAABBMaxX(19, 27500.0);
+	cam.SetAABBMinX(19, 24000.0);
+	cam.SetAABBMaxZ(19, 17500.0);
+	cam.SetAABBMinZ(19, 17300.0);
+
+	//Left Side Steps – Left Bannister
+	cam.SetAABBMaxX(20, 27500.0);
+	cam.SetAABBMinX(20, 24000.0);
+	cam.SetAABBMaxZ(20, 16500.0);
+	cam.SetAABBMinZ(20, 16300.0);
+
+	//Right Side Steps - Right Bannister
+	cam.SetAABBMaxX(21, 23000.0);
+	cam.SetAABBMinX(21, 19500.0);
+	cam.SetAABBMaxZ(21, 17500.0);
+	cam.SetAABBMinZ(21, 17300.0);
+
+	//Right Side Steps – Left Bannister
+	cam.SetAABBMaxX(22, 23000.0);
+	cam.SetAABBMinX(22, 19500.0);
+	cam.SetAABBMaxZ(22, 16500.0);
+	cam.SetAABBMinZ(22, 16300.0);
+	// End Kennedy's Bounding Boxes
 }
 
 //--------------------------------------------------------------------------------------
