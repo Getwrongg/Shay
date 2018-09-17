@@ -202,7 +202,7 @@ void PortalWorld::DisplayPics()
 
 	glMatrixMode(GL_PROJECTION);     // Make a simple 2D projection on the entire window
 	glLoadIdentity();
-	gluOrtho2D(0, 1280, 0, 720);
+	gluOrtho2D(50, 50, 0.01, 1000);
 
 	glMatrixMode(GL_MODELVIEW);    // Set the matrix mode to object modeling
 
