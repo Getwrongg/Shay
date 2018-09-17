@@ -151,11 +151,6 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 	case 'd':
 		ourCam.DirectionLeftRight(1);
 		break;
-	case 27: // escape button
-		ourCam.SetMoveSpeed(0.0f);
-		ourCam.SetRotateSpeed(0.0f);
-		DisplayExit = true;
-		break;
 	case 'q':
 		ourCam.SetMoveSpeed(0.0f);
 		ourCam.SetRotateSpeed(0.0f);
@@ -163,12 +158,7 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 		{			
 			DisplayExit = true;
 			DisplayExitScreen();
-		}
-		else
-		{
-			exit(0);
-		}
-		
+		}	
 	}
 }
 
@@ -200,7 +190,6 @@ void PortalWorld::Mouse(int button, int state, int x, int y)
 	}
 }
 
-
 void PortalWorld::DisplayExitScreen() 
 {
 	glPushMatrix();
@@ -211,27 +200,26 @@ void PortalWorld::DisplayExitScreen()
 	glScalef(1, -1, 1);
 
 	// move to centre of screen
-	glTranslatef(width / 2 - 256.0, -height / 2 - 256.0, 0);
+	glTranslatef(width / 2 - 256.0f, -height / 2 - 256.0f, 0);
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-
 	glBindTexture(GL_TEXTURE_2D, pic.getTextureID("EXITSCREEN"));
+
 	glTranslatef(-256, -100, 0);
 	glScalef(2, 2, 0);
+
 	glBegin(GL_QUADS);
 	glTexCoord2i(0, 0); glVertex2i(100, 50);
 	glTexCoord2i(0, 1); glVertex2i(100, 300);
 	glTexCoord2i(1, 1); glVertex2i(400, 300);
 	glTexCoord2i(1, 0); glVertex2i(400, 50);
 	glEnd();
+
 	// Reset Perspective Projection
 	glMatrixMode(GL_PROJECTION);
 	glPopMatrix();
 	glMatrixMode(GL_MODELVIEW);
 	glPopMatrix();
 
-	    // Set the matrix mode to object modeling
-
-	//glutSwapBuffers();
 }
