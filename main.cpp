@@ -1246,6 +1246,8 @@ void CreateJPGTextures()
 	jpeg.CreateTexture("UNISHOPWINDOW", "data/uniShopWindow.jpg");
 
 	jpeg.CreateTexture("NOTICEBOARD", "data/noticeBoard.jpg");
+
+	jpeg.CreateTexture("EXITIMAGE", "data/facePics/exitWindow.jpeg");
 }
 
 void CreateTextures()
