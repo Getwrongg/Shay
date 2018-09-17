@@ -1247,7 +1247,11 @@ void CreateJPGTextures()
 
 	jpeg.CreateTexture("NOTICEBOARD", "data/noticeBoard.jpg");
 
-	jpeg.CreateTexture("EXITIMAGE", "data/facePics/exitWindow.jpeg");
+	jpeg.CreateTexture("EXITIMAGE", "data/facePics/exitWindow.jpg");
+
+	jpeg.CreateTexture("SKY", "data/sky.jpg");
+
+	jpeg.CreateTexture("FOREST", "data/forest.jpg");
 }
 
 void CreateTextures()
@@ -3139,6 +3143,22 @@ void drawNorthExit()
 	glEnd();
 }
 
+void drawSky()
+{
+	
+	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("SKY"));
+	glBegin(GL_QUADS);
+
+	//TOP
+	glTexCoord2i(0, 0); glVertex3f(200000.0, 20000.0, -200000.0);
+	glTexCoord2i(0, 1); glVertex3f(-200000.0, 20000.0, -200000.0);
+	glTexCoord2i(1, 1); glVertex3f(-200000.0, 20000.0, 200000.0);
+	glTexCoord2i(1, 0); glVertex3f(200000.0, 20000.0, 200000.0);
+
+	glEnd();
+}
+
+
 void drawNoticeBoards() 
 {
 	glBindTexture(GL_TEXTURE_2D, jpeg.getTextureID("NOTICEBOARD"));
@@ -3223,6 +3243,9 @@ void DrawBackdropNew()
 	drawNorthExit();
 
 	drawNoticeBoards();
+
+	drawSky();
+
 }
 
 //--------------------------------------------------------------------------------------
