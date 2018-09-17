@@ -189,7 +189,15 @@ void PortalWorld::ReleaseKeyboard(unsigned char key, int x, int y)
 
 void PortalWorld::Mouse(int button, int state, int x, int y)
 {
-
+	// exit tour if clicked on exit splash screen
+	if ((button == GLUT_LEFT_BUTTON) && (state == GLUT_DOWN))
+	{
+		if ((DisplayExit) && (x <= width / 2.0 + 256.0) && (x >= width / 2.0 - 256.0)
+			&& (y <= height / 2.0 + 256.0) && (y >= height / 2.0 - 256.0))
+		{
+			exit(1);
+		}
+	}
 }
 
 
