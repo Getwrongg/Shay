@@ -140,7 +140,7 @@ private:
 	World world;
 	JpegLoader pic;
 
-	int width, height; // not used atm
+	int width, height;
 
 	bool DisplayExit;
 };

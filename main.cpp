@@ -490,7 +490,7 @@ int main(int argc, char **argv)
 	glutIdleFunc(ChooseDisplay);
 	glutMouseFunc(ChooseMouse);
 
-	glutIgnoreKeyRepeat(1); // removed this so we can hold down to move up or down
+	glutIgnoreKeyRepeat(1);
 	glutKeyboardUpFunc (ChooseReleaseKeys);
 	glutKeyboardFunc(ChooseKeyboard);
 	
@@ -810,10 +810,6 @@ void keys(unsigned char key, int x, int y)
 			if (DisplayExit == false)
 			{
 				DisplayExit = true;
-			}
-			else
-			{
-				exit(0);
 			}
 			
 			break;
