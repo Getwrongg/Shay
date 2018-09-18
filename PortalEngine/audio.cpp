@@ -68,7 +68,7 @@ int Audio::MusicVolume(const int volume) {
 }
 
 void Audio::StopAudio(const int channel) {
-	Mix_Pause(channel);
+	Mix_HaltChannel(channel);
 }
 
 void Audio::StopMusic() {

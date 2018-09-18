@@ -489,7 +489,7 @@ int main(int argc, char **argv)
 	myinit();
 
 	// uncomment to go straight to portal world
-	StartPortalWorld();
+	//StartPortalWorld();
 
 
 
