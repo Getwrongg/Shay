@@ -1,5 +1,10 @@
 #include "JpegLoader.h"
 
+JpegLoader::~JpegLoader() {
+	UnloadAllTextures();
+}
+
+
 void JpegLoader::CreateTexture(const std::string textureName, const char * filename){
 
 	ILuint image;

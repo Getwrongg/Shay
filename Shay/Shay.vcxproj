@@ -155,7 +155,6 @@
     <ClInclude Include="..\AABB.H" />
     <ClInclude Include="..\AABBLinkedList.h" />
     <ClInclude Include="..\AABBNode.h" />
-    <ClInclude Include="..\audio.h" />
     <ClInclude Include="..\camera.h" />
     <ClInclude Include="..\cameraMap.h" />
     <ClInclude Include="..\collision.h" />
@@ -170,7 +169,6 @@
     <ClCompile Include="..\AABB.CPP" />
     <ClCompile Include="..\AABBLinkedList.cpp" />
     <ClCompile Include="..\AABBNode.cpp" />
-    <ClCompile Include="..\audio.cpp" />
     <ClCompile Include="..\camera.cpp" />
     <ClCompile Include="..\cameraMap.cpp" />
     <ClCompile Include="..\collision.cpp" />

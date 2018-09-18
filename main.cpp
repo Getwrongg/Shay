@@ -9,6 +9,7 @@
 #include <fstream>
 
 #include "audio.h"
+#include "objectaudio.h"
 
 #include "camera.h"
 #include "texturedPolygons.h"
@@ -461,8 +462,7 @@ void DeleteImageFromMemory(unsigned char* tempImage);
 void Animate(int);
 // collision for entering portal world
 void EnterPortal();
-// initialises the portalworld and launches it
-void StartPortalWorld();
+void SoundSettup();
 
 // used to choose which function to call in mainLoop
 void ChooseDisplay();
@@ -486,7 +486,7 @@ int main(int argc, char **argv)
 	myinit();
 
 	// uncomment to go straight to portal world
-	//StartPortalWorld();
+	//inPortal = true;
 
 	glutDisplayFunc(ChooseDisplay);
 	glutIdleFunc(ChooseDisplay);
@@ -647,7 +647,7 @@ void myinit()
 	//CreateTexturesPortalWorld();
 
 	LoadGameSounds();
-	game_audio.PlayMusic("AMBIENCE", -1); //Play Game Music
+	SoundSettup();
 
 }
 
@@ -726,27 +726,38 @@ void Animate(int)
 void EnterPortal()
 {
 	//23500, 11500, 18000 - center of portal cube
-	if ((cam.GetLR() <= 23700.0 & cam.GetLR() >= 23300.0) & (cam.GetFB() <= 18200 & cam.GetFB() >= 17800))
-	{
-		StartPortalWorld();		
+	
+	if (objectaudio::FindDistance(cam.GetLR(), cam.GetFB(), 23500, 18000) < 15000) {
+		if (game_audio.IsPlaying(2)==0) {
+			game_audio.PlayAudioChannel("PORTAL", 2, -1);
+		}
+		game_audio.AudioVolume(2, objectaudio::FindVolume(cam.GetLR(), cam.GetFB(), 23500, 18000, 15000));
+	}
+	else {
+		game_audio.StopAudio(2);
 	}
 
-	std::cout << cam.GetLR() << std::endl;
+	if ((cam.GetLR() <= 23700.0 & cam.GetLR() >= 23300.0) & (cam.GetFB() <= 18200 & cam.GetFB() >= 17800))
+	{
+		inPortal = true;
+		game_audio.StopAudio(-1);
+
+		// initialises portalworld variables
+		portalLogic.MyInit();
+
+		// unloads all jpeg textures from shays world
+		jpeg.UnloadAllTextures(); //Removes all textures loaded in from JpegLoader from GPU memory (not RAM) therefore reducing GPU memory usage 
+		
+	}
+	
 }
 
-//--------------------------------------------------------------------------------------
-//  Starts portal world - Manu Murray
-//--------------------------------------------------------------------------------------
-void StartPortalWorld()
-{
-	inPortal = true;
-	game_audio.StopAudio(1);
+void SoundSettup() {
 
-	// initialises portalworld variables
-	portalLogic.MyInit();
+	game_audio.PlayMusic("AMBIENCE", -1); //Play Game Music
 
-	// unloads all jpeg textures from shays world
-	jpeg.UnloadAllTextures(); //Removes all textures loaded in from JpegLoader from GPU memory (not RAM) therefore reducing GPU memory usage 
+	game_audio.AudioVolume(1, 48); //Lowers walking sound
+
 }
 
 //--------------------------------------------------------------------------------------
@@ -1236,6 +1247,7 @@ void LoadGameSounds() {
 
 	//Game Sounds
 	game_audio.LoadWAV("STEPS", "sounds/walking.wav");
+	game_audio.LoadWAV("PORTAL", "sounds/portal_sound.wav");
 	
 }
 
