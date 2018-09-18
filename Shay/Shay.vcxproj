@@ -155,12 +155,10 @@
     <ClInclude Include="..\AABB.H" />
     <ClInclude Include="..\AABBLinkedList.h" />
     <ClInclude Include="..\AABBNode.h" />
-    <ClInclude Include="..\audio.h" />
     <ClInclude Include="..\camera.h" />
     <ClInclude Include="..\cameraMap.h" />
     <ClInclude Include="..\collision.h" />
     <ClInclude Include="..\EasySound.h" />
-    <ClInclude Include="..\objectaudio.h" />
     <ClInclude Include="..\PlainLinkedList.h" />
     <ClInclude Include="..\PlainNode.h" />
     <ClInclude Include="..\Sound.h" />
@@ -171,13 +169,11 @@
     <ClCompile Include="..\AABB.CPP" />
     <ClCompile Include="..\AABBLinkedList.cpp" />
     <ClCompile Include="..\AABBNode.cpp" />
-    <ClCompile Include="..\audio.cpp" />
     <ClCompile Include="..\camera.cpp" />
     <ClCompile Include="..\cameraMap.cpp" />
     <ClCompile Include="..\collision.cpp" />
     <ClCompile Include="..\EasySound.cpp" />
     <ClCompile Include="..\main.cpp" />
-    <ClCompile Include="..\objectaudio.cpp" />
     <ClCompile Include="..\PlainLinkedList.cpp" />
     <ClCompile Include="..\PlainNode.cpp" />
     <ClCompile Include="..\Sound.cpp" />

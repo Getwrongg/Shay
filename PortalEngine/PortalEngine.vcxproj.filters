@@ -36,6 +36,12 @@
     <ClInclude Include="PortalWorld.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="audio.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="objectaudio.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="JpegLoader.cpp">
@@ -54,6 +60,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="PortalWorld.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="audio.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="objectaudio.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
