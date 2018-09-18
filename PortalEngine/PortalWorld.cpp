@@ -3,7 +3,7 @@
 PortalWorld::PortalWorld()
 {
 	// move and rotate mouse sensitivity
-	moveSpeed = 0.05f;
+	moveSpeed = 0.25f;
 	rotateSpeed = 0.005f;
 	
 	// rotation values for camera
@@ -152,6 +152,12 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 	case 'd':
 		ourCam.DirectionLeftRight(1);
 		break;
+	case 'e':
+		ourCam.DirectionUpDown(1);
+		break;
+	case 'r':
+			ourCam.DirectionUpDown(-1);
+			break;
 	case 'q':
 		ourCam.SetMoveSpeed(0.0f);
 		ourCam.SetRotateSpeed(0.0f);
@@ -159,7 +165,8 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 		{			
 			DisplayExit = true;
 			DisplayExitScreen();
-		}	
+		}
+	
 	}
 }
 
@@ -174,6 +181,12 @@ void PortalWorld::ReleaseKeyboard(unsigned char key, int x, int y)
 	case 'a':
 	case 'd':
 		ourCam.DirectionLeftRight(0);
+		break;
+	case 'e':
+		ourCam.DirectionUpDown(0);
+		break;
+	case 'r':
+		ourCam.DirectionUpDown(0);
 		break;
 	}
 }
