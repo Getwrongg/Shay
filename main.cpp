@@ -728,7 +728,7 @@ void EnterPortal()
 	//23500, 11500, 18000 - center of portal cube
 	
 	if (objectaudio::FindDistance(cam.GetLR(), cam.GetFB(), 23500, 18000) < 15000) {
-		if (!game_audio.IsPlaying(2)) {
+		if (game_audio.IsPlaying(2)==0) {
 			game_audio.PlayAudioChannel("PORTAL", 2, -1);
 		}
 		game_audio.AudioVolume(2, objectaudio::FindVolume(cam.GetLR(), cam.GetFB(), 23500, 18000, 15000));
