@@ -4,7 +4,7 @@
 
 #include "Structs.h"
 #include "Cube.h"
-#include "JpegLoader.h"
+#include "ImageLoader.h"
 
 /**
 * @class World
@@ -125,7 +125,7 @@ public:
 	void SkyCylinder();
 
 private:
-	JpegLoader j; // object to load images
+	ImageLoader j; // object to load images
 	Cube cube; // object of type cube - draws cubes for pillars
 
 	// variables for skyCylinder rotation

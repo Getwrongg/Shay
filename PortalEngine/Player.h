@@ -1,4 +1,4 @@
-#include "JpegLoader.h"
+#include "ImageLoader.h"
 #include <GL/glut.h>
 
 #include "Structs.h"
@@ -38,7 +38,7 @@ private:
 	GLUquadricObj *sphere;
 
 	// jpegloader object for textures
-	JpegLoader pj;
+	ImageLoader pj;
 
 	GLdouble gravity;
 

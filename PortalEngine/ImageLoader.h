@@ -26,10 +26,10 @@
 	*
 	* @bug none
 	*/
-class JpegLoader
+class ImageLoader
 {
 public:
-	~JpegLoader();
+	~ImageLoader();
 	/**
 	* @brief  Creates and binds a texture and creates a textureID for the imputed texture
 	*

@@ -1,5 +1,5 @@
 #pragma once
-#include "JpegLoader.h"
+#include "ImageLoader.h"
 #include "Structs.h"
 
 
@@ -65,7 +65,7 @@ public:
 	void CreateTexture();
 	
 private:
-	JpegLoader j; // object to load in jpeg textures
+	ImageLoader j; // object to load in jpeg textures
 	Coordinates pos; // struct that holds position of cube
 };
 

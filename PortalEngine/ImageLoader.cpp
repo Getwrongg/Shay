@@ -1,11 +1,11 @@
-#include "JpegLoader.h"
+#include "ImageLoader.h"
 
-JpegLoader::~JpegLoader() {
+ImageLoader::~ImageLoader() {
 	UnloadAllTextures();
 }
 
 
-void JpegLoader::CreateTexture(const std::string textureName, const char * filename){
+void ImageLoader::CreateTexture(const std::string textureName, const char * filename){
 
 	ILuint image;
 	GLuint textureID;
@@ -51,7 +51,7 @@ void JpegLoader::CreateTexture(const std::string textureName, const char * filen
 	}
 }
 
-bool JpegLoader::setTextureList(const std::string TName, const  GLuint TexID) {
+bool ImageLoader::setTextureList(const std::string TName, const  GLuint TexID) {
 	if (TextureList.find(TName)->first == TName) {
 		std::cout << "TEXTURE NAME \""<<TName<<"\" ALREADY EXISTS, TEXTURE NOT LOADED" << std::endl;
 		return false;
@@ -62,11 +62,11 @@ bool JpegLoader::setTextureList(const std::string TName, const  GLuint TexID) {
 	}
 }
 
-const GLuint JpegLoader::getTextureID(const std::string TName) const{
+const GLuint ImageLoader::getTextureID(const std::string TName) const{
 	return TextureList.find(TName)->second;
 }
 
-void JpegLoader::UnloadAllTextures() {
+void ImageLoader::UnloadAllTextures() {
 	GLuint tempID;
 	for (int i = 0; i < Texture_Names.size(); i++) {
 		tempID = getTextureID(Texture_Names[i]);

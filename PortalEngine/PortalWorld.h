@@ -1,6 +1,6 @@
 #include "World.h"
 #include "Cam.h"
-#include "JpegLoader.h"
+#include "ImageLoader.h"
 
 #pragma once
 
@@ -156,7 +156,7 @@ private:
 	// objects for portal world
 	Cam ourCam;
 	World world;
-	JpegLoader pic;
+	ImageLoader pic;
 
 	int width, height;
 

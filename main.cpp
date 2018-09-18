@@ -18,7 +18,7 @@
 
 //#include "main2.cpp"
 #include "World.h"
-#include "JpegLoader.h"
+#include "ImageLoader.h"
 #include "Cam.h"
 #include "PortalWorld.h"
 
@@ -339,7 +339,7 @@ unsigned char* image = NULL;
 // objects
 Camera cam;
 TexturedPolygons tp;
-JpegLoader jpeg;
+ImageLoader jpeg;
 Audio game_audio;
 
 PortalWorld portalLogic;
