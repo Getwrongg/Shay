@@ -29,7 +29,7 @@
 class JpegLoader
 {
 public:
-
+	~JpegLoader();
 	/**
 	* @brief  Creates and binds a texture and creates a textureID for the imputed texture
 	*

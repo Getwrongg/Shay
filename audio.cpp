@@ -59,6 +59,14 @@ void Audio::PlayMusic(const std::string Music_Name, const int playNum) {
 	Mix_PlayMusic(Music_Files.find(Music_Name)->second, playNum);
 }
 
+int Audio::AudioVolume(const int channel, const int volume) {
+	return Mix_Volume(channel, volume);
+}
+
+int Audio::MusicVolume(const int volume) {
+	return Mix_VolumeMusic(volume);
+}
+
 void Audio::StopAudio(const int channel) {
 	Mix_Pause(channel);
 }

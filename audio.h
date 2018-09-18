@@ -49,6 +49,9 @@ public:
 	void PlayAudio(const std::string Audio_Name, const int playNum); // Play audio on any free channel
 	void PlayMusic(const std::string Music_Name, const int playNum); // Play music, -1 to loop forever
 
+	int AudioVolume(const int channel, const int volume); //0-128 for volume level, returns current volume
+	int MusicVolume(const int volume); //Returns previous volume level
+
 	void StopAudio(const int channel); //Pause all audio on inputed channel, -1 for all channels (not music)
 	void StopMusic(); //Stop current music
 
