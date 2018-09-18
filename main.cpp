@@ -461,6 +461,8 @@ void DeleteImageFromMemory(unsigned char* tempImage);
 void Animate(int);
 // collision for entering portal world
 void EnterPortal();
+// initialises the portalworld and launches it
+void StartPortalWorld();
 
 // used to choose which function to call in mainLoop
 void ChooseDisplay();
@@ -484,7 +486,7 @@ int main(int argc, char **argv)
 	myinit();
 
 	// uncomment to go straight to portal world
-	//inPortal = true;
+	//StartPortalWorld();
 
 	glutDisplayFunc(ChooseDisplay);
 	glutIdleFunc(ChooseDisplay);
@@ -726,18 +728,25 @@ void EnterPortal()
 	//23500, 11500, 18000 - center of portal cube
 	if ((cam.GetLR() <= 23700.0 & cam.GetLR() >= 23300.0) & (cam.GetFB() <= 18200 & cam.GetFB() >= 17800))
 	{
-		inPortal = true;
-		game_audio.StopAudio(1);
-
-		// initialises portalworld variables
-		portalLogic.MyInit();
-
-		// unloads all jpeg textures from shays world
-		jpeg.UnloadAllTextures(); //Removes all textures loaded in from JpegLoader from GPU memory (not RAM) therefore reducing GPU memory usage 
-		
+		StartPortalWorld();		
 	}
 
 	std::cout << cam.GetLR() << std::endl;
+}
+
+//--------------------------------------------------------------------------------------
+//  Starts portal world - Manu Murray
+//--------------------------------------------------------------------------------------
+void StartPortalWorld()
+{
+	inPortal = true;
+	game_audio.StopAudio(1);
+
+	// initialises portalworld variables
+	portalLogic.MyInit();
+
+	// unloads all jpeg textures from shays world
+	jpeg.UnloadAllTextures(); //Removes all textures loaded in from JpegLoader from GPU memory (not RAM) therefore reducing GPU memory usage 
 }
 
 //--------------------------------------------------------------------------------------

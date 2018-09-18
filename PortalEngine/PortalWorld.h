@@ -119,8 +119,26 @@ public:
 	*/
 	void Resize(int w, int h);
 
+	/**
+	* @author Manu Murray
+	*
+	* @brief manages mouse clicks
+	*
+	* @param int button, int state, int x, int y
+	*
+	* @return void
+	*/
 	void Mouse(int button, int state, int x, int y);
 
+	/**
+	* @author Manu Murray
+	*
+	* @brief Displays the exit screen
+	*
+	* 
+	*
+	* @return void
+	*/
 	void DisplayExitScreen();
 
 private:
