@@ -8,7 +8,9 @@ World::World()
 
 void World::CreateTextures(const std::string name, const char * filePath)
 {
-	j.CreateTexture("SWIRL", "data/kaleidoscope2.jpg");
+	j.CreateTexture("SWIRL", "data/stars.jpg");
+
+	j.CreateTexture("STONE", "data/stone.jpg");
 	
 	cube.CreateTexture();
 	
@@ -64,7 +66,7 @@ void World::SkyCylinder()
 
 void World::Ground() 
 {	
-	glBindTexture(GL_TEXTURE_2D, j.getTextureID("SWIRL"));
+	//glBindTexture(GL_TEXTURE_2D, j.getTextureID("SWIRL"));
 	
 	glBegin(GL_POLYGON);
 		glTexCoord2i(0, 0); glVertex3f(-40.0, -1, 100.0);
@@ -77,68 +79,152 @@ void World::Ground()
 
 void World::Cubes()
 {
+     
+	//cube.Draw(0, -1, 0);//bottom
+	//cube.Draw(0, 0, 0);
+	//cube.Draw(0, 3, 0);
 
 	//First Pillar
-	cube.Draw(0, -1, 0);//bottom
-	cube.Draw(0, 0, 0);
-	cube.Draw(0, 1, 0);
+	//cube.Draw(0, -1, 0);//bottom
+	//cube.Draw(0, 0, 0);
+	//cube.Draw(0, 1, 0);
 
-	cube.Draw(0, 4, 0);//top
-	cube.Draw(0, 5, 0);
-	cube.Draw(0, 6, 0);
+	//cube.Draw(0, 4, 0);//top
+	//cube.Draw(0, 5, 0);
+	//cube.Draw(0, 6, 0);
 
-	//Second Pillar
-	cube.Draw(3, -1 ,0);//bottom
-	cube.Draw(3, 0, 0);
-	
-	
-	cube.Draw(3, 3, 0);//top
-	cube.Draw(3, 4, 0);
-	cube.Draw(3, 5, 0);
-	cube.Draw(3, 6, 0);
+	////Second Pillar
+	//cube.Draw(3, -1 ,0);//bottom
+	//cube.Draw(3, 0, 0);
+	//
+	//
+	//cube.Draw(3, 3, 0);//top
+	//cube.Draw(3, 4, 0);
+	//cube.Draw(3, 5, 0);
+	//cube.Draw(3, 6, 0);
 
 	//Third Pillar
-	cube.Draw(6, -1, 0);//bottom
-	cube.Draw(6, 0, 0);
-	cube.Draw(6, 1, 0);
+	//cube.Draw(6, -1, 0);//bottom
+	//cube.Draw(6, 0, 0);
+	//cube.Draw(6, 1, 0);
 
-	cube.Draw(6, 4, 0);//top
-	cube.Draw(6, 5, 0);
-	cube.Draw(6, 6, 0);
+	//cube.Draw(6, 4, 0);//top
+	//cube.Draw(6, 5, 0);
+	//cube.Draw(6, 6, 0);
 
-	//Fourth Pillar
-	cube.Draw(9, 2, 0);
-	cube.Draw(9, 3, 0);
+	////Fourth Pillar
+	//cube.Draw(9, 2, 0);
+	//cube.Draw(9, 3, 0);
 
-	//Fifth Pillar
-	cube.Draw(12, 1, 0);
-	cube.Draw(12, 2, 0);
-	cube.Draw(12, 3, 0);
-	cube.Draw(12, 4, 0);
-	cube.Draw(12, 5, 0);
+	////Fifth Pillar
+	//cube.Draw(12, 1, 0);
+	//cube.Draw(12, 2, 0);
+	//cube.Draw(12, 3, 0);
+	//cube.Draw(12, 4, 0);
+	//cube.Draw(12, 5, 0);
 
-	//Sixth Pillar
-	cube.Draw(15, 0, 0);
-	cube.Draw(15, 1, 0);
-	cube.Draw(15, 5, 0);
-	cube.Draw(15, 6, 0);
+	////Sixth Pillar
+	//cube.Draw(15, 0, 0);
+	//cube.Draw(15, 1, 0);
+	//cube.Draw(15, 5, 0);
+	//cube.Draw(15, 6, 0);
 
 
 	//top railing pillar
-	for (float i = 0; i <= 15; i++)
-	{
-		cube.Draw(i, 7.0f, 0.0f);
-	}
+	//for (float i = 0; i <= 15; i++)
+	//{
+	//	cube.Draw(i, 7.0f, 0.0f);
+	//}
 
-	//bottom railing pillar
-	for (float i = 0; i <= 15; i++)
-	{
-		cube.Draw(i, -1.0f, 0.0f);
-	}
-		
+	////bottom railing pillar
+	//for (float i = 0; i <= 15; i++)
+	//{
+	//	cube.Draw(i, -1.0f, 0.0f);
+	//}
+
+
+			
 	
-	
-	
+}
+
+void World::Track1()
+{
+	//_________________BOTTOM PILLAR OF TRACK________________
+	//_______________________________________________________
+
+	glBindTexture(GL_TEXTURE_2D, j.getTextureID("STONE"));
+
+	//RIGHT
+	glBegin(GL_POLYGON);
+	glTexCoord2i(1, 0); glVertex3f(200.0, 2.0, 8.0);	// TOP RIGHT
+	glTexCoord2i(0, 1); glVertex3f(0.0, 2.0, 8.0);	    // BOTTOM RIGHT
+	glTexCoord2i(0, 1); glVertex3f(0.0, -50.0, 8.0);	    // TOP LEFT
+	glTexCoord2i(1, 0); glVertex3f(200.0, -50.0, 8.0);	// BOTTOM LEFT
+	glEnd();
+
+	//BACK
+	glBegin(GL_POLYGON);
+	glTexCoord2i(0, 0); glVertex3f(200.0, 2.0, 0.0);
+	glTexCoord2i(0, 1); glVertex3f(0.0, 2.0, 0.0);
+	glTexCoord2i(1, 0); glVertex3f(0.0, -50.0, 0.0);
+	glTexCoord2i(1, 1); glVertex3f(200.0, -50.0, 0.0);
+	glEnd();
+
+	//FRONT
+	glBegin(GL_POLYGON);
+	glTexCoord2i(0, 0); glVertex3f(0.0, 2.0, 8.0);
+	glTexCoord2i(0, 1); glVertex3f(0.0, 2.0, 0.0);
+	glTexCoord2i(1, 0); glVertex3f(0.0, -50.0, 0.0);
+	glTexCoord2i(1, 1); glVertex3f(0.0, -50.0, 8.0);
+	glEnd();
+
+	//TOP
+	glBegin(GL_POLYGON);
+	glTexCoord2i(0, 0); glVertex3f(200.0, 2.0, 8.0);
+	glTexCoord2i(0, 1); glVertex3f(0.0, 2.0, 8.0);
+	glTexCoord2i(1, 0); glVertex3f(0.0, 2.0, 0.0);
+	glTexCoord2i(1, 1); glVertex3f(200.0, 2.0, 0.0);
+	glEnd();
+
+
+	//____________________TOP PILLAR OF TRACK________________
+	//_______________________________________________________
+
+	glBindTexture(GL_TEXTURE_2D, j.getTextureID("STONE"));
+
+	//RIGHT
+	glBegin(GL_POLYGON);
+	glTexCoord2i(1, 0); glVertex3f(200.0, 20.0, 8.0);	// TOP RIGHT
+	glTexCoord2i(0, 1); glVertex3f(0.0, 20.0, 8.0);	    // BOTTOM RIGHT
+	glTexCoord2i(0, 1); glVertex3f(0.0, 50.0, 8.0);	    // TOP LEFT
+	glTexCoord2i(1, 0); glVertex3f(200.0, 50.0, 8.0);	// BOTTOM LEFT
+	glEnd();
+
+	//BACK
+	glBegin(GL_POLYGON);
+	glTexCoord2i(0, 0); glVertex3f(200.0, 20.0, 0.0);
+	glTexCoord2i(0, 1); glVertex3f(0.0, 20.0, 0.0);
+	glTexCoord2i(1, 0); glVertex3f(0.0, 50.0, 0.0);
+	glTexCoord2i(1, 1); glVertex3f(200.0, 50.0, 0.0);
+	glEnd();
+
+	//FRONT
+	glBegin(GL_POLYGON);
+	glTexCoord2i(0, 0); glVertex3f(0.0, 20.0, 8.0);
+	glTexCoord2i(0, 1); glVertex3f(0.0, 20.0, 0.0);
+	glTexCoord2i(1, 0); glVertex3f(0.0, 50.0, 0.0);
+	glTexCoord2i(1, 1); glVertex3f(0.0, 50.0, 8.0);
+	glEnd();
+
+	//TOP
+	glBegin(GL_POLYGON);
+	glTexCoord2i(0, 0); glVertex3f(200.0, 20.0, 8.0);
+	glTexCoord2i(0, 1); glVertex3f(0.0, 20.0, 8.0);
+	glTexCoord2i(1, 0); glVertex3f(0.0, 20.0, 0.0);
+	glTexCoord2i(1, 1); glVertex3f(200.0, 20.0, 0.0);
+	glEnd();
+
+
 }
 
 void World::DrawBushes() {

@@ -488,9 +488,12 @@ int main(int argc, char **argv)
 	// uncomment to go straight to portal world
 	//inPortal = true;
 
+
+
 	glutDisplayFunc(ChooseDisplay);
 	glutIdleFunc(ChooseDisplay);
 	glutMouseFunc(ChooseMouse);
+
 
 	glutIgnoreKeyRepeat(1);
 	glutKeyboardUpFunc (ChooseReleaseKeys);

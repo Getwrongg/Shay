@@ -67,6 +67,8 @@ public:
 	*/
 	void Cubes();
 
+	void Track1();
+
 	/**
 	* @author Christopher Gemmel
 	*
@@ -128,6 +130,6 @@ private:
 
 	// variables for skyCylinder rotation
 	float rotates = 1;
-	float rotateSPEED = 2;
+	float rotateSPEED = 0.5;
 };
 

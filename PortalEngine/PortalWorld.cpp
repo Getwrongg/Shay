@@ -80,6 +80,7 @@ void PortalWorld::Display()
 	world.SkyCylinder();
 	world.Axis();//Draws the axis for testing
 	world.Cubes();
+	world.Track1();
 
 	glDisable(GL_TEXTURE_2D);
 	glutSwapBuffers();
