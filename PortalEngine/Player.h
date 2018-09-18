@@ -29,6 +29,7 @@ public:
 	void Update();
 	Coordinates & GetPosition();
 	void SetPosition(const GLdouble x, const GLdouble y, const GLdouble z);
+	void PointCounter(int amount);
 
 private:
 	Coordinates pos;

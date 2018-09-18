@@ -11,6 +11,8 @@ void World::CreateTextures(const std::string name, const char * filePath)
 	j.CreateTexture("SWIRL", "data/stars.jpg");
 
 	j.CreateTexture("STONE", "data/stone.jpg");
+
+	j.CreateTexture("GOD1", "data/god1.png");
 	
 	cube.CreateTexture();
 	
@@ -60,7 +62,7 @@ void World::SkyCylinder()
 	glRotatef(rotates, 1.0f, 0.0f, rotates);
 	
 	gluQuadricDrawStyle(glu_cylinder, GLU_FILL); //GLUquadricObj * qobj = gluNewQuadric();
-	gluCylinder(glu_cylinder, 25, 25, 250, 200, 200);
+	gluCylinder(glu_cylinder, 50, 50, 450, 200, 200);
 	glPopMatrix();	
 }
 
@@ -156,18 +158,18 @@ void World::Track1()
 
 	//RIGHT
 	glBegin(GL_POLYGON);
-	glTexCoord2i(1, 0); glVertex3f(200.0, 2.0, 8.0);	// TOP RIGHT
+	glTexCoord2i(1, 0); glVertex3f(400.0, 2.0, 8.0);	// TOP RIGHT
 	glTexCoord2i(0, 1); glVertex3f(0.0, 2.0, 8.0);	    // BOTTOM RIGHT
 	glTexCoord2i(0, 1); glVertex3f(0.0, -50.0, 8.0);	    // TOP LEFT
-	glTexCoord2i(1, 0); glVertex3f(200.0, -50.0, 8.0);	// BOTTOM LEFT
+	glTexCoord2i(1, 0); glVertex3f(400.0, -50.0, 8.0);	// BOTTOM LEFT
 	glEnd();
 
 	//BACK
 	glBegin(GL_POLYGON);
-	glTexCoord2i(0, 0); glVertex3f(200.0, 2.0, 0.0);
+	glTexCoord2i(0, 0); glVertex3f(400.0, 2.0, 0.0);
 	glTexCoord2i(0, 1); glVertex3f(0.0, 2.0, 0.0);
 	glTexCoord2i(1, 0); glVertex3f(0.0, -50.0, 0.0);
-	glTexCoord2i(1, 1); glVertex3f(200.0, -50.0, 0.0);
+	glTexCoord2i(1, 1); glVertex3f(400.0, -50.0, 0.0);
 	glEnd();
 
 	//FRONT
@@ -180,10 +182,10 @@ void World::Track1()
 
 	//TOP
 	glBegin(GL_POLYGON);
-	glTexCoord2i(0, 0); glVertex3f(200.0, 2.0, 8.0);
+	glTexCoord2i(0, 0); glVertex3f(400.0, 2.0, 8.0);
 	glTexCoord2i(0, 1); glVertex3f(0.0, 2.0, 8.0);
 	glTexCoord2i(1, 0); glVertex3f(0.0, 2.0, 0.0);
-	glTexCoord2i(1, 1); glVertex3f(200.0, 2.0, 0.0);
+	glTexCoord2i(1, 1); glVertex3f(400.0, 2.0, 0.0);
 	glEnd();
 
 
@@ -194,37 +196,46 @@ void World::Track1()
 
 	//RIGHT
 	glBegin(GL_POLYGON);
-	glTexCoord2i(1, 0); glVertex3f(200.0, 20.0, 8.0);	// TOP RIGHT
-	glTexCoord2i(0, 1); glVertex3f(0.0, 20.0, 8.0);	    // BOTTOM RIGHT
+	glTexCoord2i(1, 0); glVertex3f(400.0, 40.0, 8.0);	// TOP RIGHT
+	glTexCoord2i(0, 1); glVertex3f(0.0, 40.0, 8.0);	    // BOTTOM RIGHT
 	glTexCoord2i(0, 1); glVertex3f(0.0, 50.0, 8.0);	    // TOP LEFT
-	glTexCoord2i(1, 0); glVertex3f(200.0, 50.0, 8.0);	// BOTTOM LEFT
+	glTexCoord2i(1, 0); glVertex3f(400.0, 50.0, 8.0);	// BOTTOM LEFT
 	glEnd();
 
 	//BACK
 	glBegin(GL_POLYGON);
-	glTexCoord2i(0, 0); glVertex3f(200.0, 20.0, 0.0);
-	glTexCoord2i(0, 1); glVertex3f(0.0, 20.0, 0.0);
+	glTexCoord2i(0, 0); glVertex3f(400.0, 40.0, 0.0);
+	glTexCoord2i(0, 1); glVertex3f(0.0, 40.0, 0.0);
 	glTexCoord2i(1, 0); glVertex3f(0.0, 50.0, 0.0);
-	glTexCoord2i(1, 1); glVertex3f(200.0, 50.0, 0.0);
+	glTexCoord2i(1, 1); glVertex3f(400.0, 50.0, 0.0);
 	glEnd();
 
 	//FRONT
 	glBegin(GL_POLYGON);
-	glTexCoord2i(0, 0); glVertex3f(0.0, 20.0, 8.0);
-	glTexCoord2i(0, 1); glVertex3f(0.0, 20.0, 0.0);
+	glTexCoord2i(0, 0); glVertex3f(0.0, 40.0, 8.0);
+	glTexCoord2i(0, 1); glVertex3f(0.0, 40.0, 0.0);
 	glTexCoord2i(1, 0); glVertex3f(0.0, 50.0, 0.0);
 	glTexCoord2i(1, 1); glVertex3f(0.0, 50.0, 8.0);
 	glEnd();
 
 	//TOP
 	glBegin(GL_POLYGON);
-	glTexCoord2i(0, 0); glVertex3f(200.0, 20.0, 8.0);
-	glTexCoord2i(0, 1); glVertex3f(0.0, 20.0, 8.0);
-	glTexCoord2i(1, 0); glVertex3f(0.0, 20.0, 0.0);
-	glTexCoord2i(1, 1); glVertex3f(200.0, 20.0, 0.0);
+	glTexCoord2i(0, 0); glVertex3f(400.0, 40.0, 8.0);
+	glTexCoord2i(0, 1); glVertex3f(0.0, 40.0, 8.0);
+	glTexCoord2i(1, 0); glVertex3f(0.0, 40.0, 0.0);
+	glTexCoord2i(1, 1); glVertex3f(400.0, 40.0, 0.0);
 	glEnd();
 
-
+	//____________________TRACK ONE GOD______________________
+	//_______________________________________________________
+	glBindTexture(GL_TEXTURE_2D, j.getTextureID("GOD1"));
+	
+	glBegin(GL_POLYGON);
+	glTexCoord2i(0, 0); glVertex3f(400.0, 10.0, 20.0);
+	glTexCoord2i(0, 1); glVertex3f(400.0, 10.0, -20.0);
+	glTexCoord2i(1, 0); glVertex3f(400.0, 40.0, -20.0);
+	glTexCoord2i(1, 1); glVertex3f(400.0, 40.0, 20.0);
+	glEnd();
 }
 
 void World::DrawBushes() {

@@ -44,3 +44,8 @@ void Player::Update()
 {
 	pos.y -= gravity;
 }
+
+void Player::PointCounter(int amount)
+{
+
+}
