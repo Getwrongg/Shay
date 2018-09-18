@@ -143,15 +143,15 @@ public:
 
 private:
 	// camera variables
-	GLdouble moveSpeed; // walking sensitivity
-	GLdouble rotateSpeed; // mouse sensitivity
+	GLfloat moveSpeed; // walking sensitivity
+	GLfloat rotateSpeed; // mouse sensitivity
 
 	int deltaX, deltaY; // the rotation variables for mouse x and y
 
 	// position of the camera
-	GLdouble pos[3];
-	GLdouble upVec[3];
-	GLdouble angle;
+	GLfloat pos[3];
+	GLfloat upVec[3];
+	GLfloat angle;
 
 	// objects for portal world
 	Cam ourCam;

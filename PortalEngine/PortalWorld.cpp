@@ -3,8 +3,8 @@
 PortalWorld::PortalWorld()
 {
 	// move and rotate mouse sensitivity
-	moveSpeed = 0.05;
-	rotateSpeed = 0.005;
+	moveSpeed = 0.05f;
+	rotateSpeed = 0.005f;
 	
 	// rotation values for camera
 	deltaX = 0;
@@ -14,14 +14,14 @@ PortalWorld::PortalWorld()
 	angle = 0;
 
 	// position of camera
-	pos[0] = 0.0;
-	pos[1] = 0.0;
-	pos[2] = 5.0;
+	pos[0] = 0.0f;
+	pos[1] = 0.0f;
+	pos[2] = 5.0f;
 
 	// upvector of camera
-	upVec[0] = 0.0;
-	upVec[1] = 1.0;
-	upVec[2] = 0.0;
+	upVec[0] = 0.0f;
+	upVec[1] = 1.0f;
+	upVec[2] = 0.0f;
 
 	// screen width and height
 	width = 1280;
