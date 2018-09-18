@@ -10,7 +10,7 @@
 
 //Channel Usage:
 //Channel 1: Walking steps
-//Channel 2: Free
+//Channel 2: Portal Sound
 //Channel 3: Free
 //Channel 4: Free
 //Channel 5: Free
@@ -54,6 +54,8 @@ public:
 
 	void StopAudio(const int channel); //Pause all audio on inputed channel, -1 for all channels (not music)
 	void StopMusic(); //Stop current music
+
+	int IsPlaying(const int channel);
 
 	const void LoadWAV(const std::string Audio_Name, const char* audiofile); //Sound Effects
 	const void LoadOGG(const std::string Audio_Name, const char* audiofile); //Music

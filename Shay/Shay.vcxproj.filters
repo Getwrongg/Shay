@@ -59,6 +59,9 @@
     <ClInclude Include="..\SoundTime.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="..\objectaudio.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\AABB.CPP">
@@ -101,6 +104,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\SoundTime.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\objectaudio.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

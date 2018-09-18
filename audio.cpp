@@ -74,3 +74,7 @@ void Audio::StopAudio(const int channel) {
 void Audio::StopMusic() {
 	Mix_HaltMusic();
 }
+
+int Audio::IsPlaying(const int channel) {
+	return Mix_Playing(channel);
+}
