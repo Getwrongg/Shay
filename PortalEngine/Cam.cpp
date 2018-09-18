@@ -105,11 +105,11 @@ void Cam::MoveUpDown()
 void Cam::Rotate(const int deltaX, const int deltaY)
 {
 	rotateAngle += deltaX * rotateSpeed;
-	if (rotateUD > 1.7) { //Stops camera from looking to high
-		rotateUD = 1.7;
+	if (rotateUD > 1.7f) { //Stops camera from looking to high
+		rotateUD = 1.7f;
 	}
-	if (rotateUD < -1.7) { // Stops camera from looking to low
-		rotateUD = -1.7;
+	if (rotateUD < -1.7f) { // Stops camera from looking to low
+		rotateUD = -1.7f;
 	}
 	rotateUD -= deltaY * rotateSpeed;
 
@@ -121,8 +121,8 @@ void Cam::Rotate(const int deltaX, const int deltaY)
 	look.y = sin(rotateUD);
 
 	// used to allow strafing
-	upVector.x = sin(rotateAngle+ (float)PI / 2.0);
-	upVector.z = -cos(rotateAngle + (float)PI / 2.0);
+	upVector.x = sin(rotateAngle+ (float)PI / 2.0f);
+	upVector.z = -cos(rotateAngle + (float)PI / 2.0f);
 }
 
 void Cam::Update()
@@ -143,12 +143,12 @@ void Cam::Update()
 	CallGluLookat();
 }
 
-void Cam::SetMoveSpeed(const GLdouble speed)
+void Cam::SetMoveSpeed(const GLfloat speed)
 {
 	moveSpeed = speed;
 }
 
-void Cam::SetRotateSpeed(const GLdouble speed)
+void Cam::SetRotateSpeed(const GLfloat speed)
 {
 	rotateSpeed = speed;
 }
@@ -158,7 +158,7 @@ Coordinates & Cam::GetPosition()
 	return pos;
 }
 
-void Cam::SetPosition(const GLdouble xyz[3], const GLdouble upVec[3], const GLdouble angle)
+void Cam::SetPosition(const GLfloat xyz[3], const GLfloat upVec[3], const GLfloat angle)
 {
 	// position
 	pos.x = xyz[0];

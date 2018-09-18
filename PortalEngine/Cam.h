@@ -85,9 +85,9 @@ public:
 	//--------------------------------------------------
 	//	Setters
 	//--------------------------------------------------
-	void SetMoveSpeed(const GLdouble speed);
-	void SetRotateSpeed(const GLdouble speed);
-	void SetPosition(const GLdouble xyz[3], const GLdouble upVec[3], const GLdouble angle);
+	void SetMoveSpeed(const GLfloat speed);
+	void SetRotateSpeed(const GLfloat speed);
+	void SetPosition(const GLfloat xyz[3], const GLfloat upVec[3], const GLfloat angle);
 
 	//--------------------------------------------------
 	//	Getters

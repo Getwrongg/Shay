@@ -119,21 +119,39 @@ public:
 	*/
 	void Resize(int w, int h);
 
+	/**
+	* @author Manu Murray
+	*
+	* @brief manages mouse clicks
+	*
+	* @param int button, int state, int x, int y
+	*
+	* @return void
+	*/
 	void Mouse(int button, int state, int x, int y);
 
+	/**
+	* @author Manu Murray
+	*
+	* @brief Displays the exit screen
+	*
+	* 
+	*
+	* @return void
+	*/
 	void DisplayExitScreen();
 
 private:
 	// camera variables
-	GLdouble moveSpeed; // walking sensitivity
-	GLdouble rotateSpeed; // mouse sensitivity
+	GLfloat moveSpeed; // walking sensitivity
+	GLfloat rotateSpeed; // mouse sensitivity
 
 	int deltaX, deltaY; // the rotation variables for mouse x and y
 
 	// position of the camera
-	GLdouble pos[3];
-	GLdouble upVec[3];
-	GLdouble angle;
+	GLfloat pos[3];
+	GLfloat upVec[3];
+	GLfloat angle;
 
 	// objects for portal world
 	Cam ourCam;
