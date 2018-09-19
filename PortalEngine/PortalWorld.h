@@ -143,6 +143,8 @@ public:
 	*/
 	void DisplayExitScreen();
 
+	void DisplayMenuScreen();
+
 	void DisplayLevel();
 
 private:
@@ -165,5 +167,6 @@ private:
 	int width, height;
 
 	bool DisplayExit;
+	bool DisplayMenu;
 };
 

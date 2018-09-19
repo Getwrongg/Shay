@@ -86,7 +86,7 @@ void World::Cubes()
 	//cube.Draw(0, 0, 0);
 	//cube.Draw(0, 3, 0);
 
-	//First Pillar
+	////First Pillar
 	//cube.Draw(0, -1, 0);//bottom
 	//cube.Draw(0, 0, 0);
 	//cube.Draw(0, 1, 0);
@@ -105,7 +105,7 @@ void World::Cubes()
 	//cube.Draw(3, 5, 0);
 	//cube.Draw(3, 6, 0);
 
-	//Third Pillar
+	////Third Pillar
 	//cube.Draw(6, -1, 0);//bottom
 	//cube.Draw(6, 0, 0);
 	//cube.Draw(6, 1, 0);
@@ -132,7 +132,7 @@ void World::Cubes()
 	//cube.Draw(15, 6, 0);
 
 
-	//top railing pillar
+	////top railing pillar
 	//for (float i = 0; i <= 15; i++)
 	//{
 	//	cube.Draw(i, 7.0f, 0.0f);
@@ -233,8 +233,19 @@ void World::Track1()
 	glBegin(GL_POLYGON);
 	glTexCoord2i(1, 1); glVertex3f(400.0, 10.0, 20.0);
 	glTexCoord2i(0, 1); glVertex3f(400.0, 10.0, -20.0);
-	glTexCoord2i(0, 0); glVertex3f(400.0, 40.0, -20.0);
-	glTexCoord2i(1, 0); glVertex3f(400.0, 40.0, 20.0);
+	glTexCoord2i(0, 0); glVertex3f(400.0, 70.0, -20.0);
+	glTexCoord2i(1, 0); glVertex3f(400.0, 70.0, 20.0);
+	glEnd();
+
+
+	//____________________BOTTOM PILLARS ONE TO LAST_________
+	//_______________________________________________________
+	//FIRST PILLAR FRONT
+	glBegin(GL_POLYGON);
+	glTexCoord2i(1, 1); glVertex3f(40.0, 40.0, 15.0);
+	glTexCoord2i(0, 1); glVertex3f(40.0, 40.0, 0.0);
+	glTexCoord2i(0, 0); glVertex3f(40.0, 2.0, 0.0);
+	glTexCoord2i(1, 0); glVertex3f(40.0, 2.0, 15.0);
 	glEnd();
 }
 

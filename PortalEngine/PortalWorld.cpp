@@ -5,7 +5,7 @@ PortalWorld::PortalWorld()
 	// move and rotate mouse sensitivity
 	moveSpeed = 0.25f;
 	rotateSpeed = 0.005f;
-	
+
 	// rotation values for camera
 	deltaX = 0;
 	deltaY = 0;
@@ -28,6 +28,7 @@ PortalWorld::PortalWorld()
 	height = 720;
 
 	DisplayExit = false;
+	DisplayMenu = false;
 }
 
 void PortalWorld::MyInit()
@@ -47,7 +48,7 @@ void PortalWorld::MyInit()
 	glLoadIdentity();
 
 	GLfloat fov = 45.0f;
-	GLfloat aspect = 1.0f * width/height;
+	GLfloat aspect = 1.0f * width / height;
 	GLfloat zNear = 0.1f;
 	GLfloat zFar = 1000.0f;
 
@@ -76,6 +77,11 @@ void PortalWorld::Display()
 	{
 		DisplayExitScreen();
 	}
+	
+	if (DisplayMenu == true)
+	{
+		DisplayMenuScreen();
+	}
 
 	DisplayLevel();
 
@@ -100,8 +106,14 @@ void PortalWorld::CreateTexturesPortalWorld()
 
 	pic.CreateTexture("EXITSCREEN", "data/facePics/exitWindow.jpg");
 
-	pic.CreateTexture("LEVEL1", "data/level1Label.jpg");
-	
+	pic.CreateTexture("PBAR", "data/UI/progressbar.png");
+
+	pic.CreateTexture("LEVELONE", "data/UI/level1.png");
+
+	pic.CreateTexture("COINS", "data/UI/coins.png");
+
+	pic.CreateTexture("MENU", "data/UI/menu.png");
+
 }
 
 void PortalWorld::MouseMovement(int x, int y)
@@ -171,6 +183,14 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 			DisplayExit = true;
 			DisplayExitScreen();
 		}
+	case 27:
+		ourCam.SetMoveSpeed(0.0f);
+		ourCam.SetRotateSpeed(0.0f);
+		if (DisplayMenu == false)
+		{
+			DisplayMenu = true;
+			DisplayMenuScreen();
+		}
 	
 	}
 }
@@ -193,6 +213,10 @@ void PortalWorld::ReleaseKeyboard(unsigned char key, int x, int y)
 	case 'r':
 		ourCam.DirectionUpDown(0);
 		break;
+	case 27:
+		ourCam.SetMoveSpeed(0.25f);
+		ourCam.SetRotateSpeed(0.005f);
+		DisplayMenu = false;
 	}
 }
 
@@ -207,6 +231,39 @@ void PortalWorld::Mouse(int button, int state, int x, int y)
 			exit(1);
 		}
 	}
+}
+
+void PortalWorld::DisplayMenuScreen()
+{
+	glPushMatrix();
+	glMatrixMode(GL_PROJECTION);
+	glPushMatrix();
+	glLoadIdentity();
+	gluOrtho2D(0, width, 0, height);
+	glScalef(1, -1, 1);
+
+	// move to centre of screen
+	glTranslatef(width / 2 - 256.0f, -height / 2 - 256.0f, 0);
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+
+	glBindTexture(GL_TEXTURE_2D, pic.getTextureID("MENU"));
+
+	glTranslatef(-256, -100, 0);
+	glScalef(2, 2, 0);
+
+	glBegin(GL_QUADS);
+	glTexCoord2i(0, 0); glVertex2i(100, 50);
+	glTexCoord2i(0, 1); glVertex2i(100, 300);
+	glTexCoord2i(1, 1); glVertex2i(400, 300);
+	glTexCoord2i(1, 0); glVertex2i(400, 50);
+	glEnd();
+
+	// Reset Perspective Projection
+	glMatrixMode(GL_PROJECTION);
+	glPopMatrix();
+	glMatrixMode(GL_MODELVIEW);
+	glPopMatrix();
 }
 
 void PortalWorld::DisplayExitScreen() 
@@ -257,17 +314,37 @@ void PortalWorld::DisplayLevel()
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 
-	glBindTexture(GL_TEXTURE_2D, pic.getTextureID("LEVEL1"));
+	
 
 	glTranslatef(-256, -100, 0);
 	glScalef(2, 2, 0);
 
+	//LEVEL UI
+	glBindTexture(GL_TEXTURE_2D, pic.getTextureID("LEVELONE"));
 	glBegin(GL_QUADS);
 	glTexCoord2i(0, 0); glVertex2i(-50, 0);
-	glTexCoord2i(0, 1); glVertex2i(-50, 50);
-	glTexCoord2i(1, 1); glVertex2i(100, 50);
-	glTexCoord2i(1, 0); glVertex2i(100, 0);
+	glTexCoord2i(0, 1); glVertex2i(-50, 20);
+	glTexCoord2i(1, 1); glVertex2i(50, 20);
+	glTexCoord2i(1, 0); glVertex2i(50, 0);
 	glEnd();
+
+	////TRACK COMPLETION BAR UI
+	//glBindTexture(GL_TEXTURE_2D, pic.getTextureID("PBAR"));
+	//glBegin(GL_QUADS);
+	//glTexCoord2i(0, 0); glVertex2i(530, 70);
+	//glTexCoord2i(0, 1); glVertex2i(530, 270);
+	//glTexCoord2i(1, 1); glVertex2i(550, 270);
+	//glTexCoord2i(1, 0); glVertex2i(550, 70);
+	//glEnd();
+
+	//COINS COLLECTED UI
+	//glBindTexture(GL_TEXTURE_2D, pic.getTextureID("COINS"));
+	//glBegin(GL_QUADS);
+	//glTexCoord2i(0, 0); glVertex2i(450, 320);
+	//glTexCoord2i(0, 1); glVertex2i(450, 350);
+	//glTexCoord2i(1, 1); glVertex2i(550, 350);
+	//glTexCoord2i(1, 0); glVertex2i(550, 320);
+	//glEnd();
 
 	// Reset Perspective Projection
 	glMatrixMode(GL_PROJECTION);

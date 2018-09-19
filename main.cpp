@@ -503,7 +503,7 @@ int main(int argc, char **argv)
 	glutKeyboardFunc(ChooseKeyboard);
 	
 	glutPassiveMotionFunc(ChooseMouseLook);
-	glutSetCursor(GLUT_CURSOR_NONE);
+	//glutSetCursor(GLUT_CURSOR_NONE);
 	glutReshapeFunc(ChooseReshapeFunc);
 
 	glutTimerFunc(TIMERSECS, Animate, 0);
