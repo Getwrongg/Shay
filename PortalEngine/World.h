@@ -130,6 +130,6 @@ private:
 
 	// variables for skyCylinder rotation
 	float rotates = 1;
-	float rotateSPEED = 0.5;
+	float rotateSPEED = 0.2;
 };
 

@@ -39,7 +39,7 @@ void PortalWorld::MyInit()
 	glewInit();
 
 	glEnable(GL_DEPTH_TEST);
-	glClearColor(0, 1, 1, 0);
+	glClearColor(0, 0, 0, 0);
 	glColor3f(0.5, 0.0, 0.5);
 	glLineWidth(5.0);
 
@@ -77,6 +77,8 @@ void PortalWorld::Display()
 		DisplayExitScreen();
 	}
 
+	DisplayLevel();
+
 	world.SkyCylinder();
 	world.Axis();//Draws the axis for testing
 	world.Cubes();
@@ -85,6 +87,7 @@ void PortalWorld::Display()
 	glDisable(GL_TEXTURE_2D);
 	glutSwapBuffers();
 }
+
 
 void PortalWorld::AnimatePortalWorld()
 {
@@ -96,6 +99,8 @@ void PortalWorld::CreateTexturesPortalWorld()
 	world.CreateTextures("SWIRL3", "data/portalswirl.jpg");
 
 	pic.CreateTexture("EXITSCREEN", "data/facePics/exitWindow.jpg");
+
+	pic.CreateTexture("LEVEL1", "data/level1Label.jpg");
 	
 }
 
@@ -236,4 +241,37 @@ void PortalWorld::DisplayExitScreen()
 	glMatrixMode(GL_MODELVIEW);
 	glPopMatrix();
 
+}
+
+void PortalWorld::DisplayLevel()
+{
+	glPushMatrix();
+	glMatrixMode(GL_PROJECTION);
+	glPushMatrix();
+	glLoadIdentity();
+	gluOrtho2D(0, width, 0, height);
+	glScalef(1, -1, 1);
+
+	// move to centre of screen
+	glTranslatef(width / 2 - 256.0f, -height / 2 - 256.0f, 0);
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+
+	glBindTexture(GL_TEXTURE_2D, pic.getTextureID("LEVEL1"));
+
+	glTranslatef(-256, -100, 0);
+	glScalef(2, 2, 0);
+
+	glBegin(GL_QUADS);
+	glTexCoord2i(0, 0); glVertex2i(-50, 0);
+	glTexCoord2i(0, 1); glVertex2i(-50, 50);
+	glTexCoord2i(1, 1); glVertex2i(100, 50);
+	glTexCoord2i(1, 0); glVertex2i(100, 0);
+	glEnd();
+
+	// Reset Perspective Projection
+	glMatrixMode(GL_PROJECTION);
+	glPopMatrix();
+	glMatrixMode(GL_MODELVIEW);
+	glPopMatrix();
 }

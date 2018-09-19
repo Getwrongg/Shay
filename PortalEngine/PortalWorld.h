@@ -97,6 +97,8 @@ public:
 	*/
 	void AnimatePortalWorld();
 
+	void ChangeSwirlImage();
+
 	/**
 	* @author Manu Murray
 	*
@@ -140,6 +142,8 @@ public:
 	* @return void
 	*/
 	void DisplayExitScreen();
+
+	void DisplayLevel();
 
 private:
 	// camera variables
