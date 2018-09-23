@@ -21,22 +21,26 @@ void World::CreateTextures(const std::string name, const char * filePath)
 
 void World::Axis() 
 {
+	//x axis
 	glColor3f(1, 0, 0);
 	glBegin(GL_LINES);
-	glVertex3f(0.0f, -0.9f, 0.0f);
-	glVertex3f(1.0f, -0.9f, 0.0f);
+	glVertex3f(0.0f, 0.0f, 0.0f);
+	glVertex3f(100.0f, -0.9f, 0.0f);
 	glEnd();
 
+	//y axis
 	glColor3f(0, 1, 0);
 	glBegin(GL_LINES);
-	glVertex3f(0.0f, -0.9f, 0.0f);
-	glVertex3f(0.0f, 2.0f, 0.0f);
+	glVertex3f(0.0f, 0.0f, 0.0f);
+	glVertex3f(0.0f, 200.0f, 0.0f);
 	glEnd();
 
+
+	//z axis
 	glColor3f(0, 0, 1);
 	glBegin(GL_LINES);
-	glVertex3f(0.0f, -0.9f, 0.0f);
-	glVertex3f(0.0f, -0.9f, 3.0f);
+	glVertex3f(0.0f, 0.0f, 0.0f);
+	glVertex3f(0.0f, -0.9f, 300.0f);
 	glEnd();
 
 
@@ -81,71 +85,70 @@ void World::Ground()
 
 void World::Cubes()
 {
-     
-	//cube.Draw(0, -1, 0);//bottom
-	//cube.Draw(0, 0, 0);
-	//cube.Draw(0, 3, 0);
 
-	////First Pillar
-	//cube.Draw(0, -1, 0);//bottom
-	//cube.Draw(0, 0, 0);
-	//cube.Draw(0, 1, 0);
+	glPushMatrix();
+	glScaled(14.5, 14.5, 14.5);
 
-	//cube.Draw(0, 4, 0);//top
-	//cube.Draw(0, 5, 0);
-	//cube.Draw(0, 6, 0);
+	
 
-	////Second Pillar
-	//cube.Draw(3, -1 ,0);//bottom
-	//cube.Draw(3, 0, 0);
-	//
-	//
-	//cube.Draw(3, 3, 0);//top
-	//cube.Draw(3, 4, 0);
-	//cube.Draw(3, 5, 0);
-	//cube.Draw(3, 6, 0);
+	//First Pillar
 
-	////Third Pillar
-	//cube.Draw(6, -1, 0);//bottom
-	//cube.Draw(6, 0, 0);
-	//cube.Draw(6, 1, 0);
+	//bottom
+	cube.Draw(0, 0, 0);
+	cube.Draw(0, 1, 0);
 
-	//cube.Draw(6, 4, 0);//top
-	//cube.Draw(6, 5, 0);
-	//cube.Draw(6, 6, 0);
+	//top
+	cube.Draw(0, 4, 0);
+	
 
-	////Fourth Pillar
-	//cube.Draw(9, 2, 0);
-	//cube.Draw(9, 3, 0);
+	//Second Pillar
+	//bottom
+	cube.Draw(3, 0, 0);
+	
+	
+	cube.Draw(3, 3, 0);//top
+	cube.Draw(3, 4, 0);
+	
 
-	////Fifth Pillar
-	//cube.Draw(12, 1, 0);
-	//cube.Draw(12, 2, 0);
-	//cube.Draw(12, 3, 0);
-	//cube.Draw(12, 4, 0);
-	//cube.Draw(12, 5, 0);
+	//Third Pillar
+	//bottom
+	cube.Draw(6, 0, 0);
+	cube.Draw(6, 1, 0);
 
-	////Sixth Pillar
-	//cube.Draw(15, 0, 0);
-	//cube.Draw(15, 1, 0);
-	//cube.Draw(15, 5, 0);
-	//cube.Draw(15, 6, 0);
+	cube.Draw(6, 4, 0);//top
+	
 
+	//Fourth Pillar
+	cube.Draw(9, 2, 0);
+	
 
-	////top railing pillar
-	//for (float i = 0; i <= 15; i++)
-	//{
-	//	cube.Draw(i, 7.0f, 0.0f);
-	//}
+	//Fifth Pillar
+	
+	cube.Draw(12, 2, 0);
+	cube.Draw(12, 3, 0);
+	cube.Draw(12, 4, 0);
+	
 
-	////bottom railing pillar
-	//for (float i = 0; i <= 15; i++)
-	//{
-	//	cube.Draw(i, -1.0f, 0.0f);
-	//}
+	//Sixth Pillar
+	cube.Draw(15, 0, 0);
+	cube.Draw(15, 1, 0);
+	
 
 
-			
+	/*//top railing pillar
+	for (float i = 0; i <= 15; i++)
+	{
+		cube.Draw(i, 7.0f, 0.0f);
+	}
+
+	//bottom railing pillar
+	for (float i = 0; i <= 15; i++)
+	{
+		cube.Draw(i, -1.0f, 0.0f);
+	}*/
+
+
+	glPopMatrix();
 	
 }
 
@@ -166,17 +169,17 @@ void World::Track1()
 
 	//BACK
 	glBegin(GL_POLYGON);
-	glTexCoord2i(1, 1); glVertex3f(400.0, 2.0, 0.0);
-	glTexCoord2i(0, 1); glVertex3f(0.0, 2.0, 0.0);
-	glTexCoord2i(0, 0); glVertex3f(0.0, -100.0, 0.0);
-	glTexCoord2i(1, 0); glVertex3f(400.0, -100.0, 0.0);
+	glTexCoord2i(1, 1); glVertex3f(400.0, 2.0, -1.0);
+	glTexCoord2i(0, 1); glVertex3f(0.0, 2.0, -1.0);
+	glTexCoord2i(0, 0); glVertex3f(0.0, -100.0, -1.0);
+	glTexCoord2i(1, 0); glVertex3f(400.0, -100.0, -1.0);
 	glEnd();
 
 	//FRONT
 	glBegin(GL_POLYGON);
 	glTexCoord2i(1, 1); glVertex3f(0.0, 2.0, 15.0);
-	glTexCoord2i(0, 1); glVertex3f(0.0, 2.0, 0.0);
-	glTexCoord2i(0, 0); glVertex3f(0.0, -100.0, 0.0);
+	glTexCoord2i(0, 1); glVertex3f(0.0, 2.0, -1.0);
+	glTexCoord2i(0, 0); glVertex3f(0.0, -100.0, -1.0);
 	glTexCoord2i(1, 0); glVertex3f(0.0, -100.0, 15.0);
 	glEnd();
 
@@ -184,8 +187,8 @@ void World::Track1()
 	glBegin(GL_POLYGON);
 	glTexCoord2i(1, 1); glVertex3f(400.0, 2.0, 15.0);
 	glTexCoord2i(0, 1); glVertex3f(0.0, 2.0, 15.0);
-	glTexCoord2i(0, 0); glVertex3f(0.0, 2.0, 0.0);
-	glTexCoord2i(1, 0); glVertex3f(400.0, 2.0, 0.0);
+	glTexCoord2i(0, 0); glVertex3f(0.0, 2.0, -1.0);
+	glTexCoord2i(1, 0); glVertex3f(400.0, 2.0, -1.0);
 	glEnd();
 
 

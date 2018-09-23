@@ -24,7 +24,7 @@ class World
 {
 public:
 	/**
-	* @author Christopher Gemmel
+	* @author Christopher Gemmell
 	*
 	* @brief default constructor
 	*
@@ -35,7 +35,7 @@ public:
 	World();
 
 	/**
-	* @author Christopher Gemmel
+	* @author Christopher Gemmell
 	*
 	* @brief creates textures for the world
 	*
@@ -46,7 +46,7 @@ public:
 	void CreateTextures(const std::string name, const char * filePath);
 
 	/**
-	* @author Christopher Gemmel
+	* @author Christopher Gemmell
 	*
 	* @brief draws the ground
 	*
@@ -57,7 +57,7 @@ public:
 	void Ground();
 
 	/**
-	* @author Christopher Gemmel
+	* @author Christopher Gemmell
 	*
 	* @brief draws the pillars out of cubes
 	*
@@ -70,7 +70,7 @@ public:
 	void Track1();
 
 	/**
-	* @author Christopher Gemmel
+	* @author Christopher Gemmell
 	*
 	* @brief draws an xyz axis
 	*
@@ -81,7 +81,7 @@ public:
 	void Axis();
 
 	/**
-	* @author Christopher Gemmel
+	* @author Christopher Gemmell
 	*
 	* @brief create the bushes
 	*
@@ -92,7 +92,7 @@ public:
 	void Bushes(const GLfloat x1, const GLfloat y1, const GLfloat z1);
 
 	/**
-	* @author Christopher Gemmel
+	* @author Christopher Gemmell
 	*
 	* @brief draws the bushes
 	*
@@ -114,7 +114,7 @@ public:
 	void AnimatePortalWorld();
 
 	/**
-	* @author Shane Martinez
+	* @author Christopher Gemmell
 	*
 	* @brief draws a skybox/cylinder
 	*
