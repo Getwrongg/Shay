@@ -1,6 +1,7 @@
 #include "World.h"
 #include "Cam.h"
 #include "ImageLoader.h"
+#include "Player.h"
 
 #pragma once
 
@@ -97,8 +98,6 @@ public:
 	*/
 	void AnimatePortalWorld();
 
-	void ChangeSwirlImage();
-
 	/**
 	* @author Manu Murray
 	*
@@ -147,6 +146,8 @@ public:
 
 	void DisplayLevel();
 
+	void CamFollowPlayer();
+
 private:
 	// camera variables
 	GLfloat moveSpeed; // walking sensitivity
@@ -163,6 +164,7 @@ private:
 	Cam ourCam;
 	World world;
 	ImageLoader pic;
+	Player player;
 
 	int width, height;
 

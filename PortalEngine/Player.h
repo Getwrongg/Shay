@@ -28,7 +28,7 @@ public:
 	void LoadTexture(const std::string name, const char * filePath);
 	void Update();
 	Coordinates & GetPosition();
-	void SetPosition(const GLdouble x, const GLdouble y, const GLdouble z);
+	void SetPosition(const GLfloat x, const GLfloat y, const GLfloat z);
 	void PointCounter(int amount);
 
 private:
@@ -36,11 +36,12 @@ private:
 	GLfloat size;
 	GLint slices, stacks;
 	GLUquadricObj *sphere;
+	std::string texName;
 
 	// jpegloader object for textures
 	ImageLoader pj;
 
-	GLdouble gravity;
+	GLfloat gravity;
 
 };
 

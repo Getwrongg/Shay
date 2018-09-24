@@ -61,6 +61,8 @@ void PortalWorld::MyInit()
 	ourCam.SetMoveSpeed(moveSpeed); // sets movement speed of camera
 	ourCam.SetRotateSpeed(rotateSpeed); // sets rotate speed of camera
 	ourCam.SetPosition(pos, upVec, angle); // sets position of the camera in the world
+
+	player.SetPosition(0.0f, 45.0f, 7.0f); // starting position of player
 }
 
 void PortalWorld::Display()
@@ -90,6 +92,8 @@ void PortalWorld::Display()
 	world.Cubes();
 	world.Track1();
 
+	player.DrawPlayer();
+
 	glDisable(GL_TEXTURE_2D);
 	glutSwapBuffers();
 }
@@ -114,6 +118,7 @@ void PortalWorld::CreateTexturesPortalWorld()
 
 	pic.CreateTexture("MENU", "data/UI/menu.png");
 
+	player.LoadTexture("SWIRL", "data/portalswirl.jpg"); // texture for player
 }
 
 void PortalWorld::MouseMovement(int x, int y)
