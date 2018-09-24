@@ -129,7 +129,7 @@ private:
 	Cube cube; // object of type cube - draws cubes for pillars
 
 	// variables for skyCylinder rotation
-	float rotates = 1;
-	float rotateSPEED = 0.2;
+	float rotates = 1.0f;
+	float rotateSPEED = 0.2f;
 };
 
