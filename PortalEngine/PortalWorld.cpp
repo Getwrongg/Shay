@@ -181,7 +181,6 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 		if (DisplayExit == false)
 		{			
 			DisplayExit = true;
-			DisplayExitScreen();
 		}
 	case 27:
 		ourCam.SetMoveSpeed(0.0f);
@@ -189,7 +188,10 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 		if (DisplayMenu == false)
 		{
 			DisplayMenu = true;
-			DisplayMenuScreen();
+		}
+		else if (DisplayMenu == true)
+		{
+			DisplayMenu = false;
 		}
 	
 	}
@@ -216,7 +218,6 @@ void PortalWorld::ReleaseKeyboard(unsigned char key, int x, int y)
 	case 27:
 		ourCam.SetMoveSpeed(0.25f);
 		ourCam.SetRotateSpeed(0.005f);
-		DisplayMenu = false;
 	}
 }
 
