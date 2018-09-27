@@ -1,7 +1,13 @@
 #include "LevelLoader.h"
 
 void LevelLoader::LoadTexture() {
-	leveldraw.CreateTexture();
+	cubedraw.CreateTexture();
+	coindraw.CreateTexture();
+
+}
+
+void LevelLoader::AnimateCoin() {
+	coindraw.AnimateCoin();
 }
 
 void LevelLoader::LoadLevel(const std::string levelName, const char *file) { // ./levels/level.txt
@@ -29,7 +35,10 @@ void LevelLoader::DrawLevel(const std::string levelName) {
 	for (int i = 0; i < MAX_HEIGHT; i++) {
 		for (int j = 0; j < LevelStorage.find(levelName)->second[reverse].length(); j++) {
 			if (LevelStorage.find(levelName)->second[reverse].at(j) == '1') {
-				leveldraw.Draw(j, i, 0);
+				cubedraw.Draw(j, i, 0);
+			}
+			if (LevelStorage.find(levelName)->second[reverse].at(j) == '2') {
+				coindraw.DrawCoin(j, i, 0);
 			}
 		}
 		reverse--;

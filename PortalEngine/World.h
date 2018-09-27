@@ -4,6 +4,7 @@
 
 #include "Structs.h"
 #include "Cube.h"
+#include "Coin.h"
 #include "ImageLoader.h"
 #include "LevelLoader.h"
 
@@ -125,9 +126,11 @@ public:
 	*/
 	void SkyCylinder();
 
+
 private:
 	ImageLoader j; // object to load images
 	Cube cube; // object of type cube - draws cubes for pillars
+	Coin coin;
 
 	LevelLoader levelloader; //loads the level from a file
 

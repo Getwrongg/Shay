@@ -13,8 +13,12 @@ void World::CreateTextures(const std::string name, const char * filePath)
 	j.CreateTexture("PINK", "data/multicolor.jpg");
 
 	j.CreateTexture("GOD1", "data/god1.png");
+
+	j.CreateTexture("COIN", "data/coin.jpg");
 	
 	cube.CreateTexture();
+
+	coin.CreateTexture();
 
 	levelloader.LoadTexture();
 
@@ -53,6 +57,7 @@ void World::Axis()
 void World::AnimatePortalWorld() 
 {
 	rotates = rotates + rotateSPEED;
+	levelloader.AnimateCoin();
 }
 
 void World::SkyCylinder()
@@ -60,7 +65,7 @@ void World::SkyCylinder()
 	glBindTexture(GL_TEXTURE_2D, j.getTextureID("SWIRL"));
 
 	glPushMatrix();
-	GLUquadricObj *glu_cylinder;
+	GLUquadricObj* glu_cylinder;
 
 	glu_cylinder = gluNewQuadric();
 	gluQuadricTexture(glu_cylinder, GL_TRUE);
@@ -73,6 +78,8 @@ void World::SkyCylinder()
 	gluCylinder(glu_cylinder, 100, 100, 450, 200, 200);
 	glPopMatrix();	
 }
+
+
 
 void World::Ground() 
 {	

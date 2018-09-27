@@ -126,6 +126,7 @@
   <ItemGroup>
     <ClInclude Include="audio.h" />
     <ClInclude Include="Cam.h" />
+    <ClInclude Include="Coin.h" />
     <ClInclude Include="Cube.h" />
     <ClInclude Include="ImageLoader.h" />
     <ClInclude Include="LevelLoader.h" />
@@ -138,6 +139,7 @@
   <ItemGroup>
     <ClCompile Include="audio.cpp" />
     <ClCompile Include="Cam.cpp" />
+    <ClCompile Include="Coin.cpp" />
     <ClCompile Include="Cube.cpp" />
     <ClCompile Include="ImageLoader.cpp" />
     <ClCompile Include="LevelLoader.cpp" />
