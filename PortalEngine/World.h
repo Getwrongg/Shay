@@ -5,6 +5,7 @@
 #include "Structs.h"
 #include "Cube.h"
 #include "ImageLoader.h"
+#include "LevelLoader.h"
 
 /**
 * @class World
@@ -127,6 +128,8 @@ public:
 private:
 	ImageLoader j; // object to load images
 	Cube cube; // object of type cube - draws cubes for pillars
+
+	LevelLoader levelloader; //loads the level from a file
 
 	// variables for skyCylinder rotation
 	float rotates = 1.0f;

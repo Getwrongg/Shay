@@ -1,0 +1,5 @@
+0=Empty
+1=Block
+2=Coin // Not implemented
+
+Currently levels can have a max height of 5 blocks 

@@ -15,6 +15,10 @@ void World::CreateTextures(const std::string name, const char * filePath)
 	j.CreateTexture("GOD1", "data/god1.png");
 	
 	cube.CreateTexture();
+
+	levelloader.LoadTexture();
+
+	levelloader.LoadLevel("level1", "./levels/level1.txt");
 	
 
 }
@@ -89,63 +93,8 @@ void World::Cubes()
 	glPushMatrix();
 	glScaled(14.5, 14.5, 14.5);
 
-	
 
-	//First Pillar
-
-	//bottom
-	cube.Draw(0, 0, 0);
-	cube.Draw(0, 1, 0);
-
-	//top
-	cube.Draw(0, 4, 0);
-	
-
-	//Second Pillar
-	//bottom
-	cube.Draw(3, 0, 0);
-	
-	
-	cube.Draw(3, 3, 0);//top
-	cube.Draw(3, 4, 0);
-	
-
-	//Third Pillar
-	//bottom
-	cube.Draw(6, 0, 0);
-	cube.Draw(6, 1, 0);
-
-	cube.Draw(6, 4, 0);//top
-	
-
-	//Fourth Pillar
-	cube.Draw(9, 2, 0);
-	
-
-	//Fifth Pillar
-	
-	cube.Draw(12, 2, 0);
-	cube.Draw(12, 3, 0);
-	cube.Draw(12, 4, 0);
-	
-
-	//Sixth Pillar
-	cube.Draw(15, 0, 0);
-	cube.Draw(15, 1, 0);
-	
-
-
-	/*//top railing pillar
-	for (float i = 0; i <= 15; i++)
-	{
-		cube.Draw(i, 7.0f, 0.0f);
-	}
-
-	//bottom railing pillar
-	for (float i = 0; i <= 15; i++)
-	{
-		cube.Draw(i, -1.0f, 0.0f);
-	}*/
+	levelloader.DrawLevel("level1");
 
 
 	glPopMatrix();

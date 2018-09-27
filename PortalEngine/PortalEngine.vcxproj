@@ -128,6 +128,7 @@
     <ClInclude Include="Cam.h" />
     <ClInclude Include="Cube.h" />
     <ClInclude Include="ImageLoader.h" />
+    <ClInclude Include="LevelLoader.h" />
     <ClInclude Include="objectaudio.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PortalWorld.h" />
@@ -139,6 +140,7 @@
     <ClCompile Include="Cam.cpp" />
     <ClCompile Include="Cube.cpp" />
     <ClCompile Include="ImageLoader.cpp" />
+    <ClCompile Include="LevelLoader.cpp" />
     <ClCompile Include="objectaudio.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PortalWorld.cpp" />
