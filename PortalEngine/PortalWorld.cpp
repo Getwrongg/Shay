@@ -88,9 +88,10 @@ void PortalWorld::Display()
 	DisplayLevel();
 
 	world.SkyCylinder();
-	world.Axis();//Draws the axis for testing
-	world.Cubes();
-	world.Track1();
+	world.DrawLevel();
+
+	//world.Axis();//Draws the axis for testing
+	//world.Track1();
 
 	player.DrawPlayer();
 

@@ -66,7 +66,7 @@ public:
 	*
 	* @return void
 	*/
-	void Cubes();
+	void DrawLevel();
 
 	void Track1();
 

@@ -65,7 +65,7 @@ void World::SkyCylinder()
 	glu_cylinder = gluNewQuadric();
 	gluQuadricTexture(glu_cylinder, GL_TRUE);
 	
-	glTranslatef(-50, 1, 1);
+	glTranslatef(-50, 70, 1);
 	glRotatef(180, 1.0f, 0.0f, 1);
 	glRotatef(rotates, 1.0f, 0.0f, rotates);
 	
@@ -87,15 +87,12 @@ void World::Ground()
 
 }
 
-void World::Cubes()
+void World::DrawLevel()
 {
-
 	glPushMatrix();
 	glScaled(14.5, 14.5, 14.5);
 
-
 	levelloader.DrawLevel("level1");
-
 
 	glPopMatrix();
 	
@@ -103,8 +100,8 @@ void World::Cubes()
 
 void World::Track1()
 {
-	//_________________BOTTOM PILLAR OF TRACK________________
-	//_______________________________________________________
+	////_________________BOTTOM PILLAR OF TRACK________________
+	////_______________________________________________________
 
 	glBindTexture(GL_TEXTURE_2D, j.getTextureID("SWIRL"));
 

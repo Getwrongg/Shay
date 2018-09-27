@@ -2,4 +2,4 @@
 1=Block
 2=Coin // Not implemented
 
-Currently levels can have a max height of 5 blocks 
+Currently levels can have a max height of 9 blocks with the top and bottom row acting as the boundary for the level

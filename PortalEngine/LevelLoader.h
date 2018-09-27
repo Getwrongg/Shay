@@ -7,7 +7,7 @@
 
 #include "Cube.h"
 
-const int MAX_HEIGHT = 5;
+const int MAX_HEIGHT = 9;
 
 class LevelLoader{
 public:
