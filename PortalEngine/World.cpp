@@ -1,11 +1,5 @@
 #include "World.h"
 
-
-
-World::World()
-{
-}
-
 void World::CreateTextures(const std::string name, const char * filePath)
 {
 	j.CreateTexture("SWIRL", "data/stars.jpg");
@@ -24,7 +18,6 @@ void World::CreateTextures(const std::string name, const char * filePath)
 
 	levelloader.LoadLevel("level1", "./levels/level1.txt");
 	
-
 }
 
 void World::Axis() 
@@ -57,29 +50,30 @@ void World::Axis()
 void World::AnimatePortalWorld() 
 {
 	rotates = rotates + rotateSPEED;
+	if (rotates >= 360) {
+		rotates = 0;
+	}
 	levelloader.AnimateCoin();
 }
 
 void World::SkyCylinder()
-{
+{	
+	GLUquadricObj* glu_cylinder;
+	glu_cylinder = gluNewQuadric();
+
+	gluQuadricTexture(glu_cylinder, GL_TRUE);
+	gluQuadricDrawStyle(glu_cylinder, GLU_FILL); //GLUquadricObj * qobj = gluNewQuadric();
 	glBindTexture(GL_TEXTURE_2D, j.getTextureID("SWIRL"));
 
 	glPushMatrix();
-	GLUquadricObj* glu_cylinder;
-
-	glu_cylinder = gluNewQuadric();
-	gluQuadricTexture(glu_cylinder, GL_TRUE);
 	
 	glTranslatef(-50, 70, 1);
 	glRotatef(180, 1.0f, 0.0f, 1);
 	glRotatef(rotates, 1.0f, 0.0f, rotates);
-	
-	gluQuadricDrawStyle(glu_cylinder, GLU_FILL); //GLUquadricObj * qobj = gluNewQuadric();
 	gluCylinder(glu_cylinder, 100, 100, 450, 200, 200);
+
 	glPopMatrix();	
 }
-
-
 
 void World::Ground() 
 {	
@@ -102,7 +96,6 @@ void World::DrawLevel()
 	levelloader.DrawLevel("level1");
 
 	glPopMatrix();
-	
 }
 
 void World::Track1()
@@ -214,8 +207,6 @@ void World::DrawBushes() {
 
 void World::Bushes(const GLfloat x1, const GLfloat y1, const GLfloat z1)
 {
-	
-	
 	glPushMatrix();
 	glTranslatef(x1, y1, z1);
 	//left half of bush
@@ -254,5 +245,4 @@ void World::Bushes(const GLfloat x1, const GLfloat y1, const GLfloat z1)
 
 	}
 	glPopMatrix();
-
 }

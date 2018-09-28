@@ -28,17 +28,6 @@ public:
 	/**
 	* @author Christopher Gemmell
 	*
-	* @brief default constructor
-	*
-	*
-	*
-	*
-	*/
-	World();
-
-	/**
-	* @author Christopher Gemmell
-	*
 	* @brief creates textures for the world
 	*
 	* @param const std::string name, const char * filePath
