@@ -22,9 +22,9 @@ void Coin::DrawCoin(const GLfloat x1, const GLfloat y1, const GLfloat z1)
 	glPopMatrix();
 }
 
-void Coin::AnimateCoin() 
+void Coin::AnimateCoin(const GLfloat timeSincePrevFrame)
 {
-	rotate = rotate + rotateSpeed;
+	rotate += rotateSpeed * timeSincePrevFrame;
 	if (rotate >= 360) {
 		rotate = 0;
 	}

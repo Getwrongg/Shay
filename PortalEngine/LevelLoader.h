@@ -13,7 +13,7 @@ const int MAX_HEIGHT = 9;
 class LevelLoader{
 public:
 	void LoadTexture();
-	void AnimateCoin();
+	void AnimateCoin(const GLfloat timeSincePrevFrame);
 	void LoadLevel(const std::string levelName, const char *file);
 	void DrawLevel(const std::string levelName);
 

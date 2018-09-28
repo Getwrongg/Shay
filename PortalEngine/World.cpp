@@ -53,7 +53,7 @@ void World::AnimatePortalWorld(const GLfloat timeSincePrevFrame)
 	if (rotates >= 360) {
 		rotates = 0;
 	}
-	levelloader.AnimateCoin();
+	levelloader.AnimateCoin(timeSincePrevFrame);
 }
 
 void World::SkyCylinder()

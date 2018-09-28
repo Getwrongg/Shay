@@ -49,13 +49,16 @@ void Player::SetPosition(const GLfloat x, const GLfloat y, const GLfloat z)
 
 void Player::Update(const GLfloat timeSincePrevFrame, const bool clickedMouse)
 {
+	// if the user clicks the player is moved upwards
 	if (clickedMouse)
 	{
 		vertSpeed = jumpSpeed;
 	}
+	// moves the player up or down
 	pos.y += vertSpeed * timeSincePrevFrame;
 	vertSpeed -= gravity * timeSincePrevFrame;
 
+	// moves the player forward along the level
 	pos.x += moveSpeed * timeSincePrevFrame;
 }
 

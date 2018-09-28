@@ -6,9 +6,9 @@ void LevelLoader::LoadTexture()
 	coindraw.CreateTexture();
 }
 
-void LevelLoader::AnimateCoin() 
+void LevelLoader::AnimateCoin(const GLfloat timeSincePrevFrame)
 {
-	coindraw.AnimateCoin();
+	coindraw.AnimateCoin(timeSincePrevFrame);
 }
 
 void LevelLoader::LoadLevel(const std::string levelName, const char *file) // ./levels/level.txt
