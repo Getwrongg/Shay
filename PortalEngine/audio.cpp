@@ -7,10 +7,10 @@ Audio::Audio() {
 }
 
 Audio::~Audio() {
-	for (int i = 0; i < Audio_Names.size(); i++) {
+	for (unsigned i = 0; i < Audio_Names.size(); i++) {
 		Mix_FreeChunk(Audio_Files.find(Audio_Names[i])->second);
 	}
-	for (int i = 0; i < Music_Names.size(); i++) {
+	for (unsigned i = 0; i < Music_Names.size(); i++) {
 		Mix_FreeMusic(Music_Files.find(Music_Names[i])->second);
 	}
 	Mix_CloseAudio();

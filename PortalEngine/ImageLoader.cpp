@@ -68,7 +68,7 @@ const GLuint ImageLoader::getTextureID(const std::string TName) const{
 
 void ImageLoader::UnloadAllTextures() {
 	GLuint tempID;
-	for (int i = 0; i < Texture_Names.size(); i++) {
+	for (unsigned i = 0; i < Texture_Names.size(); i++) {
 		tempID = getTextureID(Texture_Names[i]);
 		glDeleteTextures(1, &tempID);
 	}
