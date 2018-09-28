@@ -46,6 +46,23 @@ void Player::SetPosition(const GLfloat x, const GLfloat y, const GLfloat z)
 void Player::Update()
 {
 	pos.y -= gravity;
+
+	//formula for simulating falling
+
+	//vertSpeed = 0;
+	//method Update()
+	//{
+	//	if (PlayerClicksMouse)
+	//	{
+	//		vertSpeed = jumpSpeed;
+	//	}
+	//	pos.y += vertSpeed * deltaTime;
+	//	vertSpeed -= fallingConstant * deltaTime;
+	//}
+	//
+	//jumpSpeed = a positive constant
+	//fallingConstant = also a positive constant 
+
 }
 
 void Player::PointCounter(int amount)
