@@ -10,7 +10,7 @@ Player::Player()
 	slices = 20;
 	stacks = 20;
 
-	gravity = 40.0f;
+	gravity = 50.0f;
 	vertSpeed = 0.0f;
 	jumpSpeed = 30.0f;
 	moveSpeed = 25.0f;
