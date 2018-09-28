@@ -10,9 +10,10 @@ Player::Player()
 	slices = 20;
 	stacks = 20;
 
-	gravity = 50.0f;
+	gravity = 40.0f;
 	vertSpeed = 0.0f;
-	jumpSpeed = 50.0f;
+	jumpSpeed = 25.0f;
+	moveSpeed = 25.0f;
 
 	texName = "";
 
@@ -48,28 +49,14 @@ void Player::SetPosition(const GLfloat x, const GLfloat y, const GLfloat z)
 
 void Player::Update(const GLfloat timeSincePrevFrame, const bool clickedMouse)
 {
-	//formula for simulating falling
-
-	//vertSpeed = 0;
-	//method Update()
-	//{
-	//	if (PlayerClicksMouse)
-	//	{
-	//		vertSpeed = jumpSpeed;
-	//	}
-	//	pos.y += vertSpeed * deltaTime;
-	//	vertSpeed -= fallingConstant * deltaTime;
-	//}
-	//
-	//jumpSpeed = a positive constant
-	//fallingConstant = also a positive constant 
-
 	if (clickedMouse)
 	{
 		vertSpeed = jumpSpeed;
 	}
 	pos.y += vertSpeed * timeSincePrevFrame;
 	vertSpeed -= gravity * timeSincePrevFrame;
+
+	pos.x += moveSpeed * timeSincePrevFrame;
 }
 
 void Player::PointCounter(int amount)

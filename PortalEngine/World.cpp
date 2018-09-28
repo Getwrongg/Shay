@@ -47,9 +47,9 @@ void World::Axis()
 
 }
 
-void World::AnimatePortalWorld() 
+void World::AnimatePortalWorld(const GLfloat timeSincePrevFrame)
 {
-	rotates = rotates + rotateSPEED;
+	rotates += rotateSPEED * timeSincePrevFrame;
 	if (rotates >= 360) {
 		rotates = 0;
 	}

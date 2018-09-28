@@ -41,7 +41,7 @@ private:
 	// jpegloader object for textures
 	ImageLoader pj;
 
-	GLfloat gravity, vertSpeed, jumpSpeed;
+	GLfloat gravity, vertSpeed, jumpSpeed, moveSpeed;
 
 };
 

@@ -102,7 +102,7 @@ public:
 	*
 	* @return void
 	*/
-	void AnimatePortalWorld();
+	void AnimatePortalWorld(const GLfloat timeSincePrevFrame);
 
 	/**
 	* @author Christopher Gemmell
@@ -125,6 +125,6 @@ private:
 
 	// variables for skyCylinder rotation
 	float rotates = 1.0f;
-	float rotateSPEED = 0.2f;
+	float rotateSPEED = 50.0f;
 };
 

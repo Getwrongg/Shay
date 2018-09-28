@@ -115,7 +115,7 @@ void PortalWorld::AnimatePortalWorld()
 
 	player.Update(timeSincePrevFrame, clickedMouse);
 
-	world.AnimatePortalWorld();
+	world.AnimatePortalWorld(timeSincePrevFrame);
 
 	glutPostRedisplay();
 }
