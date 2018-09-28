@@ -10,7 +10,7 @@ Player::Player()
 	slices = 20;
 	stacks = 20;
 
-	gravity = 50.0f;
+	gravity = 40.0f;
 	vertSpeed = 0.0f;
 	jumpSpeed = 30.0f;
 	moveSpeed = 25.0f;
@@ -74,4 +74,10 @@ void Player::Update(const GLfloat timeSincePrevFrame, const bool leftclickedMous
 void Player::PointCounter(int amount)
 {
 
+}
+
+void Player::ResetPlayer() 
+{
+	SetPosition(-60.0f, 72.5f, 7.0f);
+	boostAmount = 10.0f;
 }

@@ -6,7 +6,7 @@
 #include "Cube.h"
 #include "Coin.h"
 #include "ImageLoader.h"
-#include "LevelLoader.h"
+#include "LevelManager.h"
 
 /**
 * @class World
@@ -54,9 +54,11 @@ public:
 	*
 	*
 	*
-	* @return void
+	* @return true if player fails level
 	*/
-	void DrawLevel();
+	bool DrawLevel(const Coordinates pos);
+
+	void ResetLevel();
 
 	void Track1();
 
@@ -121,7 +123,7 @@ private:
 	Cube cube; // object of type cube - draws cubes for pillars
 	Coin coin;
 
-	LevelLoader levelloader; //loads the level from a file
+	LevelManager levelmanager; //loads the level from a file
 
 	// variables for skyCylinder rotation
 	float rotates = 0.0f;

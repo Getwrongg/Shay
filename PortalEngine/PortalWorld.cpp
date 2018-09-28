@@ -67,7 +67,11 @@ void PortalWorld::MyInit()
 	//ourCam.SetRotateSpeed(rotateSpeed); // sets rotate speed of camera
 	//ourCam.SetPosition(pos, upVec, angle); // sets position of the camera in the world
 
-	player.SetPosition(-80.0f, 75.0f, 7.0f); // starting position of player
+	player.SetPosition(-80.0f, 72.5f, 7.0f); // starting position of player
+
+
+
+
 }
 
 void PortalWorld::Display()
@@ -94,7 +98,12 @@ void PortalWorld::Display()
 	DisplayLevel();
 
 	world.SkyCylinder();
-	world.DrawLevel();
+
+	if (world.DrawLevel(player.GetPosition())) { // draw level and reset the player and level if they fail
+		world.ResetLevel();
+		player.ResetPlayer();
+	}
+
 	AnimatePortalWorld();
 
 	//world.Axis();//Draws the axis for testing

@@ -129,7 +129,7 @@
     <ClInclude Include="Coin.h" />
     <ClInclude Include="Cube.h" />
     <ClInclude Include="ImageLoader.h" />
-    <ClInclude Include="LevelLoader.h" />
+    <ClInclude Include="LevelManager.h" />
     <ClInclude Include="objectaudio.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PortalWorld.h" />
@@ -142,7 +142,7 @@
     <ClCompile Include="Coin.cpp" />
     <ClCompile Include="Cube.cpp" />
     <ClCompile Include="ImageLoader.cpp" />
-    <ClCompile Include="LevelLoader.cpp" />
+    <ClCompile Include="LevelManager.cpp" />
     <ClCompile Include="objectaudio.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PortalWorld.cpp" />

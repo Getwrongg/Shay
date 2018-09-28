@@ -736,7 +736,8 @@ void EnterPortal()
 		game_audio.AudioVolume(2, objectaudio::FindVolume(cam.GetLR(), cam.GetFB(), 23500, 18000, 15000));
 	}
 	else {
-		game_audio.StopAudio(2);
+		game_audio.StopAudio(-1);
+		game_audio.StopMusic();
 	}
 
 	if ((cam.GetLR() <= 23700.0 & cam.GetLR() >= 23300.0) & (cam.GetFB() <= 18200 & cam.GetFB() >= 17800))
@@ -753,6 +754,7 @@ void StartPortalWorld()
 {
 	inPortal = true;
 	game_audio.StopAudio(-1);
+	game_audio.StopMusic();
 
 	// initialises portalworld variables
 	portalLogic.MyInit();

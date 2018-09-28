@@ -14,9 +14,11 @@ void World::CreateTextures(const std::string name, const char * filePath)
 
 	coin.CreateTexture();
 
-	levelloader.LoadTexture();
+	levelmanager.LoadTexture();
 
-	levelloader.LoadLevel("level1", "./levels/level1.txt");
+	levelmanager.LoadLevel("level1", "./levels/level1.txt");
+
+	levelmanager.SetLevel("level1");
 	
 }
 
@@ -53,7 +55,7 @@ void World::AnimatePortalWorld(const GLfloat timeSincePrevFrame)
 	if (rotates >= 360) {
 		rotates = 0;
 	}
-	levelloader.AnimateCoin(timeSincePrevFrame);
+	levelmanager.AnimateCoin(timeSincePrevFrame);
 }
 
 void World::SkyCylinder()
@@ -88,14 +90,25 @@ void World::Ground()
 
 }
 
-void World::DrawLevel()
+bool World::DrawLevel(const Coordinates pos) //returns true if player fails level
 {
 	glPushMatrix();
 	glScaled(14.5, 14.5, 14.5);
 
-	levelloader.DrawLevel("level1");
+	levelmanager.DrawLevel(pos);
 
+	if (levelmanager.HasFailed()) //Level is currently set in World::CreateTextures
+	{
+		return true;
+	}
 	glPopMatrix();
+
+	return false;
+}
+
+void World::ResetLevel() 
+{
+	levelmanager.ResetLevel();
 }
 
 void World::Track1()

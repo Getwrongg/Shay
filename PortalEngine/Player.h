@@ -31,6 +31,8 @@ public:
 	void SetPosition(const GLfloat x, const GLfloat y, const GLfloat z);
 	void PointCounter(int amount);
 
+	void ResetPlayer();
+
 private:
 	Coordinates pos;
 	GLfloat size;
