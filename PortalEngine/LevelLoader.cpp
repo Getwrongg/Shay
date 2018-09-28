@@ -34,13 +34,14 @@ void LevelLoader::LoadLevel(const std::string levelName, const char *file) // ./
 void LevelLoader::DrawLevel(const std::string levelName) 
 {
 	int reverse = MAX_HEIGHT-1;
-
+	std::string currentnumber;
 	for (int i = 0; i < MAX_HEIGHT; i++) {
 		for (int j = 0; j < LevelStorage.find(levelName)->second[reverse].length(); j++) {
-			if (LevelStorage.find(levelName)->second[reverse].at(j) == '1') {
+			currentnumber = LevelStorage.find(levelName)->second[reverse].at(j);
+			if (currentnumber == "1") {
 				cubedraw.Draw(j, i, 0);
 			}
-			if (LevelStorage.find(levelName)->second[reverse].at(j) == '2') {
+			if (currentnumber == "2") {
 				coindraw.DrawCoin(j, i, 0);
 			}
 		}

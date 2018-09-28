@@ -15,7 +15,7 @@ void Coin::DrawCoin(const GLfloat x1, const GLfloat y1, const GLfloat z1)
 	
 	glPushMatrix();
 	
-	glTranslatef(x1+0.5, y1+0.5, z1+0.5);
+	glTranslatef(x1+1.5, y1+0.5, z1+0.5);
 	glRotatef(rotate, 0, 1, 0);
 	gluDisk(glu_disk, 0, 0.35, 24, 16);
 
