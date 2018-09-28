@@ -459,7 +459,7 @@ void DeleteImageFromMemory(unsigned char* tempImage);
 
 // Stuff for portal world
 // animates the portal
-void Animate(int);
+void Animate();
 // collision for entering portal world
 void EnterPortal();
 void SoundSettup();
@@ -503,10 +503,10 @@ int main(int argc, char **argv)
 	glutKeyboardFunc(ChooseKeyboard);
 	
 	glutPassiveMotionFunc(ChooseMouseLook);
-	//glutSetCursor(GLUT_CURSOR_NONE);
+	glutSetCursor(GLUT_CURSOR_NONE);
 	glutReshapeFunc(ChooseReshapeFunc);
 
-	glutTimerFunc(TIMERSECS, Animate, 0);
+	//glutTimerFunc(TIMERSECS, Animate, 0); // only runs once
 	
 	glutMainLoop();
 
@@ -692,7 +692,7 @@ void Display()
 	cam.SetRotateSpeed(angleIncrement);
 
 	EnterPortal(); // checks if player is ready to enter portal engine
-	//Animate(); // updates animation variables
+	Animate();
 
 	// display original images
 	DrawBackdropOrigial();
@@ -710,16 +710,12 @@ void Display()
 //--------------------------------------------------------------------------------------
 //  Animate Function - Manu Murray
 //--------------------------------------------------------------------------------------
-void Animate(int)
+void Animate()
 {
-	glutTimerFunc(TIMERSECS, Animate, 0);
-
 	GLfloat currTime = glutGet(GLUT_ELAPSED_TIME) / 1000.0f;     // to convert the returned into seconds
 	GLfloat timeSincePrevFrame = currTime - prevTime;	// time since previous frame
 
 	rot -= 200 * timeSincePrevFrame; // makes the portal spin
-	//rot -= 5;
-	portalLogic.AnimatePortalWorld();
 
 	prevTime = currTime;
 

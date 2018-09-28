@@ -6,6 +6,10 @@ PortalWorld::PortalWorld()
 	moveSpeed = 0.25f;
 	rotateSpeed = 0.005f;
 
+	// animation
+	prevTime = 0.0f;
+	clickedMouse = false;
+
 	// rotation values for camera
 	deltaX = 0;
 	deltaY = 0;
@@ -90,6 +94,7 @@ void PortalWorld::Display()
 
 	world.SkyCylinder();
 	world.DrawLevel();
+	AnimatePortalWorld();
 
 	//world.Axis();//Draws the axis for testing
 	//world.Track1();
@@ -103,7 +108,16 @@ void PortalWorld::Display()
 
 void PortalWorld::AnimatePortalWorld()
 {
+	GLfloat currTime = glutGet(GLUT_ELAPSED_TIME) / 1000.0f;     // to convert the returned time into seconds
+	GLfloat timeSincePrevFrame = currTime - prevTime;	// time since previous frame
+
+	prevTime = currTime;
+
+	player.Update(timeSincePrevFrame, clickedMouse);
+
 	world.AnimatePortalWorld();
+
+	glutPostRedisplay();
 }
 
 void PortalWorld::CreateTexturesPortalWorld()
@@ -238,6 +252,15 @@ void PortalWorld::Mouse(int button, int state, int x, int y)
 		{
 			exit(1);
 		}
+		else
+		{
+			clickedMouse = true;
+		}
+	}
+
+	if ((button == GLUT_LEFT_BUTTON) && (state == GLUT_UP))
+	{
+		clickedMouse = false;
 	}
 }
 
