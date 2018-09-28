@@ -1,7 +1,7 @@
 #pragma once
 #include "ImageLoader.h" 
 
-const int rotateSpeed = 400;
+const GLfloat rotateSpeed = 400.0f;
 
 class Coin
 {
@@ -14,6 +14,6 @@ public:
 
 private:
 	ImageLoader image;
-	int rotate = 0;
+	GLfloat rotate = 0.0f;
 };
 
