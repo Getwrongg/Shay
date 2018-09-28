@@ -27,6 +27,7 @@ void Player::DrawPlayer()
 
 void Player::LoadTexture(const std::string name, const char * filePath)
 {
+	pj.UnloadAllTextures();
 	pj.CreateTexture(name, filePath);
 	texName = name;
 }

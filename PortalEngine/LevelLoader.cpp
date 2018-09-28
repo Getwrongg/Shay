@@ -36,13 +36,13 @@ void LevelLoader::DrawLevel(const std::string levelName)
 	int reverse = MAX_HEIGHT-1;
 	std::string currentnumber;
 	for (int i = 0; i < MAX_HEIGHT; i++) {
-		for (int j = 0; j < LevelStorage.find(levelName)->second[reverse].length(); j++) {
+		for (unsigned j = 0; j < LevelStorage.find(levelName)->second[reverse].length(); j++) {
 			currentnumber = LevelStorage.find(levelName)->second[reverse].at(j);
 			if (currentnumber == "1") {
-				cubedraw.Draw(j, i, 0);
+				cubedraw.Draw((float)j, (float)i, 0.0f);
 			}
 			if (currentnumber == "2") {
-				coindraw.DrawCoin(j, i, 0);
+				coindraw.DrawCoin((float)j, (float)i, 0.0f);
 			}
 		}
 		reverse--;

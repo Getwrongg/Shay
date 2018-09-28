@@ -66,6 +66,7 @@ public:
 	
 private:
 	ImageLoader j; // object to load in jpeg textures
+
 	Coordinates pos; // struct that holds position of cube
 };
 
