@@ -1,7 +1,7 @@
 #pragma once
 #include "ImageLoader.h" 
 
-const GLfloat rotateSpeed = 400.0f;
+const GLfloat rotateSpeed = 200.0f;
 
 class Coin
 {

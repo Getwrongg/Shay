@@ -12,8 +12,10 @@ Player::Player()
 
 	gravity = 40.0f;
 	vertSpeed = 0.0f;
-	jumpSpeed = 25.0f;
+	jumpSpeed = 30.0f;
 	moveSpeed = 25.0f;
+	boostx = 1.25f;
+	boostAmount = 10.0f;
 
 	texName = "";
 
@@ -47,12 +49,18 @@ void Player::SetPosition(const GLfloat x, const GLfloat y, const GLfloat z)
 	pos.z = z;
 }
 
-void Player::Update(const GLfloat timeSincePrevFrame, const bool clickedMouse)
+void Player::Update(const GLfloat timeSincePrevFrame, const bool leftclickedMouse, const bool rightclickedMouse)
 {
 	// if the user clicks the player is moved upwards
-	if (clickedMouse)
+	if (leftclickedMouse)
 	{
 		vertSpeed = jumpSpeed;
+	}
+	// Boost the player forward if they have boost left
+	if ((rightclickedMouse) && (boostAmount > 0)) {
+		pos.x += boostx;
+		vertSpeed = 0;
+		boostAmount -= 1;
 	}
 	// moves the player up or down
 	pos.y += vertSpeed * timeSincePrevFrame;
@@ -60,6 +68,7 @@ void Player::Update(const GLfloat timeSincePrevFrame, const bool clickedMouse)
 
 	// moves the player forward along the level
 	pos.x += moveSpeed * timeSincePrevFrame;
+
 }
 
 void Player::PointCounter(int amount)

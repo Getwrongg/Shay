@@ -124,7 +124,7 @@ private:
 	LevelLoader levelloader; //loads the level from a file
 
 	// variables for skyCylinder rotation
-	float rotates = 1.0f;
-	float rotateSPEED = 50.0f;
+	float rotates = 0.0f;
+	float rotateSPEED = 10.0f;
 };
 

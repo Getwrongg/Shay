@@ -26,7 +26,7 @@ public:
 	Player();
 	void DrawPlayer();
 	void LoadTexture(const std::string name, const char * filePath);
-	void Update(const GLfloat timeSincePrevFrame, const bool clickedMouse);
+	void Update(const GLfloat timeSincePrevFrame, const bool leftclickedMouse, const bool rightclickedMouse);
 	Coordinates & GetPosition();
 	void SetPosition(const GLfloat x, const GLfloat y, const GLfloat z);
 	void PointCounter(int amount);
@@ -42,6 +42,7 @@ private:
 	ImageLoader pj;
 
 	GLfloat gravity, vertSpeed, jumpSpeed, moveSpeed;
+	GLfloat boostx, boostAmount;
 
 };
 

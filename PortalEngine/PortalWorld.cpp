@@ -8,7 +8,8 @@ PortalWorld::PortalWorld()
 
 	// animation
 	prevTime = 0.0f;
-	clickedMouse = false;
+	leftclickedMouse = false;
+	rightclickedMouse = false;
 
 	// rotation values for camera
 	deltaX = 0;
@@ -113,7 +114,7 @@ void PortalWorld::AnimatePortalWorld()
 
 	prevTime = currTime;
 
-	player.Update(timeSincePrevFrame, clickedMouse);
+	player.Update(timeSincePrevFrame, leftclickedMouse, rightclickedMouse);
 
 	world.AnimatePortalWorld(timeSincePrevFrame);
 
@@ -254,13 +255,22 @@ void PortalWorld::Mouse(int button, int state, int x, int y)
 		}
 		else
 		{
-			clickedMouse = true;
+			leftclickedMouse = true;
 		}
+	}
+
+	if ((button == GLUT_RIGHT_BUTTON) && (state == GLUT_DOWN)) {
+		rightclickedMouse = true;
 	}
 
 	if ((button == GLUT_LEFT_BUTTON) && (state == GLUT_UP))
 	{
-		clickedMouse = false;
+		leftclickedMouse = false;
+	}
+
+	if ((button == GLUT_RIGHT_BUTTON) && (state == GLUT_UP))
+	{
+		rightclickedMouse = false;
 	}
 }
 

@@ -152,7 +152,8 @@ private:
 	GLfloat rotateSpeed; // mouse sensitivity
 
 	GLfloat prevTime; // used for animation
-	bool clickedMouse;
+	bool leftclickedMouse;
+	bool rightclickedMouse;
 
 	int deltaX, deltaY; // the rotation variables for mouse x and y
 
