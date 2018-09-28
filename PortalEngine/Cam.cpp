@@ -27,11 +27,18 @@ Cam::Cam()
 	rotateUD = 0;
 }
 
-void Cam::CallGluLookat()
+void Cam::CallGluLookatTesting()
 {
 	gluLookAt(	pos.x, pos.y, pos.z,
 				pos.x + look.x, pos.y + look.y, pos.z + look.z,
 				0, 1, 0);
+}
+
+void Cam::CallGluLookat()
+{
+	gluLookAt(pos.x, pos.y, pos.z,
+		/*pos.x + */look.x, /*pos.y + */look.y,/* pos.z +*/ look.z,
+		0, 1, 0);
 }
 
 void Cam::DirectionLeftRight(const int dir)
@@ -114,15 +121,15 @@ void Cam::Rotate(const int deltaX, const int deltaY)
 	rotateUD -= deltaY * rotateSpeed;
 
 	// left and right
-	look.x = sin(rotateAngle);
-	look.z = -cos(rotateAngle);
+	look.x = (float)sin(rotateAngle);
+	look.z = (float)-cos(rotateAngle);
 
 	// up and down
-	look.y = sin(rotateUD);
+	look.y = (float)sin(rotateUD);
 
 	// used to allow strafing
-	upVector.x = sin(rotateAngle+ (float)PI / 2.0f);
-	upVector.z = -cos(rotateAngle + (float)PI / 2.0f);
+	upVector.x = (float)sin(rotateAngle+ (float)PI / 2.0f);
+	upVector.z = (float)-cos(rotateAngle + (float)PI / 2.0f);
 }
 
 void Cam::Update()
@@ -140,7 +147,7 @@ void Cam::Update()
 		MoveUpDown();
 	}
 
-	CallGluLookat();
+	CallGluLookatTesting();
 }
 
 void Cam::SetMoveSpeed(const GLfloat speed)
@@ -171,11 +178,24 @@ void Cam::SetPosition(const GLfloat xyz[3], const GLfloat upVec[3], const GLfloa
 	upVector.z = upVec[2];
 
 	// looking at
-	rotateAngle = angle * (PI / 180);
+	rotateAngle = angle * (float)(PI / 180.0f);
 
 	// left and right
-	look.x = sin(rotateAngle);
-	look.z = -cos(rotateAngle); 
+	look.x = (float)sin(rotateAngle);
+	look.z = (float)-cos(rotateAngle);
+
+	CallGluLookat();
+}
+
+void Cam::Follow(const Coordinates posF)
+{
+	pos.x = posF.x + -40.0f;
+	pos.y = posF.y + 0.0f;
+	pos.z = posF.z + 40.0f;
+
+	look.x = posF.x;
+	look.y = posF.y;
+	look.z = posF.z;
 
 	CallGluLookat();
 }

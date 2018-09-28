@@ -75,12 +75,22 @@ public:
 	/**
 	* @brief updates the position of the camera
 	*
-	* calls CallGluLookAt() - should be called in display
+	* calls CallGluLookAtTesting() - should be called in display
 	*
 	*
 	* @return void
 	*/
 	void Update();
+
+	/**
+	* @brief updates the position of the camera to follow some object
+	*
+	* calls CallGluLookAt() - should be called in display
+	*
+	*
+	* @return void
+	*/
+	void Follow(const Coordinates posF);
 
 	//--------------------------------------------------
 	//	Setters
@@ -159,7 +169,17 @@ private:
 	/**
 	* @brief calls function gluLookAt()
 	*
-	* 
+	* This view is used for testing and moving around the gameworld during our design.
+	*
+	*
+	* @return void
+	*/
+	void CallGluLookatTesting();
+
+	/**
+	* @brief calls function gluLookAt()
+	*
+	* This view is used for actual gameplay
 	*
 	*
 	* @return void

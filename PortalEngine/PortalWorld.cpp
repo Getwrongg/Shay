@@ -58,11 +58,11 @@ void PortalWorld::MyInit()
 
 	CreateTexturesPortalWorld();
 
-	ourCam.SetMoveSpeed(moveSpeed); // sets movement speed of camera
-	ourCam.SetRotateSpeed(rotateSpeed); // sets rotate speed of camera
-	ourCam.SetPosition(pos, upVec, angle); // sets position of the camera in the world
+	//ourCam.SetMoveSpeed(moveSpeed); // sets movement speed of camera
+	//ourCam.SetRotateSpeed(rotateSpeed); // sets rotate speed of camera
+	//ourCam.SetPosition(pos, upVec, angle); // sets position of the camera in the world
 
-	player.SetPosition(0.0f, 45.0f, 7.0f); // starting position of player
+	player.SetPosition(0.0f, 75.0f, 7.0f); // starting position of player
 }
 
 void PortalWorld::Display()
@@ -71,7 +71,8 @@ void PortalWorld::Display()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	// updates camera position
-	ourCam.Update();
+	//ourCam.Update();
+	ourCam.Follow(player.GetPosition());
 
 	glEnable(GL_TEXTURE_2D);
 

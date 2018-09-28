@@ -146,8 +146,6 @@ public:
 
 	void DisplayLevel();
 
-	void CamFollowPlayer();
-
 private:
 	// camera variables
 	GLfloat moveSpeed; // walking sensitivity
