@@ -20,6 +20,8 @@ public:
 	void SetLevel(const std::string levelName);
 	void DrawLevel(const Coordinates pos);
 
+	int GetCoinsCollected();
+
 	bool HasFailed();
 	void ResetLevel();
 
@@ -32,6 +34,7 @@ private:
 	std::string currentLevelName; // Used to reset current level
 
 	bool failed=false;
+	int coinscollected=0;
 
 	Audio audio;
 	Cube cubedraw;

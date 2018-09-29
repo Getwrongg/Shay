@@ -15,7 +15,7 @@ Player::Player()
 	jumpSpeed = 30.0f;
 	moveSpeed = 25.0f;
 	boostx = 1.25f;
-	boostAmount = 10.0f;
+	boostAmount = 15.0f;
 
 	texName = "";
 
@@ -80,4 +80,5 @@ void Player::ResetPlayer()
 {
 	SetPosition(-60.0f, 72.5f, 7.0f);
 	boostAmount = 10.0f;
+	vertSpeed = 0;
 }
