@@ -76,7 +76,7 @@ bool LevelManager::CheckCollision(Coordinates pos, unsigned x, unsigned y)
 	pos.x = (GLfloat)(pos.x / 14.5)-1; //Divide by scaling factor atm is 14.5 and take 1 but not sure why
 	pos.y = (GLfloat)(pos.y / 14.5);
 
-	if ((pos.x > x - 0.5 && pos.x < x + 1.5)&& (pos.y > y - 0.5 && pos.y < y + 1.5 ) ) {  
+	if ((pos.x > x - 0.25 && pos.x < x + 1.3)&& (pos.y > y-0.25  && pos.y < y + 1.3 ) ) {  
  		return true;
 	}
 	return false;;
