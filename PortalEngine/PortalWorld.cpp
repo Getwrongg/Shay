@@ -69,9 +69,6 @@ void PortalWorld::MyInit()
 
 	player.SetPosition(-80.0f, 72.5f, 7.0f); // starting position of player
 
-
-
-
 }
 
 void PortalWorld::Display()

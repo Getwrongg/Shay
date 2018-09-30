@@ -73,10 +73,10 @@ void LevelManager::DrawLevel(const Coordinates pos)
 
 bool LevelManager::CheckCollision(Coordinates pos, unsigned x, unsigned y) 
 {
-	pos.x = (GLfloat)(pos.x / 14.5)-1; //Divide by scaling factor atm is 14.5 and take 1 but not sure why
+	pos.x = (GLfloat)(pos.x / 14.5) - 1; //Divide by scaling factor atm is 14.5 and take 1 but not sure why
 	pos.y = (GLfloat)(pos.y / 14.5);
 
-	if ((pos.x > x - 0.5 && pos.x < x + 1.5)&& (pos.y > y - 0.5 && pos.y < y + 1.5 ) ) {  
+	if ((pos.x + 2.5 > x - 0.5 && pos.x < x + 1.5)&& (pos.y > y - 0.5 && pos.y < y + 1.5 ) ) {  
  		return true;
 	}
 	return false;;
