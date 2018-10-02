@@ -88,12 +88,12 @@ void PortalWorld::Display()
 	{
 		DisplayMenuScreen();
 	}
+	AnimatePortalWorld();
 
 	// only starts portal world animation if startRun is true
 	if (startRun == true)
 	{
 		ourCam.Follow(player.GetPosition());
-		AnimatePortalWorld();
 		paused = false;
 	}
 	else
@@ -134,7 +134,7 @@ void PortalWorld::AnimatePortalWorld()
 		timeSincePrevFrame = 0.1f;
 	}
 
-	player.Update(timeSincePrevFrame, leftclickedMouse, rightclickedMouse);
+	player.Update(timeSincePrevFrame, leftclickedMouse, rightclickedMouse, startRun);
 
 	world.AnimatePortalWorld(timeSincePrevFrame);
 
@@ -271,7 +271,7 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 			player.LoadTexture("PLAYER", "data/8ball.jpg");
 			break;
 		case '3':
-			player.LoadTexture("PLAYER", "data/portalswirl.jpg");
+			player.LoadTexture("PLAYER", "data/stars.jpg");
 			break;
 		}
 	}
@@ -423,6 +423,13 @@ void PortalWorld::DisplayLevelSplash()
 	glTexCoord2i(1, 1); glVertex2i(400, 300);
 	glTexCoord2i(1, 0); glVertex2i(400, 50);
 	glEnd();
+
+	/*glBegin(GL_QUADS);
+	glVertex3f(-550, 10, -8);
+	glVertex3f(-510, 10, -8);
+	glVertex3f(-510, 0, -8);
+	glVertex3f(-550, 0, -8);
+	glEnd();*/
 
 	// Reset Perspective Projection
 	glMatrixMode(GL_PROJECTION);

@@ -361,10 +361,6 @@ void mouseMove(int x, int y);
 //audio loader
 void LoadGameSounds();
 
-	// draws banner with manu's face on it
-void DrawMyFaceBanner();
-void DrawFaceBannerPosts();
-
 //draws solar panels on roof
 void DrawSolarPanels();
 
@@ -379,10 +375,11 @@ void portal();
 
 //draws right side exit image
 void DrawRightSideExit();
+void DrawBackdropNew();
 
 // calls display functions below to draw the backdrops
 void DrawBackdropOrigial();
-void DrawBackdropNew();
+
 // functions to display display lists (images) and bind them to a texture
 void DisplayAboveWindowBlock ();
 void DisplayBench ();

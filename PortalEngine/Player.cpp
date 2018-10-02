@@ -14,6 +14,7 @@ Player::Player()
 	vertSpeed = 0.0f;
 	jumpSpeed = 30.0f;
 	moveSpeed = 25.0f;
+	rot = 0.0f;
 
 	boostTotal = BOOST_NUMBER;
 	boostSpeed = 1.25f;
@@ -29,7 +30,8 @@ Player::Player()
 void Player::DrawPlayer()
 {
 	glBindTexture(GL_TEXTURE_2D, pj.getTextureID(texName));
-	glTranslated(pos.x, pos.y, pos.z);
+	glTranslatef(pos.x, pos.y, pos.z);
+	glRotatef(rot, 0, 1, 0);
 	gluSphere(sphere, size, slices, stacks);
 }
 
@@ -52,35 +54,43 @@ void Player::SetPosition(const GLfloat x, const GLfloat y, const GLfloat z)
 	pos.z = z;
 }
 
-void Player::Update(const GLfloat timeSincePrevFrame, const bool leftclickedMouse, const bool rightclickedMouse)
+void Player::Update(const GLfloat timeSincePrevFrame, const bool leftclickedMouse, const bool rightclickedMouse, const bool startRun)
 {
-	// if the user clicks the player is moved upwards
-	if (leftclickedMouse)
+	if (startRun)
 	{
-		vertSpeed = jumpSpeed;
-	}
+		rot = 0;
 
-	// Boost the player forward if they have boost left
-	if (boostTimer >= boostDelay) //Player can only boost every 2 seconds, stops boost spam
+		// if the user clicks the player is moved upwards
+		if (leftclickedMouse)
+		{
+			vertSpeed = jumpSpeed;
+		}
+
+		// Boost the player forward if they have boost left
+		if (boostTimer >= boostDelay) //Player can only boost every 2 seconds, stops boost spam
+		{
+			boostTimer = 0;
+			boostReady = true;
+		}
+		boostTimer += timeSincePrevFrame;
+
+		if (((rightclickedMouse) && (boostTotal > 0) && (boostReady)) || (boostActive)) //boostActive keeps the boost looking smooth (stops it teleporting)
+		{
+			boostActive = true;
+			BoostPlayer();
+			boostTimer = 0;
+		}
+		// moves the player up or down
+		pos.y += vertSpeed * timeSincePrevFrame;
+		vertSpeed -= gravity * timeSincePrevFrame;
+
+		// moves the player forward along the level
+		pos.x += moveSpeed * timeSincePrevFrame;
+	}
+	else
 	{
-		boostTimer = 0;
-		boostReady = true;
+		rot += 5 * timeSincePrevFrame;
 	}
-	boostTimer += timeSincePrevFrame;
-
-	if (((rightclickedMouse) && (boostTotal > 0) && (boostReady)) || (boostActive)) //boostActive keeps the boost looking smooth (stops it teleporting)
-	{
-		boostActive = true;
-		BoostPlayer();
-		boostTimer = 0;
-	}
-	// moves the player up or down
-	pos.y += vertSpeed * timeSincePrevFrame;
-	vertSpeed -= gravity * timeSincePrevFrame;
-
-	// moves the player forward along the level
-	pos.x += moveSpeed * timeSincePrevFrame;
-
 }
 
 void Player::BoostPlayer() 
