@@ -18,7 +18,7 @@ void Cube::CreateTexture()
 {
 	j.CreateTexture("pillar", "data/pillarTexture.jpg");
 	j.CreateTexture("bottompillar", "data/bottompillar.jpg");
-	j.CreateTexture("SWIRL", "data/stars.jpg");
+	j.CreateTexture("SWIRL", "data/bark.jpg");
 }
 
 void Cube::Draw(const GLfloat x1, const GLfloat y1, const GLfloat z1)

@@ -155,6 +155,8 @@ private:
 	bool leftclickedMouse;
 	bool rightclickedMouse;
 
+
+
 	int deltaX, deltaY; // the rotation variables for mouse x and y
 
 	// position of the camera
@@ -172,5 +174,7 @@ private:
 
 	bool DisplayExit;
 	bool DisplayMenu;
+	bool startRun;
+	bool paused = true;
 };
 

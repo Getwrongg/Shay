@@ -2,7 +2,7 @@
 
 void World::CreateTextures(const std::string name, const char * filePath)
 {
-	j.CreateTexture("SWIRL", "data/stars.jpg");
+	j.CreateTexture("SWIRL", "data/trees.jpg");
 
 	j.CreateTexture("PINK", "data/multicolor.jpg");
 
@@ -72,7 +72,7 @@ void World::SkyCylinder()
 	glTranslatef(-50, 70, 1);
 	glRotatef(180, 1.0f, 0.0f, 1);
 	glRotatef(rotates, 1.0f, 0.0f, rotates);
-	gluCylinder(glu_cylinder, 100, 100, 450, 200, 200);
+	gluCylinder(glu_cylinder, 100, 100, 600, 200, 200); //quad,base,top,height,slices,stacks
 
 	glPopMatrix();	
 }
