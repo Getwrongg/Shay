@@ -87,3 +87,13 @@ void Player::SetMoveSpeed(const GLfloat speed)
 {
 	moveSpeed = speed;
 }
+
+void Player::AddCoins(const int coins)
+{
+	coinsCollected += coins;
+}
+
+int Player::GetCoins()
+{
+	return coinsCollected;
+}
