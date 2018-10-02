@@ -132,7 +132,7 @@ void PortalWorld::AnimatePortalWorld()
 
 	if (paused) 
 	{
-		timeSincePrevFrame = 0.1;
+		timeSincePrevFrame = 0.1f;
 	}
 
 	player.Update(timeSincePrevFrame, leftclickedMouse, rightclickedMouse);
@@ -158,7 +158,7 @@ void PortalWorld::CreateTexturesPortalWorld()
 
 	pic.CreateTexture("STARTLEVEL", "data/UI/levelMenu.png");
 
-	player.LoadTexture("SWIRL", "data/portalswirl.jpg"); // texture for player
+	player.LoadTexture("PLAYER", "data/portalswirl.jpg"); // default texture for player
 
 	//ALL THE COIN NUMBERS________________________________
 	pic.CreateTexture("ONE", "data/UI/one.jpg");
@@ -254,6 +254,16 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 	case 32: // space bar to start
 		player.SetMoveSpeed(25.0f); // sets movespeed to 25
 		startRun = true;
+		break;
+	case '1':
+		player.LoadTexture("PLAYER", "data/portalswirl.jpg");
+		break;
+	case '2':
+		player.LoadTexture("PLAYER", "data/8ball.jpg");
+		break;
+	case '3':
+		player.LoadTexture("PLAYER", "data/portalswirl.jpg");
+		break;
 	}
 }
 
