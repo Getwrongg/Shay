@@ -39,8 +39,8 @@ private:
 	std::vector<std::string> currentLevel; //used to create a copy of the level in storage
 	std::string currentLevelName; // Used to reset current level
 
-	bool failed = false;
-	bool endRound = false;
+	bool failed = false; //if player fails level
+	bool endRound = false; //if player completes level
 	int coinscollected=0;
 	int currentlevelNumber = 0;
 
