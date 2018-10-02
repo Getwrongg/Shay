@@ -14,7 +14,6 @@ Player::Player()
 	vertSpeed = 0.0f;
 	jumpSpeed = 30.0f;
 	moveSpeed = 25.0f;
-	rot = 0.0f;
 
 	boostTotal = BOOST_NUMBER;
 	boostSpeed = 1.25f;
@@ -30,8 +29,7 @@ Player::Player()
 void Player::DrawPlayer()
 {
 	glBindTexture(GL_TEXTURE_2D, pj.getTextureID(texName));
-	glTranslatef(pos.x, pos.y, pos.z);
-	glRotatef(rot, 0, 1, 0);
+	glTranslated(pos.x, pos.y, pos.z);
 	gluSphere(sphere, size, slices, stacks);
 }
 
@@ -39,6 +37,8 @@ void Player::LoadTexture(const std::string name, const char * filePath)
 {
 	pj.UnloadAllTextures();
 	pj.CreateTexture(name, filePath);
+	audio.LoadWAV("BOOST", "sounds/boost.wav");
+	audio.LoadWAV("JUMP", "sounds/jump.wav");
 	texName = name;
 }
 
@@ -54,43 +54,40 @@ void Player::SetPosition(const GLfloat x, const GLfloat y, const GLfloat z)
 	pos.z = z;
 }
 
-void Player::Update(const GLfloat timeSincePrevFrame, const bool leftclickedMouse, const bool rightclickedMouse, const bool startRun)
+void Player::Update(const GLfloat timeSincePrevFrame, const bool leftclickedMouse, const bool rightclickedMouse)
 {
-	if (startRun)
+	// if the user clicks the player is moved upwards
+	if (leftclickedMouse)
 	{
-		rot = 0;
-
-		// if the user clicks the player is moved upwards
-		if (leftclickedMouse)
-		{
-			vertSpeed = jumpSpeed;
-		}
-
-		// Boost the player forward if they have boost left
-		if (boostTimer >= boostDelay) //Player can only boost every 2 seconds, stops boost spam
-		{
-			boostTimer = 0;
-			boostReady = true;
-		}
-		boostTimer += timeSincePrevFrame;
-
-		if (((rightclickedMouse) && (boostTotal > 0) && (boostReady)) || (boostActive)) //boostActive keeps the boost looking smooth (stops it teleporting)
-		{
-			boostActive = true;
-			BoostPlayer();
-			boostTimer = 0;
-		}
-		// moves the player up or down
-		pos.y += vertSpeed * timeSincePrevFrame;
-		vertSpeed -= gravity * timeSincePrevFrame;
-
-		// moves the player forward along the level
-		pos.x += moveSpeed * timeSincePrevFrame;
+		vertSpeed = jumpSpeed;
+		//audio.PlayAudio("JUMP", 0); Gets called to much and sounds bad for now 
 	}
-	else
+
+	// Boost the player forward if they have boost left
+	if (boostTimer >= boostDelay) //Player can only boost every 2 seconds, stops boost spam
 	{
-		rot += 5 * timeSincePrevFrame;
+		boostTimer = 0;
+		boostReady = true;
 	}
+	boostTimer += timeSincePrevFrame;
+
+	if (((rightclickedMouse) && (boostTotal > 0) && (boostReady)) || (boostActive)) //boostActive keeps the boost looking smooth (stops it teleporting)
+	{
+		if (boostSound) {
+			audio.PlayAudio("BOOST", 0);
+			boostSound = false;
+		}
+		boostActive = true;
+		BoostPlayer();
+		boostTimer = 0;
+	}
+	// moves the player up or down
+	pos.y += vertSpeed * timeSincePrevFrame;
+	vertSpeed -= gravity * timeSincePrevFrame;
+
+	// moves the player forward along the level
+	pos.x += moveSpeed * timeSincePrevFrame;
+
 }
 
 void Player::BoostPlayer() 
@@ -108,6 +105,7 @@ void Player::BoostPlayer()
 	{
 		boostActive = false;
 		boostReady = false;
+		boostSound = true;
 		boostTotal -= 1;
 		boostAmount = BOOST_START;
 	}
