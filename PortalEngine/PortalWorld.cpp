@@ -19,7 +19,7 @@ PortalWorld::PortalWorld()
 	angle = 0;
 
 	// position of camera
-	pos[0] = 0.0f;
+	pos[0] = -500.0f;
 	pos[1] = 0.0f;
 	pos[2] = 5.0f;
 
@@ -66,20 +66,16 @@ void PortalWorld::MyInit()
 
 	//ourCam.SetMoveSpeed(moveSpeed); // sets movement speed of camera
 	//ourCam.SetRotateSpeed(rotateSpeed); // sets rotate speed of camera
-	//ourCam.SetPosition(pos, upVec, angle); // sets position of the camera in the world
+	ourCam.SetPosition(pos, upVec, angle); // sets position of the camera in the world 
 
 	player.SetMoveSpeed(0.0f); // so player doesn't start until ready
-	player.SetPosition(10.0f, 100.0f, 7.0f); // starting position of player
+	player.SetPosition(-525.0f, 0.0f, -50.0f);
 }
 
 void PortalWorld::Display()
 {
 	glLoadIdentity();
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-	// updates camera position
-	//ourCam.Update();
-	ourCam.Follow(player.GetPosition());
 
 	glEnable(GL_TEXTURE_2D);
 
@@ -96,11 +92,14 @@ void PortalWorld::Display()
 	// only starts portal world animation if startRun is true
 	if (startRun == true)
 	{
+		ourCam.Follow(player.GetPosition());
 		AnimatePortalWorld();
 		paused = false;
 	}
 	else
 	{
+		//ourCam.Follow(camPos);
+		ourCam.Update();
 		DisplayLevelSplash(); // displays screen with controls at the start of the level
 	}
 
@@ -253,17 +252,28 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 		break;
 	case 32: // space bar to start
 		player.SetMoveSpeed(25.0f); // sets movespeed to 25
+		player.SetPosition(10.0f, 100.0f, 7.0f); // starting position of player
 		startRun = true;
 		break;
-	case '1':
-		player.LoadTexture("PLAYER", "data/portalswirl.jpg");
-		break;
-	case '2':
-		player.LoadTexture("PLAYER", "data/8ball.jpg");
-		break;
-	case '3':
-		player.LoadTexture("PLAYER", "data/portalswirl.jpg");
-		break;
+	}
+
+	//  used for changing skin
+	if (startRun == false)
+	{
+		player.SetPosition(-525.0f, 0.0f, -50.0f);
+
+		switch (key)
+		{
+		case '1':
+			player.LoadTexture("PLAYER", "data/portalswirl.jpg");
+			break;
+		case '2':
+			player.LoadTexture("PLAYER", "data/8ball.jpg");
+			break;
+		case '3':
+			player.LoadTexture("PLAYER", "data/portalswirl.jpg");
+			break;
+		}
 	}
 }
 
@@ -398,7 +408,7 @@ void PortalWorld::DisplayLevelSplash()
 	glScalef(1, -1, 1);
 
 	// move to centre of screen
-	glTranslatef(width / 2 - 256.0f, -height / 2 - 256.0f, 0);
+	glTranslatef(width / 2 - 50.0f, -height / 2 - 256.0f, 0);
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
 

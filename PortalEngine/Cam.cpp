@@ -37,8 +37,8 @@ void Cam::CallGluLookatTesting()
 void Cam::CallGluLookat()
 {
 	gluLookAt(pos.x, pos.y, pos.z,
-		/*pos.x + */look.x, /*pos.y + */look.y,/* pos.z +*/ look.z,
-		0, 1, 0);
+			  look.x, look.y, look.z,
+			  0, 1, 0);
 }
 
 void Cam::DirectionLeftRight(const int dir)
