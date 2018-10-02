@@ -69,7 +69,7 @@ void PortalWorld::MyInit()
 	//ourCam.SetPosition(pos, upVec, angle); // sets position of the camera in the world
 
 	player.SetMoveSpeed(0.0f); // so player doesn't start until ready
-	player.SetPosition(40.0f, 100.0f, 7.0f); // starting position of player
+	player.SetPosition(10.0f, 100.0f, 7.0f); // starting position of player
 }
 
 void PortalWorld::Display()
