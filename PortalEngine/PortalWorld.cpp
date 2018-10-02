@@ -99,6 +99,10 @@ void PortalWorld::Display()
 		AnimatePortalWorld();
 		paused = false;
 	}
+	else
+	{
+		DisplayLevelSplash(); // displays screen with controls at the start of the level
+	}
 
 	DisplayLevel();
 
@@ -151,6 +155,8 @@ void PortalWorld::CreateTexturesPortalWorld()
 	pic.CreateTexture("COINS", "data/UI/coinscount.jpg");
 
 	pic.CreateTexture("MENU", "data/UI/menu.png");
+
+	pic.CreateTexture("STARTLEVEL", "data/UI/levelMenu.png");
 
 	player.LoadTexture("SWIRL", "data/portalswirl.jpg"); // texture for player
 
@@ -370,7 +376,39 @@ void PortalWorld::DisplayExitScreen()
 	glPopMatrix();
 	glMatrixMode(GL_MODELVIEW);
 	glPopMatrix();
+}
 
+void PortalWorld::DisplayLevelSplash()
+{
+	glPushMatrix();
+	glMatrixMode(GL_PROJECTION);
+	glPushMatrix();
+	glLoadIdentity();
+	gluOrtho2D(0, width, 0, height);
+	glScalef(1, -1, 1);
+
+	// move to centre of screen
+	glTranslatef(width / 2 - 256.0f, -height / 2 - 256.0f, 0);
+	glMatrixMode(GL_MODELVIEW);
+	glLoadIdentity();
+
+	glBindTexture(GL_TEXTURE_2D, pic.getTextureID("STARTLEVEL"));
+
+	glTranslatef(-256, -100, 0);
+	glScalef(2, 2, 0);
+
+	glBegin(GL_QUADS);
+	glTexCoord2i(0, 0); glVertex2i(100, 50);
+	glTexCoord2i(0, 1); glVertex2i(100, 300);
+	glTexCoord2i(1, 1); glVertex2i(400, 300);
+	glTexCoord2i(1, 0); glVertex2i(400, 50);
+	glEnd();
+
+	// Reset Perspective Projection
+	glMatrixMode(GL_PROJECTION);
+	glPopMatrix();
+	glMatrixMode(GL_MODELVIEW);
+	glPopMatrix();
 }
 
 void PortalWorld::DisplayLevel()
@@ -386,8 +424,6 @@ void PortalWorld::DisplayLevel()
 	glTranslatef(width / 2 - 256.0f, -height / 2 - 256.0f, 0);
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-
-	
 
 	glTranslatef(-256, -100, 0);
 	glScalef(2, 2, 0);
