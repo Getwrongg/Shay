@@ -97,6 +97,7 @@ void PortalWorld::Display()
 	if (startRun == true)
 	{
 		AnimatePortalWorld();
+		paused = false;
 	}
 
 	DisplayLevel();
@@ -124,6 +125,11 @@ void PortalWorld::AnimatePortalWorld()
 	GLfloat timeSincePrevFrame = currTime - prevTime;	// time since previous frame
 
 	prevTime = currTime;
+
+	if (paused) 
+	{
+		timeSincePrevFrame = 0.1;
+	}
 
 	player.Update(timeSincePrevFrame, leftclickedMouse, rightclickedMouse);
 
