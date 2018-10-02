@@ -1,5 +1,6 @@
 #include "ImageLoader.h"
 #include <GL/glut.h>
+#include "audio.h"
 
 #include "Structs.h"
 
@@ -52,6 +53,7 @@ private:
 
 	// jpegloader object for textures
 	ImageLoader pj;
+	Audio audio;
 
 	GLfloat gravity, vertSpeed, jumpSpeed, moveSpeed;
 
@@ -59,6 +61,7 @@ private:
 	GLfloat boostSpeed, boostAmount;
 	float boostDelay; //How often you can boost in seconds
 	int boostTotal;
+	bool boostSound = true;
 	bool boostReady = true;
 	bool boostActive = false;
 	GLfloat boostTimer = 0;

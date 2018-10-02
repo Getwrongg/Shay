@@ -37,6 +37,8 @@ void Player::LoadTexture(const std::string name, const char * filePath)
 {
 	pj.UnloadAllTextures();
 	pj.CreateTexture(name, filePath);
+	audio.LoadWAV("BOOST", "sounds/boost.wav");
+	audio.LoadWAV("JUMP", "sounds/jump.wav");
 	texName = name;
 }
 
@@ -58,6 +60,7 @@ void Player::Update(const GLfloat timeSincePrevFrame, const bool leftclickedMous
 	if (leftclickedMouse)
 	{
 		vertSpeed = jumpSpeed;
+		//audio.PlayAudio("JUMP", 0); Gets called to much and sounds bad for now 
 	}
 
 	// Boost the player forward if they have boost left
@@ -70,6 +73,10 @@ void Player::Update(const GLfloat timeSincePrevFrame, const bool leftclickedMous
 
 	if (((rightclickedMouse) && (boostTotal > 0) && (boostReady)) || (boostActive)) //boostActive keeps the boost looking smooth (stops it teleporting)
 	{
+		if (boostSound) {
+			audio.PlayAudio("BOOST", 0);
+			boostSound = false;
+		}
 		boostActive = true;
 		BoostPlayer();
 		boostTimer = 0;
@@ -98,6 +105,7 @@ void Player::BoostPlayer()
 	{
 		boostActive = false;
 		boostReady = false;
+		boostSound = true;
 		boostTotal -= 1;
 		boostAmount = BOOST_START;
 	}
