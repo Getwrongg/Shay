@@ -78,7 +78,7 @@ void Player::PointCounter(int amount)
 
 void Player::ResetPlayer() 
 {
-	SetPosition(-60.0f, 72.5f, 7.0f);
+	SetPosition(10.0f, 72.5f, 7.0f);
 	boostAmount = 15.0f;
 	vertSpeed = 0;
 }
@@ -86,4 +86,14 @@ void Player::ResetPlayer()
 void Player::SetMoveSpeed(const GLfloat speed)
 {
 	moveSpeed = speed;
+}
+
+void Player::AddCoins(const int coins)
+{
+	coinsCollected += coins;
+}
+
+int Player::GetCoins()
+{
+	return coinsCollected;
 }

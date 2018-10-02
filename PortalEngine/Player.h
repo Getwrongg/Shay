@@ -31,6 +31,8 @@ public:
 	void SetPosition(const GLfloat x, const GLfloat y, const GLfloat z);
 	void PointCounter(int amount);
 	void SetMoveSpeed(const GLfloat speed);
+	void AddCoins(const int coins);
+	int GetCoins();
 
 	void ResetPlayer();
 
@@ -38,6 +40,7 @@ private:
 	Coordinates pos;
 	GLfloat size;
 	GLint slices, stacks;
+	int coinsCollected;
 	GLUquadricObj *sphere;
 	std::string texName;
 
