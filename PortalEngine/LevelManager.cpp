@@ -36,10 +36,44 @@ void LevelManager::LoadLevel(const std::string levelName, const char *file) // .
 	levelfile.close();
 }
 
-void LevelManager::SetLevel(const std::string levelName)
+void LevelManager::LoadLevelIndex(const char *file) // ./levels/level.txt
 {
-	currentLevel = LevelStorage.find(levelName)->second;
-	currentLevelName = levelName;
+	std::ifstream indexfile(file);
+	if (!indexfile) 
+	{
+		std::cout << "File not found" << std::endl;
+		return;
+	}
+
+	std::vector<std::string> filename;
+	std::string fName;
+	while (!indexfile.eof()) {  //Cant be any empty new lines in the met_index.txt file.
+		indexfile >> fName;
+		filename.push_back(fName);
+	}
+	std::string levelName;
+	for (unsigned i = 0; i < filename.size(); i++) //Add directory to file name then read data in from each file
+	{ 
+		std::string location = "./levels/"; //add ./level/ to name in level_index.txt
+		levelName = filename[i];
+		levelName.resize(levelName.size() - 4); //remove .txt from levelName
+		location.append(filename[i]);
+
+		std::ifstream datafile(location); // Open level and read in
+		std::string line[MAX_HEIGHT];
+		std::vector<std::string> levelVec;
+		for (int i = 0; i < MAX_HEIGHT; i++)
+		{
+			std::getline(datafile, line[i]);
+			levelVec.push_back(line[i]);
+		}
+		LevelStorage[levelName] = levelVec; // Store level
+		Level_Index.push_back(levelName); //Store name
+
+		std::cout << "File " << location << " Loaded" << std::endl;
+		datafile.close();
+	}
+	indexfile.close();
 }
 
 void LevelManager::DrawLevel(const Coordinates pos)
@@ -75,9 +109,42 @@ void LevelManager::DrawLevel(const Coordinates pos)
 					coindraw.DrawCoin((float)j, (float)i, 0.0f);
 				}
 			}
+			if (currentnumber == "3") {
+				if (CheckCollision(pos, j, i))
+				{
+					if(!HasEndedRound())
+					{
+						SetNextLevel();
+					}
+						
+				}
+			}
 		}
 		reverse--;
 	}
+}
+
+void LevelManager::SetLevel(const std::string levelName)
+{
+	currentLevel = LevelStorage.find(levelName)->second;
+	currentLevelName = levelName;	
+
+	endRound = false;
+}
+
+void LevelManager::SetNextLevel()
+{
+	currentlevelNumber++;
+	if (Level_Index.size() > currentlevelNumber) 
+	{
+		SetLevel(Level_Index[currentlevelNumber]);
+	}
+	else 
+	{
+		SetLevel(Level_Index[0]);
+		currentlevelNumber = 0;
+	}
+	endRound = true;
 }
 
 bool LevelManager::CheckCollision(Coordinates pos, unsigned x, unsigned y) 
@@ -95,6 +162,11 @@ bool LevelManager::CheckCollision(Coordinates pos, unsigned x, unsigned y)
 int LevelManager::GetCoinsCollected()
 {
 	return coinscollected;
+}
+
+bool LevelManager::HasEndedRound()
+{
+	return endRound;
 }
 
 bool LevelManager::HasFailed() 
