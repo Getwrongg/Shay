@@ -138,13 +138,24 @@ void PortalWorld::CreateTexturesPortalWorld()
 
 	pic.CreateTexture("PBAR", "data/UI/progressbar.png");
 
-	pic.CreateTexture("LEVELONE", "data/UI/level1.png");
+	pic.CreateTexture("LEVELONE", "data/UI/level1.jpg");
 
 	pic.CreateTexture("COINS", "data/UI/coins.png");
 
 	pic.CreateTexture("MENU", "data/UI/menu.png");
 
 	player.LoadTexture("SWIRL", "data/portalswirl.jpg"); // texture for player
+
+	//ALL THE COIN NUMBERS________________________________
+	pic.CreateTexture("ONE", "data/UI/one.jpg");
+	pic.CreateTexture("TWO", "data/UI/two.jpg");
+	pic.CreateTexture("THREE", "data/UI/three.jpg");
+	pic.CreateTexture("FOUR", "data/UI/four.jpg");
+	pic.CreateTexture("FIVE", "data/UI/five.jpg");
+	pic.CreateTexture("SIX", "data/UI/six.jpg");
+	pic.CreateTexture("SEVEN", "data/UI/seven.jpg");
+	pic.CreateTexture("EIGHT", "data/UI/eight.jpg");
+	pic.CreateTexture("NINE", "data/UI/nine.jpg");
 }
 
 void PortalWorld::MouseMovement(int x, int y)
@@ -374,9 +385,19 @@ void PortalWorld::DisplayLevel()
 	glBegin(GL_QUADS);
 	glTexCoord2i(0, 0); glVertex2i(-50, 0);
 	glTexCoord2i(0, 1); glVertex2i(-50, 20);
+	glTexCoord2i(1, 1); glVertex2i(30, 20);
+	glTexCoord2i(1, 0); glVertex2i(30, 0);
+	glEnd();
+
+	//LEVEL NUMBER
+	glBindTexture(GL_TEXTURE_2D, pic.getTextureID("ONE"));
+	glBegin(GL_QUADS);
+	glTexCoord2i(0, 0); glVertex2i(30, 0);
+	glTexCoord2i(0, 1); glVertex2i(30, 20);
 	glTexCoord2i(1, 1); glVertex2i(50, 20);
 	glTexCoord2i(1, 0); glVertex2i(50, 0);
 	glEnd();
+	
 
 	////TRACK COMPLETION BAR UI
 	//glBindTexture(GL_TEXTURE_2D, pic.getTextureID("PBAR"));
