@@ -144,6 +144,8 @@ public:
 
 	void DisplayMenuScreen();
 
+	void DisplayLevelSplash();
+
 	void DisplayLevel();
 
 private:
