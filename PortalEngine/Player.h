@@ -30,6 +30,7 @@ class Player
 public:
 	Player();
 	void DrawPlayer();
+	void LoadSounds();
 	void LoadTexture(const std::string name, const char * filePath);
 	void Update(const GLfloat timeSincePrevFrame, const bool leftclickedMouse, const bool rightclickedMouse, const bool startRun);
 	Coordinates & GetPosition();

@@ -159,6 +159,8 @@ void PortalWorld::CreateTexturesPortalWorld()
 
 	player.LoadTexture("PLAYER", "data/portalswirl.jpg"); // default texture for player
 
+	player.LoadSounds();
+
 	//ALL THE COIN NUMBERS________________________________
 	pic.CreateTexture("ONE", "data/UI/one.jpg");
 	pic.CreateTexture("TWO", "data/UI/two.jpg");
@@ -265,6 +267,7 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 		switch (key)
 		{
 		case '1':
+
 			player.LoadTexture("PLAYER", "data/portalswirl.jpg");
 			break;
 		case '2':

@@ -39,9 +39,14 @@ void Player::LoadTexture(const std::string name, const char * filePath)
 {
 	pj.UnloadAllTextures();
 	pj.CreateTexture(name, filePath);
+
+	texName = name;
+}
+
+void Player::LoadSounds() 
+{
 	audio.LoadWAV("BOOST", "sounds/boost.wav");
 	audio.LoadWAV("JUMP", "sounds/jump.wav");
-	texName = name;
 }
 
 Coordinates & Player::GetPosition()
