@@ -30,6 +30,7 @@ public:
 	Coordinates & GetPosition();
 	void SetPosition(const GLfloat x, const GLfloat y, const GLfloat z);
 	void PointCounter(int amount);
+	void SetMoveSpeed(const GLfloat speed);
 
 	void ResetPlayer();
 

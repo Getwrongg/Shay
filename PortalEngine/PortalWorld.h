@@ -172,5 +172,6 @@ private:
 
 	bool DisplayExit;
 	bool DisplayMenu;
+	bool startRun;
 };
 

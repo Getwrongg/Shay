@@ -82,3 +82,8 @@ void Player::ResetPlayer()
 	boostAmount = 15.0f;
 	vertSpeed = 0;
 }
+
+void Player::SetMoveSpeed(const GLfloat speed)
+{
+	moveSpeed = speed;
+}

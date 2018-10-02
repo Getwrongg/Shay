@@ -34,6 +34,7 @@ PortalWorld::PortalWorld()
 
 	DisplayExit = false;
 	DisplayMenu = false;
+	startRun = false;
 }
 
 void PortalWorld::MyInit()
@@ -67,8 +68,8 @@ void PortalWorld::MyInit()
 	//ourCam.SetRotateSpeed(rotateSpeed); // sets rotate speed of camera
 	//ourCam.SetPosition(pos, upVec, angle); // sets position of the camera in the world
 
-	player.SetPosition(-80.0f, 72.5f, 7.0f); // starting position of player
-
+	player.SetMoveSpeed(0.0f); // so player doesn't start until ready
+	player.SetPosition(-100.0f, 100.0f, 7.0f); // starting position of player
 }
 
 void PortalWorld::Display()
@@ -92,6 +93,11 @@ void PortalWorld::Display()
 		DisplayMenuScreen();
 	}
 
+	if (startRun == true)
+	{
+		AnimatePortalWorld();
+	}
+
 	DisplayLevel();
 
 	world.SkyCylinder();
@@ -100,8 +106,6 @@ void PortalWorld::Display()
 		world.ResetLevel();
 		player.ResetPlayer();
 	}
-
-	AnimatePortalWorld();
 
 	//world.Axis();//Draws the axis for testing
 	//world.Track1();
@@ -201,8 +205,8 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 		ourCam.DirectionUpDown(1);
 		break;
 	case 'r':
-			ourCam.DirectionUpDown(-1);
-			break;
+		ourCam.DirectionUpDown(-1);
+		break;
 	case 'q':
 		ourCam.SetMoveSpeed(0.0f);
 		ourCam.SetRotateSpeed(0.0f);
@@ -210,6 +214,7 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 		{			
 			DisplayExit = true;
 		}
+		break;
 	case 27:
 		ourCam.SetMoveSpeed(0.0f);
 		ourCam.SetRotateSpeed(0.0f);
@@ -221,7 +226,10 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 		{
 			DisplayMenu = false;
 		}
-	
+		break;
+	case 32: // space bar to start
+		player.SetMoveSpeed(25.0f); // sets movespeed to 25
+		startRun = true;
 	}
 }
 
