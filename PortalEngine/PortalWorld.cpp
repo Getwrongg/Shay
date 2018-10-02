@@ -152,7 +152,7 @@ void PortalWorld::CreateTexturesPortalWorld()
 
 	pic.CreateTexture("LEVELONE", "data/UI/level1.jpg");
 
-	pic.CreateTexture("COINS", "data/UI/coinscount.jpg");
+	pic.CreateTexture("COINS", "data/UI/coincount.jpg");
 
 	pic.CreateTexture("MENU", "data/UI/menu.png");
 
@@ -445,6 +445,22 @@ void PortalWorld::DisplayLevel()
 	glTexCoord2i(1, 0); glVertex2i(30, 0);
 	glEnd();
 
+	//COINS UI COUNT
+	glBindTexture(GL_TEXTURE_2D, pic.getTextureID("ONE"));
+	glBegin(GL_QUADS);
+	glTexCoord2i(0, 0); glVertex2i(10, 22);
+	glTexCoord2i(0, 1); glVertex2i(10, 42);
+	glTexCoord2i(1, 1); glVertex2i(25, 42);
+	glTexCoord2i(1, 0); glVertex2i(25, 22);
+	glEnd();
+	//COINS UI MANAGER
+	glBindTexture(GL_TEXTURE_2D, pic.getTextureID("COINS"));
+	glBegin(GL_QUADS);
+	glTexCoord2i(0, 0); glVertex2i(-50, 22);
+	glTexCoord2i(0, 1); glVertex2i(-50, 42);
+	glTexCoord2i(1, 1); glVertex2i(30, 42);
+	glTexCoord2i(1, 0); glVertex2i(30, 22);
+	glEnd();
 	
 	
 
