@@ -101,7 +101,7 @@ void PortalWorld::Display()
 	}
 	else
 	{
-		DisplayLevelSplash();
+		DisplayLevelSplash(); // displays screen with controls at the start of the level
 	}
 
 	DisplayLevel();
@@ -376,7 +376,6 @@ void PortalWorld::DisplayExitScreen()
 	glPopMatrix();
 	glMatrixMode(GL_MODELVIEW);
 	glPopMatrix();
-
 }
 
 void PortalWorld::DisplayLevelSplash()
@@ -425,8 +424,6 @@ void PortalWorld::DisplayLevel()
 	glTranslatef(width / 2 - 256.0f, -height / 2 - 256.0f, 0);
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-
-	
 
 	glTranslatef(-256, -100, 0);
 	glScalef(2, 2, 0);
