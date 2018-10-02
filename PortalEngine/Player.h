@@ -20,6 +20,10 @@
 *
 * @bug none
 */
+
+const GLfloat BOOST_START = 15.0f;
+const int BOOST_NUMBER = 3;
+
 class Player
 {
 public:
@@ -33,6 +37,8 @@ public:
 	void SetMoveSpeed(const GLfloat speed);
 	void AddCoins(const int coins);
 	int GetCoins();
+
+	void BoostPlayer();
 
 	void ResetPlayer();
 
@@ -48,7 +54,14 @@ private:
 	ImageLoader pj;
 
 	GLfloat gravity, vertSpeed, jumpSpeed, moveSpeed;
-	GLfloat boostx, boostAmount;
+
+	//Boost Variables
+	GLfloat boostSpeed, boostAmount;
+	float boostDelay; //How often you can boost in seconds
+	int boostTotal;
+	bool boostReady = true;
+	bool boostActive = false;
+	GLfloat boostTimer = 0;
 
 };
 

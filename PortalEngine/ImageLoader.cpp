@@ -72,6 +72,8 @@ void ImageLoader::UnloadAllTextures() {
 		tempID = getTextureID(Texture_Names[i]);
 		glDeleteTextures(1, &tempID);
 	}
+	TextureList.clear();
+	Texture_Names.clear();
 }
 
 

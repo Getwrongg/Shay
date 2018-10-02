@@ -14,8 +14,11 @@ Player::Player()
 	vertSpeed = 0.0f;
 	jumpSpeed = 30.0f;
 	moveSpeed = 25.0f;
-	boostx = 1.25f;
-	boostAmount = 15.0f;
+
+	boostTotal = BOOST_NUMBER;
+	boostSpeed = 1.25f;
+	boostDelay = 2.0f;
+	boostAmount = BOOST_START;
 
 	texName = "";
 
@@ -56,11 +59,20 @@ void Player::Update(const GLfloat timeSincePrevFrame, const bool leftclickedMous
 	{
 		vertSpeed = jumpSpeed;
 	}
+
 	// Boost the player forward if they have boost left
-	if ((rightclickedMouse) && (boostAmount > 0)) {
-		pos.x += boostx;
-		vertSpeed = 0;
-		boostAmount -= 1;
+	if (boostTimer >= boostDelay) //Player can only boost every 2 seconds, stops boost spam
+	{
+		boostTimer = 0;
+		boostReady = true;
+	}
+	boostTimer += timeSincePrevFrame;
+
+	if (((rightclickedMouse) && (boostTotal > 0) && (boostReady)) || (boostActive)) //boostActive keeps the boost looking smooth (stops it teleporting)
+	{
+		boostActive = true;
+		BoostPlayer();
+		boostTimer = 0;
 	}
 	// moves the player up or down
 	pos.y += vertSpeed * timeSincePrevFrame;
@@ -71,6 +83,27 @@ void Player::Update(const GLfloat timeSincePrevFrame, const bool leftclickedMous
 
 }
 
+void Player::BoostPlayer() 
+{
+
+	if(boostAmount > 0)
+	{
+		pos.x += boostSpeed;
+		vertSpeed = 0;
+		boostAmount -= 1;
+		
+	}	
+
+	if (boostAmount < 1) // Resets all boost variables and reduces total boosts by 1
+	{
+		boostActive = false;
+		boostReady = false;
+		boostTotal -= 1;
+		boostAmount = BOOST_START;
+	}
+}
+
+
 void Player::PointCounter(int amount)
 {
 
@@ -79,7 +112,8 @@ void Player::PointCounter(int amount)
 void Player::ResetPlayer() 
 {
 	SetPosition(10.0f, 72.5f, 7.0f);
-	boostAmount = 15.0f;
+	boostAmount = BOOST_START;
+	boostTotal = BOOST_NUMBER;
 	vertSpeed = 0;
 }
 
