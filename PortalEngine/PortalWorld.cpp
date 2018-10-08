@@ -109,6 +109,7 @@ void PortalWorld::Display()
 	world.SkyCylinder();
 
 	if (world.DrawLevel(player.GetPosition())) { // draw level and reset the player and level if they fail
+		player.AddCoins(world.GetCoins()); //currently also adds coins you get even if you die in the level
 		world.ResetLevel();
 		player.ResetPlayer();
 	}
@@ -164,7 +165,7 @@ void PortalWorld::CreateTexturesPortalWorld()
 	player.LoadSounds();
 
 	//ALL THE COIN NUMBERS________________________________
-	pic.CreateTexture("\0", "data/UI/zero.jpg");
+	pic.CreateTexture("ZERO", "data/UI/zero.jpg");
 	pic.CreateTexture("\1", "data/UI/one.jpg");
 	pic.CreateTexture("\2", "data/UI/two.jpg");
 	pic.CreateTexture("\3", "data/UI/three.jpg");
@@ -504,11 +505,11 @@ void PortalWorld::DisplayCoinsCollected()
 {
 	
 	getCoinsCollected = world.GetCoins();
-	std::string uiNumber="\0";
+	std::string uiNumber;
 
 	if (getCoinsCollected == 0)
 	{
-		uiNumber = "\0";
+		uiNumber = "ZERO";
 	}
 	if (getCoinsCollected == 1)
 	{

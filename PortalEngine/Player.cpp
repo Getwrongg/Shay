@@ -150,10 +150,10 @@ void Player::SetMoveSpeed(const GLfloat speed)
 
 void Player::AddCoins(const int coins)
 {
-	coinsCollected += coins;
+	totalcoinsCollected += coins;
 }
 
-int Player::GetCoins()
+int Player::GetTotalCoins()
 {
-	return coinsCollected;
+	return totalcoinsCollected;
 }
