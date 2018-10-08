@@ -58,6 +58,8 @@ public:
 	*/
 	bool DrawLevel(const Coordinates pos);
 
+	int GetCoins();
+
 	void ResetLevel();
 
 	void Track1();

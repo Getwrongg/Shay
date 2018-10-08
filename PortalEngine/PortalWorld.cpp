@@ -493,8 +493,7 @@ void PortalWorld::DisplayLevelNumber()
 void PortalWorld::DisplayCoinsCollected()
 {
 	
-	
-	getCoinsCollected = LevelManager().GetCoinsCollected();
+	getCoinsCollected = world.GetCoins();
 
 	if (getCoinsCollected == 0)
 	{	

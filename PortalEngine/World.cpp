@@ -109,6 +109,11 @@ bool World::DrawLevel(const Coordinates pos) //returns true if player fails leve
 	return false;
 }
 
+int World::GetCoins()
+{
+	return levelmanager.GetCoinsCollected();
+}
+
 void World::ResetLevel() 
 {
 	levelmanager.ResetLevel();

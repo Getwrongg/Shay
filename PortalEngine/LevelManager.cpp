@@ -100,9 +100,9 @@ void LevelManager::DrawLevel(const Coordinates pos)
 			{
 				if (CheckCollision(pos, j, i)) 
 				{
+					coinscollected++;
 					audio.PlayAudioChannel("COIN_PICKUP", 2, 0);
 					currentLevel[reverse].replace(j, 1, "0"); //Remove coin from level
-					coinscollected++;
 				}
 				else 
 				{
@@ -161,8 +161,7 @@ bool LevelManager::CheckCollision(Coordinates pos, unsigned x, unsigned y)
 
 int LevelManager::GetCoinsCollected()
 {
-	using namespace std;
-	std::cout << coinscollected << endl;
+	std::cout << coinscollected << std::endl;
 	return coinscollected;
 }
 
