@@ -504,32 +504,48 @@ void PortalWorld::DisplayCoinsCollected()
 {
 	
 	getCoinsCollected = world.GetCoins();
+	std::string uiNumber;
 
 	if (getCoinsCollected == 0)
-	{	
-		std::string uiNumber = "0";
-	}
-	else if (getCoinsCollected == 1)
 	{
-		std::string uiNumber = "1";
+		uiNumber = "\0";
+	}
+	if (getCoinsCollected == 1)
+	{
+		uiNumber = "\1";
 	}
 	if (getCoinsCollected == 2)
 	{
-		std::string uiNumber = "2";
+		uiNumber = "\2";
 	}
-	else if (getCoinsCollected == 3)
+	if (getCoinsCollected == 3)
 	{
-		std::string uiNumber = "3";
+		uiNumber = "\3";
 	}
 	if (getCoinsCollected == 4)
 	{
-		std::string uiNumber = "4";
+		uiNumber = "\4";
 	}
-	else if (getCoinsCollected == 5)
+	if (getCoinsCollected == 5)
 	{
-		std::string uiNumber = "5";
+		uiNumber = "FIVE";
 	}
-
+	if (getCoinsCollected == 6)
+	{
+		uiNumber = "SIX";
+	}
+	if (getCoinsCollected == 7)
+	{
+		uiNumber = "SEVEN";
+	}
+	if (getCoinsCollected == 8)
+	{
+		uiNumber = "EIGHT";
+	}
+	if (getCoinsCollected == 9)
+	{
+		uiNumber = "NINE ";
+	}
 
 	//COINS UI COUNT
 	glBindTexture(GL_TEXTURE_2D, pic.getTextureID(uiNumber));

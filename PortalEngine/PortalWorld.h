@@ -179,8 +179,6 @@ private:
 
 	int width, height;
 
-	char uiNumber [1];
-
 	bool DisplayExit;
 	bool DisplayMenu;
 	bool startRun;
