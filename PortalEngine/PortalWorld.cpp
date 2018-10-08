@@ -122,16 +122,6 @@ void PortalWorld::Display()
 	glutSwapBuffers();
 }
 
-void PortalWorld::DisplayCoinsCollected(std::string setCoinImage)
-{
-	int coinCount = LevelManager().GetCoinsCollected();
-	
-	if (coinCount == 0)
-	{
-		pic.CreateTexture("ZERO", "data/UI/zero.jpg");
-	}
-}
-
 void PortalWorld::AnimatePortalWorld()
 {
 	GLfloat currTime = glutGet(GLUT_ELAPSED_TIME) / 1000.0f;     // to convert the returned time into seconds
@@ -172,11 +162,11 @@ void PortalWorld::CreateTexturesPortalWorld()
 	player.LoadSounds();
 
 	//ALL THE COIN NUMBERS________________________________
-	
-	pic.CreateTexture("ONE", "data/UI/one.jpg");
-	pic.CreateTexture("TWO", "data/UI/two.jpg");
-	pic.CreateTexture("THREE", "data/UI/three.jpg");
-	pic.CreateTexture("FOUR", "data/UI/four.jpg");
+	pic.CreateTexture("\0", "data/UI/zero.jpg");
+	pic.CreateTexture("\1", "data/UI/one.jpg");
+	pic.CreateTexture("\2", "data/UI/two.jpg");
+	pic.CreateTexture("\3", "data/UI/three.jpg");
+	pic.CreateTexture("\4", "data/UI/four.jpg");
 	pic.CreateTexture("FIVE", "data/UI/five.jpg");
 	pic.CreateTexture("SIX", "data/UI/six.jpg");
 	pic.CreateTexture("SEVEN", "data/UI/seven.jpg");
@@ -468,8 +458,21 @@ void PortalWorld::DisplayLevel()
 
 	glTranslatef(-256, -100, 0);
 	glScalef(2, 2, 0);
+
+	DisplayLevelNumber();
+	DisplayCoinsCollected();
+
+	// Reset Perspective Projection
+	glMatrixMode(GL_PROJECTION);
+	glPopMatrix();
+	glMatrixMode(GL_MODELVIEW);
+	glPopMatrix();
+}
+
+void PortalWorld::DisplayLevelNumber()
+{
 	//LEVEL NUMBER
-	glBindTexture(GL_TEXTURE_2D, pic.getTextureID("ONE"));
+	glBindTexture(GL_TEXTURE_2D, pic.getTextureID("\1"));
 	glBegin(GL_QUADS);
 	glTexCoord2i(0, 0); glVertex2i(10, 0);
 	glTexCoord2i(0, 1); glVertex2i(10, 20);
@@ -485,15 +488,49 @@ void PortalWorld::DisplayLevel()
 	glTexCoord2i(1, 1); glVertex2i(30, 20);
 	glTexCoord2i(1, 0); glVertex2i(30, 0);
 	glEnd();
+}
+
+void PortalWorld::DisplayCoinsCollected()
+{
+	
+	
+	getCoinsCollected = LevelManager().GetCoinsCollected();
+
+	if (getCoinsCollected == 0)
+	{	
+		std::string uiNumber = "0";
+	}
+	else if (getCoinsCollected == 1)
+	{
+		std::string uiNumber = "1";
+	}
+	if (getCoinsCollected == 2)
+	{
+		std::string uiNumber = "2";
+	}
+	else if (getCoinsCollected == 3)
+	{
+		std::string uiNumber = "3";
+	}
+	if (getCoinsCollected == 4)
+	{
+		std::string uiNumber = "4";
+	}
+	else if (getCoinsCollected == 5)
+	{
+		std::string uiNumber = "5";
+	}
+
 
 	//COINS UI COUNT
-	glBindTexture(GL_TEXTURE_2D, pic.getTextureID("ONE"));
+	glBindTexture(GL_TEXTURE_2D, pic.getTextureID(uiNumber));
 	glBegin(GL_QUADS);
 	glTexCoord2i(0, 0); glVertex2i(10, 22);
 	glTexCoord2i(0, 1); glVertex2i(10, 42);
 	glTexCoord2i(1, 1); glVertex2i(25, 42);
 	glTexCoord2i(1, 0); glVertex2i(25, 22);
 	glEnd();
+
 	//COINS UI MANAGER
 	glBindTexture(GL_TEXTURE_2D, pic.getTextureID("COINS"));
 	glBegin(GL_QUADS);
@@ -502,23 +539,5 @@ void PortalWorld::DisplayLevel()
 	glTexCoord2i(1, 1); glVertex2i(30, 42);
 	glTexCoord2i(1, 0); glVertex2i(30, 22);
 	glEnd();
-	
-	
 
-	////TRACK COMPLETION BAR UI
-	//glBindTexture(GL_TEXTURE_2D, pic.getTextureID("PBAR"));
-	//glBegin(GL_QUADS);
-	//glTexCoord2i(0, 0); glVertex2i(530, 70);
-	//glTexCoord2i(0, 1); glVertex2i(530, 270);
-	//glTexCoord2i(1, 1); glVertex2i(550, 270);
-	//glTexCoord2i(1, 0); glVertex2i(550, 70);
-	//glEnd();
-
-	
-
-	// Reset Perspective Projection
-	glMatrixMode(GL_PROJECTION);
-	glPopMatrix();
-	glMatrixMode(GL_MODELVIEW);
-	glPopMatrix();
 }

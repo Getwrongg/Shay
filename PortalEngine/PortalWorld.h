@@ -2,6 +2,7 @@
 #include "Cam.h"
 #include "ImageLoader.h"
 #include "Player.h"
+#include "LevelManager.h"
 
 #pragma once
 
@@ -148,7 +149,9 @@ public:
 
 	void DisplayLevel();
 
-	void DisplayCoinsCollected(std::string setCoinImage);
+	void DisplayLevelNumber();
+
+	void DisplayCoinsCollected();
 
 private:
 	// camera variables
@@ -159,7 +162,7 @@ private:
 	bool leftclickedMouse;
 	bool rightclickedMouse;
 
-	
+	int getCoinsCollected;
 
 	int deltaX, deltaY; // the rotation variables for mouse x and y
 
@@ -175,6 +178,8 @@ private:
 	Player player;
 
 	int width, height;
+
+	char uiNumber [1];
 
 	bool DisplayExit;
 	bool DisplayMenu;
