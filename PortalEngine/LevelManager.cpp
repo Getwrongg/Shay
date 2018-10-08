@@ -161,8 +161,6 @@ bool LevelManager::CheckCollision(Coordinates pos, unsigned x, unsigned y)
 
 int LevelManager::GetCoinsCollected()
 {
-	using namespace std;
-	std::cout << coinscollected << endl;
 	return coinscollected;
 }
 

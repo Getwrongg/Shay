@@ -101,7 +101,7 @@ void PortalWorld::Display()
 	{
 		//ourCam.Follow(camPos);
 		ourCam.Update();
-		DisplayLevelSplash(); // displays screen with controls at the start of the level
+		DisplayMenuSplash(); // displays screen with controls at the start of the level
 	}
 
 	DisplayLevel();
@@ -158,6 +158,8 @@ void PortalWorld::CreateTexturesPortalWorld()
 	pic.CreateTexture("STARTLEVEL", "data/UI/levelMenu.png");
 
 	player.LoadTexture("PLAYER", "data/portalswirl.jpg"); // default texture for player
+
+	pic.CreateTexture("MENUPOINTER", "data/UI/MenuPointer.jpg");
 
 	player.LoadSounds();
 
@@ -402,7 +404,7 @@ void PortalWorld::DisplayExitScreen()
 	glPopMatrix();
 }
 
-void PortalWorld::DisplayLevelSplash()
+void PortalWorld::DisplayMenuSplash()
 {
 	glPushMatrix();
 	glMatrixMode(GL_PROJECTION);
@@ -415,12 +417,20 @@ void PortalWorld::DisplayLevelSplash()
 	glTranslatef(width / 2 - 50.0f, -height / 2 - 256.0f, 0);
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
-
-	glBindTexture(GL_TEXTURE_2D, pic.getTextureID("STARTLEVEL"));
+	
 
 	glTranslatef(-256, -100, 0);
 	glScalef(2, 2, 0);
 
+	glBindTexture(GL_TEXTURE_2D, pic.getTextureID("MENUPOINTER"));
+	glBegin(GL_QUADS);
+	glTexCoord2i(0, 0); glVertex2i(170, 145);
+	glTexCoord2i(0, 1); glVertex2i(170, 165);
+	glTexCoord2i(1, 1); glVertex2i(200, 165);
+	glTexCoord2i(1, 0); glVertex2i(200, 145);
+	glEnd();
+	
+	glBindTexture(GL_TEXTURE_2D, pic.getTextureID("MENU"));
 	glBegin(GL_QUADS);
 	glTexCoord2i(0, 0); glVertex2i(100, 50);
 	glTexCoord2i(0, 1); glVertex2i(100, 300);

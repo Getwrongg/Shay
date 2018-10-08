@@ -145,7 +145,7 @@ public:
 
 	void DisplayMenuScreen();
 
-	void DisplayLevelSplash();
+	void DisplayMenuSplash();
 
 	void DisplayLevel();
 
