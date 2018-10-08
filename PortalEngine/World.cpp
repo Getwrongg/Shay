@@ -16,7 +16,10 @@ void World::CreateTextures(const std::string name, const char * filePath)
 
 	levelmanager.LoadTexture();
 
-	levelmanager.LoadLevel("level1", "./levels/level1.txt");
+	levelmanager.LoadLevelIndex("./levels/level_index.txt");
+	//levelmanager.LoadLevel("level1", "./levels/level1.txt");
+	//levelmanager.LoadLevel("level2", "./levels/level2.txt");
+	//levelmanager.LoadLevel("level3", "./levels/level3.txt");
 
 	levelmanager.SetLevel("level1");
 	
@@ -97,7 +100,7 @@ bool World::DrawLevel(const Coordinates pos) //returns true if player fails leve
 
 	levelmanager.DrawLevel(pos);
 
-	if (levelmanager.HasFailed()) //Level is currently set in World::CreateTextures
+	if (levelmanager.HasFailed() || levelmanager.HasEndedRound()) //Level is currently set in World::CreateTextures
 	{
 		return true;
 	}
