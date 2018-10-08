@@ -1,4 +1,5 @@
 #include "PortalWorld.h"
+std::string hello;
 
 PortalWorld::PortalWorld()
 {
@@ -122,6 +123,15 @@ void PortalWorld::Display()
 	glutSwapBuffers();
 }
 
+void PortalWorld::DisplayCoinsCollected(std::string setCoinImage)
+{
+	int coinCount = LevelManager().GetCoinsCollected();
+	
+	if (coinCount == 0)
+	{
+		pic.CreateTexture("ZERO", "data/UI/zero.jpg");
+	}
+}
 
 void PortalWorld::AnimatePortalWorld()
 {
@@ -161,6 +171,7 @@ void PortalWorld::CreateTexturesPortalWorld()
 	player.LoadTexture("SWIRL", "data/portalswirl.jpg"); // texture for player
 
 	//ALL THE COIN NUMBERS________________________________
+	
 	pic.CreateTexture("ONE", "data/UI/one.jpg");
 	pic.CreateTexture("TWO", "data/UI/two.jpg");
 	pic.CreateTexture("THREE", "data/UI/three.jpg");

@@ -148,6 +148,8 @@ public:
 
 	void DisplayLevel();
 
+	void DisplayCoinsCollected(std::string setCoinImage);
+
 private:
 	// camera variables
 	GLfloat moveSpeed; // walking sensitivity
@@ -157,7 +159,7 @@ private:
 	bool leftclickedMouse;
 	bool rightclickedMouse;
 
-
+	
 
 	int deltaX, deltaY; // the rotation variables for mouse x and y
 
