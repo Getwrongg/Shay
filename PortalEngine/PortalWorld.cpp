@@ -504,7 +504,7 @@ void PortalWorld::DisplayCoinsCollected()
 {
 	
 	getCoinsCollected = world.GetCoins();
-	std::string uiNumber;
+	std::string uiNumber="\0";
 
 	if (getCoinsCollected == 0)
 	{
