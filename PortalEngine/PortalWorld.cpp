@@ -263,7 +263,11 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 			if (startRun == false)
 			{
 				menuOption = "MENU";				
-			}			
+			}	
+			first1 = 170;
+			first2 = 200;
+			first3 = 200;
+			first4 = 220;
 		}
 
 		if (startRun == true)
@@ -275,7 +279,7 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 		}
 		break;
 	case 32: // space bar to start
-		if (arrowCounter == 0)
+		if (arrowCounter == 0 && !startRun)
 		{
 			player.SetMoveSpeed(25.0f); // sets movespeed to 25
 			player.SetPosition(10.0f, 100.0f, 7.0f); // starting position of player
@@ -296,10 +300,6 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 		}
 		else if (arrowCounter == 3)
 		{			
-			first1 = 170;
-			first2 = 200;
-			first3 = 145;
-			first4 = 165;
 			DisplayExit = true;
 		}
 
