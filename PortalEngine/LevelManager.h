@@ -13,22 +13,127 @@ const int MAX_HEIGHT = 9;
 
 class LevelManager{
 public:
+	/**
+	* @author
+	*
+	* @brief Pre-loads all textures
+	*
+	*
+	*
+	* @return void
+	*/
 	void LoadTexture();
+
+	/**
+	* @author
+	*
+	* @brief Animates the coins
+	*
+	* @param const Glfloat timeSincePrevFrame
+	*
+	* @return void
+	*/
 	void AnimateCoin(const GLfloat timeSincePrevFrame);
 
+	/**
+	* @author
+	*
+	* @brief Reads level name from files and places them in a map with levelname being the key
+	*
+	* @param const std::string levelName, const char *file
+	*
+	* @return void
+	*/
 	void LoadLevel(const std::string levelName, const char *file);
+
+	/**
+	* @author
+	*
+	* @brief Reads level name from file and places them in a map with levelname being the key
+	*
+	* @param const const char *file
+	*
+	* @return void
+	*/
 	void LoadLevelIndex(const char *file);// ./levels/level_index.txt
 
+	/**
+	* @author
+	*
+	* @brief Set the currentlevel
+	*
+	* @param const std::string levelName
+	*
+	* @return void
+	*/
 	void SetLevel(const std::string levelName);
+
+	/**
+	* @author
+	*
+	* @brief Draws level
+	*
+	* @param const Coordinates pos
+	*
+	* @return void
+	*/
 	void DrawLevel(const Coordinates pos);
 
+	/**
+	* @author
+	*
+	* @brief Increase currentLevel
+	*
+	* 
+	*
+	* @return void
+	*/
 	void SetNextLevel();
 
+	/**
+	* @author
+	*
+	* @brief return number of coins collected
+	*
+	* 
+	*
+	* @return int
+	*/
 	int GetCoinsCollected();
 
+	/**
+	* @author
+	*
+	* @brief Returns bool
+	*
+	* 
+	*
+	* @return bool
+	*/
 	bool HasEndedRound();
+
+	/**
+	* @author
+	*
+	* @brief Returns bool
+	*
+	*
+	*
+	* @return bool
+	*/
 	bool HasFailed();
+
+	/**
+	* @author
+	*
+	* @brief Resets stats to default
+	*
+	*
+	*
+	* @return void
+	*/
 	void ResetLevel();
+	std::string getLevelName();
 
 private:
 	

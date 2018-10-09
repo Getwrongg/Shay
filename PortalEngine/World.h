@@ -58,10 +58,37 @@ public:
 	*/
 	bool DrawLevel(const Coordinates pos);
 
+	/**
+	* @author
+	*
+	* @brief Returns number of coins
+	*
+	*
+	*
+	* @return int
+	*/
 	int GetCoins();
 
+	/**
+	* @author
+	*
+	* @brief Sets the Player to the start of the level
+	*
+	*
+	*
+	* @return void
+	*/
 	void ResetLevel();
-
+	
+	/**
+	* @author
+	*
+	* @brief Display Demo for level
+	*
+	*
+	*
+	* @return void
+	*/
 	void Track1();
 
 	/**
