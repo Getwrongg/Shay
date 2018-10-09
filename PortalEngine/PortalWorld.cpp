@@ -1,14 +1,5 @@
 #include "PortalWorld.h"
 
-int first1 = 170;
-int first2 = 200;
-int first3 = 145;
-int first4 = 165;
-
-int arrowCounter = 0;
-
-std::string menuOption = "MENU";
-
 PortalWorld::PortalWorld()
 {
 	// move and rotate mouse sensitivity
