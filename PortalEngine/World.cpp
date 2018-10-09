@@ -25,7 +25,7 @@ void World::CreateTextures(const std::string name, const char * filePath)
 	//levelmanager.LoadLevel("level2", "./levels/level2.txt");
 	//levelmanager.LoadLevel("level3", "./levels/level3.txt");
 
-	levelmanager.SetLevel("level4");
+	levelmanager.SetLevel("level1");
 	
 }
 
