@@ -36,16 +36,7 @@ public:
 	*/
 	void CreateTextures(const std::string name, const char * filePath);
 
-	/**
-	* @author Christopher Gemmell
-	*
-	* @brief draws the ground
-	*
-	*
-	*
-	* @return void
-	*/
-	void Ground();
+
 
 	/**
 	* @author Christopher Gemmell
@@ -79,50 +70,6 @@ public:
 	* @return void
 	*/
 	void ResetLevel();
-	
-	/**
-	* @author
-	*
-	* @brief Display Demo for level
-	*
-	*
-	*
-	* @return void
-	*/
-	void Track1();
-
-	/**
-	* @author Christopher Gemmell
-	*
-	* @brief draws an xyz axis
-	*
-	*
-	*
-	* @return void
-	*/
-	void Axis();
-
-	/**
-	* @author Christopher Gemmell
-	*
-	* @brief create the bushes
-	*
-	* @param const GLfloat x1, const GLfloat y1, const GLfloat z1
-	*
-	* @return void
-	*/
-	void Bushes(const GLfloat x1, const GLfloat y1, const GLfloat z1);
-
-	/**
-	* @author Christopher Gemmell
-	*
-	* @brief draws the bushes
-	*
-	*
-	*
-	* @return void
-	*/
-	void DrawBushes();
 
 	/**
 	* @author Shane Martinez
