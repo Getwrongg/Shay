@@ -153,6 +153,8 @@ public:
 
 	void DisplayCoinsCollected();
 
+	void arrowMenu();
+
 private:
 	// camera variables
 	GLfloat moveSpeed; // walking sensitivity
@@ -183,5 +185,8 @@ private:
 	bool DisplayMenu;
 	bool startRun;
 	bool paused = true;
+
+	bool down = false;
+	bool up = false;
 };
 

@@ -1,5 +1,13 @@
 #include "PortalWorld.h"
-std::string hello;
+
+int first1 = 170;
+int first2 = 200;
+int first3 = 145;
+int first4 = 165;
+
+int arrowCounter = 0;
+
+std::string menuOption = "MENU";
 
 PortalWorld::PortalWorld()
 {
@@ -36,6 +44,8 @@ PortalWorld::PortalWorld()
 	DisplayExit = false;
 	DisplayMenu = false;
 	startRun = false;
+
+
 }
 
 void PortalWorld::MyInit()
@@ -103,7 +113,7 @@ void PortalWorld::Display()
 		//ourCam.Follow(camPos);
 		ourCam.Update();
 		DisplayMenuSplash(); // displays screen with controls at the start of the level
-		glClearColor(0.1, 0.1, 0.1, 0);
+		glClearColor(0.1f, 0.1f, 0.1f, 0.0f);
 	}
 
 	DisplayLevel();
@@ -158,12 +168,13 @@ void PortalWorld::CreateTexturesPortalWorld()
 
 	pic.CreateTexture("MENU", "data/UI/menu.png");
 
-	pic.CreateTexture("STARTLEVEL", "data/UI/levelMenu.png");
+	pic.CreateTexture("CONTROLSMENU", "data/UI/controlsMenu.png");
 
 	player.LoadTexture("PLAYER", "data/portalswirl.jpg"); // default texture for player
 
 	pic.CreateTexture("MENUPOINTER", "data/UI/MenuPointer.jpg");
 
+	
 	player.LoadSounds();
 
 	//ALL THE COIN NUMBERS________________________________
@@ -247,21 +258,51 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 		}
 		break;
 	case 27:
-		ourCam.SetMoveSpeed(0.0f);
-		ourCam.SetRotateSpeed(0.0f);
-		if (DisplayMenu == false)
+		if (arrowCounter == 2)
 		{
-			DisplayMenu = true;
+			if (startRun == false)
+			{
+				menuOption = "MENU";				
+			}			
 		}
-		else if (DisplayMenu == true)
-		{
-			DisplayMenu = false;
+
+		if (startRun == true)
+		{			
+			ourCam.SetPosition(pos, upVec, angle);
+			ourCam.SetMoveSpeed(0.0f);
+			ourCam.SetRotateSpeed(0.0f);
+			startRun = false;
 		}
 		break;
 	case 32: // space bar to start
-		player.SetMoveSpeed(25.0f); // sets movespeed to 25
-		player.SetPosition(10.0f, 100.0f, 7.0f); // starting position of player
-		startRun = true;
+		if (arrowCounter == 0)
+		{
+			player.SetMoveSpeed(25.0f); // sets movespeed to 25
+			player.SetPosition(10.0f, 100.0f, 7.0f); // starting position of player
+			startRun = true;
+		}
+		else if (arrowCounter == 1)
+		{
+			
+		}
+		else if (arrowCounter == 2)
+		{
+			menuOption = "CONTROLSMENU";
+
+			first1 = 0;
+			first2 = 0;
+			first3 = 0;
+			first4 = 0;
+		}
+		else if (arrowCounter == 3)
+		{			
+			first1 = 170;
+			first2 = 200;
+			first3 = 145;
+			first4 = 165;
+			DisplayExit = true;
+		}
+
 		break;
 	}
 
@@ -282,8 +323,99 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 		case '3':
 			player.LoadTexture("PLAYER", "data/stars.jpg");
 			break;
+		case 'k':
+			if (down == false)
+			{
+				arrowCounter++;
+
+				if (arrowCounter > 3)
+				{
+					arrowCounter = 3;
+				}
+				else if (arrowCounter < 0)
+				{
+					arrowCounter = 0;
+				}
+
+				else if (arrowCounter == 1)
+				{
+					first1 = 170;
+					first2 = 200;
+					first3 = 170;
+					first4 = 190;
+					arrowMenu();
+				}
+				else if (arrowCounter == 2)
+				{
+					first1 = 170;
+					first2 = 200;
+					first3 = 200;
+					first4 = 220;
+					arrowMenu();
+				}
+				else if (arrowCounter == 3)
+				{ 
+					first1 = 170;
+					first2 = 200;
+					first3 = 230;
+					first4 = 250;
+					arrowMenu();
+				}
+				
+			}
+			break;
+		case 'i':
+			if (up == false)
+			{
+				arrowCounter--;
+
+				if (arrowCounter > 3)
+				{
+					arrowCounter = 3;
+				}
+				else if (arrowCounter < 1)
+				{
+					arrowCounter = 0;
+				}
+
+				if (arrowCounter == 0)
+				{
+					first1 = 170;
+					first2 = 200;
+					first3 = 145;
+					first4 = 165;
+					arrowMenu();
+				}
+				else if (arrowCounter == 1)
+				{
+					first1 = 170;
+					first2 = 200;
+					first3 = 170;
+					first4 = 190;
+					arrowMenu();
+				}
+				else if (arrowCounter == 2)
+				{
+					first1 = 170;
+					first2 = 200;
+					first3 = 200;
+					first4 = 220;
+					arrowMenu();
+				}
+				else if (arrowCounter == 3)
+				{
+					first1 = 170;
+					first2 = 200;
+					first3 = 230;
+					first4 = 250;
+					arrowMenu();
+				}
+			}
+			break;
 		}
 	}
+
+	
 }
 
 void PortalWorld::ReleaseKeyboard(unsigned char key, int x, int y)
@@ -425,15 +557,9 @@ void PortalWorld::DisplayMenuSplash()
 	glTranslatef(-256, -100, 0);
 	glScalef(2, 2, 0);
 
-	glBindTexture(GL_TEXTURE_2D, pic.getTextureID("MENUPOINTER"));
-	glBegin(GL_QUADS);
-	glTexCoord2i(0, 0); glVertex2i(170, 145);
-	glTexCoord2i(0, 1); glVertex2i(170, 165);
-	glTexCoord2i(1, 1); glVertex2i(200, 165);
-	glTexCoord2i(1, 0); glVertex2i(200, 145);
-	glEnd();
+	arrowMenu();
 	
-	glBindTexture(GL_TEXTURE_2D, pic.getTextureID("MENU"));
+	glBindTexture(GL_TEXTURE_2D, pic.getTextureID(menuOption));
 	glBegin(GL_QUADS);
 	glTexCoord2i(0, 0); glVertex2i(100, 50);
 	glTexCoord2i(0, 1); glVertex2i(100, 300);
@@ -453,6 +579,17 @@ void PortalWorld::DisplayMenuSplash()
 	glPopMatrix();
 	glMatrixMode(GL_MODELVIEW);
 	glPopMatrix();
+}
+
+void  PortalWorld::arrowMenu()
+{
+	glBindTexture(GL_TEXTURE_2D, pic.getTextureID("MENUPOINTER"));
+	glBegin(GL_QUADS);
+	glTexCoord2i(0, 0); glVertex2i(first1, first3);
+	glTexCoord2i(0, 1); glVertex2i(first1, first4);
+	glTexCoord2i(1, 1); glVertex2i(first2, first4);
+	glTexCoord2i(1, 0); glVertex2i(first2, first3);
+	glEnd();
 }
 
 void PortalWorld::DisplayLevel()
