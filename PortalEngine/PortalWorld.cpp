@@ -96,12 +96,14 @@ void PortalWorld::Display()
 	{
 		ourCam.Follow(player.GetPosition());
 		paused = false;
+		glClearColor(0, 0, 0, 0);
 	}
 	else
 	{
 		//ourCam.Follow(camPos);
 		ourCam.Update();
 		DisplayMenuSplash(); // displays screen with controls at the start of the level
+		glClearColor(0.1, 0.1, 0.1, 0);
 	}
 
 	DisplayLevel();
