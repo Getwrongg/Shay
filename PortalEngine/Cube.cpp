@@ -21,6 +21,7 @@ void Cube::CreateTexture()
 	j.CreateTexture("SWIRL", "data/bark.jpg");
 	j.CreateTexture("CLOUD", "data/cloud.jpg");
 	j.CreateTexture("ROCK", "data/spacerock.jpg");
+	j.CreateTexture("4TH", "data/th.jpg");
 	
 	
 }
@@ -45,6 +46,13 @@ void Cube::Draw(const GLfloat x1, const GLfloat y1, const GLfloat z1, std::strin
 			{ 
 				glBindTexture(GL_TEXTURE_2D, j.getTextureID("ROCK"));
 			}
+			else
+				if (levelName == "level4")
+				{
+					glBindTexture(GL_TEXTURE_2D, j.getTextureID("4TH"));
+				}
+
+
 	//front square
 	glBegin(GL_POLYGON);
 		glTexCoord2i(1, 1); glVertex3f(1.0, 1.0, 1.0);
