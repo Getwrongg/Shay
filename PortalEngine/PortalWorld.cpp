@@ -107,20 +107,26 @@ void PortalWorld::Display()
 		glClearColor(0.1f, 0.1f, 0.1f, 0.0f);
 	}
 
-	DisplayLevel();
+	DisplayLevel(); //Draw level UI
 
-	world.SkyCylinder();
-
-	if (world.DrawLevel(player.GetPosition())) { // draw level and reset the player and level if they fail
-		player.AddCoins(world.GetCoins()); //currently also adds coins you get even if you die in the level
+	
+	//Draw World and reset player and world if needed
+	world.DrawLevel(player.GetPosition());
+	if (world.levelFailed()) 
+	{ 
+		world.ResetLevel();
+		player.ResetPlayer(); 
+	}
+	if(world.levelComplete())
+	{
+		player.AddCoins(world.GetCoins());
 		world.ResetLevel();
 		player.ResetPlayer();
 	}
 
-	//world.Axis();//Draws the axis for testing
-	//world.Track1();
 
-	player.DrawPlayer();
+	world.SkyCylinder(); //Draw Cylinder
+	player.DrawPlayer(); //Draw ball
 
 	glDisable(GL_TEXTURE_2D);
 	glutSwapBuffers();

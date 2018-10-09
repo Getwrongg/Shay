@@ -45,9 +45,9 @@ public:
 	*
 	*
 	*
-	* @return true if player fails level
+	* @return 
 	*/
-	bool DrawLevel(const Coordinates pos);
+	void DrawLevel(const Coordinates pos);
 
 	/**
 	* @author
@@ -96,6 +96,10 @@ public:
 	int LevelNumber();
 
 	void muteLevel();
+
+	bool levelComplete();
+
+	bool levelFailed();
 
 
 private:

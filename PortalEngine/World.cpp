@@ -79,20 +79,25 @@ void World::SkyCylinder()
 	glPopMatrix();	
 }
 
-bool World::DrawLevel(const Coordinates pos) //returns true if player fails level
+void World::DrawLevel(const Coordinates pos) //returns true if player fails level
 {
 	glPushMatrix();
 	glScaled(14.5, 14.5, 14.5);
 
 	levelmanager.DrawLevel(pos);
 
-	if (levelmanager.HasFailed() || levelmanager.HasEndedRound()) //Level is currently set in World::CreateTextures
-	{
-		return true;
-	}
 	glPopMatrix();
 
-	return false;
+}
+
+bool World::levelFailed()
+{
+	return levelmanager.HasFailed();
+}
+
+bool World::levelComplete()
+{
+	return levelmanager.HasEndedRound();
 }
 
 int World::GetCoins()

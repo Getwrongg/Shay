@@ -150,7 +150,7 @@ void Player::PointCounter(int amount)
 
 }
 
-void Player::ResetPlayer() 
+void Player::ResetPlayer()
 {
 	SetPosition(10.0f, 72.5f, 7.0f);
 	boostAmount = BOOST_START;
