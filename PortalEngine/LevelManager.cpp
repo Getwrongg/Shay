@@ -184,5 +184,20 @@ void LevelManager::ResetLevel()
 std::string LevelManager::getLevelName()
 {
 	return currentLevelName;
+}
+
+void LevelManager::muteLevel()
+{
+	if (mute) {
+		audio.AudioVolume(-1, 128);
+		audio.MusicVolume(128);
+		mute = false;
+	}
+	else
+	{
+		audio.AudioVolume(-1, 0);
+		audio.MusicVolume(0);
+		mute = true;
+	}
 
 }

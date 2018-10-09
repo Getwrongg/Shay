@@ -146,6 +146,8 @@ public:
 	*/
 	void SkyCylinder();
 
+	void muteLevel();
+
 
 private:
 	ImageLoader j; // object to load images

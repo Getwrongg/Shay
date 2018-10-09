@@ -40,6 +40,8 @@ public:
 	void AddCoins(const int coins);
 	int GetTotalCoins();
 
+	void muteSound();
+
 	void BoostPlayer();
 
 	void ResetPlayer();
@@ -66,6 +68,8 @@ private:
 	bool boostReady = true;
 	bool boostActive = false;
 	GLfloat boostTimer = 0;
+
+	bool mute = false;
 
 };
 

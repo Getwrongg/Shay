@@ -278,6 +278,10 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 			startRun = false;
 		}
 		break;
+	case 'm':
+		player.muteSound();
+		world.muteLevel();
+		break;
 	case 32: // space bar to start
 		if (arrowCounter == 0 && !startRun)
 		{
