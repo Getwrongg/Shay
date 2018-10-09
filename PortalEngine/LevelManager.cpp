@@ -186,6 +186,11 @@ std::string LevelManager::getLevelName()
 	return currentLevelName;
 }
 
+int LevelManager::getLevelNumber()
+{
+	return currentlevelNumber;
+}
+
 void LevelManager::muteLevel()
 {
 	if (mute) {

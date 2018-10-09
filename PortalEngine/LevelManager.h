@@ -136,6 +136,8 @@ public:
 
 	std::string getLevelName();
 
+	int getLevelNumber();
+
 	void muteLevel();
 
 private:

@@ -93,6 +93,8 @@ public:
 	*/
 	void SkyCylinder();
 
+	int LevelNumber();
+
 	void muteLevel();
 
 

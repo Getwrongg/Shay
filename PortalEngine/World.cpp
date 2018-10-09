@@ -100,6 +100,11 @@ int World::GetCoins()
 	return levelmanager.GetCoinsCollected();
 }
 
+int World::LevelNumber()
+{
+	return levelmanager.getLevelNumber();
+}
+
 void World::ResetLevel() 
 {
 	levelmanager.ResetLevel();

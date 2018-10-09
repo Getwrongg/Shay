@@ -153,7 +153,7 @@ void PortalWorld::CreateTexturesPortalWorld()
 
 	pic.CreateTexture("PBAR", "data/UI/progressbar.png");
 
-	pic.CreateTexture("LEVELONE", "data/UI/level1.jpg");
+	pic.CreateTexture("LEVEL", "data/UI/level.jpg");
 
 	pic.CreateTexture("COINS", "data/UI/coincount.jpg");
 
@@ -170,10 +170,10 @@ void PortalWorld::CreateTexturesPortalWorld()
 
 	//ALL THE COIN NUMBERS________________________________
 	pic.CreateTexture("ZERO", "data/UI/zero.jpg");
-	pic.CreateTexture("\1", "data/UI/one.jpg");
-	pic.CreateTexture("\2", "data/UI/two.jpg");
-	pic.CreateTexture("\3", "data/UI/three.jpg");
-	pic.CreateTexture("\4", "data/UI/four.jpg");
+	pic.CreateTexture("ONE", "data/UI/one.jpg");
+	pic.CreateTexture("TWO", "data/UI/two.jpg");
+	pic.CreateTexture("THREE", "data/UI/three.jpg");
+	pic.CreateTexture("FOUR", "data/UI/four.jpg");
 	pic.CreateTexture("FIVE", "data/UI/five.jpg");
 	pic.CreateTexture("SIX", "data/UI/six.jpg");
 	pic.CreateTexture("SEVEN", "data/UI/seven.jpg");
@@ -616,8 +616,42 @@ void PortalWorld::DisplayLevel()
 
 void PortalWorld::DisplayLevelNumber()
 {
+	std::string levelnumber;
+	switch (world.LevelNumber()+1) // level number starts at 0 so add 1 
+	{
+	case 1:
+		levelnumber = "ONE";
+		break;
+	case 2:
+		levelnumber = "TWO";
+		break;
+	case 3:
+		levelnumber = "THREE";
+		break;
+	case 4:
+		levelnumber = "FOUR";
+		break;
+	case 5:
+		levelnumber = "FIVE";
+		break;
+	case 6:
+		levelnumber = "SIX";
+		break;
+	case 7:
+		levelnumber = "SEVEN";
+		break;
+	case 8:
+		levelnumber = "EIGHT";
+		break;
+	case 9:
+		levelnumber = "NINE";
+		break;
+	default:
+		levelnumber = "ZERO";
+	}
+
 	//LEVEL NUMBER
-	glBindTexture(GL_TEXTURE_2D, pic.getTextureID("\1"));
+	glBindTexture(GL_TEXTURE_2D, pic.getTextureID(levelnumber));
 	glBegin(GL_QUADS);
 	glTexCoord2i(0, 0); glVertex2i(10, 0);
 	glTexCoord2i(0, 1); glVertex2i(10, 20);
@@ -626,7 +660,7 @@ void PortalWorld::DisplayLevelNumber()
 	glEnd();
 
 	//LEVEL UI
-	glBindTexture(GL_TEXTURE_2D, pic.getTextureID("LEVELONE"));
+	glBindTexture(GL_TEXTURE_2D, pic.getTextureID("LEVEL"));
 	glBegin(GL_QUADS);
 	glTexCoord2i(0, 0); glVertex2i(-50, 0);
 	glTexCoord2i(0, 1); glVertex2i(-50, 20);
@@ -647,19 +681,19 @@ void PortalWorld::DisplayCoinsCollected()
 	}
 	if (getCoinsCollected == 1)
 	{
-		uiNumber = "\1";
+		uiNumber = "ONE";
 	}
 	if (getCoinsCollected == 2)
 	{
-		uiNumber = "\2";
+		uiNumber = "TWO";
 	}
 	if (getCoinsCollected == 3)
 	{
-		uiNumber = "\3";
+		uiNumber = "THREE";
 	}
 	if (getCoinsCollected == 4)
 	{
-		uiNumber = "\4";
+		uiNumber = "FOUR";
 	}
 	if (getCoinsCollected == 5)
 	{
