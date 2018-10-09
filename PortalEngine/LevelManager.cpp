@@ -93,7 +93,7 @@ void LevelManager::DrawLevel(const Coordinates pos)
 				}
 				else 
 				{
-					cubedraw.Draw((float)j, (float)i, 0.0f);
+					cubedraw.Draw((float)j, (float)i, 0.0f, currentLevelName);
 				}
 			}
 			if (currentnumber == "2") 
@@ -179,4 +179,10 @@ void LevelManager::ResetLevel()
 	SetLevel(currentLevelName);
 	coinscollected = 0;
 	failed = false;
+}
+
+std::string LevelManager::getLevelName()
+{
+	return currentLevelName;
+
 }

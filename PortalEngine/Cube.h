@@ -51,7 +51,7 @@ public:
 	*
 	* @return void
 	*/
-	void Draw(const GLfloat x1, const GLfloat y1, const GLfloat z1);
+	void Draw(const GLfloat x1, const GLfloat y1, const GLfloat z1, std::string levelName);
 
 	/**
 	* @author Christopher Gemmel

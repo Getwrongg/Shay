@@ -18,7 +18,7 @@ Player::Player()
 
 	boostTotal = BOOST_NUMBER;
 	boostSpeed = 1.25f;
-	boostDelay = 2.0f;
+	boostDelay = 0.5f;
 	boostAmount = BOOST_START;
 
 	texName = "";

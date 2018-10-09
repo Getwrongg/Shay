@@ -29,6 +29,7 @@ public:
 	bool HasEndedRound();
 	bool HasFailed();
 	void ResetLevel();
+	std::string getLevelName();
 
 private:
 	

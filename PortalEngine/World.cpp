@@ -9,10 +9,12 @@ void World::CreateTextures(const std::string name, const char * filePath)
 	j.CreateTexture("GOD1", "data/god1.png");
 
 	j.CreateTexture("COIN", "data/coin.jpg");
-	
-	cube.CreateTexture();
 
-	coin.CreateTexture();
+	j.CreateTexture("STARS", "data/stars.jpg");
+
+	j.CreateTexture("SKY", "data/skyC.jpg");
+	
+	j.CreateTexture("SPACE", "data/space.jpg");
 
 	levelmanager.LoadTexture();
 
@@ -21,7 +23,7 @@ void World::CreateTextures(const std::string name, const char * filePath)
 	//levelmanager.LoadLevel("level2", "./levels/level2.txt");
 	//levelmanager.LoadLevel("level3", "./levels/level3.txt");
 
-	levelmanager.SetLevel("level1");
+	levelmanager.SetLevel("level2");
 	
 }
 
@@ -63,12 +65,33 @@ void World::AnimatePortalWorld(const GLfloat timeSincePrevFrame)
 
 void World::SkyCylinder()
 {	
+	std::string levelName;
 	GLUquadricObj* glu_cylinder;
 	glu_cylinder = gluNewQuadric();
 
 	gluQuadricTexture(glu_cylinder, GL_TRUE);
 	gluQuadricDrawStyle(glu_cylinder, GLU_FILL); //GLUquadricObj * qobj = gluNewQuadric();
-	glBindTexture(GL_TEXTURE_2D, j.getTextureID("SWIRL"));
+
+	
+	levelName=levelmanager.getLevelName();
+	if (levelName == "level1")
+	{
+		glBindTexture(GL_TEXTURE_2D, j.getTextureID("SWIRL"));
+	}
+	else
+		if (levelName == "level2") 
+		{
+			glBindTexture(GL_TEXTURE_2D, j.getTextureID("SKY"));
+		}
+		else
+			if (levelName == "level3")
+			{
+				glBindTexture(GL_TEXTURE_2D, j.getTextureID("SPACE"));
+			}
+	
+
+	
+	
 
 	glPushMatrix();
 	
