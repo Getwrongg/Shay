@@ -143,14 +143,60 @@ public:
 	*/
 	void DisplayExitScreen();
 
+	/**
+	* @author 
+	*
+	* @brief Displays Menu Screen
+	*
+	*
+	*
+	* @return void
+	*/
 	void DisplayMenuScreen();
 
+	/**
+	* @author Manu Murry
+	*
+	* @brief Display Menu Splash
+	*
+	*
+	*
+	* @return void
+	*/
 	void DisplayMenuSplash();
+
+	/**
+	* @author
+	*
+	* @brief Displays Level
+	*
+	*
+	*
+	* @return void
+	*/
 
 	void DisplayLevel();
 
+	/**
+	* @author
+	*
+	* @brief Display Level Number
+	*
+	*
+	*
+	* @return void
+	*/
 	void DisplayLevelNumber();
 
+	/**
+	* @author
+	*
+	* @brief Display Number of coins Collection
+	*
+	*
+	*
+	* @return void
+	*/
 	void DisplayCoinsCollected();
 
 private:
