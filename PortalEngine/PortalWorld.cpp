@@ -671,49 +671,42 @@ void PortalWorld::DisplayLevelNumber()
 
 void PortalWorld::DisplayCoinsCollected()
 {
-	
-	getCoinsCollected = world.GetCoins();
 	std::string uiNumber;
 
-	if (getCoinsCollected == 0)
+	switch (world.GetCoins()) // level number starts at 0 so add 1 
 	{
+	case 0:
 		uiNumber = "ZERO";
-	}
-	if (getCoinsCollected == 1)
-	{
+		break;
+	case 1:
 		uiNumber = "ONE";
-	}
-	if (getCoinsCollected == 2)
-	{
+		break;
+	case 2:
 		uiNumber = "TWO";
-	}
-	if (getCoinsCollected == 3)
-	{
+		break;
+	case 3:
 		uiNumber = "THREE";
-	}
-	if (getCoinsCollected == 4)
-	{
+		break;
+	case 4:
 		uiNumber = "FOUR";
-	}
-	if (getCoinsCollected == 5)
-	{
+		break;
+	case 5:
 		uiNumber = "FIVE";
-	}
-	if (getCoinsCollected == 6)
-	{
+		break;
+	case 6:
 		uiNumber = "SIX";
-	}
-	if (getCoinsCollected == 7)
-	{
+		break;
+	case 7:
 		uiNumber = "SEVEN";
-	}
-	if (getCoinsCollected == 8)
-	{
+		break;
+	case 8:
 		uiNumber = "EIGHT";
-	}
-	if (getCoinsCollected == 9)
-	{
-		uiNumber = "NINE ";
+		break;
+	case 9:
+		uiNumber = "NINE";
+		break;
+	default:
+		uiNumber = "ZERO";
 	}
 
 	//COINS UI COUNT
