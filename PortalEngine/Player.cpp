@@ -46,7 +46,22 @@ void Player::LoadTexture(const std::string name, const char * filePath)
 void Player::LoadSounds() 
 {
 	audio.LoadWAV("BOOST", "sounds/boost.wav");
-	audio.LoadWAV("JUMP", "sounds/jump.wav");
+//	audio.LoadWAV("JUMP", "sounds/jump.wav");
+}
+
+void Player::muteSound()
+{
+	if (mute) {
+		audio.AudioVolume(-1, 128);
+		audio.MusicVolume(128);
+		mute = false;
+	}
+	else
+	{
+		audio.AudioVolume(-1, 0);
+		audio.MusicVolume(0);
+		mute = true;
+	}
 }
 
 Coordinates & Player::GetPosition()
@@ -135,7 +150,7 @@ void Player::PointCounter(int amount)
 
 }
 
-void Player::ResetPlayer() 
+void Player::ResetPlayer()
 {
 	SetPosition(10.0f, 72.5f, 7.0f);
 	boostAmount = BOOST_START;

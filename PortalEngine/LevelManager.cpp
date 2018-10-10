@@ -88,7 +88,6 @@ void LevelManager::DrawLevel(const Coordinates pos)
 			if (currentnumber == "1") 
 			{
 				if (CheckCollision(pos, j, i)) {
-					audio.PlayAudioChannel("FAIL", 1, 0);
 					failed = true; 
 				}
 				else 
@@ -171,6 +170,10 @@ bool LevelManager::HasEndedRound()
 
 bool LevelManager::HasFailed() 
 {
+	if (failed)
+	{
+		audio.PlayAudioChannel("FAIL", 1, 0);
+	}
 	return failed;
 }
 
@@ -184,5 +187,25 @@ void LevelManager::ResetLevel()
 std::string LevelManager::getLevelName()
 {
 	return currentLevelName;
+}
+
+int LevelManager::getLevelNumber()
+{
+	return currentlevelNumber;
+}
+
+void LevelManager::muteLevel()
+{
+	if (mute) {
+		audio.AudioVolume(-1, 128);
+		audio.MusicVolume(128);
+		mute = false;
+	}
+	else
+	{
+		audio.AudioVolume(-1, 0);
+		audio.MusicVolume(0);
+		mute = true;
+	}
 
 }

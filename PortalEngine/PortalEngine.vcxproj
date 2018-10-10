@@ -133,6 +133,7 @@
     <ClInclude Include="objectaudio.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PortalWorld.h" />
+    <ClInclude Include="Shop.h" />
     <ClInclude Include="Structs.h" />
     <ClInclude Include="World.h" />
   </ItemGroup>
@@ -146,6 +147,7 @@
     <ClCompile Include="objectaudio.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PortalWorld.cpp" />
+    <ClCompile Include="Shop.cpp" />
     <ClCompile Include="World.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

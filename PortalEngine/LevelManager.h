@@ -133,7 +133,12 @@ public:
 	* @return void
 	*/
 	void ResetLevel();
+
 	std::string getLevelName();
+
+	int getLevelNumber();
+
+	void muteLevel();
 
 private:
 	
@@ -148,6 +153,8 @@ private:
 	bool endRound = false; //if player completes level
 	int coinscollected=0;
 	int currentlevelNumber = 0;
+
+	bool mute = false;
 
 	Audio audio;
 	Cube cubedraw;

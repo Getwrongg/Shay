@@ -29,33 +29,6 @@ void World::CreateTextures(const std::string name, const char * filePath)
 	
 }
 
-void World::Axis() 
-{
-	//x axis
-	glColor3f(1, 0, 0);
-	glBegin(GL_LINES);
-	glVertex3f(0.0f, 0.0f, 0.0f);
-	glVertex3f(100.0f, -0.9f, 0.0f);
-	glEnd();
-
-	//y axis
-	glColor3f(0, 1, 0);
-	glBegin(GL_LINES);
-	glVertex3f(0.0f, 0.0f, 0.0f);
-	glVertex3f(0.0f, 200.0f, 0.0f);
-	glEnd();
-
-
-	//z axis
-	glColor3f(0, 0, 1);
-	glBegin(GL_LINES);
-	glVertex3f(0.0f, 0.0f, 0.0f);
-	glVertex3f(0.0f, -0.9f, 300.0f);
-	glEnd();
-
-
-}
-
 void World::AnimatePortalWorld(const GLfloat timeSincePrevFrame)
 {
 	rotates += rotateSPEED * timeSincePrevFrame;
@@ -95,10 +68,6 @@ void World::SkyCylinder()
 				{
 					glBindTexture(GL_TEXTURE_2D, j.getTextureID("NEB"));
 				}
-	
-
-	
-	
 
 	glPushMatrix();
 	
@@ -110,33 +79,25 @@ void World::SkyCylinder()
 	glPopMatrix();	
 }
 
-void World::Ground() 
-{	
-	//glBindTexture(GL_TEXTURE_2D, j.getTextureID("SWIRL"));
-	
-	glBegin(GL_POLYGON);
-		glTexCoord2i(0, 0); glVertex3f(-40.0, -1, 100.0);
-		glTexCoord2i(0, 1); glVertex3f(40.0, -1, 100.0);
-		glTexCoord2i(1, 1); glVertex3f(40.0, -1, -100.0);
-		glTexCoord2i(1, 0); glVertex3f(-40.0, -1, -100.0);
-	glEnd();
-
-}
-
-bool World::DrawLevel(const Coordinates pos) //returns true if player fails level
+void World::DrawLevel(const Coordinates pos) //returns true if player fails level
 {
 	glPushMatrix();
 	glScaled(14.5, 14.5, 14.5);
 
 	levelmanager.DrawLevel(pos);
 
-	if (levelmanager.HasFailed() || levelmanager.HasEndedRound()) //Level is currently set in World::CreateTextures
-	{
-		return true;
-	}
 	glPopMatrix();
 
-	return false;
+}
+
+bool World::levelFailed()
+{
+	return levelmanager.HasFailed();
+}
+
+bool World::levelComplete()
+{
+	return levelmanager.HasEndedRound();
 }
 
 int World::GetCoins()
@@ -144,156 +105,17 @@ int World::GetCoins()
 	return levelmanager.GetCoinsCollected();
 }
 
+int World::LevelNumber()
+{
+	return levelmanager.getLevelNumber();
+}
+
 void World::ResetLevel() 
 {
 	levelmanager.ResetLevel();
 }
 
-void World::Track1()
+void World::muteLevel()
 {
-	////_________________BOTTOM PILLAR OF TRACK________________
-	////_______________________________________________________
-
-	glBindTexture(GL_TEXTURE_2D, j.getTextureID("SWIRL"));
-
-	//RIGHT
-	glBegin(GL_POLYGON);
-	glTexCoord2i(1, 1); glVertex3f(400.0, 2.0, 15.0);	// TOP RIGHT
-	glTexCoord2i(0, 1); glVertex3f(0.0, 2.0, 15.0);	    // BOTTOM RIGHT
-	glTexCoord2i(0, 0); glVertex3f(0.0, -100.0, 15.0);	    // TOP LEFT
-	glTexCoord2i(1, 0); glVertex3f(400.0, -100.0, 15.0);	// BOTTOM LEFT
-	glEnd();
-
-	//BACK
-	glBegin(GL_POLYGON);
-	glTexCoord2i(1, 1); glVertex3f(400.0, 2.0, -1.0);
-	glTexCoord2i(0, 1); glVertex3f(0.0, 2.0, -1.0);
-	glTexCoord2i(0, 0); glVertex3f(0.0, -100.0, -1.0);
-	glTexCoord2i(1, 0); glVertex3f(400.0, -100.0, -1.0);
-	glEnd();
-
-	//FRONT
-	glBegin(GL_POLYGON);
-	glTexCoord2i(1, 1); glVertex3f(0.0, 2.0, 15.0);
-	glTexCoord2i(0, 1); glVertex3f(0.0, 2.0, -1.0);
-	glTexCoord2i(0, 0); glVertex3f(0.0, -100.0, -1.0);
-	glTexCoord2i(1, 0); glVertex3f(0.0, -100.0, 15.0);
-	glEnd();
-
-	//TOP
-	glBegin(GL_POLYGON);
-	glTexCoord2i(1, 1); glVertex3f(400.0, 2.0, 15.0);
-	glTexCoord2i(0, 1); glVertex3f(0.0, 2.0, 15.0);
-	glTexCoord2i(0, 0); glVertex3f(0.0, 2.0, -1.0);
-	glTexCoord2i(1, 0); glVertex3f(400.0, 2.0, -1.0);
-	glEnd();
-
-
-	//____________________TOP PILLAR OF TRACK________________
-	//_______________________________________________________
-
-	glBindTexture(GL_TEXTURE_2D, j.getTextureID("SWIRL"));
-
-	//RIGHT
-	glBegin(GL_POLYGON);
-	glTexCoord2i(1, 1); glVertex3f(400.0, 70.0, 15.0);	// TOP RIGHT
-	glTexCoord2i(0, 1); glVertex3f(0.0, 70.0, 15.0);	    // BOTTOM RIGHT
-	glTexCoord2i(0, 0); glVertex3f(0.0, 100.0, 15.0);	    // TOP LEFT
-	glTexCoord2i(1, 0); glVertex3f(400.0, 100.0, 15.0);	// BOTTOM LEFT
-	glEnd();
-
-	//BACK
-	glBegin(GL_POLYGON);
-	glTexCoord2i(1, 1); glVertex3f(400.0, 70.0, 0.0);
-	glTexCoord2i(0, 1); glVertex3f(0.0, 70.0, 0.0);
-	glTexCoord2i(0, 0); glVertex3f(0.0, 100.0, 0.0);
-	glTexCoord2i(1, 0); glVertex3f(400.0, 100.0, 0.0);
-	glEnd();
-
-	//FRONT
-	glBegin(GL_POLYGON);
-	glTexCoord2i(1, 1); glVertex3f(0.0, 70.0, 15.0);
-	glTexCoord2i(0, 1); glVertex3f(0.0, 70.0, 0.0);
-	glTexCoord2i(0, 0); glVertex3f(0.0, 100.0, 0.0);
-	glTexCoord2i(1, 0); glVertex3f(0.0, 100.0, 15.0);
-	glEnd();
-
-	//TOP
-	glBegin(GL_POLYGON);
-	glTexCoord2i(1, 1); glVertex3f(400.0, 70.0, 15.0);
-	glTexCoord2i(0, 1); glVertex3f(0.0, 70.0, 15.0);
-	glTexCoord2i(0, 0); glVertex3f(0.0, 70.0, 0.0);
-	glTexCoord2i(1, 0); glVertex3f(400.0, 70.0, 0.0);
-	glEnd();
-
-	//____________________TRACK ONE GOD______________________
-	//_______________________________________________________
-	glBindTexture(GL_TEXTURE_2D, j.getTextureID("GOD1"));
-	
-	glBegin(GL_POLYGON);
-	glTexCoord2i(1, 1); glVertex3f(400.0, 10.0, 20.0);
-	glTexCoord2i(0, 1); glVertex3f(400.0, 10.0, -20.0);
-	glTexCoord2i(0, 0); glVertex3f(400.0, 70.0, -20.0);
-	glTexCoord2i(1, 0); glVertex3f(400.0, 70.0, 20.0);
-	glEnd();
-
-
-	//____________________BOTTOM PILLARS ONE TO LAST_________
-	//_______________________________________________________
-	//FIRST PILLAR FRONT
-	glBegin(GL_POLYGON);
-	glTexCoord2i(1, 1); glVertex3f(40.0, 40.0, 15.0);
-	glTexCoord2i(0, 1); glVertex3f(40.0, 40.0, 0.0);
-	glTexCoord2i(0, 0); glVertex3f(40.0, 2.0, 0.0);
-	glTexCoord2i(1, 0); glVertex3f(40.0, 2.0, 15.0);
-	glEnd();
-}
-
-void World::DrawBushes() {
-	Bushes(0,-1,-4);
-	Bushes(5,-1,-4);
-	Bushes(10,-1,-4);
-
-}
-
-void World::Bushes(const GLfloat x1, const GLfloat y1, const GLfloat z1)
-{
-	glPushMatrix();
-	glTranslatef(x1, y1, z1);
-	//left half of bush
-	for (float i = -1.5f; i > -3; i = i - 0.1f)
-	{
-		for (float j = 2; j > 0; j = j - 0.1f)
-		{
-			for(float k = -1; k < 1; k = k + 0.1f)
-			{
-				
-				glBegin(GL_TRIANGLES);
-					glVertex3f(-2, 0, 0);
-					glVertex3f(i, j, k);
-					glVertex3f(-1, 0, 0);
-				glEnd();
-			}
-			
-		}
-		
-	}
-	
-	//right half of bush
-	for (float i = -1.5f; i < 0; i = i + 0.1f)
-	{
-		for (float j = 2; j > 0; j = j - 0.1f)
-		{
-			for (float k = -1; k < 1; k = k + 0.1f)
-			{
-				glBegin(GL_TRIANGLES);
-					glVertex3f(-2, 0, 0);
-					glVertex3f(i, j, k);
-					glVertex3f(-1, 0, 0);
-				glEnd();
-			}
-		}
-
-	}
-	glPopMatrix();
+	levelmanager.muteLevel();
 }
