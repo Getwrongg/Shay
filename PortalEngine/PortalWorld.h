@@ -226,6 +226,11 @@ private:
 	ImageLoader pic;
 	Player player;
 
+	Shop shop;
+	bool inShop = false;
+	int xCounter = 1;
+	int yCounter = 1;
+
 	int width, height;
 
 	bool DisplayExit;

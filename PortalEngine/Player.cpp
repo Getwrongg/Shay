@@ -16,12 +16,14 @@ Player::Player()
 	moveSpeed = 25.0f;
 	rot = 0;
 
+	texName = "DEFAULT";
+
+	totalcoinsCollected = 100;
+
 	boostTotal = BOOST_NUMBER;
 	boostSpeed = 1.25f;
 	boostDelay = 0.5f;
 	boostAmount = BOOST_START;
-
-	texName = "";
 
 	sphere = gluNewQuadric();
 	gluQuadricTexture(sphere, GL_TRUE);
@@ -35,11 +37,17 @@ void Player::DrawPlayer()
 	gluSphere(sphere, size, slices, stacks);
 }
 
-void Player::LoadTexture(const std::string name, const char * filePath)
+void Player::LoadTexture()
 {
-	pj.UnloadAllTextures();
-	pj.CreateTexture(name, filePath);
+	pj.CreateTexture("8BALL", "data/skins/8ball.jpg");
+	pj.CreateTexture("KALEIDOSCOPE", "data/skins/scope.jpg");
+	pj.CreateTexture("STAR", "data/skins/stars.jpg");
+	pj.CreateTexture("RAINBOW", "data/skins/rainbow.jpg");
+	pj.CreateTexture("DEFAULT", "data/portalswirl.jpg");
+}
 
+void Player::SetSkin(const std::string name)
+{
 	texName = name;
 }
 
@@ -166,6 +174,11 @@ void Player::SetMoveSpeed(const GLfloat speed)
 void Player::AddCoins(const int coins)
 {
 	totalcoinsCollected += coins;
+}
+
+void Player::SetCoins(const int coins)
+{
+	totalcoinsCollected = coins;
 }
 
 int Player::GetTotalCoins()

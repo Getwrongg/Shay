@@ -31,7 +31,7 @@ public:
 	Player();
 	void DrawPlayer();
 	void LoadSounds();
-	void LoadTexture(const std::string name, const char * filePath);
+	void LoadTexture();
 	void Update(const GLfloat timeSincePrevFrame, const bool leftclickedMouse, const bool rightclickedMouse, const bool startRun);
 	Coordinates & GetPosition();
 	void SetPosition(const GLfloat x, const GLfloat y, const GLfloat z);
@@ -39,6 +39,9 @@ public:
 	void SetMoveSpeed(const GLfloat speed);
 	void AddCoins(const int coins);
 	int GetTotalCoins();
+	void SetCoins(const int coins);
+
+	void SetSkin(const std::string name);
 
 	void muteSound();
 
@@ -50,7 +53,7 @@ private:
 	Coordinates pos;
 	GLfloat size;
 	GLint slices, stacks;
-	int totalcoinsCollected=0;
+
 	GLUquadricObj *sphere;
 	std::string texName;
 
@@ -68,6 +71,8 @@ private:
 	bool boostReady = true;
 	bool boostActive = false;
 	GLfloat boostTimer = 0;
+
+	int totalcoinsCollected;
 
 	bool mute = false;
 
