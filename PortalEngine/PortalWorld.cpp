@@ -1,9 +1,9 @@
 #include "PortalWorld.h"
 
-int first1 = 170;
+int first1 = 180;
 int first2 = 200;
-int first3 = 145;
-int first4 = 165;
+int first3 = 130;
+int first4 = 145;
 
 int arrowCounter = 0;
 
@@ -168,6 +168,10 @@ void PortalWorld::CreateTexturesPortalWorld()
 
 	pic.CreateTexture("MENU", "data/UI/menu.png");
 
+	pic.CreateTexture("SHOP", "data/UI/shopMenu.png");
+
+	pic.CreateTexture("SKINS", "data/UI/skinsMenu.png");
+
 	pic.CreateTexture("CONTROLSMENU", "data/UI/controlsMenu.png");
 
 	player.LoadTexture("PLAYER", "data/portalswirl.jpg"); // default texture for player
@@ -257,7 +261,15 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 			DisplayExit = true;
 		}
 		break;
-	case 27:
+	case 27: //escape button
+
+		if (arrowCounter == 1)
+		{
+			if (startRun == false)
+			{
+				menuOption = "SKINS";
+			}
+		}
 		if (arrowCounter == 2)
 		{
 			if (startRun == false)
@@ -265,7 +277,7 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 				menuOption = "MENU";				
 			}			
 		}
-
+			
 		if (startRun == true)
 		{			
 			ourCam.SetPosition(pos, upVec, angle);
@@ -283,7 +295,12 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 		}
 		else if (arrowCounter == 1)
 		{
-			
+			menuOption = "SKINS";
+
+			first1 = 0;
+			first2 = 0;
+			first3 = 0;
+			first4 = 0;
 		}
 		else if (arrowCounter == 2)
 		{
@@ -296,7 +313,7 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 		}
 		else if (arrowCounter == 3)
 		{			
-			first1 = 170;
+			first1 = 180;
 			first2 = 200;
 			first3 = 145;
 			first4 = 165;
@@ -323,7 +340,7 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 		case '3':
 			player.LoadTexture("PLAYER", "data/stars.jpg");
 			break;
-		case 'k':
+		case 'k': //down key needs changing
 			if (down == false)
 			{
 				arrowCounter++;
@@ -339,32 +356,32 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 
 				else if (arrowCounter == 1)
 				{
-					first1 = 170;
+					first1 = 180;
 					first2 = 200;
-					first3 = 170;
-					first4 = 190;
+					first3 = 155;
+					first4 = 170;
 					arrowMenu();
 				}
 				else if (arrowCounter == 2)
 				{
-					first1 = 170;
+					first1 = 180;
 					first2 = 200;
-					first3 = 200;
-					first4 = 220;
+					first3 = 195;
+					first4 = 210;
 					arrowMenu();
 				}
 				else if (arrowCounter == 3)
 				{ 
-					first1 = 170;
+					first1 = 180;
 					first2 = 200;
-					first3 = 230;
-					first4 = 250;
+					first3 = 220;
+					first4 = 235;
 					arrowMenu();
 				}
 				
 			}
 			break;
-		case 'i':
+		case 'i'://up key needs changing
 			if (up == false)
 			{
 				arrowCounter--;
@@ -414,8 +431,6 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 			break;
 		}
 	}
-
-	
 }
 
 void PortalWorld::ReleaseKeyboard(unsigned char key, int x, int y)
