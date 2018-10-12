@@ -18,7 +18,7 @@ Player::Player()
 
 	texName = "DEFAULT";
 
-	totalcoinsCollected = 100;
+	totalcoinsCollected = 50;
 
 	boostTotal = BOOST_NUMBER;
 	boostSpeed = 1.25f;

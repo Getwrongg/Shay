@@ -198,6 +198,7 @@ public:
 	*
 	* @return void
 	*/
+	void DisplayCoinsShop();
 	void DisplayCoinsCollected();
 
 	void arrowMenu();

@@ -532,7 +532,6 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 				}
 				arrowMenu();
 
-
 				std::cout << "Position: " << xCounter << yCounter << std::endl;
 				std::cout << std::endl;
 				break;
@@ -725,6 +724,8 @@ void PortalWorld::DisplayMenuSplash()
 	glScalef(2, 2, 0);
 
 	arrowMenu();
+
+	DisplayCoinsShop();
 	
 	glBindTexture(GL_TEXTURE_2D, pic.getTextureID(menuOption));
 	glBegin(GL_QUADS);
@@ -843,11 +844,110 @@ void PortalWorld::DisplayLevelNumber()
 	glEnd();
 }
 
+void PortalWorld::DisplayCoinsShop() 
+{
+	std::string firstNumber;
+	std::string secondNumber;
+
+	int totalCoins = player.GetTotalCoins();
+
+	int firstNum = totalCoins / 10;
+	int secondNum = totalCoins % 10;
+
+	switch (firstNum)
+	{
+	case 0:
+		firstNumber = "ZERO";
+		break;
+	case 1:
+		firstNumber = "ONE";
+		break;
+	case 2:
+		firstNumber = "TWO";
+		break;
+	case 3:
+		firstNumber = "THREE";
+		break;
+	case 4:
+		firstNumber = "FOUR";
+		break;
+	case 5:
+		firstNumber = "FIVE";
+		break;
+	case 6:
+		firstNumber = "SIX";
+		break;
+	case 7:
+		firstNumber = "SEVEN";
+		break;
+	case 8:
+		firstNumber = "EIGHT";
+		break;
+	case 9:
+		firstNumber = "NINE";
+		break;
+	default:
+		firstNumber = "ZERO";
+	}
+
+	switch (secondNum)
+	{
+	case 0:
+		secondNumber = "ZERO";
+		break;
+	case 1:
+		secondNumber = "ONE";
+		break;
+	case 2:
+		secondNumber = "TWO";
+		break;
+	case 3:
+		secondNumber = "THREE";
+		break;
+	case 4:
+		secondNumber = "FOUR";
+		break;
+	case 5:
+		secondNumber = "FIVE";
+		break;
+	case 6:
+		secondNumber = "SIX";
+		break;
+	case 7:
+		secondNumber = "SEVEN";
+		break;
+	case 8:
+		secondNumber = "EIGHT";
+		break;
+	case 9:
+		secondNumber = "NINE";
+		break;
+	default:
+		secondNumber = "ZERO";
+	}
+
+	glBindTexture(GL_TEXTURE_2D, pic.getTextureID(firstNumber));
+	glBegin(GL_QUADS);
+	glTexCoord2i(0, 0); glVertex2i(240-13, 230+40);
+	glTexCoord2i(0, 1); glVertex2i(240-13, 235+50);
+	glTexCoord2i(1, 1); glVertex2i(260-9, 235+50);
+	glTexCoord2i(1, 0); glVertex2i(260-9, 230+40);
+	glEnd();
+
+	glBindTexture(GL_TEXTURE_2D, pic.getTextureID(secondNumber));
+	glBegin(GL_QUADS);
+	glTexCoord2i(0, 0); glVertex2i(240+9, 230+40);
+	glTexCoord2i(0, 1); glVertex2i(240+9, 235+50);
+	glTexCoord2i(1, 1); glVertex2i(260+13, 235+50);
+	glTexCoord2i(1, 0); glVertex2i(260+13, 230+40);
+	glEnd();
+}
+
 void PortalWorld::DisplayCoinsCollected()
 {
 	std::string uiNumber;
 
-	switch (world.GetCoins()) // level number starts at 0 so add 1 
+	switch (world.GetCoins())
 	{
 	case 0:
 		uiNumber = "ZERO";
