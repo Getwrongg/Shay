@@ -5,13 +5,13 @@ Shop::Shop()
 	skin eight_ball = skin("8BALL", 11, 10);
 	SkinList.push_back(eight_ball);
 
-	skin space_ball = skin("STAR", 12, 15);
+	skin space_ball = skin("STAR", 21, 15);
 	SkinList.push_back(space_ball);
 
-	skin kaleidoscope_ball = skin("KALEIDOSCOPE", 13, 20);
+	skin kaleidoscope_ball = skin("KALEIDOSCOPE", 31, 20);
 	SkinList.push_back(kaleidoscope_ball);
 
-	skin rainbow_ball = skin("RAINBOW", 21, 20);
+	skin rainbow_ball = skin("RAINBOW", 12, 20);
 	SkinList.push_back(rainbow_ball);
 }
 
