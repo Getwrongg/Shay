@@ -292,10 +292,10 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 			{
 				menuOption = "SKINS";
 
-				first1 = 0;
-				first2 = 0;
-				first3 = 0;
-				first4 = 0;
+				first1 = 180 - 12;
+				first2 = 200 - 12;
+				first3 = 195 - 30;
+				first4 = 200 - 30;
 
 				escapeCounter++;
 
@@ -448,7 +448,7 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 			case 'e':
 				shop.showShop(player.GetTotalCoins());
 				break;
-			case 'w': //up
+			case 'a': 
 				if (xCounter <= 1)
 				{
 					xCounter = 1;
@@ -457,15 +457,59 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 				{
 					xCounter--;
 				}
+
+				switch (xCounter) {
+				case 1:
+					first1 = 180 - 12;
+					first2 = 200 - 12;
+					break;
+
+				case 2:
+					first1 = 180 + 60;
+					first2 = 200 + 60;
+					break;
+				case 3:
+					first1 = 180 + 132;
+					first2 = 200 + 132;
+					break;
+				}
+				arrowMenu();
+
+
 				std::cout << "Position: " << xCounter << yCounter << std::endl;
 				std::cout << std::endl;
 				break;
-			case 's': //down
-				xCounter++;
+			case 'd': 
+				if (xCounter >= 3)
+				{
+					xCounter = 3;
+				}
+				else
+				{
+					xCounter++;
+				}
+
+				switch (xCounter) {
+				case 1:
+					first1 = 180 - 12;
+					first2 = 200 - 12;
+					break;
+
+				case 2:
+					first1 = 180 + 60;
+					first2 = 200 + 60;
+					break;
+				case 3:
+					first1 = 180 + 132;
+					first2 = 200 + 132;
+					break;
+				}
+				arrowMenu();
+
 				std::cout << "Position: " << xCounter << yCounter << std::endl;
 				std::cout << std::endl;
 				break;
-			case 'a': //left
+			case 'w': 
 				if (yCounter <= 1)
 				{
 					yCounter = 1;
@@ -474,11 +518,47 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 				{
 					yCounter--;
 				}
+
+				switch (yCounter) {
+				case 1:
+					first3 = 195 - 30;
+					first4 = 200 - 30;
+					break;
+
+				case 2:
+					first3 = 195 + 35;
+					first4 = 200 + 35;
+					break;
+				}
+				arrowMenu();
+
+
 				std::cout << "Position: " << xCounter << yCounter << std::endl;
 				std::cout << std::endl;
 				break;
-			case 'd': //right
-				yCounter++;
+			case 's':
+				if (yCounter >= 2)
+				{
+					yCounter = 2;
+				}
+				else
+				{
+					yCounter++;
+				}
+
+				switch (yCounter) {
+				case 1:
+					first3 = 195 - 30;
+					first4 = 200 - 30;
+					break;
+
+				case 2:
+					first3 = 195 + 35;
+					first4 = 200 + 35;
+					break;
+				}
+				arrowMenu();
+
 				std::cout << "Position: " << xCounter << yCounter << std::endl;
 				std::cout << std::endl;
 				break;
@@ -498,7 +578,6 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 				yCounter = 1;
 				break;
 		}
-		//call shop here
 	}
 }
 
