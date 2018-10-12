@@ -6,6 +6,7 @@ int first3 = 130;
 int first4 = 145;
 
 int arrowCounter = 0;
+int escapeCounter = 0;
 
 std::string menuOption = "MENU";
 
@@ -269,22 +270,8 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 				DisplayExit = true;
 			}
 			break;
-		case 27: //escape button
 
-			if (arrowCounter == 1)
-			{
-				if (startRun == false)
-				{
-					menuOption = "SKINS";
-				}
-			}
-			if (arrowCounter == 2)
-			{
-				if (startRun == false)
-				{
-					menuOption = "MENU";
-				}
-			}
+		case 27: //escape button			
 
 			if (startRun == true)
 			{
@@ -310,23 +297,32 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 				first3 = 0;
 				first4 = 0;
 
+				escapeCounter++;
+
 				inShop = true;
 			}
 			else if (arrowCounter == 2)
 			{
-				menuOption = "CONTROLSMENU";
-
 				first1 = 0;
 				first2 = 0;
 				first3 = 0;
 				first4 = 0;
+
+				escapeCounter++;
+
+				menuOption = "CONTROLSMENU";
+
 			}
 			else if (arrowCounter == 3)
 			{
-				first1 = 180;
-				first2 = 200;
-				first3 = 145;
-				first4 = 165;
+				first1 = 0;
+				first2 = 0;
+				first3 = 0;
+				first4 = 0;
+
+				escapeCounter++;
+
+
 				DisplayExit = true;
 			}
 
@@ -356,7 +352,7 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 						arrowCounter = 3;
 					}
 					else if (arrowCounter < 0)
-					{
+					{								
 						arrowCounter = 0;
 					}
 
@@ -372,16 +368,16 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 					{
 						first1 = 180;
 						first2 = 200;
-						first3 = 195;
-						first4 = 210;
+						first3 = 185;
+						first4 = 200;
 						arrowMenu();
 					}
 					else if (arrowCounter == 3)
 					{
 						first1 = 180;
 						first2 = 200;
-						first3 = 220;
-						first4 = 235;
+						first3 = 210;
+						first4 = 225;
 						arrowMenu();
 					}
 
@@ -398,39 +394,40 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 					}
 					else if (arrowCounter < 1)
 					{
+						
 						arrowCounter = 0;
 					}
 
 					if (arrowCounter == 0)
 					{
-						first1 = 170;
+						first1 = 180;
 						first2 = 200;
-						first3 = 145;
-						first4 = 165;
+						first3 = 130;
+						first4 = 145;
 						arrowMenu();
 					}
 					else if (arrowCounter == 1)
 					{
-						first1 = 170;
+						first1 = 180;
 						first2 = 200;
-						first3 = 170;
-						first4 = 190;
+						first3 = 155;
+						first4 = 170;
 						arrowMenu();
 					}
 					else if (arrowCounter == 2)
 					{
-						first1 = 170;
+						first1 = 180;
 						first2 = 200;
-						first3 = 200;
-						first4 = 220;
+						first3 = 185;
+						first4 = 200;
 						arrowMenu();
 					}
 					else if (arrowCounter == 3)
 					{
-						first1 = 170;
+						first1 = 180;
 						first2 = 200;
-						first3 = 230;
-						first4 = 250;
+						first3 = 210;
+						first4 = 225;
 						arrowMenu();
 					}
 				}
@@ -494,6 +491,7 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 				std::cout << std::endl;
 				break;
 			case 27:
+
 				menuOption = "MENU";
 				inShop = false;
 				xCounter = 1;
@@ -669,6 +667,8 @@ void PortalWorld::DisplayMenuSplash()
 
 void  PortalWorld::arrowMenu()
 {
+
+
 	glBindTexture(GL_TEXTURE_2D, pic.getTextureID("MENUPOINTER"));
 	glBegin(GL_QUADS);
 	glTexCoord2i(0, 0); glVertex2i(first1, first3);
