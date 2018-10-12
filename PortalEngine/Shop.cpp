@@ -50,8 +50,10 @@ int Shop::BuySkin(int totalCoins)
 
 			return totalCoins - SkinList[i].cost;
 		}
-		else {
-			std::cout << "You do not have enough coins" << std::endl;
+		else if(SkinList[i].location == currentLocation && !SkinList[i].isUnlocked && totalCoins < SkinList[i].cost)
+		{
+			std::cout << "You do not have enough coins to buy: " << SkinList[i].name<< std::endl;
+			return totalCoins;
 		}
 		if (SkinList[i].location == currentLocation && SkinList[i].isUnlocked)
 		{
