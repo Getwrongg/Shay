@@ -576,6 +576,10 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 				inShop = false;
 				xCounter = 1;
 				yCounter = 1;
+				first1 = 180;
+				first2 = 200;
+				first3 = 155;
+				first4 = 170;
 				break;
 		}
 	}
