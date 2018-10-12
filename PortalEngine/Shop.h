@@ -1,6 +1,7 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include "audio.h"
 
 #pragma once
 struct skin {
@@ -23,6 +24,8 @@ class Shop
 {
 public:
 	Shop();
+	void LoadSounds();
+	void Mute();
 	void showShop(const int totalCoins);
 	void SetCurrent(const int x, const int y);
 	int BuySkin(int totalCoins);
@@ -35,5 +38,8 @@ private:
 	std::string currentSkin;
 	
 	std::vector < skin > SkinList;
+
+	Audio audio;
+	bool mute = false;
 };
 

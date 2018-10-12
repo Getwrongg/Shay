@@ -82,6 +82,8 @@ void PortalWorld::MyInit()
 
 	player.SetMoveSpeed(0.0f); // so player doesn't start until ready
 	player.SetPosition(-525.0f, 0.0f, -50.0f);
+
+	shop.LoadSounds();
 }
 
 void PortalWorld::Display()
@@ -330,6 +332,7 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 		case 'm':
 			player.muteSound();
 			world.muteLevel();
+			shop.Mute();
 			break;
 		}
 		if (startRun == false)
@@ -341,6 +344,7 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 			case 'm':
 				player.muteSound();
 				world.muteLevel();
+				shop.Mute();
 				break;
 			case 's': //down key needs changing
 				if (down == false)
@@ -444,6 +448,7 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 			case 'm':
 				player.muteSound();
 				world.muteLevel();
+				shop.Mute();
 				break;
 			case 'e':
 				shop.showShop(player.GetTotalCoins());
@@ -725,7 +730,10 @@ void PortalWorld::DisplayMenuSplash()
 
 	arrowMenu();
 
-	DisplayCoinsShop();
+	
+	if (menuOption == "SKINS") {
+		DisplayCoinsShop();
+	}
 	
 	glBindTexture(GL_TEXTURE_2D, pic.getTextureID(menuOption));
 	glBegin(GL_QUADS);

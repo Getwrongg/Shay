@@ -15,6 +15,29 @@ Shop::Shop()
 	SkinList.push_back(rainbow_ball);
 }
 
+void Shop::LoadSounds()
+{
+	audio.LoadWAV("BUY", "sounds/buyItem.wav");
+	audio.LoadWAV("LOCKED", "sounds/lockedItem.wav");
+}
+
+void Shop::Mute()
+{
+	if (!mute)
+	{
+		audio.MusicVolume(0);
+		audio.AudioVolume(-1, 0);
+		mute = true;
+	}
+	else
+	{
+		audio.MusicVolume(128);
+		audio.AudioVolume(-1, 128);
+		mute = false;
+	}
+
+}
+
 void Shop::showShop(const int totalCoins)
 {		
 	std::cout << std::endl;
@@ -47,12 +70,14 @@ int Shop::BuySkin(int totalCoins)
 			std::cout << "You Brought : " << SkinList[i].name <<" for "<<SkinList[i].cost<<" coins."<< std::endl;
 			std::cout <<"You have "<< totalCoins - SkinList[i].cost <<" coins remaining."<< std::endl;
 			std::cout << std::endl;
+			audio.PlayAudio("BUY", 0);
 
 			return totalCoins - SkinList[i].cost;
 		}
 		else if(SkinList[i].location == currentLocation && !SkinList[i].isUnlocked && totalCoins < SkinList[i].cost)
 		{
 			std::cout << "You do not have enough coins to buy: " << SkinList[i].name<< std::endl;
+			audio.PlayAudio("LOCKED", 0);
 			return totalCoins;
 		}
 		if (SkinList[i].location == currentLocation && SkinList[i].isUnlocked)
