@@ -198,6 +198,7 @@ public:
 	*
 	* @return void
 	*/
+	void DisplayLocked();
 	void DisplayCoinsShop();
 	void DisplayCoinsCollected();
 
