@@ -30,6 +30,7 @@ public:
 	void SetCurrent(const int x, const int y);
 	int BuySkin(int totalCoins);
 	std::string GetCurrentSkin();
+	bool IsUnlocked(const int i);
 
 
 

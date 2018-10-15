@@ -96,3 +96,15 @@ std::string Shop::GetCurrentSkin()
 {
 	return currentSkin;
 }
+
+bool Shop::IsUnlocked(const int i)
+{
+	if (SkinList.size() <= i) 
+	{
+		return false;
+	}
+	else 
+	{
+		return SkinList[i].isUnlocked;
+	}
+}

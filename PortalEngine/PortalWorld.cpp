@@ -185,6 +185,8 @@ void PortalWorld::CreateTexturesPortalWorld()
 
 	pic.CreateTexture("MENUPOINTER", "data/UI/MenuPointer.jpg");
 
+	pic.CreateTexture("LOCKED", "data/UI/locked.jpg");
+
 
 	player.LoadTexture();
 	player.LoadSounds();
@@ -732,6 +734,7 @@ void PortalWorld::DisplayMenuSplash()
 
 	
 	if (menuOption == "SKINS") {
+		DisplayLocked();
 		DisplayCoinsShop();
 	}
 	
@@ -850,6 +853,29 @@ void PortalWorld::DisplayLevelNumber()
 	glTexCoord2i(1, 1); glVertex2i(30, 20);
 	glTexCoord2i(1, 0); glVertex2i(30, 0);
 	glEnd();
+}
+
+void PortalWorld::DisplayLocked()
+{
+	int x1[3] = { 152, 225, 297 };
+	int x2[3] = { 205, 278, 349 };
+	int y1[2] = { 152, 215};
+	int y2[2] = { 162, 225};
+	int counter = 0;
+	for (int i = 0; i < 2; i++) {
+		for (int j = 0; j < 3; j++) {
+			if (!shop.IsUnlocked(counter)) {
+				glBindTexture(GL_TEXTURE_2D, pic.getTextureID("LOCKED"));
+				glBegin(GL_QUADS);
+				glTexCoord2i(0, 0); glVertex2i(x1[j], y1[i]);
+				glTexCoord2i(0, 1); glVertex2i(x1[j], y2[i]);
+				glTexCoord2i(1, 1); glVertex2i(x2[j], y2[i]);
+				glTexCoord2i(1, 0); glVertex2i(x2[j], y1[i]);
+				glEnd();
+			}
+			counter++;
+		}
+	}
 }
 
 void PortalWorld::DisplayCoinsShop() 
