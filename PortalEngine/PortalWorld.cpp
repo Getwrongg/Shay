@@ -245,6 +245,7 @@ void PortalWorld::Resize(int w, int h)
 	glMatrixMode(GL_MODELVIEW);
 }
 
+
 void PortalWorld::Keyboard(unsigned char key, int x, int y)
 {
 	if (!inShop)
