@@ -245,6 +245,228 @@ void PortalWorld::Resize(int w, int h)
 	glMatrixMode(GL_MODELVIEW);
 }
 
+void PortalWorld::SpecialKeys(int key, int x, int y)
+{
+	if (!inShop)
+	{
+		if (startRun == false)
+		{
+			switch (key)
+			{
+			case GLUT_KEY_DOWN: //down key needs changing
+				if (down == false)
+				{
+					arrowCounter++;
+
+					if (arrowCounter > 3)
+					{
+						arrowCounter = 3;
+					}
+					else if (arrowCounter < 0)
+					{
+						arrowCounter = 0;
+					}
+
+					else if (arrowCounter == 1)
+					{
+						first1 = 180;
+						first2 = 200;
+						first3 = 155;
+						first4 = 170;
+						arrowMenu();
+					}
+					else if (arrowCounter == 2)
+					{
+						first1 = 180;
+						first2 = 200;
+						first3 = 185;
+						first4 = 200;
+						arrowMenu();
+					}
+					else if (arrowCounter == 3)
+					{
+						first1 = 180;
+						first2 = 200;
+						first3 = 210;
+						first4 = 225;
+						arrowMenu();
+					}
+
+				}
+				break;
+			case GLUT_KEY_UP://up key needs changing
+				if (up == false)
+				{
+					arrowCounter--;
+
+					if (arrowCounter > 3)
+					{
+						arrowCounter = 3;
+					}
+					else if (arrowCounter < 1)
+					{
+
+						arrowCounter = 0;
+					}
+
+					if (arrowCounter == 0)
+					{
+						first1 = 180;
+						first2 = 200;
+						first3 = 130;
+						first4 = 145;
+						arrowMenu();
+					}
+					else if (arrowCounter == 1)
+					{
+						first1 = 180;
+						first2 = 200;
+						first3 = 155;
+						first4 = 170;
+						arrowMenu();
+					}
+					else if (arrowCounter == 2)
+					{
+						first1 = 180;
+						first2 = 200;
+						first3 = 185;
+						first4 = 200;
+						arrowMenu();
+					}
+					else if (arrowCounter == 3)
+					{
+						first1 = 180;
+						first2 = 200;
+						first3 = 210;
+						first4 = 225;
+						arrowMenu();
+					}
+				}
+				break;
+			}
+		}
+	}
+
+	else if (inShop)
+	{
+		switch (key)
+		{
+		case GLUT_KEY_LEFT:
+			if (xCounter <= 1)
+			{
+				xCounter = 1;
+			}
+			else
+			{
+				xCounter--;
+			}
+
+			switch (xCounter) {
+			case 1:
+				first1 = 180 - 12;
+				first2 = 200 - 12;
+				break;
+
+			case 2:
+				first1 = 180 + 60;
+				first2 = 200 + 60;
+				break;
+			case 3:
+				first1 = 180 + 132;
+				first2 = 200 + 132;
+				break;
+			}
+			arrowMenu();
+
+
+			std::cout << "Position: " << xCounter << yCounter << std::endl;
+			std::cout << std::endl;
+			break;
+		case GLUT_KEY_RIGHT:
+			if (xCounter >= 3)
+			{
+				xCounter = 3;
+			}
+			else
+			{
+				xCounter++;
+			}
+
+			switch (xCounter) {
+			case 1:
+				first1 = 180 - 12;
+				first2 = 200 - 12;
+				break;
+
+			case 2:
+				first1 = 180 + 60;
+				first2 = 200 + 60;
+				break;
+			case 3:
+				first1 = 180 + 132;
+				first2 = 200 + 132;
+				break;
+			}
+			arrowMenu();
+
+			std::cout << "Position: " << xCounter << yCounter << std::endl;
+			std::cout << std::endl;
+			break;
+		case GLUT_KEY_UP:
+			if (yCounter <= 1)
+			{
+				yCounter = 1;
+			}
+			else
+			{
+				yCounter--;
+			}
+
+			switch (yCounter) {
+			case 1:
+				first3 = 195 - 30;
+				first4 = 200 - 30;
+				break;
+
+			case 2:
+				first3 = 195 + 35;
+				first4 = 200 + 35;
+				break;
+			}
+			arrowMenu();
+
+			std::cout << "Position: " << xCounter << yCounter << std::endl;
+			std::cout << std::endl;
+			break;
+		case GLUT_KEY_DOWN:
+			if (yCounter >= 2)
+			{
+				yCounter = 2;
+			}
+			else
+			{
+				yCounter++;
+			}
+
+			switch (yCounter) {
+			case 1:
+				first3 = 195 - 30;
+				first4 = 200 - 30;
+				break;
+
+			case 2:
+				first3 = 195 + 35;
+				first4 = 200 + 35;
+				break;
+			}
+			arrowMenu();
+
+			std::cout << "Position: " << xCounter << yCounter << std::endl;
+			std::cout << std::endl;
+			break;
+		}
+	}
+}
 
 void PortalWorld::Keyboard(unsigned char key, int x, int y)
 {
@@ -341,6 +563,7 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 			shop.Mute();
 			break;
 		}
+
 		if (startRun == false)
 		{
 			player.SetPosition(-525.0f, 0.0f, -50.0f);
@@ -352,248 +575,43 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 				world.muteLevel();
 				shop.Mute();
 				break;
-			case 's': //down key needs changing
-				if (down == false)
-				{
-					arrowCounter++;
-
-					if (arrowCounter > 3)
-					{
-						arrowCounter = 3;
-					}
-					else if (arrowCounter < 0)
-					{								
-						arrowCounter = 0;
-					}
-
-					else if (arrowCounter == 1)
-					{
-						first1 = 180;
-						first2 = 200;
-						first3 = 155;
-						first4 = 170;
-						arrowMenu();
-					}
-					else if (arrowCounter == 2)
-					{
-						first1 = 180;
-						first2 = 200;
-						first3 = 185;
-						first4 = 200;
-						arrowMenu();
-					}
-					else if (arrowCounter == 3)
-					{
-						first1 = 180;
-						first2 = 200;
-						first3 = 210;
-						first4 = 225;
-						arrowMenu();
-					}
-
-				}
-				break;
-			case 'w'://up key needs changing
-				if (up == false)
-				{
-					arrowCounter--;
-
-					if (arrowCounter > 3)
-					{
-						arrowCounter = 3;
-					}
-					else if (arrowCounter < 1)
-					{
-						
-						arrowCounter = 0;
-					}
-
-					if (arrowCounter == 0)
-					{
-						first1 = 180;
-						first2 = 200;
-						first3 = 130;
-						first4 = 145;
-						arrowMenu();
-					}
-					else if (arrowCounter == 1)
-					{
-						first1 = 180;
-						first2 = 200;
-						first3 = 155;
-						first4 = 170;
-						arrowMenu();
-					}
-					else if (arrowCounter == 2)
-					{
-						first1 = 180;
-						first2 = 200;
-						first3 = 185;
-						first4 = 200;
-						arrowMenu();
-					}
-					else if (arrowCounter == 3)
-					{
-						first1 = 180;
-						first2 = 200;
-						first3 = 210;
-						first4 = 225;
-						arrowMenu();
-					}
-				}
-				break;
 			}
 		}
 	}
-	else
-
-	if(inShop)
+	else if(inShop)
 	{
 		switch (key)
 		{
-			case 'm':
-				player.muteSound();
-				world.muteLevel();
-				shop.Mute();
-				break;
-			case 'e':
-				shop.showShop(player.GetTotalCoins());
-				break;
-			case 'a': 
-				if (xCounter <= 1)
-				{
-					xCounter = 1;
-				}
-				else
-				{
-					xCounter--;
-				}
+		case 'm':
+			player.muteSound();
+			world.muteLevel();
+			shop.Mute();
+			break;
+		case 'e':
+			shop.showShop(player.GetTotalCoins());
+			break;
+		case 32: //enter
+			shop.SetCurrent(xCounter, yCounter);
+			player.SetCoins(shop.BuySkin(player.GetTotalCoins()));
+			player.SetSkin(shop.GetCurrentSkin());
 
-				switch (xCounter) {
-				case 1:
-					first1 = 180 - 12;
-					first2 = 200 - 12;
-					break;
-
-				case 2:
-					first1 = 180 + 60;
-					first2 = 200 + 60;
-					break;
-				case 3:
-					first1 = 180 + 132;
-					first2 = 200 + 132;
-					break;
-				}
-				arrowMenu();
-
-
-				std::cout << "Position: " << xCounter << yCounter << std::endl;
-				std::cout << std::endl;
-				break;
-			case 'd': 
-				if (xCounter >= 3)
-				{
-					xCounter = 3;
-				}
-				else
-				{
-					xCounter++;
-				}
-
-				switch (xCounter) {
-				case 1:
-					first1 = 180 - 12;
-					first2 = 200 - 12;
-					break;
-
-				case 2:
-					first1 = 180 + 60;
-					first2 = 200 + 60;
-					break;
-				case 3:
-					first1 = 180 + 132;
-					first2 = 200 + 132;
-					break;
-				}
-				arrowMenu();
-
-				std::cout << "Position: " << xCounter << yCounter << std::endl;
-				std::cout << std::endl;
-				break;
-			case 'w': 
-				if (yCounter <= 1)
-				{
-					yCounter = 1;
-				}
-				else
-				{
-					yCounter--;
-				}
-
-				switch (yCounter) {
-				case 1:
-					first3 = 195 - 30;
-					first4 = 200 - 30;
-					break;
-
-				case 2:
-					first3 = 195 + 35;
-					first4 = 200 + 35;
-					break;
-				}
-				arrowMenu();
-
-				std::cout << "Position: " << xCounter << yCounter << std::endl;
-				std::cout << std::endl;
-				break;
-			case 's':
-				if (yCounter >= 2)
-				{
-					yCounter = 2;
-				}
-				else
-				{
-					yCounter++;
-				}
-
-				switch (yCounter) {
-				case 1:
-					first3 = 195 - 30;
-					first4 = 200 - 30;
-					break;
-
-				case 2:
-					first3 = 195 + 35;
-					first4 = 200 + 35;
-					break;
-				}
-				arrowMenu();
-
-				std::cout << "Position: " << xCounter << yCounter << std::endl;
-				std::cout << std::endl;
-				break;
-			case 32: //enter
-				shop.SetCurrent(xCounter, yCounter);
-				player.SetCoins(shop.BuySkin(player.GetTotalCoins()));
-				player.SetSkin(shop.GetCurrentSkin());
-
-				std::cout <<"CurrentSkin: "<< shop.GetCurrentSkin() << std::endl;
-				std::cout << std::endl;
-				break;
-			case 27:
-
-				menuOption = "MENU";
-				inShop = false;
-				xCounter = 1;
-				yCounter = 1;
-				first1 = 180;
-				first2 = 200;
-				first3 = 155;
-				first4 = 170;
-				break;
+			std::cout << "CurrentSkin: " << shop.GetCurrentSkin() << std::endl;
+			std::cout << std::endl;
+			break;
+		case 27:
+			menuOption = "MENU";
+			inShop = false;
+			xCounter = 1;
+			yCounter = 1;
+			first1 = 180;
+			first2 = 200;
+			first3 = 155;
+			first4 = 170;
+			break;
 		}
 	}
 }
+
 
 void PortalWorld::ReleaseKeyboard(unsigned char key, int x, int y)
 {
@@ -616,6 +634,7 @@ void PortalWorld::ReleaseKeyboard(unsigned char key, int x, int y)
 	case 27:
 		ourCam.SetMoveSpeed(0.25f);
 		ourCam.SetRotateSpeed(0.005f);
+		break;
 	}
 }
 

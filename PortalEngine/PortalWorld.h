@@ -204,6 +204,8 @@ public:
 
 	void arrowMenu();
 
+	void SpecialKeys(int key, int x, int y);
+
 private:
 	// camera variables
 	GLfloat moveSpeed; // walking sensitivity
