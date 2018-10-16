@@ -173,7 +173,6 @@ void Player::AddCollectables(const int coins, const int trophy)
 {
 	totalcoinsCollected += coins;
 	totaltrophysCollected += trophy;
-	std::cout << totaltrophysCollected << std::endl;
 }
 
 void Player::SetCoins(const int coins)
