@@ -93,6 +93,8 @@ void PortalWorld::Display()
 
 	glEnable(GL_TEXTURE_2D);
 
+	
+
 	if (DisplayExit == true)
 	{
 		DisplayExitScreen();
@@ -102,8 +104,8 @@ void PortalWorld::Display()
 	{
 		DisplayMenuScreen();
 	}
-	AnimatePortalWorld();
 
+	AnimatePortalWorld();
 	// only starts portal world animation if startRun is true
 	if (startRun == true)
 	{
