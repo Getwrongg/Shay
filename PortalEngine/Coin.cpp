@@ -22,6 +22,20 @@ void Coin::DrawCoin(const GLfloat x1, const GLfloat y1, const GLfloat z1)
 	glPopMatrix();
 }
 
+void Coin::DrawTrophy(const GLfloat x1, const GLfloat y1, const GLfloat z1)
+{
+	glBindTexture(GL_TEXTURE_2D, image.getTextureID("COIN"));
+
+	glPushMatrix();
+
+	glTranslatef(x1 + 1.5f, y1 + 0.5f, z1 + 0.5f);
+	glRotatef((float)rotate, 0.0f, 1.0f, 0.0f);
+	glScaled(0.25, 0.25, 0.25);
+	glutSolidOctahedron();
+
+	glPopMatrix();
+}
+
 void Coin::AnimateCoin(const GLfloat timeSincePrevFrame)
 {
 	rotate += rotateSpeed * timeSincePrevFrame;

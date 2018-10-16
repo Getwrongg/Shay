@@ -19,6 +19,7 @@ Player::Player()
 	texName = "DEFAULT";
 
 	totalcoinsCollected = 50;
+	totaltrophysCollected = 0;
 
 	boostTotal = BOOST_NUMBER;
 	boostSpeed = 1.25f;
@@ -154,12 +155,6 @@ void Player::BoostPlayer()
 	}
 }
 
-
-void Player::PointCounter(int amount)
-{
-
-}
-
 void Player::ResetPlayer()
 {
 	SetPosition(10.0f, 72.5f, 7.0f);
@@ -174,9 +169,11 @@ void Player::SetMoveSpeed(const GLfloat speed)
 	vertSpeed = 0;
 }
 
-void Player::AddCoins(const int coins)
+void Player::AddCollectables(const int coins, const int trophy)
 {
 	totalcoinsCollected += coins;
+	totaltrophysCollected += trophy;
+	std::cout << totaltrophysCollected << std::endl;
 }
 
 void Player::SetCoins(const int coins)
@@ -187,4 +184,9 @@ void Player::SetCoins(const int coins)
 int Player::GetTotalCoins()
 {
 	return totalcoinsCollected;
+}
+
+int Player::GetTotalTrophys()
+{
+	return totaltrophysCollected;
 }

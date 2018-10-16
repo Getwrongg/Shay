@@ -63,6 +63,8 @@ public:
 	*/
 	int GetCoins();
 
+	int GetTrophys();
+
 	/**
 	* @author
 	*

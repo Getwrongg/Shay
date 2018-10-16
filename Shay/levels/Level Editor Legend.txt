@@ -2,5 +2,6 @@
 1=Block
 2=Coin
 3=End of Level (trigger end of level methods)
+4=Trophy (one per level) if player gets every trophy the get a bonus level at the end of the game
 
 Currently levels can have a max height of 9 blocks with the top and bottom row acting as the boundary for the level

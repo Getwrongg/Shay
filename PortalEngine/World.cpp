@@ -35,7 +35,7 @@ void World::CreateTextures(const std::string name, const char * filePath)
 	//levelmanager.LoadLevel("level2", "./levels/level2.txt");
 	//levelmanager.LoadLevel("level3", "./levels/level3.txt");
 
-	levelmanager.SetLevel("level9");
+	levelmanager.SetLevel("level1");
 	
 }
 
@@ -147,6 +147,11 @@ bool World::levelComplete()
 int World::GetCoins()
 {
 	return levelmanager.GetCoinsCollected();
+}
+
+int World::GetTrophys()
+{
+	return levelmanager.GetTrophysCollected();
 }
 
 int World::LevelNumber()

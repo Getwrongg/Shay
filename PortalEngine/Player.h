@@ -35,10 +35,10 @@ public:
 	void Update(const GLfloat timeSincePrevFrame, const bool leftclickedMouse, const bool rightclickedMouse, const bool startRun);
 	Coordinates & GetPosition();
 	void SetPosition(const GLfloat x, const GLfloat y, const GLfloat z);
-	void PointCounter(int amount);
 	void SetMoveSpeed(const GLfloat speed);
-	void AddCoins(const int coins);
+	void AddCollectables(const int coins, const int trophy);
 	int GetTotalCoins();
+	int GetTotalTrophys();
 	void SetCoins(const int coins);
 
 	void SetSkin(const std::string name);
@@ -73,6 +73,7 @@ private:
 	GLfloat boostTimer = 0;
 
 	int totalcoinsCollected;
+	int totaltrophysCollected;
 
 	bool mute = false;
 

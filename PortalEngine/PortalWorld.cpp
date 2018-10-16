@@ -140,7 +140,7 @@ void PortalWorld::Display()
 	}
 	if (world.levelComplete())
 	{
-		player.AddCoins(world.GetCoins());
+		player.AddCollectables(world.GetCoins(), world.GetTrophys());
 		world.ResetLevel();
 		player.ResetPlayer();
 	}

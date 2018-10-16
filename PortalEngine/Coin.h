@@ -28,6 +28,8 @@ public:
 	*/
 	void DrawCoin(const GLfloat x1, const GLfloat y1, const GLfloat z1);
 
+	void DrawTrophy(const GLfloat x1, const GLfloat y1, const GLfloat z1);
+
 	/**
 	* @author
 	*

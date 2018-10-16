@@ -103,6 +103,7 @@ public:
 	* @return int
 	*/
 	int GetCoinsCollected();
+	int GetTrophysCollected();
 
 	/**
 	* @author
@@ -155,6 +156,7 @@ private:
 	bool failed = false; //if player fails level
 	bool endRound = false; //if player completes level
 	int coinscollected=0;
+	int trophyscollected = 0;
 	int currentlevelNumber = 0;
 
 	bool mute = false;

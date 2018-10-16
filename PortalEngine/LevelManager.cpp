@@ -120,6 +120,18 @@ void LevelManager::DrawLevel(const Coordinates pos)
 						
 				}
 			}
+			if (currentnumber == "4")
+			{
+				if (CheckCollision(pos, j, i))
+				{
+					trophyscollected++;
+					currentLevel[reverse].replace(j, 1, "0");
+				}
+				else
+				{
+					coindraw.DrawTrophy((float)j, (float)i, 0.0f);
+				}
+			}
 		}
 		reverse--; 
 	}
@@ -170,6 +182,11 @@ int LevelManager::GetCoinsCollected()
 	return coinscollected;
 }
 
+int LevelManager::GetTrophysCollected()
+{
+	return trophyscollected;
+}
+
 bool LevelManager::HasEndedRound()
 {
 	return endRound;
@@ -184,6 +201,7 @@ void LevelManager::ResetLevel()
 {
 	SetLevel(currentLevelName);
 	coinscollected = 0;
+	trophyscollected = 0;
 	failed = false;
 }
 
