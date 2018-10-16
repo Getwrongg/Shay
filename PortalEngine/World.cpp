@@ -22,6 +22,10 @@ void World::CreateTextures(const std::string name, const char * filePath)
 
 	j.CreateTexture("oSwirl", "data/swirl.jpg");
 
+	j.CreateTexture("AS", "data/alienSky.jpg");
+
+	j.CreateTexture("SC", "data/spaceCastle.jpg");
+
 	levelmanager.LoadTexture();
 
 	levelmanager.LoadLevelIndex("./levels/level_index.txt");
@@ -29,7 +33,7 @@ void World::CreateTextures(const std::string name, const char * filePath)
 	//levelmanager.LoadLevel("level2", "./levels/level2.txt");
 	//levelmanager.LoadLevel("level3", "./levels/level3.txt");
 
-	levelmanager.SetLevel("level1");
+	levelmanager.SetLevel("level8");
 	
 }
 
@@ -82,6 +86,16 @@ void World::SkyCylinder()
 						{
 							glBindTexture(GL_TEXTURE_2D, j.getTextureID("oSwirl"));
 						}
+						else
+							if (levelName == "level7")
+							{
+								glBindTexture(GL_TEXTURE_2D, j.getTextureID("AS"));
+							}
+							else
+								if (levelName == "level8")
+								{
+									glBindTexture(GL_TEXTURE_2D, j.getTextureID("SC"));
+								}
 
 	glPushMatrix();
 	

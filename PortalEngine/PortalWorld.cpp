@@ -8,8 +8,6 @@ int first4 = 145;
 int arrowCounter = 0;
 int escapeCounter = 0;
 
-std::string menuOption = "MENU";
-
 PortalWorld::PortalWorld()
 {
 	// move and rotate mouse sensitivity
@@ -45,6 +43,17 @@ PortalWorld::PortalWorld()
 	DisplayExit = false;
 	DisplayMenu = false;
 	startRun = false;
+
+	menuOption = "MENU";
+
+	inShop = false;
+	xCounter = 1;
+	yCounter = 1;
+
+	paused = true;
+
+	down = false;
+	up = false;
 
 
 }
@@ -510,10 +519,22 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 				ourCam.SetPosition(pos, upVec, angle);
 				ourCam.SetMoveSpeed(0.0f);
 				ourCam.SetRotateSpeed(0.0f);
+				//player.SetMoveSpeed(0.0f); // so player doesn't start until ready
+				//player.SetPosition(-525.0f, 0.0f, -50.0f);
 				startRun = false;
 			}
+
+			menuOption = "MENU";
+			xCounter = 1;
+			yCounter = 1;
+
+			first1 = 180;
+			first2 = 200;
+			first3 = 130;
+			first4 = 145;
+			
 			break;
-		case 32: // space bar to start
+		case 13: // enter to start
 			if (arrowCounter == 0 && !startRun)
 			{
 				player.SetMoveSpeed(25.0f); // sets movespeed to 25
@@ -592,7 +613,7 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 		case 'e':
 			shop.showShop(player.GetTotalCoins());
 			break;
-		case 32: //enter
+		case 13: //enter
 			shop.SetCurrent(xCounter, yCounter);
 			player.SetCoins(shop.BuySkin(player.GetTotalCoins()));
 			player.SetSkin(shop.GetCurrentSkin());
