@@ -113,7 +113,6 @@ void PortalWorld::Display()
 	}
 	else
 	{
-		//ourCam.Follow(camPos);
 		ourCam.Update();
 		DisplayMenuSplash(); // displays screen with controls at the start of the level
 		glClearColor(0.1f, 0.1f, 0.1f, 0.0f);
@@ -207,13 +206,14 @@ void PortalWorld::CreateTexturesPortalWorld()
 
 void PortalWorld::MouseMovement(int x, int y)
 {
-	// gets the difference between the current position of the mouse and the center of the screen
-	deltaX = x - (width / 2);
-	deltaY = y - (height / 2);
+	//gets the difference between the current position of the mouse and the center of the screen
+	/*deltaX = x - (width / 2);
+	deltaY = y - (height / 2);*/
 
+	// keeps mouse from leaving window
 	glutWarpPointer(width / 2, height / 2); // returns the cursur to the center of the screen after each frame
 
-	ourCam.Rotate(deltaX, deltaY); // rotates the camera
+	//ourCam.Rotate(deltaX, deltaY); // rotates the camera
 }
 
 void PortalWorld::Resize(int w, int h)
