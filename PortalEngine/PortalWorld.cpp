@@ -54,8 +54,6 @@ PortalWorld::PortalWorld()
 
 	down = false;
 	up = false;
-
-
 }
 
 void PortalWorld::MyInit()
