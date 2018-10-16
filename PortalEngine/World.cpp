@@ -125,6 +125,15 @@ void World::DrawLevel(const Coordinates pos) //returns true if player fails leve
 
 }
 
+int World::GetDistanceToEnd(Coordinates pos)
+{
+	pos.x = (GLfloat)(pos.x / 14.5); // remove scaling factor
+	int endpoint = levelmanager.GetEndPoint();
+	double distance = (double)pos.x / endpoint * 100;
+
+	return (int)distance;
+}
+
 bool World::levelFailed()
 {
 	return levelmanager.HasFailed();

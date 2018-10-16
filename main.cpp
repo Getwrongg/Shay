@@ -512,8 +512,6 @@ int main(int argc, char **argv)
 	glutPassiveMotionFunc(ChooseMouseLook);
 	glutSetCursor(GLUT_CURSOR_NONE);
 	glutReshapeFunc(ChooseReshapeFunc);
-
-	//glutTimerFunc(TIMERSECS, Animate, 0); // only runs once
 	
 	glutMainLoop();
 
