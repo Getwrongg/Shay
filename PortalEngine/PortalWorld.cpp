@@ -146,7 +146,7 @@ void PortalWorld::Display()
 	}
 
 
-	world.SkyCylinder(); //Draw Cylinder
+	world.BackGround(); //Draw Cylinder
 	player.DrawPlayer(); //Draw ball
 
 	glDisable(GL_TEXTURE_2D);

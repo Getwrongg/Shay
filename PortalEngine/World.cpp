@@ -30,11 +30,7 @@ void World::CreateTextures(const std::string name, const char * filePath)
 
 	levelmanager.LoadTexture();
 
-	levelmanager.LoadLevelIndex("./levels/level_index.txt");
-	//levelmanager.LoadLevel("level1", "./levels/level1.txt");
-	//levelmanager.LoadLevel("level2", "./levels/level2.txt");
-	//levelmanager.LoadLevel("level3", "./levels/level3.txt");
-
+	levelmanager.LoadLevelIndex("./levels/level_index.txt"); // Setup Level
 	levelmanager.SetLevel("level1");
 	
 }
@@ -48,61 +44,52 @@ void World::AnimatePortalWorld(const GLfloat timeSincePrevFrame)
 	levelmanager.AnimateCoin(timeSincePrevFrame);
 }
 
-void World::SkyCylinder()
+void World::BackGround()
 {	
-	std::string levelName;
 	GLUquadricObj* glu_cylinder;
 	glu_cylinder = gluNewQuadric();
 
 	gluQuadricTexture(glu_cylinder, GL_TRUE);
 	gluQuadricDrawStyle(glu_cylinder, GLU_FILL); //GLUquadricObj * qobj = gluNewQuadric();
 
-	
-	levelName=levelmanager.getLevelName();
-	if (levelName == "level1")
+	int levelNumber;
+	levelNumber=levelmanager.getLevelNumber()+1;
+	switch (levelNumber)
 	{
+	case 1:
 		glBindTexture(GL_TEXTURE_2D, j.getTextureID("SWIRL"));
+		break;
+	case 2:
+		glBindTexture(GL_TEXTURE_2D, j.getTextureID("SKY"));
+		break;
+	case 3:
+		glBindTexture(GL_TEXTURE_2D, j.getTextureID("SPACE"));
+		break;
+	case 4:
+		glBindTexture(GL_TEXTURE_2D, j.getTextureID("NEB"));
+		break;
+	case 5:
+		glBindTexture(GL_TEXTURE_2D, j.getTextureID("SCOPE"));
+		break;
+	case 6:
+		glBindTexture(GL_TEXTURE_2D, j.getTextureID("oSwirl"));
+		break;
+	case 7:
+		glBindTexture(GL_TEXTURE_2D, j.getTextureID("AS"));
+		break;
+	case 8:
+		glBindTexture(GL_TEXTURE_2D, j.getTextureID("SC"));
+		break;
+	case 9:
+		glBindTexture(GL_TEXTURE_2D, j.getTextureID("IC"));
+		break;
+	case 10:
+		
+		break;
+	case 11:
+		
+		break;
 	}
-	else
-		if (levelName == "level2") 
-		{
-			glBindTexture(GL_TEXTURE_2D, j.getTextureID("SKY"));
-		}
-		else
-			if (levelName == "level3")
-			{
-				glBindTexture(GL_TEXTURE_2D, j.getTextureID("SPACE"));
-			}
-			else
-				if (levelName=="level4")
-				{
-					glBindTexture(GL_TEXTURE_2D, j.getTextureID("NEB"));
-				}
-				else
-					if (levelName == "level5")
-					{
-						glBindTexture(GL_TEXTURE_2D, j.getTextureID("SCOPE"));
-					}
-					else
-						if (levelName == "level6")
-						{
-							glBindTexture(GL_TEXTURE_2D, j.getTextureID("oSwirl"));
-						}
-						else
-							if (levelName == "level7")
-							{
-								glBindTexture(GL_TEXTURE_2D, j.getTextureID("AS"));
-							}
-							else
-								if (levelName == "level8")
-								{
-									glBindTexture(GL_TEXTURE_2D, j.getTextureID("SC"));
-								}
-								else
-									if (levelName == "level9")
-									{
-										glBindTexture(GL_TEXTURE_2D, j.getTextureID("IC"));
-									}
 
 	glPushMatrix();
 	
@@ -112,6 +99,23 @@ void World::SkyCylinder()
 	gluCylinder(glu_cylinder, 100, 100, 600, 200, 200); //quad,base,top,height,slices,stacks
 
 	glPopMatrix();	
+
+
+	GLUquadric* glu_disk;
+	glu_disk = gluNewQuadric();
+
+	gluQuadricTexture(glu_disk, GL_TRUE);
+	//glBindTexture(GL_TEXTURE_2D, image.getTextureID());
+
+	glPushMatrix();
+
+	glTranslatef(550, 70, 1);
+	glRotatef(rotates, rotates, 1.0f, 0.0f);
+	glRotatef(90, 0.0f, 1.0f, 0.0f);
+	gluDisk(glu_disk, 0, 125, 24, 16);
+
+	glPopMatrix();
+
 }
 
 void World::DrawLevel(const Coordinates pos) //returns true if player fails level

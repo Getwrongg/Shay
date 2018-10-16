@@ -85,7 +85,7 @@ void LevelManager::DrawLevel(const Coordinates pos)
 		for (unsigned j = 0; j < currentLevel[reverse].length(); j++) 
 		{
 			currentnumber = currentLevel[reverse].at(j);
-			if (currentnumber == "1") //Checks all cubes
+			if (currentnumber == "1") //Draws Cubes
 			{
 				if (CheckCollision(pos, j, i)) { // check collision 
 					audio.PlayAudioChannel("FAIL", 1, 0);
@@ -96,7 +96,7 @@ void LevelManager::DrawLevel(const Coordinates pos)
 					cubedraw.Draw((float)j, (float)i, 0.0f, currentLevelName);
 				}
 			}
-			if (currentnumber == "2") //checks all coins
+			if (currentnumber == "2") //Draws Coins
 			{
 				if (CheckCollision(pos, j, i)) 
 				{
@@ -120,7 +120,7 @@ void LevelManager::DrawLevel(const Coordinates pos)
 						
 				}
 			}
-			if (currentnumber == "4")
+			if (currentnumber == "4") // Trophys
 			{
 				if (CheckCollision(pos, j, i))
 				{
@@ -132,7 +132,7 @@ void LevelManager::DrawLevel(const Coordinates pos)
 					coindraw.DrawTrophy((float)j, (float)i, 0.0f);
 				}
 			}
-			if (currentnumber == "5")
+			if (currentnumber == "5") //Fake Blocks
 			{
 				cubedraw.Draw((float)j, (float)i, 0.0f, currentLevelName);
 			}

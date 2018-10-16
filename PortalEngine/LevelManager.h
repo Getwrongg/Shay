@@ -150,8 +150,8 @@ private:
 
 	std::map<std::string, std::vector<std::string> > LevelStorage; //Stores all the levels
 	std::vector<std::string> Level_Index; //Stores all loaded level names for easy access
-	std::vector<std::string> currentLevel; //used to create a copy of the level in storage
-	std::string currentLevelName; // Used to reset current level
+	std::vector<std::string> currentLevel; //used to create a copy of the level in storage so it can be modified during gameplay without changing original
+	std::string currentLevelName; // Used to reset current level and determine current level name
 
 	bool failed = false; //if player fails level
 	bool endRound = false; //if player completes level

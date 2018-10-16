@@ -96,7 +96,7 @@ public:
 	*
 	* @return void
 	*/
-	void SkyCylinder();
+	void BackGround();
 
 	int LevelNumber();
 
