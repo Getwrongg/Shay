@@ -35,7 +35,6 @@ void Shop::Mute()
 		audio.AudioVolume(-1, 128);
 		mute = false;
 	}
-
 }
 
 void Shop::showShop(const int totalCoins)
