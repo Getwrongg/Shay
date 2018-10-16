@@ -472,6 +472,7 @@ void ChooseKeyboard(unsigned char key, int x, int y);
 void ChooseReleaseKeys(unsigned char key, int x, int y);
 void ChooseReshapeFunc(int w, int h);
 void ChooseMouse(int button, int state, int x, int y);
+void SpecialKeys(int key, int x, int y);
 
 //--------------------------------------------------------------------------------------
 //  Main function 
@@ -501,6 +502,7 @@ int main(int argc, char **argv)
 	glutDisplayFunc(ChooseDisplay);
 	glutIdleFunc(ChooseDisplay);
 	glutMouseFunc(ChooseMouse);
+	glutSpecialFunc(SpecialKeys);
 
 
 	glutIgnoreKeyRepeat(1);
@@ -531,6 +533,14 @@ void ChooseDisplay()
 	{
 		portalLogic.Display();
 	}
+}
+
+//--------------------------------------------------------------------------------------
+//  Use Special Keys - Manu Murray
+//--------------------------------------------------------------------------------------
+void SpecialKeys(int key, int x, int y)
+{
+	portalLogic.SpecialKeys(key, x, y);
 }
 
 //--------------------------------------------------------------------------------------
