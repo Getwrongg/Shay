@@ -22,6 +22,7 @@ void Cube::CreateTexture()
 	j.CreateTexture("CLOUD", "data/cloud.jpg");
 	j.CreateTexture("ROCK", "data/spacerock.jpg");
 	j.CreateTexture("4TH", "data/th.jpg");
+	j.CreateTexture("CP", "data/cubePattern.jpg");
 	
 	
 }
@@ -51,6 +52,11 @@ void Cube::Draw(const GLfloat x1, const GLfloat y1, const GLfloat z1, std::strin
 				{
 					glBindTexture(GL_TEXTURE_2D, j.getTextureID("4TH"));
 				}
+				else
+					if (levelName == "level5")
+					{
+						glBindTexture(GL_TEXTURE_2D, j.getTextureID("CP"));
+					}
 
 
 	//front square
