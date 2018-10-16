@@ -88,6 +88,7 @@ void LevelManager::DrawLevel(const Coordinates pos)
 			if (currentnumber == "1") 
 			{
 				if (CheckCollision(pos, j, i)) {
+					audio.PlayAudioChannel("FAIL", 1, 0);
 					failed = true; 
 				}
 				else 
@@ -170,10 +171,6 @@ bool LevelManager::HasEndedRound()
 
 bool LevelManager::HasFailed() 
 {
-	if (failed)
-	{
-		audio.PlayAudioChannel("FAIL", 1, 0);
-	}
 	return failed;
 }
 
