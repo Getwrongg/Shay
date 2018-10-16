@@ -106,6 +106,8 @@ public:
 
 	bool levelFailed();
 
+	void SetLevel(const int levelNum);
+
 
 private:
 	ImageLoader j; // object to load images

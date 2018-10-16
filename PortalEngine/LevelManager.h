@@ -144,6 +144,8 @@ public:
 
 	void muteLevel();
 
+	std::vector<std::string> GetLevelIndex();
+
 private:
 	
 	bool CheckCollision(Coordinates pos, unsigned x, unsigned y);

@@ -45,50 +45,58 @@ void World::AnimatePortalWorld(const GLfloat timeSincePrevFrame)
 }
 
 void World::BackGround()
-{	
+{
 	GLUquadricObj* glu_cylinder;
 	glu_cylinder = gluNewQuadric();
 
 	gluQuadricTexture(glu_cylinder, GL_TRUE);
 	gluQuadricDrawStyle(glu_cylinder, GLU_FILL); //GLUquadricObj * qobj = gluNewQuadric();
 
-	int levelNumber;
-	levelNumber=levelmanager.getLevelNumber()+1;
-	switch (levelNumber)
+	std::string levelName;
+	levelName = levelmanager.getLevelName();
+	if (levelName == "level1")
 	{
-	case 1:
 		glBindTexture(GL_TEXTURE_2D, j.getTextureID("SWIRL"));
-		break;
-	case 2:
+	}
+
+	if (levelName == "level2")
+	{
 		glBindTexture(GL_TEXTURE_2D, j.getTextureID("SKY"));
-		break;
-	case 3:
+	}
+
+	if (levelName == "level3")
+	{
 		glBindTexture(GL_TEXTURE_2D, j.getTextureID("SPACE"));
-		break;
-	case 4:
+	}
+
+	if (levelName == "level4")
+	{
 		glBindTexture(GL_TEXTURE_2D, j.getTextureID("NEB"));
-		break;
-	case 5:
+	}
+
+	if (levelName == "level5")
+	{
 		glBindTexture(GL_TEXTURE_2D, j.getTextureID("SCOPE"));
-		break;
-	case 6:
+	}
+
+	if (levelName == "level6")
+	{
 		glBindTexture(GL_TEXTURE_2D, j.getTextureID("oSwirl"));
-		break;
-	case 7:
+	}
+
+	if (levelName == "level7")
+	{
 		glBindTexture(GL_TEXTURE_2D, j.getTextureID("AS"));
-		break;
-	case 8:
+	}
+
+	if (levelName == "level8")
+	{
 		glBindTexture(GL_TEXTURE_2D, j.getTextureID("SC"));
-		break;
-	case 9:
+	}
+
+	if (levelName == "level9")
+	{
 		glBindTexture(GL_TEXTURE_2D, j.getTextureID("IC"));
-		break;
-	case 10:
-		
-		break;
-	case 11:
-		
-		break;
 	}
 
 	glPushMatrix();
@@ -171,4 +179,12 @@ void World::ResetLevel()
 void World::muteLevel()
 {
 	levelmanager.muteLevel();
+}
+
+void World::SetLevel(const int levelNum)
+{
+	std::vector<std::string> levels;
+	levels = levelmanager.GetLevelIndex();
+
+	levelmanager.SetLevel(levels[levelNum]);
 }

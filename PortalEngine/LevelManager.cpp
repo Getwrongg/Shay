@@ -149,7 +149,7 @@ int LevelManager::GetEndPoint()
 void LevelManager::SetLevel(const std::string levelName)
 {
 	currentLevel = LevelStorage.find(levelName)->second;
-	currentLevelName = levelName;	
+	currentLevelName = levelName;
 
 	endRound = false;
 }
@@ -217,6 +217,11 @@ std::string LevelManager::getLevelName()
 int LevelManager::getLevelNumber()
 {
 	return currentlevelNumber;
+}
+
+std::vector<std::string> LevelManager::GetLevelIndex()
+{
+	return Level_Index;
 }
 
 void LevelManager::muteLevel()
