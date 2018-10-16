@@ -113,6 +113,7 @@ void PortalWorld::Display()
 	}
 	else
 	{
+		//ourCam.Follow(camPos);
 		ourCam.Update();
 		DisplayMenuSplash(); // displays screen with controls at the start of the level
 		glClearColor(0.1f, 0.1f, 0.1f, 0.0f);
@@ -206,14 +207,16 @@ void PortalWorld::CreateTexturesPortalWorld()
 
 void PortalWorld::MouseMovement(int x, int y)
 {
-	//gets the difference between the current position of the mouse and the center of the screen
-	/*deltaX = x - (width / 2);
-	deltaY = y - (height / 2);*/
+	// gets the difference between the current position of the mouse and the center of the screen
+	deltaX = x - (width / 2);
+	deltaY = y - (height / 2);
 
-	// keeps mouse from leaving window
 	glutWarpPointer(width / 2, height / 2); // returns the cursur to the center of the screen after each frame
 
-	//ourCam.Rotate(deltaX, deltaY); // rotates the camera
+	if (startRun) {
+		ourCam.Rotate(deltaX, deltaY); // rotates the camera
+	}
+	
 }
 
 void PortalWorld::Resize(int w, int h)
@@ -857,11 +860,12 @@ void PortalWorld::DisplayLevelNumber()
 
 void PortalWorld::DisplayLocked()
 {
-	int x1[3] = { 152, 225, 297 };
-	int x2[3] = { 205, 278, 349 };
+	int x1[3] = { 152, 225, 297 }; //coordinates for shop 
+	int x2[3] = { 205, 278, 349 }; 
 	int y1[2] = { 152, 215};
 	int y2[2] = { 162, 225};
 	int counter = 0;
+
 	for (int i = 0; i < 2; i++) {
 		for (int j = 0; j < 3; j++) {
 			if (!shop.IsUnlocked(counter)) {
