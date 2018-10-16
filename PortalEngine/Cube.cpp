@@ -27,7 +27,7 @@ void Cube::CreateTexture()
 	j.CreateTexture("AR", "data/alienRock.jpg");
 	j.CreateTexture("CB", "data/castleBrick.jpg");
 	j.CreateTexture("MAR", "data/marble.jpg");
-	
+	j.CreateTexture("GOLD", "data/gold.jpg");
 	
 }
 
@@ -37,7 +37,7 @@ void Cube::Draw(const GLfloat x1, const GLfloat y1, const GLfloat z1, std::strin
 	glPushMatrix();
 	glTranslatef(x1,y1,z1);
 	
-	if (levelName == "level1") 
+	if (levelName == "level1")
 	{
 		glBindTexture(GL_TEXTURE_2D, j.getTextureID("SWIRL"));
 	}
@@ -47,8 +47,8 @@ void Cube::Draw(const GLfloat x1, const GLfloat y1, const GLfloat z1, std::strin
 			glBindTexture(GL_TEXTURE_2D, j.getTextureID("CLOUD"));
 		}
 		else
-			if(levelName=="level3")
-			{ 
+			if (levelName == "level3")
+			{
 				glBindTexture(GL_TEXTURE_2D, j.getTextureID("ROCK"));
 			}
 			else
@@ -81,6 +81,11 @@ void Cube::Draw(const GLfloat x1, const GLfloat y1, const GLfloat z1, std::strin
 									{
 										glBindTexture(GL_TEXTURE_2D, j.getTextureID("MAR"));
 									}
+									else
+										if (levelName == "level10")
+										{
+											glBindTexture(GL_TEXTURE_2D, j.getTextureID("GOLD"));
+										}
 
 
 	//front square
