@@ -171,6 +171,7 @@ void Player::ResetPlayer()
 void Player::SetMoveSpeed(const GLfloat speed)
 {
 	moveSpeed = speed;
+	vertSpeed = 0;
 }
 
 void Player::AddCoins(const int coins)
