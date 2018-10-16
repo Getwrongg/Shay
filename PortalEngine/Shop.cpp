@@ -13,6 +13,12 @@ Shop::Shop()
 
 	skin rainbow_ball = skin("RAINBOW", 12, 20);
 	SkinList.push_back(rainbow_ball);
+
+	skin basket_ball = skin("BASKET", 22, 30);
+	SkinList.push_back(basket_ball);
+
+	skin soccer_ball = skin("SOCCER", 32, 40);
+	SkinList.push_back(soccer_ball);
 }
 
 void Shop::LoadSounds()
