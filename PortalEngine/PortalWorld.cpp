@@ -510,10 +510,12 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 				ourCam.SetPosition(pos, upVec, angle);
 				ourCam.SetMoveSpeed(0.0f);
 				ourCam.SetRotateSpeed(0.0f);
+				//player.SetMoveSpeed(0.0f); // so player doesn't start until ready
+				//player.SetPosition(-525.0f, 0.0f, -50.0f);
 				startRun = false;
 			}
 			break;
-		case 32: // space bar to start
+		case 13: // enter to start
 			if (arrowCounter == 0 && !startRun)
 			{
 				player.SetMoveSpeed(25.0f); // sets movespeed to 25
@@ -592,7 +594,7 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 		case 'e':
 			shop.showShop(player.GetTotalCoins());
 			break;
-		case 32: //enter
+		case 13: //enter
 			shop.SetCurrent(xCounter, yCounter);
 			player.SetCoins(shop.BuySkin(player.GetTotalCoins()));
 			player.SetSkin(shop.GetCurrentSkin());
