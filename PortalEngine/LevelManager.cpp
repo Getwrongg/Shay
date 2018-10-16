@@ -132,6 +132,10 @@ void LevelManager::DrawLevel(const Coordinates pos)
 					coindraw.DrawTrophy((float)j, (float)i, 0.0f);
 				}
 			}
+			if (currentnumber == "5")
+			{
+				cubedraw.Draw((float)j, (float)i, 0.0f, currentLevelName);
+			}
 		}
 		reverse--; 
 	}
