@@ -8,8 +8,6 @@ int first4 = 145;
 int arrowCounter = 0;
 int escapeCounter = 0;
 
-std::string menuOption = "MENU";
-
 PortalWorld::PortalWorld()
 {
 	// move and rotate mouse sensitivity
@@ -45,6 +43,17 @@ PortalWorld::PortalWorld()
 	DisplayExit = false;
 	DisplayMenu = false;
 	startRun = false;
+
+	menuOption = "MENU";
+
+	inShop = false;
+	xCounter = 1;
+	yCounter = 1;
+
+	paused = true;
+
+	down = false;
+	up = false;
 
 
 }

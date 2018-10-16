@@ -231,20 +231,20 @@ private:
 	Player player;
 
 	Shop shop;
-	bool inShop = false;
-	int xCounter = 1;
-	int yCounter = 1;
+	bool inShop;
+	int xCounter;
+	int yCounter;
 
 	int width, height;
 
 	bool DisplayExit;
 	bool DisplayMenu;
 	bool startRun;
-	bool paused = true;
+	bool paused;
 
-	bool down = false;
-	bool up = false;
+	bool down;
+	bool up;
 
-	std::string menuOption = "MENU";
+	std::string menuOption;
 };
 
