@@ -526,10 +526,12 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 			xCounter = 1;
 			yCounter = 1;
 
-			first1 = 180;
-			first2 = 200;
-			first3 = 130;
-			first4 = 145;
+			if (arrowCounter == 2) {
+				first1 = 180;
+				first2 = 200;
+				first3 = 185;
+				first4 = 200;
+			}
 			
 			break;
 		case 13: // enter to start
