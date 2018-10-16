@@ -523,6 +523,16 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 				//player.SetPosition(-525.0f, 0.0f, -50.0f);
 				startRun = false;
 			}
+
+			menuOption = "MENU";
+			xCounter = 1;
+			yCounter = 1;
+
+			first1 = 180;
+			first2 = 200;
+			first3 = 130;
+			first4 = 145;
+			
 			break;
 		case 13: // enter to start
 			if (arrowCounter == 0 && !startRun)
