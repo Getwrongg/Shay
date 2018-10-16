@@ -125,6 +125,11 @@ void LevelManager::DrawLevel(const Coordinates pos)
 	}
 }
 
+int LevelManager::GetEndPoint()
+{
+	return currentLevel[0].size();
+}
+
 void LevelManager::SetLevel(const std::string levelName)
 {
 	currentLevel = LevelStorage.find(levelName)->second;

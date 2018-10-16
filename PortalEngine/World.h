@@ -7,6 +7,7 @@
 #include "Coin.h"
 #include "ImageLoader.h"
 #include "LevelManager.h"
+#include "objectaudio.h"
 
 /**
 * @class World
@@ -48,6 +49,8 @@ public:
 	* @return 
 	*/
 	void DrawLevel(const Coordinates pos);
+
+	int GetDistanceToEnd(Coordinates pos);
 
 	/**
 	* @author

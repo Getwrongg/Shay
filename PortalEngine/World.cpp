@@ -99,9 +99,16 @@ void World::DrawLevel(const Coordinates pos) //returns true if player fails leve
 	glScaled(14.5, 14.5, 14.5);
 
 	levelmanager.DrawLevel(pos);
+	GetDistanceToEnd(pos);
 
 	glPopMatrix();
 
+}
+
+int World::GetDistanceToEnd(Coordinates pos)
+{
+	pos.x = (GLfloat)(pos.x / 14.5); // remove scaling factor
+	return (int) objectaudio::FindDistance(pos.x, levelmanager.GetEndPoint());
 }
 
 bool World::levelFailed()
