@@ -4,6 +4,10 @@ double objectaudio::FindDistance(GLdouble x1, GLdouble y1, GLdouble x2, GLdouble
 	return sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
 }
 
+double objectaudio::FindDistance(GLdouble x1, GLdouble x2) {
+	return sqrt(pow(x2 - x1, 2));
+}
+
 int objectaudio::FindVolume(GLdouble x1, GLdouble y1, GLdouble x2, GLdouble y2, GLdouble startDis)
 {
 	int volume=0;

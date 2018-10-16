@@ -88,6 +88,9 @@ public:
 	*
 	* @return void
 	*/
+
+	int GetEndPoint();
+
 	void SetNextLevel();
 
 	/**
