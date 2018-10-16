@@ -24,8 +24,6 @@ void Coin::DrawCoin(const GLfloat x1, const GLfloat y1, const GLfloat z1)
 
 void Coin::DrawTrophy(const GLfloat x1, const GLfloat y1, const GLfloat z1)
 {
-	glBindTexture(GL_TEXTURE_2D, image.getTextureID("COIN"));
-
 	glPushMatrix();
 
 	glTranslatef(x1 + 1.5f, y1 + 0.5f, z1 + 0.5f);
