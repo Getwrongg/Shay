@@ -576,8 +576,9 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 
 				DisplayExit = true;
 			}
-
 			break;
+
+		case 'M':
 		case 'm':
 			player.muteSound();
 			world.muteLevel();
@@ -591,6 +592,7 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 
 			switch (key)
 			{
+			case 'M':
 			case 'm':
 				player.muteSound();
 				world.muteLevel();
@@ -603,6 +605,7 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 	{
 		switch (key)
 		{
+		case 'M':
 		case 'm':
 			player.muteSound();
 			world.muteLevel();
@@ -632,7 +635,6 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 		}
 	}
 }
-
 
 void PortalWorld::ReleaseKeyboard(unsigned char key, int x, int y)
 {
