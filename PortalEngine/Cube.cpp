@@ -26,6 +26,7 @@ void Cube::CreateTexture()
 	j.CreateTexture("LC", "data/lineCube.jpg");
 	j.CreateTexture("AR", "data/alienRock.jpg");
 	j.CreateTexture("CB", "data/castleBrick.jpg");
+	j.CreateTexture("MAR", "data/marble.jpg");
 	
 	
 }
@@ -75,6 +76,11 @@ void Cube::Draw(const GLfloat x1, const GLfloat y1, const GLfloat z1, std::strin
 								{
 									glBindTexture(GL_TEXTURE_2D, j.getTextureID("CB"));
 								}
+								else
+									if (levelName == "level9")
+									{
+										glBindTexture(GL_TEXTURE_2D, j.getTextureID("MAR"));
+									}
 
 
 	//front square
