@@ -78,16 +78,16 @@ void LevelManager::LoadLevelIndex(const char *file) // ./levels/level.txt
 
 void LevelManager::DrawLevel(const Coordinates pos)
 {
-	int reverse = MAX_HEIGHT-1;
+	int reverse = MAX_HEIGHT-1; // flips the world other else world is flipped
 	std::string currentnumber;
 	for (unsigned i = 0; i < MAX_HEIGHT; i++) 
 	{
 		for (unsigned j = 0; j < currentLevel[reverse].length(); j++) 
 		{
 			currentnumber = currentLevel[reverse].at(j);
-			if (currentnumber == "1") 
+			if (currentnumber == "1") //Checks all cubes
 			{
-				if (CheckCollision(pos, j, i)) {
+				if (CheckCollision(pos, j, i)) { // check collision 
 					audio.PlayAudioChannel("FAIL", 1, 0);
 					failed = true; 
 				}
@@ -96,31 +96,32 @@ void LevelManager::DrawLevel(const Coordinates pos)
 					cubedraw.Draw((float)j, (float)i, 0.0f, currentLevelName);
 				}
 			}
-			if (currentnumber == "2") 
+			if (currentnumber == "2") //checks all coins
 			{
 				if (CheckCollision(pos, j, i)) 
 				{
-					coinscollected++;
+					coinscollected++; // add coin
 					audio.PlayAudioChannel("COIN_PICKUP", 2, 0);
-					currentLevel[reverse].replace(j, 1, "0"); //Remove coin from level
+					currentLevel[reverse].replace(j, 1, "0"); //Remove coin from level so its not displayed anymore
 				}
 				else 
 				{
 					coindraw.DrawCoin((float)j, (float)i, 0.0f);
 				}
 			}
-			if (currentnumber == "3") {
+			if (currentnumber == "3") //checks for end of level
+			{
 				if (CheckCollision(pos, j, i))
 				{
-					if(!HasEndedRound())
+					if(!HasEndedRound()) // if the round has not ended
 					{
-						SetNextLevel();
+						SetNextLevel(); // ends the round and sets the next level
 					}
 						
 				}
 			}
 		}
-		reverse--;
+		reverse--; 
 	}
 }
 
