@@ -145,7 +145,7 @@ public:
 	void DisplayExitScreen();
 
 	/**
-	* @author 
+	* @author Jacob
 	*
 	* @brief Displays Menu Screen
 	*
@@ -167,7 +167,7 @@ public:
 	void DisplayMenuSplash();
 
 	/**
-	* @author
+	* @author Jacob
 	*
 	* @brief Displays Level
 	*
@@ -175,11 +175,10 @@ public:
 	*
 	* @return void
 	*/
-
 	void DisplayLevel();
 
 	/**
-	* @author
+	* @author Jacob
 	*
 	* @brief Display Level Number
 	*
@@ -190,20 +189,60 @@ public:
 	void DisplayLevelNumber();
 
 	/**
-	* @author
+	* @author Jacob
 	*
-	* @brief Display Number of coins Collection
+	* @brief Display locked symbol if you don't have enough money for skins
 	*
 	*
 	*
 	* @return void
 	*/
 	void DisplayLocked();
+
+	/**
+	* @author Jacob
+	*
+	* @brief Display coin shop
+	*
+	*
+	*
+	* @return void
+	*/
 	void DisplayCoinsShop();
+
+	/**
+	* @author Jacob
+	*
+	* @brief Display Number of coins Collected
+	*
+	*
+	*
+	* @return void
+	*/
 	void DisplayCoinsCollected();
 
+	/**
+	* @author Jacob
+	*
+	* @brief draws the menu pointer
+	*
+	*
+	*
+	* @return void
+	*/
 	void arrowMenu();
 
+	/**
+	* @author Jacob
+	*
+	* @brief Performs the key actions that require special keys
+	*
+	* such as the arrow keys.
+	*
+	* @param int key, int x, int y
+	*
+	* @return void
+	*/
 	void SpecialKeys(int key, int x, int y);
 
 private:
@@ -212,10 +251,10 @@ private:
 	GLfloat rotateSpeed; // mouse sensitivity
 
 	GLfloat prevTime; // used for animation
-	bool leftclickedMouse;
-	bool rightclickedMouse;
+	bool leftclickedMouse; // used to determine if the user clicked left
+	bool rightclickedMouse; // used to determine if the user clicked right
 
-	int getCoinsCollected;
+	int getCoinsCollected; 
 
 	int deltaX, deltaY; // the rotation variables for mouse x and y
 
@@ -230,13 +269,16 @@ private:
 	ImageLoader pic;
 	Player player;
 
+	// shop variables
 	Shop shop;
 	bool inShop;
 	int xCounter;
 	int yCounter;
 
+	// resize variables
 	int width, height;
 
+	// various bool variables used to determine game states
 	bool DisplayExit;
 	bool DisplayMenu;
 	bool startRun;
@@ -245,6 +287,6 @@ private:
 	bool down;
 	bool up;
 
-	std::string menuOption;
+	std::string menuOption; // holds the menu choice that is displayed by the menu function
 };
 
