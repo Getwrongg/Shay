@@ -11,7 +11,7 @@
 
 /**
 * @class World
-* @brief
+* @brief Manages the world 
 *
 *
 * @author ClickBait Inc - Christopher Gemmell
