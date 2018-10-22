@@ -433,13 +433,13 @@ void PortalWorld::SpecialKeys(int key, int x, int y)
 
 			switch (yCounter) {
 			case 1:
-				first3 = 195 - 30;
-				first4 = 200 - 30;
+				first3 = 195 - 21;
+				first4 = 200 - 21;
 				break;
 
 			case 2:
-				first3 = 195 + 35;
-				first4 = 200 + 35;
+				first3 = 195 + 41;
+				first4 = 200 + 41;
 				break;
 			}
 			arrowMenu();
@@ -459,13 +459,13 @@ void PortalWorld::SpecialKeys(int key, int x, int y)
 
 			switch (yCounter) {
 			case 1:
-				first3 = 195 - 30;
-				first4 = 200 - 30;
+				first3 = 195 - 21;
+				first4 = 200 - 21;
 				break;
 
 			case 2:
-				first3 = 195 + 35;
-				first4 = 200 + 35;
+				first3 = 195 + 41;
+				first4 = 200 + 41;
 				break;
 			}
 			arrowMenu();
@@ -547,8 +547,8 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 
 				first1 = 180 - 12;
 				first2 = 200 - 12;
-				first3 = 195 - 30;
-				first4 = 200 - 30;
+				first3 = 195 - 21;
+				first4 = 200 - 21;
 
 				escapeCounter++;
 
