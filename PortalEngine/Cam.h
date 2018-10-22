@@ -196,8 +196,8 @@ private:
 
 	int dirLR, dirFB, dirUD; // direction either 1 or -1
 
-	GLfloat rotateAngle;
-	GLfloat rotateUD;
+	GLfloat rotateAngle; // used for camera rotation left and right
+	GLfloat rotateUD; // used for camera up down rotation
 
 	GLfloat moveSpeed; // speed of camera movement
 	GLfloat rotateSpeed; // speed of camera rotation
