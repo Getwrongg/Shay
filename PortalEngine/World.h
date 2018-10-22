@@ -37,23 +37,30 @@ public:
 	*/
 	void CreateTextures(const std::string name, const char * filePath);
 
-
-
 	/**
 	* @author Christopher Gemmell
 	*
 	* @brief draws the pillars out of cubes
 	*
-	*
+	* @param const Coordinates pos
 	*
 	* @return 
 	*/
 	void DrawLevel(const Coordinates pos);
 
+	/**
+	* @author Christopher Gemmell
+	*
+	* @brief Returns number of coins
+	*
+	* @param Coordinates pos
+	*
+	* @return int 
+	*/
 	int GetDistanceToEnd(Coordinates pos);
 
 	/**
-	* @author
+	* @author Shane Martinez
 	*
 	* @brief Returns number of coins
 	*
@@ -63,10 +70,19 @@ public:
 	*/
 	int GetCoins();
 
+	/**
+	* @author Shane Martinez
+	*
+	* @brief Returns number of trophys
+	*
+	*
+	*
+	* @return int
+	*/
 	int GetTrophys();
 
 	/**
-	* @author
+	* @author Shane Martinez
 	*
 	* @brief Sets the Player to the start of the level
 	*
@@ -98,21 +114,66 @@ public:
 	*/
 	void BackGround();
 
+	/**
+	* @author Shane Martinez
+	*
+	* @brief gets the currentlevel number
+	*
+	*
+	*
+	* @return int
+	*/
 	int LevelNumber();
 
+	/**
+	* @author Shane Martinez
+	*
+	* @brief mutes the world sound
+	*
+	*
+	*
+	* @return int
+	*/
 	void muteLevel();
 
+	/**
+	* @author Shane Martinez
+	*
+	* @brief returns true if the level is complete
+	*
+	*
+	*
+	* @return bool
+	*/
 	bool levelComplete();
 
+	/**
+	* @author Shane Martinez
+	*
+	* @brief returns true if the level is failed
+	*
+	*
+	*
+	* @return bool
+	*/
 	bool levelFailed();
 
+	/**
+	* @author Shane Martinez
+	*
+	* @brief sets the level
+	*
+	* @param const int levelNum
+	*
+	* @return void
+	*/
 	void SetLevel(const int levelNum);
 
 
 private:
 	ImageLoader j; // object to load images
 	Cube cube; // object of type cube - draws cubes for pillars
-	Coin coin;
+	Coin coin; // object of type coin - draws coins
 
 	LevelManager levelmanager; //loads the level from a file
 
