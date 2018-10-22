@@ -3,6 +3,19 @@
 
 const GLfloat rotateSpeed = 200.0f;
 
+/**
+* @class Coin
+* @brief  represents a coin object
+*
+*
+* @author ClickBait Inc - Shane Martinez
+* @version 01
+* @date 20/10/2018 // date is in Australian format.
+*
+* @todo
+*
+* @bug none
+*/
 class Coin
 {
 public:
@@ -42,7 +55,7 @@ public:
 	void AnimateCoin(const GLfloat timeSincePrevFrame);
 
 private:
-	ImageLoader image;
-	GLfloat rotate = 0.0f;
+	ImageLoader image; // image loader object used to load textures
+	GLfloat rotate = 0.0f; // used to rotate the coins
 };
 

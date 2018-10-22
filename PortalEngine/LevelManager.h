@@ -11,10 +11,23 @@
 
 const int MAX_HEIGHT = 9;
 
+/**
+* @class LevelManager
+* @brief  Manages the levels
+*
+*
+* @author ClickBait Inc - Shane Martinez
+* @version 01
+* @date 20/10/2018 // date is in Australian format.
+*
+* @todo
+*
+* @bug none
+*/
 class LevelManager{
 public:
 	/**
-	* @author
+	* @author Shane Martinez
 	*
 	* @brief Pre-loads all textures
 	*
@@ -25,7 +38,7 @@ public:
 	void LoadTexture();
 
 	/**
-	* @author
+	* @author Shane Martinez
 	*
 	* @brief Animates the coins
 	*
@@ -36,7 +49,7 @@ public:
 	void AnimateCoin(const GLfloat timeSincePrevFrame);
 
 	/**
-	* @author
+	* @author Shane Martinez
 	*
 	* @brief Reads level name from files and places them in a map with levelname being the key
 	*
@@ -47,7 +60,7 @@ public:
 	void LoadLevel(const std::string levelName, const char *file);
 
 	/**
-	* @author
+	* @author Shane Martinez
 	*
 	* @brief Reads level name from file and places them in a map with levelname being the key
 	*
@@ -58,7 +71,7 @@ public:
 	void LoadLevelIndex(const char *file);// ./levels/level_index.txt
 
 	/**
-	* @author
+	* @author Shane Martinez
 	*
 	* @brief Set the currentlevel
 	*
@@ -69,7 +82,7 @@ public:
 	void SetLevel(const std::string levelName);
 
 	/**
-	* @author
+	* @author Shane Martinez
 	*
 	* @brief Draws level
 	*
@@ -80,21 +93,29 @@ public:
 	void DrawLevel(const Coordinates pos);
 
 	/**
-	* @author
+	* @author Shane Martinez
 	*
-	* @brief Increase currentLevel
+	* @brief Gets the end of the level
 	*
 	* 
 	*
-	* @return void
+	* @return int currentlevel.size()
 	*/
-
 	int GetEndPoint();
 
+	/**
+	* @author Shane Martinez
+	*
+	* @brief Sets the next level
+	*
+	*
+	*
+	* @return void
+	*/
 	void SetNextLevel();
 
 	/**
-	* @author
+	* @author Shane Martinez
 	*
 	* @brief return number of coins collected
 	*
@@ -103,32 +124,42 @@ public:
 	* @return int
 	*/
 	int GetCoinsCollected();
+
+	/**
+	* @author Shane Martinez
+	*
+	* @brief return number of trophys collected
+	*
+	*
+	*
+	* @return int
+	*/
 	int GetTrophysCollected();
 
 	/**
-	* @author
+	* @author Shane Martinez
 	*
-	* @brief Returns bool
+	* @brief Returns true if level has ended
 	*
 	* 
 	*
-	* @return bool
+	* @return bool endRound
 	*/
 	bool HasEndedRound();
 
 	/**
-	* @author
+	* @author Shane Martinez
 	*
-	* @brief Returns bool
+	* @brief Returns true if failed
 	*
 	*
 	*
-	* @return bool
+	* @return bool failed
 	*/
 	bool HasFailed();
 
 	/**
-	* @author
+	* @author Shane Martinez
 	*
 	* @brief Resets stats to default
 	*
@@ -138,16 +169,61 @@ public:
 	*/
 	void ResetLevel();
 
+	/**
+	* @author Shane Martinez
+	*
+	* @brief gets the name of the current level
+	*
+	*
+	*
+	* @return string currentLevelName
+	*/
 	std::string getLevelName();
 
+	/**
+	* @author Shane Martinez
+	*
+	* @brief gets the current level number
+	*
+	*
+	*
+	* @return int currentLevelNumber
+	*/
 	int getLevelNumber();
 
+	/**
+	* @author Shane Martinez
+	*
+	* @brief mutes the level sound
+	*
+	*
+	*
+	* @return void
+	*/
 	void muteLevel();
 
+	/**
+	* @author Shane Martinez
+	*
+	* @brief returns the level index
+	*
+	*
+	*
+	* @return std::vector<std::string> levelIndex
+	*/
 	std::vector<std::string> GetLevelIndex();
 
 private:
 	
+	/**
+	* @author Shane Martinez
+	*
+	* @brief performes collision detection
+	*
+	* @param Coordinates pos, unsinged x, unsigned y
+	*
+	* @return bool 
+	*/
 	bool CheckCollision(Coordinates pos, unsigned x, unsigned y);
 
 	std::map<std::string, std::vector<std::string> > LevelStorage; //Stores all the levels
@@ -157,12 +233,13 @@ private:
 
 	bool failed = false; //if player fails level
 	bool endRound = false; //if player completes level
-	int coinscollected=0;
-	int trophyscollected = 0;
-	int currentlevelNumber = 0;
+	int coinscollected=0; // number of coins collected per level
+	int trophyscollected = 0; // number of trophys collected per level
+	int currentlevelNumber = 0; // current level number
 
-	bool mute = false;
+	bool mute = false; // whether or not sound is muted
 
+	// objects from other classes
 	Audio audio;
 	Cube cubedraw;
 	Coin coindraw;
