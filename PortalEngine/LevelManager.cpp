@@ -160,7 +160,6 @@ void LevelManager::SetLevel(const std::string levelName)
 
 void LevelManager::SetNextLevel()
 {
-	currentlevelNumber++;
 	if (genMaps)
 	{
 		currentlevelNumber = 0;
@@ -179,7 +178,7 @@ void LevelManager::SetNextLevel()
 			currentlevelNumber = 0;
 		}
 	}
-
+	currentlevelNumber++;
 	endRound = true;
 }
 
@@ -220,11 +219,14 @@ void LevelManager::RandomGenMaps()
 	if (genMaps)
 	{
 		genMaps = false;
+		currentlevelNumber = 0;
+		SetNextLevel();
 	}
 	else
 	{
-		genMaps = true;
 		currentLevelName = "random";
+		genMaps = true;
+		endRound = true;
 	}
 }
 
