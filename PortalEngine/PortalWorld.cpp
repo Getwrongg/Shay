@@ -55,6 +55,7 @@ PortalWorld::PortalWorld()
 	down = false;
 	up = false;
 
+	//log.open("log.txt", std::fstream::app || std::fstream::trunc);
 	log.open("log.txt");
 }
 
@@ -94,7 +95,7 @@ void PortalWorld::MyInit()
 
 	shop.LoadSounds();
 
-	log << "Runtime Data:\n";
+	log << "Runtime Data:\n\n";
 }
 
 void PortalWorld::Display()
@@ -392,8 +393,8 @@ void PortalWorld::SpecialKeys(int key, int x, int y)
 			arrowMenu();
 
 
-			std::cout << "Position: " << xCounter << yCounter << std::endl;
-			std::cout << std::endl;
+			log << "Position: " << xCounter << yCounter << std::endl;
+			log << std::endl;
 			break;
 		case GLUT_KEY_RIGHT:
 			if (xCounter >= 3)
@@ -422,8 +423,8 @@ void PortalWorld::SpecialKeys(int key, int x, int y)
 			}
 			arrowMenu();
 
-			std::cout << "Position: " << xCounter << yCounter << std::endl;
-			std::cout << std::endl;
+			log << "Position: " << xCounter << yCounter << std::endl;
+			log << std::endl;
 			break;
 		case GLUT_KEY_UP:
 			if (yCounter <= 1)
@@ -448,8 +449,8 @@ void PortalWorld::SpecialKeys(int key, int x, int y)
 			}
 			arrowMenu();
 
-			std::cout << "Position: " << xCounter << yCounter << std::endl;
-			std::cout << std::endl;
+			log << "Position: " << xCounter << yCounter << std::endl;
+			log << std::endl;
 			break;
 		case GLUT_KEY_DOWN:
 			if (yCounter >= 2)
@@ -474,8 +475,8 @@ void PortalWorld::SpecialKeys(int key, int x, int y)
 			}
 			arrowMenu();
 
-			std::cout << "Position: " << xCounter << yCounter << std::endl;
-			std::cout << std::endl;
+			log << "Position: " << xCounter << yCounter << std::endl;
+			log << std::endl;
 			break;
 		}
 	}
@@ -625,8 +626,8 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 			player.SetCoins(shop.BuySkin(player.GetTotalCoins()));
 			player.SetSkin(shop.GetCurrentSkin());
 
-			std::cout << "CurrentSkin: " << shop.GetCurrentSkin() << std::endl;
-			std::cout << std::endl;
+			log << "CurrentSkin: " << shop.GetCurrentSkin() << std::endl;
+			log << std::endl;
 			break;
 		case 27:
 			menuOption = "MENU";

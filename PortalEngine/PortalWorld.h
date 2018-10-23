@@ -4,7 +4,6 @@
 #include "Player.h"
 #include "LevelManager.h"
 #include "Shop.h"
-
 #include <fstream>
 
 #pragma once
@@ -303,7 +302,6 @@ private:
 	bool up;
 
 	std::string menuOption; // holds the menu choice that is displayed by the menu function
-
-	std::ofstream log; // creates an output to text object - used to log runtime data
+	std::ofstream log;
 };
 
