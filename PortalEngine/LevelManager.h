@@ -8,6 +8,7 @@
 #include "Cube.h"
 #include "Coin.h"
 #include "audio.h"
+#include "LevelGen.h"
 
 const int MAX_HEIGHT = 9;
 

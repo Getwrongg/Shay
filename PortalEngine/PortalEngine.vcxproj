@@ -129,6 +129,7 @@
     <ClInclude Include="Coin.h" />
     <ClInclude Include="Cube.h" />
     <ClInclude Include="ImageLoader.h" />
+    <ClInclude Include="LevelGen.h" />
     <ClInclude Include="LevelManager.h" />
     <ClInclude Include="objectaudio.h" />
     <ClInclude Include="Player.h" />
@@ -143,6 +144,7 @@
     <ClCompile Include="Coin.cpp" />
     <ClCompile Include="Cube.cpp" />
     <ClCompile Include="ImageLoader.cpp" />
+    <ClCompile Include="LevelGen.cpp" />
     <ClCompile Include="LevelManager.cpp" />
     <ClCompile Include="objectaudio.cpp" />
     <ClCompile Include="Player.cpp" />
