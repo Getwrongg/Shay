@@ -115,6 +115,8 @@ public:
 	*/
 	void SetNextLevel();
 
+	void RandomGenMaps();
+
 	/**
 	* @author Shane Martinez
 	*
@@ -234,6 +236,7 @@ private:
 
 	bool failed = false; //if player fails level
 	bool endRound = false; //if player completes level
+	bool genMaps = false;
 	int coinscollected=0; // number of coins collected per level
 	int trophyscollected = 0; // number of trophys collected per level
 	int currentlevelNumber = 0; // current level number
@@ -244,5 +247,6 @@ private:
 	Audio audio;
 	Cube cubedraw;
 	Coin coindraw;
+	LevelGen levelgen;
 };
 

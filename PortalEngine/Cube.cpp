@@ -37,7 +37,7 @@ void Cube::Draw(const GLfloat x1, const GLfloat y1, const GLfloat z1, std::strin
 	glPushMatrix();
 	glTranslatef(x1,y1,z1);
 	
-	if (levelName == "level1" || levelName == "test")
+	if (levelName == "level1" || levelName == "random")
 	{
 		glBindTexture(GL_TEXTURE_2D, j.getTextureID("SWIRL"));
 	}

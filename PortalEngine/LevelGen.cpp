@@ -2,17 +2,44 @@
 
 LevelGen::LevelGen()
 {
-	srand(time(NULL));
+	//srand(time(NULL));
 }
 
-void LevelGen::GenPartNames()
+void LevelGen::outputLevel(std::vector<std::string> level)
+{
+	std::string name;
+	std::string front = "./levels/genedLevels/";
+	std::string end = ".txt";
+	std::string nameLvl = "level";
+	std::string nameNum = std::to_string(nameCounter);
+	
+	name.append(front).append(nameLvl).append(nameNum).append(end);
+	std::ofstream levelOutput(name);
+
+	nameCounter++;
+	for (unsigned i = 0; i < HEIGHT; i++)
+	{
+		for (unsigned j = 0; j < level[i].length(); j++)
+		{
+			levelOutput << level[i].at(j);
+		}
+		levelOutput << std::endl;
+	}
+	levelOutput.close();
+}
+
+std::vector<std::string> LevelGen::GenPartNames()
 {		
+	srand(time(NULL));
+
+	std::vector<std::string> partNames;
+
 	std::string starttxt = "./levels/random/easy/";
 	std::string endtxt = ".txt";
-	for (int i = 0; i < 34; i++)
+	for (int i = 0; i < LENGTH; i++)
 	{
 		std::string levelpart;
-		std::string randnum = std::to_string((rand() % 10) + 1);
+		std::string randnum = std::to_string((rand() % 15) + 1);
 
 		levelpart = starttxt;
 		levelpart.append(randnum);
@@ -20,60 +47,53 @@ void LevelGen::GenPartNames()
 
 		partNames.push_back(levelpart);
 	}
+	return partNames;
 }
 
 std::vector<std::string> LevelGen::GenLevel()
 {
 	std::string data;
-	std::string lineData[MAX];
+	std::string lineData[HEIGHT];
+	std::ifstream levelfile;
 
-	GenPartNames();
-	for (int i = 0; i < MAX; i++)
+	std::vector<std::string> generatedLevel;
+	std::vector<std::string> partNames = GenPartNames();
+
+	for (int i = 0; i < HEIGHT; i++)
 	{
-		for (int j = 0; j < 34; j++) // 34 is the length of the level
+		for (int j = 0; j < LENGTH; j++) // 34 is the length of the level
 		{
-			std::ifstream levelfile(partNames[j]);
-			if (!levelfile)
+			if (j == LENGTH-1)
 			{
-				std::cout << "Error in level gen" << std::endl;
-				exit(1);
+				levelfile.open("./levels/random/required/end.txt");
+				if (!levelfile)
+				{
+					std::cout << "Error in level gen" << std::endl;
+					exit(1);
+				}
+			}
+			else if (j % 2 == 0)
+			{
+				levelfile.open("./levels/random/required/gap.txt");
+				if (!levelfile)
+				{
+					std::cout << "Error in level gen" << std::endl;
+					exit(1);
+				}
+			}
+			else
+			{
+				levelfile.open(partNames[j]);
+				if (!levelfile)
+				{
+					std::cout << "Error in level gen" << std::endl;
+					exit(1);
+				}
 			}
 
-			switch (i) // moves to correct line in file
+			for (int j = 0; j < i; j++) // moves to correct line in file
 			{
-			case 1:
-				for (int j = 0; j < i; j++)
-					std::getline(levelfile, data);
-				break;
-			case 2:
-				for (int j = 0; j < i; j++)
-					std::getline(levelfile, data);
-				break;
-			case 3:
-				for (int j = 0; j < i; j++)
-					std::getline(levelfile, data);
-				break;
-			case 4:
-				for (int j = 0; j < i; j++)
-					std::getline(levelfile, data);
-				break;
-			case 5:
-				for (int j = 0; j < i; j++)
-					std::getline(levelfile, data);
-				break;
-			case 6:
-				for (int j = 0; j < i; j++)
-					std::getline(levelfile, data);
-				break;
-			case 7:
-				for (int j = 0; j < i; j++)
-					std::getline(levelfile, data);
-				break;
-			case 8:
-				for (int j = 0; j < i; j++)
-					std::getline(levelfile, data);
-				break;
-
+				std::getline(levelfile, data); 
 			}
 
 			std::getline(levelfile, data);
@@ -81,7 +101,10 @@ std::vector<std::string> LevelGen::GenLevel()
 
 			levelfile.close();
 		}
-		currentLevel.push_back(lineData[i]);
+		generatedLevel.push_back(lineData[i]);
 	}
-	return currentLevel;
+
+	outputLevel(generatedLevel);
+
+	return generatedLevel;
 }

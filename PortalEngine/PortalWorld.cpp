@@ -488,6 +488,9 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 	{
 		switch (key)
 		{
+		case 'r':
+			world.RandomGenMaps();
+			break;
 		case 'i':
 			ourCam.DirectionForwardBack(1);
 			break;

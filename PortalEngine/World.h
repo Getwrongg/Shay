@@ -92,6 +92,8 @@ public:
 	*/
 	void ResetLevel();
 
+	void RandomGenMaps();
+
 	/**
 	* @author Shane Martinez
 	*

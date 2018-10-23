@@ -54,7 +54,7 @@ void World::BackGround()
 
 	std::string levelName;
 	levelName = levelmanager.getLevelName();
-	if (levelName == "level1" || levelName == "test")
+	if (levelName == "level1" || levelName == "random")
 	{
 		glBindTexture(GL_TEXTURE_2D, j.getTextureID("SWIRL"));
 	}
@@ -144,6 +144,11 @@ int World::GetDistanceToEnd(Coordinates pos)
 	double distance = (double)pos.x / endpoint * 100;
 
 	return (int)distance;
+}
+
+void World::RandomGenMaps()
+{
+	levelmanager.RandomGenMaps();
 }
 
 bool World::levelFailed()

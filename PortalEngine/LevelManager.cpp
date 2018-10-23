@@ -35,7 +35,7 @@ void LevelManager::LoadLevel(const std::string levelName, const char *file) // .
 
 	levelfile.close();
 }
-LevelGen gen;
+
 void LevelManager::LoadLevelIndex(const char *file) // ./levels/level.txt
 {
 	std::ifstream indexfile(file);
@@ -76,8 +76,8 @@ void LevelManager::LoadLevelIndex(const char *file) // ./levels/level.txt
 	indexfile.close();
 
 	// TESTING LEVEL GENEERATION
-	LevelStorage["test"] = gen.GenLevel();
-	Level_Index.push_back("test");
+	LevelStorage["random"] = levelgen.GenLevel();
+	Level_Index.push_back("random");
 
 }
 
@@ -122,7 +122,6 @@ void LevelManager::DrawLevel(const Coordinates pos)
 					{
 						SetNextLevel(); // ends the round and sets the next level
 					}
-						
 				}
 			}
 			if (currentnumber == "4") // Trophys
@@ -162,15 +161,25 @@ void LevelManager::SetLevel(const std::string levelName)
 void LevelManager::SetNextLevel()
 {
 	currentlevelNumber++;
-	if (Level_Index.size() > currentlevelNumber) 
+	if (genMaps)
 	{
-		SetLevel(Level_Index[currentlevelNumber]);
-	}
-	else 
-	{
-		SetLevel(Level_Index[0]);
 		currentlevelNumber = 0;
+		LevelStorage["random"] = levelgen.GenLevel(); // Store level
+		SetLevel("random");
 	}
+	else
+	{
+		if (Level_Index.size() > currentlevelNumber) 
+		{
+			SetLevel(Level_Index[currentlevelNumber]);
+		}
+		else 
+		{
+			SetLevel(Level_Index[0]);
+			currentlevelNumber = 0;
+		}
+	}
+
 	endRound = true;
 }
 
@@ -204,6 +213,19 @@ bool LevelManager::HasEndedRound()
 bool LevelManager::HasFailed() 
 {
 	return failed;
+}
+
+void LevelManager::RandomGenMaps()
+{
+	if (genMaps)
+	{
+		genMaps = false;
+	}
+	else
+	{
+		genMaps = true;
+		currentLevelName = "random";
+	}
 }
 
 void LevelManager::ResetLevel() 

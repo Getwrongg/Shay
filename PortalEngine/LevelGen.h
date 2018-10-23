@@ -8,20 +8,20 @@
 #include <GL/glut.h>
 #pragma once
 
-const int MAX = 9;
+const int HEIGHT = 9; 
+const int LENGTH = 17;
 
 class LevelGen
 {
 public:
-
 	LevelGen();
+
 	std::vector<std::string> GenLevel();
 
 private:
+	std::vector<std::string> GenPartNames();
+	void outputLevel(std::vector<std::string> level);
 
-	void GenPartNames();
-	std::vector<std::string> partNames;
-	std::vector<std::string> currentLevel;
-
+	int nameCounter = 0;
 };
 
