@@ -87,7 +87,7 @@ void PortalWorld::MyInit()
 	CreateTexturesPortalWorld();
 
 	//ourCam.SetMoveSpeed(moveSpeed); // sets movement speed of camera
-	//ourCam.SetRotateSpeed(rotateSpeed); // sets rotate speed of camera
+	//ourCam.SetRotateSpeed(0); // sets rotate speed of camera
 	ourCam.SetPosition(pos, upVec, angle); // sets position of the camera in the world 
 
 	player.SetMoveSpeed(0.0f); // so player doesn't start until ready
@@ -104,8 +104,6 @@ void PortalWorld::Display()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	glEnable(GL_TEXTURE_2D);
-
-	
 
 	if (DisplayExit == true)
 	{
@@ -506,15 +504,6 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 		case 'u':
 			ourCam.DirectionUpDown(-1);
 			break;
-		case 'q':
-			ourCam.SetMoveSpeed(0.0f);
-			ourCam.SetRotateSpeed(0.0f);
-			if (DisplayExit == false)
-			{
-				DisplayExit = true;
-			}
-			break;
-
 		case 27: //escape button			
 
 			if (startRun == true)
@@ -522,7 +511,10 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 				ourCam.SetPosition(pos, upVec, angle);
 				ourCam.SetMoveSpeed(0.0f);
 				ourCam.SetRotateSpeed(0.0f);
-				//player.SetMoveSpeed(0.0f); // so player doesn't start until ready
+				player.SetMoveSpeed(0.0f); // so player doesn't start until ready
+				//player.SetPosition(-player.GetPosition().x, -player.GetPosition().y, -player.GetPosition().z);
+				//world.ResetLevel();
+				//player.ResetPlayer();
 				//player.SetPosition(-525.0f, 0.0f, -50.0f);
 				startRun = false;
 			}
