@@ -28,6 +28,8 @@ void World::CreateTextures(const std::string name, const char * filePath)
 
 	j.CreateTexture("IC", "data/insideCastle.jpg");
 
+	j.CreateTexture("IC2", "data/InsideCastle2.jpg");
+
 	levelmanager.LoadTexture();
 
 	levelmanager.LoadLevelIndex("./levels/level_index.txt"); // Setup Level
@@ -97,6 +99,11 @@ void World::BackGround()
 	if (levelName == "level9")
 	{
 		glBindTexture(GL_TEXTURE_2D, j.getTextureID("IC"));
+	}
+
+	if (levelName == "level10")
+	{
+		glBindTexture(GL_TEXTURE_2D, j.getTextureID("IC2"));
 	}
 
 	glPushMatrix();
