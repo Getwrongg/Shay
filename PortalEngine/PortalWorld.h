@@ -5,6 +5,8 @@
 #include "LevelManager.h"
 #include "Shop.h"
 
+#include <fstream>
+
 #pragma once
 
 /**
@@ -245,6 +247,19 @@ public:
 	*/
 	void SpecialKeys(int key, int x, int y);
 
+	/**
+	* @author Manu Murray
+	*
+	* @brief Exits the game and performs tasks that need to be done before exiting
+	*
+	* such as the log
+	*
+	* 
+	*
+	* @return void
+	*/
+	void ExitGame();
+
 private:
 	// camera variables
 	GLfloat moveSpeed; // walking sensitivity
@@ -288,5 +303,7 @@ private:
 	bool up;
 
 	std::string menuOption; // holds the menu choice that is displayed by the menu function
+
+	std::ofstream log; // creates an output to text object - used to log runtime data
 };
 

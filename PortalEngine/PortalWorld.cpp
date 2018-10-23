@@ -54,6 +54,8 @@ PortalWorld::PortalWorld()
 
 	down = false;
 	up = false;
+
+	log.open("log.txt");
 }
 
 void PortalWorld::MyInit()
@@ -91,6 +93,8 @@ void PortalWorld::MyInit()
 	player.SetPosition(-525.0f, 0.0f, -50.0f);
 
 	shop.LoadSounds();
+
+	log << "Runtime Data:\n";
 }
 
 void PortalWorld::Display()
@@ -663,6 +667,12 @@ void PortalWorld::ReleaseKeyboard(unsigned char key, int x, int y)
 	}
 }
 
+void PortalWorld::ExitGame()
+{
+	log.close();
+	exit(0);
+}
+
 void PortalWorld::Mouse(int button, int state, int x, int y)
 {
 	// exit tour if clicked on exit splash screen
@@ -671,7 +681,7 @@ void PortalWorld::Mouse(int button, int state, int x, int y)
 		if ((DisplayExit) && (x <= width / 2.0 + 256.0) && (x >= width / 2.0 - 256.0)
 			&& (y <= height / 2.0 + 256.0) && (y >= height / 2.0 - 256.0))
 		{
-			exit(1);
+			ExitGame();
 		}
 		else
 		{

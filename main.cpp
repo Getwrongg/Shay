@@ -483,14 +483,7 @@ int main(int argc, char **argv)
 	glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA);
 	glutInitWindowPosition(100,100);
 	glutInitWindowSize(1280,720);
-	glutCreateWindow("Murdoch University Campus Tour");
-
-	//char path[260];
-	//GetModuleFileName(NULL, path, 260);
-	//HWND console = FindWindow("ConsoleWindowClass", path);
-	//if (IsWindow(console)) {
-	//	ShowWindow(console, SW_HIDE); // Hides Console Window
-	//}
+	glutCreateWindow("GravBall");
 
 	myinit();
 

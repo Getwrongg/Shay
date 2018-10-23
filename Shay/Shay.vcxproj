@@ -124,7 +124,7 @@
       <EntryPointSymbol>
       </EntryPointSymbol>
       <NoEntryPoint>false</NoEntryPoint>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <AdditionalDependencies>freeglut.lib;glew32.lib;SDL2.lib;DevIL.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>C:\Users\Manu\source\repos\Shay\Dependancies\SDL2-2.0.8\lib;C:\Users\Manu\source\repos\Shay\Dependancies\SDL2_mixer\lib\x86;C:\Users\Manu\source\repos\Shay\Dependancies\glew-1.11.0\lib;C:\Users\Manu\source\repos\Shay\Dependancies\DevIL\lib;C:\Users\Manu\source\repos\Shay\Dependancies\freeglut\lib;C:\Users\jacob\source\repos\Shay\Dependancies\DevIL\lib;C:\Users\jacob\source\repos\Shay\Dependancies\SDL2-2.0.8\lib;C:\Users\jacob\source\repos\Shay\Dependancies\glew-1.11.0\lib;C:\Users\jacob\source\repos\Shay\Dependancies\freeglut\lib;C:\Users\axel0\Desktop\ICT290\Shay\Dependancies\DevIL\lib;C:\Users\axel0\Desktop\ICT290\Shay\Dependancies\freeglut\lib;C:\Users\axel0\Desktop\ICT290\Shay\Dependancies\glew-1.11.0\lib;C:\Users\axel0\Desktop\ICT290\Shay\Dependancies\SDL2-2.0.8\lib\;C:\Users\Murdoch\source\repos\Shay\Dependancies\SDL2-2.0.8\lib;C:\Users\Murdoch\source\repos\Shay\Dependancies\glew-1.11.0\lib;C:\Users\Murdoch\source\repos\Shay\Dependancies\freeglut\lib;C:\Users\Murdoch\source\repos\Shay\Dependancies\DevIL\lib;C:\Users\Murdoch\source\repos\Shay\Dependancies\SDL2_mixer\lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
