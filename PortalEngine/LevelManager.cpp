@@ -28,14 +28,14 @@ void LevelManager::LoadLevel(const std::string levelName, const char *file) // .
 	std::vector<std::string> levelVec;
 	for (int i = 0; i < MAX_HEIGHT; i++) 
 	{
-		std::getline(levelfile, line[i]);
+		std::getline(levelfile, line[i]); // get line 1 
 		levelVec.push_back(line[i]);
 	}
 	LevelStorage[levelName] = levelVec;
 
 	levelfile.close();
 }
-
+LevelGen gen;
 void LevelManager::LoadLevelIndex(const char *file) // ./levels/level.txt
 {
 	std::ifstream indexfile(file);
@@ -74,6 +74,11 @@ void LevelManager::LoadLevelIndex(const char *file) // ./levels/level.txt
 		datafile.close();
 	}
 	indexfile.close();
+
+	// TESTING LEVEL GENEERATION
+	LevelStorage["test"] = gen.GenLevel();
+	Level_Index.push_back("test");
+
 }
 
 void LevelManager::DrawLevel(const Coordinates pos)
