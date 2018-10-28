@@ -50,8 +50,6 @@ PortalWorld::PortalWorld()
 	xCounter = 1;
 	yCounter = 1;
 
-	paused = true;
-
 	down = false;
 	up = false;
 
@@ -120,7 +118,6 @@ void PortalWorld::Display()
 	if (startRun)
 	{
 		ourCam.Follow(player.GetPosition());
-		paused = false;
 		glClearColor(0, 0, 0, 0);
 	}
 	else

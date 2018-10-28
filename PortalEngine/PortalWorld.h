@@ -296,7 +296,6 @@ private:
 	bool DisplayExit;
 	bool DisplayMenu;
 	bool startRun;
-	bool paused;
 
 	bool gameselect=false;
 
