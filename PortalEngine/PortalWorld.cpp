@@ -125,9 +125,7 @@ void PortalWorld::Display()
 	}
 	else
 	{
-		//ourCam.Follow(camPos);
-	//	ourCam.Update();
-		ourCam.SetXYZPosition(10.5757f, 50.7154f, 60.0f);
+		ourCam.SetMenuPosition();
 		DisplayMenuSplash(); // displays screen with controls at the start of the level
 		glClearColor(0.1f, 0.1f, 0.1f, 0.0f);
 	}

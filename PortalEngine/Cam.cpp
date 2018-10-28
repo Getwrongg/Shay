@@ -165,12 +165,12 @@ Coordinates & Cam::GetPosition()
 	return pos;
 }
 
-void Cam::SetXYZPosition(const GLfloat x, const GLfloat y, const GLfloat z)
+void Cam::SetMenuPosition()
 {
 	// position
-	pos.x = x;
-	pos.y = y;
-	pos.z = z;
+	pos.x = 10;
+	pos.y = 50;
+	pos.z = 60;
 
 	upVector.x = 0;
 	upVector.y = 1;

@@ -98,7 +98,7 @@ public:
 	void SetMoveSpeed(const GLfloat speed);
 	void SetRotateSpeed(const GLfloat speed);
 	void SetPosition(const GLfloat xyz[3], const GLfloat upVec[3], const GLfloat angle);
-	void SetXYZPosition(const GLfloat x, const GLfloat y, const GLfloat z);
+	void SetMenuPosition();
 
 	//--------------------------------------------------
 	//	Getters
