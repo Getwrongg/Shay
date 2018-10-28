@@ -2,7 +2,7 @@
 
 LevelGen::LevelGen()
 {
-	//srand(time(NULL));
+	srand(time(NULL));
 }
 
 void LevelGen::outputLevel(std::vector<std::string> level)
@@ -30,8 +30,6 @@ void LevelGen::outputLevel(std::vector<std::string> level)
 
 std::vector<std::string> LevelGen::GenPartNames()
 {		
-	srand(time(NULL));
-
 	std::vector<std::string> partNames;
 
 	std::string starttxt = "./levels/random/easy/";
@@ -61,7 +59,7 @@ std::vector<std::string> LevelGen::GenLevel()
 
 	for (int i = 0; i < HEIGHT; i++)
 	{
-		for (int j = 0; j < LENGTH; j++) // 34 is the length of the level
+		for (int j = 0; j < LENGTH; j++) 
 		{
 			if (j == LENGTH-1)
 			{
