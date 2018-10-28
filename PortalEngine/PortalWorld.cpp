@@ -374,9 +374,9 @@ void PortalWorld::SpecialKeys(int key, int x, int y)
 				{
 					testcount++;
 
-					if (testcount > 3)
+					if (testcount > 1)
 					{
-						testcount = 3;
+						testcount = 1;
 					}
 					else if (testcount < 0)
 					{
@@ -391,23 +391,6 @@ void PortalWorld::SpecialKeys(int key, int x, int y)
 						first4 = 170;
 						arrowMenu();
 					}
-					else if (testcount == 2)
-					{
-						first1 = 180;
-						first2 = 200;
-						first3 = 185;
-						first4 = 200;
-						arrowMenu();
-					}
-					else if (testcount == 3)
-					{
-						first1 = 180;
-						first2 = 200;
-						first3 = 210;
-						first4 = 225;
-						arrowMenu();
-					}
-
 				}
 				break;
 			case GLUT_KEY_UP:
@@ -415,9 +398,9 @@ void PortalWorld::SpecialKeys(int key, int x, int y)
 				{
 					testcount--;
 
-					if (testcount > 3)
+					if (testcount > 1)
 					{
-						testcount = 3;
+						testcount = 1;
 					}
 					else if (testcount < 1)
 					{
@@ -438,22 +421,6 @@ void PortalWorld::SpecialKeys(int key, int x, int y)
 						first2 = 200;
 						first3 = 155;
 						first4 = 170;
-						arrowMenu();
-					}
-					else if (testcount == 2)
-					{
-						first1 = 180;
-						first2 = 200;
-						first3 = 185;
-						first4 = 200;
-						arrowMenu();
-					}
-					else if (testcount == 3)
-					{
-						first1 = 180;
-						first2 = 200;
-						first3 = 210;
-						first4 = 225;
 						arrowMenu();
 					}
 				}

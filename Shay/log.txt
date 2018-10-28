@@ -1,2 +1,6 @@
 Runtime Data:
 
+Position: 21
+
+CurrentSkin: STAR
+
