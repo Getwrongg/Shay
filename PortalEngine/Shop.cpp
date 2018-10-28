@@ -2,22 +2,22 @@
 
 Shop::Shop()
 {
-	skin eight_ball = skin("8BALL", 11, 10);
+	skin eight_ball = skin("8BALL", 11, 15);
 	SkinList.push_back(eight_ball);
 
-	skin mirror_ball = skin("MIRROR", 21, 20);
+	skin mirror_ball = skin("MIRROR", 21, 30);
 	SkinList.push_back(mirror_ball);
 
-	skin kaleidoscope_ball = skin("KALEIDOSCOPE", 31, 40);
+	skin kaleidoscope_ball = skin("KALEIDOSCOPE", 31, 45);
 	SkinList.push_back(kaleidoscope_ball);
 
 	skin rainbow_ball = skin("RAINBOW", 12, 60);
 	SkinList.push_back(rainbow_ball);
 
-	skin space_ball = skin("SPACE", 22, 80);
+	skin space_ball = skin("SPACE", 22, 75);
 	SkinList.push_back(space_ball);
 
-	skin earth_ball = skin("EARTH", 32, 99);
+	skin earth_ball = skin("EARTH", 32, 100);
 	SkinList.push_back(earth_ball);
 }
 
