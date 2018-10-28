@@ -43,7 +43,7 @@ void Player::LoadTexture()
 {
 	pj.CreateTexture("8BALL", "data/skins/8ball.jpg");
 	pj.CreateTexture("KALEIDOSCOPE", "data/skins/scope.jpg");
-	pj.CreateTexture("STAR", "data/skins/stars.jpg");
+	pj.CreateTexture("MIRROR", "data/skins/mirror.jpg");
 	pj.CreateTexture("RAINBOW", "data/skins/rainbow.jpg");
 	pj.CreateTexture("SPACE", "data/skins/space.jpg");
 	pj.CreateTexture("EARTH", "data/skins/earth.jpg");
