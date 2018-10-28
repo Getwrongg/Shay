@@ -1,4 +1,10 @@
 Runtime Data:
 
-CurrentSkin: 8BALL
+Position: 21
+
+Position: 22
+
+Position: 32
+
+CurrentSkin: SOCCER
 

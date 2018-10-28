@@ -40,7 +40,7 @@ void World::CreateTextures(const std::string name, const char * filePath)
 void World::AnimatePortalWorld(const GLfloat timeSincePrevFrame)
 {
 	rotates += rotateSPEED * timeSincePrevFrame;
-	if (rotates >= 360) {
+	if (rotates >= 1474560) {
 		rotates = 0;
 	}
 	levelmanager.AnimateCoin(timeSincePrevFrame);
