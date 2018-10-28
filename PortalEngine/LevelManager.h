@@ -214,6 +214,8 @@ public:
 	*/
 	std::vector<std::string> GetLevelIndex();
 
+	void SetlevelGenbool(const bool gset);
+
 private:
 	
 	/**
@@ -238,6 +240,7 @@ private:
 	int coinscollected=0; // number of coins collected per level
 	int trophyscollected = 0; // number of trophys collected per level
 	int currentlevelNumber = 0; // current level number
+	int currentrandomNumber = 0;
 
 	bool mute = false; // whether or not sound is muted
 

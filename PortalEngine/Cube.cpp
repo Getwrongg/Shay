@@ -31,58 +31,68 @@ void Cube::CreateTexture()
 	
 }
 
-void Cube::Draw(const GLfloat x1, const GLfloat y1, const GLfloat z1, std::string levelName)
+void Cube::Draw(const GLfloat x1, const GLfloat y1, const GLfloat z1, std::string levelName, const int currentrandomNumber)
 {
 	
 	glPushMatrix();
 	glTranslatef(x1,y1,z1);
+
+	int randlvlnum;
+	if (currentrandomNumber < 10)
+	{
+		randlvlnum = currentrandomNumber;
+	}
+	else
+	{
+		randlvlnum = 0;
+	}
 	
-	if (levelName == "level1" || levelName == "random")
+	if (levelName == "level1" || (levelName == "random" && randlvlnum == 0))
 	{
 		glBindTexture(GL_TEXTURE_2D, j.getTextureID("SWIRL"));
 	}
 	else
-		if (levelName == "level2")
+		if (levelName == "level2" || (levelName == "random" && randlvlnum == 1))
 		{
 			glBindTexture(GL_TEXTURE_2D, j.getTextureID("CLOUD"));
 		}
 		else
-			if (levelName == "level3")
+			if (levelName == "level3" || (levelName == "random" && randlvlnum == 2))
 			{
 				glBindTexture(GL_TEXTURE_2D, j.getTextureID("ROCK"));
 			}
 			else
-				if (levelName == "level4")
+				if (levelName == "level4" || (levelName == "random" && randlvlnum == 3))
 				{
 					glBindTexture(GL_TEXTURE_2D, j.getTextureID("4TH"));
 				}
 				else
-					if (levelName == "level5")
+					if (levelName == "level5" || (levelName == "random" && randlvlnum == 4))
 					{
 						glBindTexture(GL_TEXTURE_2D, j.getTextureID("CP"));
 					}
 					else
-						if (levelName == "level6")
+						if (levelName == "level6" || (levelName == "random" && randlvlnum == 5))
 						{
 							glBindTexture(GL_TEXTURE_2D, j.getTextureID("LC"));
 						}
 						else
-							if (levelName == "level7")
+							if (levelName == "level7" || (levelName == "random" && randlvlnum == 6))
 							{
 								glBindTexture(GL_TEXTURE_2D, j.getTextureID("AR"));
 							}
 							else
-								if (levelName == "level8")
+								if (levelName == "level8" || (levelName == "random" && randlvlnum == 7))
 								{
 									glBindTexture(GL_TEXTURE_2D, j.getTextureID("CB"));
 								}
 								else
-									if (levelName == "level9")
+									if (levelName == "level9" || (levelName == "random" && randlvlnum == 8))
 									{
 										glBindTexture(GL_TEXTURE_2D, j.getTextureID("MAR"));
 									}
 									else
-										if (levelName == "level10")
+										if (levelName == "level10" || (levelName == "random" && randlvlnum == 9))
 										{
 											glBindTexture(GL_TEXTURE_2D, j.getTextureID("GOLD"));
 										}

@@ -572,15 +572,6 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 				startRun = false;
 				world.ResetLevel();
 				player.ResetPlayer();
-				//ourCam.SetPosition(pos, upVec, angle);
-				//ourCam.SetMoveSpeed(0.0f);
-				//ourCam.SetRotateSpeed(0.0f);
-				//player.SetMoveSpeed(0.0f); // so player doesn't start until ready
-
-				//player.SetPosition(-player.GetPosition().x, -player.GetPosition().y, -player.GetPosition().z);
-				//world.ResetLevel();
-				//player.ResetPlayer();
-				//player.SetPosition(-525.0f, 0.0f, -50.0f);
 			}
 
 			menuOption = "MENU";
