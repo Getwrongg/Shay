@@ -123,6 +123,7 @@ void PortalWorld::Display()
 	else
 	{
 		ourCam.SetMenuPosition();
+		player.SetPosition(50, 50, 45);
 		DisplayMenuSplash(); // displays screen with controls at the start of the level
 		glClearColor(0.1f, 0.1f, 0.1f, 0.0f);
 	}

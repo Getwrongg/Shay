@@ -90,10 +90,6 @@ void Player::SetPosition(const GLfloat x, const GLfloat y, const GLfloat z)
 
 void Player::Update(const GLfloat timeSincePrevFrame, const bool leftclickedMouse, const bool rightclickedMouse, const bool startRun)
 {
-	
-
-	if (startRun)
-	{
 		// if the user clicks the player is moved upwards
 		if (leftclickedMouse)
 		{
@@ -127,13 +123,6 @@ void Player::Update(const GLfloat timeSincePrevFrame, const bool leftclickedMous
 		pos.x += moveSpeed * timeSincePrevFrame;
 
 		rot += 25 * timeSincePrevFrame;
-		glutPostRedisplay();
-	}
-	else
-	{
-		rot += 5 * timeSincePrevFrame;
-	}
-
 }
 
 void Player::BoostPlayer() 
