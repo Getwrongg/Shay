@@ -160,12 +160,7 @@ void PortalWorld::AnimatePortalWorld()
 	GLfloat currTime = glutGet(GLUT_ELAPSED_TIME) / 1000.0f;     // to convert the returned time into seconds
 	GLfloat timeSincePrevFrame = currTime - prevTime;	// time since previous frame
 
-	prevTime = currTime;
-
-	if (paused) 
-	{
-		timeSincePrevFrame = 0.1f;
-	}
+	prevTime = currTime;	
 
 	player.Update(timeSincePrevFrame, leftclickedMouse, rightclickedMouse, startRun);
 
