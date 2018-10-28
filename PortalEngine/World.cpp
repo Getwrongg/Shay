@@ -33,7 +33,7 @@ void World::CreateTextures(const std::string name, const char * filePath)
 	levelmanager.LoadTexture();
 
 	levelmanager.LoadLevelIndex("./levels/level_index.txt"); // Setup Level
-	levelmanager.SetLevel("level1");
+	//levelmanager.SetLevel("level1");
 	
 }
 
@@ -153,11 +153,6 @@ int World::GetDistanceToEnd(Coordinates pos)
 	return (int)distance;
 }
 
-void World::RandomGenMaps()
-{
-	levelmanager.RandomGenMaps();
-}
-
 bool World::levelFailed()
 {
 	return levelmanager.HasFailed();
@@ -193,10 +188,23 @@ void World::muteLevel()
 	levelmanager.muteLevel();
 }
 
+void World::ContinueLevel()
+{
+	std::vector<std::string> levels;
+	levels = levelmanager.GetLevelIndex();
+
+	levelmanager.SetLevel(levels[levelmanager.getLevelNumber()]);
+}
+
 void World::SetLevel(const int levelNum)
 {
 	std::vector<std::string> levels;
 	levels = levelmanager.GetLevelIndex();
 
 	levelmanager.SetLevel(levels[levelNum]);
+}
+
+void World::SetLevelRandom()
+{
+	levelmanager.SetLevel("random");
 }

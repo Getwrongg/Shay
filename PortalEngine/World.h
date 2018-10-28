@@ -92,8 +92,6 @@ public:
 	*/
 	void ResetLevel();
 
-	void RandomGenMaps();
-
 	/**
 	* @author Shane Martinez
 	*
@@ -170,6 +168,10 @@ public:
 	* @return void
 	*/
 	void SetLevel(const int levelNum);
+
+	void SetLevelRandom();
+
+	void ContinueLevel();
 
 
 private:

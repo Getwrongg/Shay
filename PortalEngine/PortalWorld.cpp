@@ -110,14 +110,14 @@ void PortalWorld::Display()
 		DisplayExitScreen();
 	}
 
-	if (DisplayMenu == true)
+	if (DisplayMenu)
 	{
 		DisplayMenuScreen();
 	}
 
 	AnimatePortalWorld();
 	// only starts portal world animation if startRun is true
-	if (startRun == true)
+	if (startRun)
 	{
 		ourCam.Follow(player.GetPosition());
 		paused = false;
@@ -135,7 +135,9 @@ void PortalWorld::Display()
 
 
 	//Draw World and reset player and world if needed
-	world.DrawLevel(player.GetPosition());
+	if (startRun) {
+		world.DrawLevel(player.GetPosition());
+	}
 	if (world.levelFailed())
 	{
 		world.ResetLevel();
@@ -194,6 +196,8 @@ void PortalWorld::CreateTexturesPortalWorld()
 	pic.CreateTexture("SKINS", "data/UI/skinsMenu.png");
 
 	pic.CreateTexture("CONTROLSMENU", "data/UI/controlsMenu.png");
+
+	pic.CreateTexture("GAMESELECT", "data/UI/gameselect.png");
 
 	pic.CreateTexture("MENUPOINTER", "data/UI/MenuPointer.jpg");
 
@@ -259,13 +263,13 @@ void PortalWorld::Resize(int w, int h)
 
 void PortalWorld::SpecialKeys(int key, int x, int y)
 {
-	if (!inShop)
+	if (!inShop && !gameselect)
 	{
 		if (startRun == false)
 		{
 			switch (key)
 			{
-			case GLUT_KEY_DOWN: //down key needs changing
+			case GLUT_KEY_DOWN: 
 				if (down == false)
 				{
 					arrowCounter++;
@@ -306,7 +310,7 @@ void PortalWorld::SpecialKeys(int key, int x, int y)
 
 				}
 				break;
-			case GLUT_KEY_UP://up key needs changing
+			case GLUT_KEY_UP:
 				if (up == false)
 				{
 					arrowCounter--;
@@ -346,6 +350,105 @@ void PortalWorld::SpecialKeys(int key, int x, int y)
 						arrowMenu();
 					}
 					else if (arrowCounter == 3)
+					{
+						first1 = 180;
+						first2 = 200;
+						first3 = 210;
+						first4 = 225;
+						arrowMenu();
+					}
+				}
+				break;
+			}
+		}
+	}
+
+	if (gameselect)
+	{
+		if (startRun == false)
+		{
+			switch (key)
+			{
+			case GLUT_KEY_DOWN:
+				if (down == false)
+				{
+					testcount++;
+
+					if (testcount > 3)
+					{
+						testcount = 3;
+					}
+					else if (testcount < 0)
+					{
+						testcount = 0;
+					}
+
+					else if (testcount == 1)
+					{
+						first1 = 180;
+						first2 = 200;
+						first3 = 155;
+						first4 = 170;
+						arrowMenu();
+					}
+					else if (testcount == 2)
+					{
+						first1 = 180;
+						first2 = 200;
+						first3 = 185;
+						first4 = 200;
+						arrowMenu();
+					}
+					else if (testcount == 3)
+					{
+						first1 = 180;
+						first2 = 200;
+						first3 = 210;
+						first4 = 225;
+						arrowMenu();
+					}
+
+				}
+				break;
+			case GLUT_KEY_UP:
+				if (up == false)
+				{
+					testcount--;
+
+					if (testcount > 3)
+					{
+						testcount = 3;
+					}
+					else if (testcount < 1)
+					{
+						testcount = 0;
+					}
+
+					if (testcount == 0)
+					{
+						first1 = 180;
+						first2 = 200;
+						first3 = 130;
+						first4 = 145;
+						arrowMenu();
+					}
+					else if (testcount == 1)
+					{
+						first1 = 180;
+						first2 = 200;
+						first3 = 155;
+						first4 = 170;
+						arrowMenu();
+					}
+					else if (testcount == 2)
+					{
+						first1 = 180;
+						first2 = 200;
+						first3 = 185;
+						first4 = 200;
+						arrowMenu();
+					}
+					else if (testcount == 3)
 					{
 						first1 = 180;
 						first2 = 200;
@@ -482,13 +585,10 @@ void PortalWorld::SpecialKeys(int key, int x, int y)
 
 void PortalWorld::Keyboard(unsigned char key, int x, int y)
 {
-	if (!inShop)
+	if (!inShop && !gameselect)
 	{
 		switch (key)
 		{
-		case 'r':
-			world.RandomGenMaps();
-			break;
 		case 'i':
 			ourCam.DirectionForwardBack(1);
 			break;
@@ -511,15 +611,18 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 
 			if (startRun == true)
 			{
-				ourCam.SetPosition(pos, upVec, angle);
-				ourCam.SetMoveSpeed(0.0f);
-				ourCam.SetRotateSpeed(0.0f);
-				player.SetMoveSpeed(0.0f); // so player doesn't start until ready
+				startRun = false;
+				world.ResetLevel();
+				player.ResetPlayer();
+				//ourCam.SetPosition(pos, upVec, angle);
+				//ourCam.SetMoveSpeed(0.0f);
+				//ourCam.SetRotateSpeed(0.0f);
+				//player.SetMoveSpeed(0.0f); // so player doesn't start until ready
+
 				//player.SetPosition(-player.GetPosition().x, -player.GetPosition().y, -player.GetPosition().z);
 				//world.ResetLevel();
 				//player.ResetPlayer();
 				//player.SetPosition(-525.0f, 0.0f, -50.0f);
-				startRun = false;
 			}
 
 			menuOption = "MENU";
@@ -537,9 +640,9 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 		case 13: // enter to start
 			if (arrowCounter == 0 && !startRun)
 			{
-				player.SetMoveSpeed(25.0f); // sets movespeed to 25
-				player.SetPosition(10.0f, 100.0f, 7.0f); // starting position of player
-				startRun = true;
+				menuOption = "GAMESELECT";
+				gameselect = true;
+				escapeCounter++;
 			}
 			else if (arrowCounter == 1)
 			{
@@ -601,6 +704,38 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 				shop.Mute();
 				break;
 			}
+		}
+	}
+	else if(gameselect)
+	{
+		switch (key)
+		{
+		case 13: // enter to start
+			if (testcount == 0) //campaign
+			{
+				world.ContinueLevel();
+				startRun = true;
+				player.SetMoveSpeed(25.0f); // sets movespeed to 25
+				player.SetPosition(10.0f, 100.0f, 7.0f); // starting position of player
+
+			}
+			if (testcount == 1) //random gen
+			{
+				world.SetLevelRandom();
+				startRun = true;
+				player.SetMoveSpeed(25.0f); // sets movespeed to 25
+				player.SetPosition(10.0f, 100.0f, 7.0f); // starting position of player
+
+			}
+		case 27:
+			menuOption = "MENU";
+			gameselect = false;
+			testcount = 0;
+			first1 = 180;
+			first2 = 200;
+			first3 = 130;
+			first4 = 145;
+			break;
 		}
 	}
 	else if(inShop)

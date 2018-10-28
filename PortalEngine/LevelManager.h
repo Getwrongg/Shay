@@ -115,8 +115,6 @@ public:
 	*/
 	void SetNextLevel();
 
-	void RandomGenMaps();
-
 	/**
 	* @author Shane Martinez
 	*

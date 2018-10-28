@@ -120,7 +120,7 @@ void LevelManager::DrawLevel(const Coordinates pos)
 				{
 					if(!HasEndedRound()) // if the round has not ended
 					{
-						SetNextLevel(); // ends the round and sets the next level
+						SetNextLevel();
 					}
 				}
 			}
@@ -152,9 +152,17 @@ int LevelManager::GetEndPoint()
 
 void LevelManager::SetLevel(const std::string levelName)
 {
+	if (levelName == "random")
+	{
+		genMaps = true;
+	}
+	else
+	{
+		genMaps = false;
+	}
+
 	currentLevel = LevelStorage.find(levelName)->second;
 	currentLevelName = levelName;
-
 	endRound = false;
 }
 
@@ -162,23 +170,19 @@ void LevelManager::SetNextLevel()
 {
 	if (genMaps)
 	{
-		currentlevelNumber = 0;
 		LevelStorage["random"] = levelgen.GenLevel(); // Store level
 		SetLevel("random");
 	}
-	else
+	else if (Level_Index.size() > currentlevelNumber) 
 	{
-		if (Level_Index.size() > currentlevelNumber) 
-		{
-			SetLevel(Level_Index[currentlevelNumber]);
-		}
-		else 
-		{
-			SetLevel(Level_Index[0]);
-			currentlevelNumber = 0;
-		}
+		currentlevelNumber++;
+		SetLevel(Level_Index[currentlevelNumber]);
 	}
-	currentlevelNumber++;
+	else 
+	{
+		SetLevel(Level_Index[0]);
+		currentlevelNumber = 0;
+	}
 	endRound = true;
 }
 
@@ -212,22 +216,6 @@ bool LevelManager::HasEndedRound()
 bool LevelManager::HasFailed() 
 {
 	return failed;
-}
-
-void LevelManager::RandomGenMaps()
-{
-	if (genMaps)
-	{
-		genMaps = false;
-		currentlevelNumber = 0;
-		SetNextLevel();
-	}
-	else
-	{
-		currentLevelName = "random";
-		genMaps = true;
-		endRound = true;
-	}
 }
 
 void LevelManager::ResetLevel() 
