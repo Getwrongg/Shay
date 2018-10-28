@@ -37,62 +37,52 @@ void Cube::Draw(const GLfloat x1, const GLfloat y1, const GLfloat z1, std::strin
 	glPushMatrix();
 	glTranslatef(x1,y1,z1);
 
-	int randlvlnum;
-	if (currentrandomNumber < 10)
-	{
-		randlvlnum = currentrandomNumber;
-	}
-	else
-	{
-		randlvlnum = 0;
-	}
-	
-	if (levelName == "level1" || (levelName == "random" && randlvlnum == 0))
+	if (levelName == "level1" || (levelName == "random" && currentrandomNumber == 0))
 	{
 		glBindTexture(GL_TEXTURE_2D, j.getTextureID("SWIRL"));
 	}
 	else
-		if (levelName == "level2" || (levelName == "random" && randlvlnum == 1))
+		if (levelName == "level2" || (levelName == "random" && currentrandomNumber == 1))
 		{
 			glBindTexture(GL_TEXTURE_2D, j.getTextureID("CLOUD"));
 		}
 		else
-			if (levelName == "level3" || (levelName == "random" && randlvlnum == 2))
+			if (levelName == "level3" || (levelName == "random" && currentrandomNumber == 2))
 			{
 				glBindTexture(GL_TEXTURE_2D, j.getTextureID("ROCK"));
 			}
 			else
-				if (levelName == "level4" || (levelName == "random" && randlvlnum == 3))
+				if (levelName == "level4" || (levelName == "random" && currentrandomNumber == 3))
 				{
 					glBindTexture(GL_TEXTURE_2D, j.getTextureID("4TH"));
 				}
 				else
-					if (levelName == "level5" || (levelName == "random" && randlvlnum == 4))
+					if (levelName == "level5" || (levelName == "random" && currentrandomNumber == 4))
 					{
 						glBindTexture(GL_TEXTURE_2D, j.getTextureID("CP"));
 					}
 					else
-						if (levelName == "level6" || (levelName == "random" && randlvlnum == 5))
+						if (levelName == "level6" || (levelName == "random" && currentrandomNumber == 5))
 						{
 							glBindTexture(GL_TEXTURE_2D, j.getTextureID("LC"));
 						}
 						else
-							if (levelName == "level7" || (levelName == "random" && randlvlnum == 6))
+							if (levelName == "level7" || (levelName == "random" && currentrandomNumber == 6))
 							{
 								glBindTexture(GL_TEXTURE_2D, j.getTextureID("AR"));
 							}
 							else
-								if (levelName == "level8" || (levelName == "random" && randlvlnum == 7))
+								if (levelName == "level8" || (levelName == "random" && currentrandomNumber == 7))
 								{
 									glBindTexture(GL_TEXTURE_2D, j.getTextureID("CB"));
 								}
 								else
-									if (levelName == "level9" || (levelName == "random" && randlvlnum == 8))
+									if (levelName == "level9" || (levelName == "random" && currentrandomNumber == 8))
 									{
 										glBindTexture(GL_TEXTURE_2D, j.getTextureID("MAR"));
 									}
 									else
-										if (levelName == "level10" || (levelName == "random" && randlvlnum == 9))
+										if (levelName == "level10" || (levelName == "random" && currentrandomNumber == 9))
 										{
 											glBindTexture(GL_TEXTURE_2D, j.getTextureID("GOLD"));
 										}

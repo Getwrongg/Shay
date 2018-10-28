@@ -57,16 +57,8 @@ void World::BackGround()
 	std::string levelName;
 	levelName = levelmanager.getLevelName();
 
-	int randlvlnum;
-	if (levelmanager.getLevelNumber() < 10)
-	{
-		randlvlnum = levelmanager.getLevelNumber();
-	}
-	else
-	{
-		randlvlnum = 0;
-	}
-	
+	int randlvlnum = levelmanager.getbackgroundNumber();
+
 	if (levelName == "level1" || (levelName == "random" && randlvlnum == 0))
 	{
 		glBindTexture(GL_TEXTURE_2D, j.getTextureID("SWIRL"));

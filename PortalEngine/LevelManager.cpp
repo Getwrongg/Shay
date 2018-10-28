@@ -98,7 +98,7 @@ void LevelManager::DrawLevel(const Coordinates pos)
 				}
 				else 
 				{
-					cubedraw.Draw((float)j, (float)i, 0.0f, currentLevelName, currentrandomNumber);
+					cubedraw.Draw((float)j, (float)i, 0.0f, currentLevelName, backgroundNumber);
 				}
 			}
 			if (currentnumber == "2") //Draws Coins
@@ -138,7 +138,7 @@ void LevelManager::DrawLevel(const Coordinates pos)
 			}
 			if (currentnumber == "5") //Fake Blocks
 			{
-				cubedraw.Draw((float)j, (float)i, 0.0f, currentLevelName, currentrandomNumber);
+				cubedraw.Draw((float)j, (float)i, 0.0f, currentLevelName, backgroundNumber);
 			}
 		}
 		reverse--; 
@@ -164,6 +164,7 @@ void LevelManager::SetNextLevel()
 		LevelStorage["random"] = levelgen.GenLevel(); // Store level
 		SetLevel("random");
 		currentrandomNumber++;
+		backgroundNumber++;
 	}
 	else if (Level_Index.size() > currentlevelNumber) 
 	{
@@ -260,4 +261,18 @@ void LevelManager::muteLevel()
 		mute = true;
 	}
 
+}
+
+int LevelManager::getbackgroundNumber()
+{
+	if (backgroundNumber < 10)
+	{
+		return backgroundNumber;
+	}
+	else
+	{
+		backgroundNumber = 0;
+		return backgroundNumber;
+	}
+	
 }

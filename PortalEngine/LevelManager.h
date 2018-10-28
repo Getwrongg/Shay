@@ -216,6 +216,8 @@ public:
 
 	void SetlevelGenbool(const bool gset);
 
+	int getbackgroundNumber();
+
 private:
 	
 	/**
@@ -241,6 +243,7 @@ private:
 	int trophyscollected = 0; // number of trophys collected per level
 	int currentlevelNumber = 0; // current level number
 	int currentrandomNumber = 0;
+	int backgroundNumber = 0;
 
 	bool mute = false; // whether or not sound is muted
 
