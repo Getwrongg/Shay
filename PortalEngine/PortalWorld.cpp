@@ -123,7 +123,7 @@ void PortalWorld::Display()
 	else
 	{
 		ourCam.SetMenuPosition();
-		player.SetPosition(50, 50, 45);
+		player.SetPosition(50, 50, 46);
 		DisplayMenuSplash(); // displays screen with controls at the start of the level
 		glClearColor(0.1f, 0.1f, 0.1f, 0.0f);
 	}
@@ -181,7 +181,7 @@ void PortalWorld::CreateTexturesPortalWorld()
 
 	pic.CreateTexture("MENU", "data/UI/menu.png");
 
-	pic.CreateTexture("SHOP", "data/UI/shopMenu.png");
+	//pic.CreateTexture("SHOP", "data/UI/shopMenu.png");
 
 	pic.CreateTexture("SKINS", "data/UI/skinsMenu.png");
 
