@@ -33,7 +33,7 @@ void World::CreateTextures(const std::string name, const char * filePath)
 	levelmanager.LoadTexture();
 
 	levelmanager.LoadLevelIndex("./levels/level_index.txt"); // Setup Level
-	//levelmanager.SetLevel("level1");
+	levelmanager.SetLevel("level1");
 	
 }
 

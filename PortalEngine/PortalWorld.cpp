@@ -126,18 +126,17 @@ void PortalWorld::Display()
 	else
 	{
 		//ourCam.Follow(camPos);
-		ourCam.Update();
+	//	ourCam.Update();
+		ourCam.SetXYZPosition(10.5757f, 50.7154f, 60.0f);
 		DisplayMenuSplash(); // displays screen with controls at the start of the level
 		glClearColor(0.1f, 0.1f, 0.1f, 0.0f);
 	}
 
 	DisplayLevel(); //Draw level UI
 
-
 	//Draw World and reset player and world if needed
-	if (startRun) {
-		world.DrawLevel(player.GetPosition());
-	}
+
+	world.DrawLevel(player.GetPosition());
 	if (world.levelFailed())
 	{
 		world.ResetLevel();
