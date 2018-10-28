@@ -1,2 +1,16 @@
 Runtime Data:
 
+Position: 12
+
+Position: 22
+
+CurrentSkin: SPACE
+
+Position: 12
+
+Position: 22
+
+Position: 32
+
+CurrentSkin: EARTH
+

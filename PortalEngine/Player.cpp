@@ -18,7 +18,7 @@ Player::Player()
 
 	texName = "DEFAULT";
 
-	totalcoinsCollected = 50;
+	totalcoinsCollected = 999;
 	totaltrophysCollected = 0;
 
 	boostTotal = BOOST_NUMBER;
@@ -34,7 +34,8 @@ void Player::DrawPlayer()
 {
 	glBindTexture(GL_TEXTURE_2D, pj.getTextureID(texName));
 	glTranslated(pos.x, pos.y, pos.z);
-	glRotatef(rot, 0, 1, 0);
+	glRotatef(90, 1, 0, 0);
+	glRotatef(rot, 0, 0, 1);
 	gluSphere(sphere, size, slices, stacks);
 }
 
@@ -44,8 +45,8 @@ void Player::LoadTexture()
 	pj.CreateTexture("KALEIDOSCOPE", "data/skins/scope.jpg");
 	pj.CreateTexture("STAR", "data/skins/stars.jpg");
 	pj.CreateTexture("RAINBOW", "data/skins/rainbow.jpg");
-	pj.CreateTexture("BASKET", "data/skins/basket.jpg");
-	pj.CreateTexture("SOCCER", "data/skins/soccer.jpg");
+	pj.CreateTexture("SPACE", "data/skins/space.jpg");
+	pj.CreateTexture("EARTH", "data/skins/earth.jpg");
 	pj.CreateTexture("DEFAULT", "data/portalswirl.jpg");
 }
 
@@ -93,8 +94,6 @@ void Player::Update(const GLfloat timeSincePrevFrame, const bool leftclickedMous
 
 	if (startRun)
 	{
-		rot = 0;
-		
 		// if the user clicks the player is moved upwards
 		if (leftclickedMouse)
 		{
@@ -126,6 +125,9 @@ void Player::Update(const GLfloat timeSincePrevFrame, const bool leftclickedMous
 
 		// moves the player forward along the level
 		pos.x += moveSpeed * timeSincePrevFrame;
+
+		rot += 25 * timeSincePrevFrame;
+		glutPostRedisplay();
 	}
 	else
 	{
