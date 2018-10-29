@@ -51,7 +51,7 @@ public:
 	*
 	* @return void
 	*/
-	void Draw(const GLfloat x1, const GLfloat y1, const GLfloat z1, std::string levelName);
+	void Draw(const GLfloat x1, const GLfloat y1, const GLfloat z1, std::string levelName, const int currentrandomNumber);
 
 	/**
 	* @author Christopher Gemmel

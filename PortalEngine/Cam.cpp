@@ -165,6 +165,24 @@ Coordinates & Cam::GetPosition()
 	return pos;
 }
 
+void Cam::SetMenuPosition()
+{
+	// position
+	pos.x = 10;
+	pos.y = 50;
+	pos.z = 60;
+
+	upVector.x = 0;
+	upVector.y = 1;
+	upVector.z = 0;
+
+	look.x = 360;
+	look.y = 50;
+	look.z = 75;
+
+	CallGluLookat();
+}
+
 void Cam::SetPosition(const GLfloat xyz[3], const GLfloat upVec[3], const GLfloat angle)
 {
 	// position

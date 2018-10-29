@@ -40,7 +40,7 @@ void World::CreateTextures(const std::string name, const char * filePath)
 void World::AnimatePortalWorld(const GLfloat timeSincePrevFrame)
 {
 	rotates += rotateSPEED * timeSincePrevFrame;
-	if (rotates >= 360) {
+	if (rotates >= 1474560) {
 		rotates = 0;
 	}
 	levelmanager.AnimateCoin(timeSincePrevFrame);
@@ -56,52 +56,55 @@ void World::BackGround()
 
 	std::string levelName;
 	levelName = levelmanager.getLevelName();
-	if (levelName == "level1" || levelName == "random")
+
+	int randlvlnum = levelmanager.getbackgroundNumber();
+
+	if (levelName == "level1" || (levelName == "random" && randlvlnum == 0))
 	{
 		glBindTexture(GL_TEXTURE_2D, j.getTextureID("SWIRL"));
 	}
 
-	if (levelName == "level2")
+	if (levelName == "level2" || (levelName == "random" && randlvlnum == 1))
 	{
 		glBindTexture(GL_TEXTURE_2D, j.getTextureID("SKY"));
 	}
 
-	if (levelName == "level3")
+	if (levelName == "level3" || (levelName == "random" && randlvlnum == 2))
 	{
 		glBindTexture(GL_TEXTURE_2D, j.getTextureID("SPACE"));
 	}
 
-	if (levelName == "level4")
+	if (levelName == "level4" || (levelName == "random" && randlvlnum == 3))
 	{
 		glBindTexture(GL_TEXTURE_2D, j.getTextureID("NEB"));
 	}
 
-	if (levelName == "level5")
+	if (levelName == "level5" || (levelName == "random" && randlvlnum == 4))
 	{
 		glBindTexture(GL_TEXTURE_2D, j.getTextureID("SCOPE"));
 	}
 
-	if (levelName == "level6")
+	if (levelName == "level6" || (levelName == "random" && randlvlnum == 5))
 	{
 		glBindTexture(GL_TEXTURE_2D, j.getTextureID("oSwirl"));
 	}
 
-	if (levelName == "level7")
+	if (levelName == "level7" || (levelName == "random" && randlvlnum == 6))
 	{
 		glBindTexture(GL_TEXTURE_2D, j.getTextureID("AS"));
 	}
 
-	if (levelName == "level8")
+	if (levelName == "level8" || (levelName == "random" && randlvlnum == 7))
 	{
 		glBindTexture(GL_TEXTURE_2D, j.getTextureID("SC"));
 	}
 
-	if (levelName == "level9")
+	if (levelName == "level9" || (levelName == "random" && randlvlnum == 8))
 	{
 		glBindTexture(GL_TEXTURE_2D, j.getTextureID("IC"));
 	}
 
-	if (levelName == "level10")
+	if (levelName == "level10" || (levelName == "random" && randlvlnum == 9))
 	{
 		glBindTexture(GL_TEXTURE_2D, j.getTextureID("IC2"));
 	}
@@ -153,11 +156,6 @@ int World::GetDistanceToEnd(Coordinates pos)
 	return (int)distance;
 }
 
-void World::RandomGenMaps()
-{
-	levelmanager.RandomGenMaps();
-}
-
 bool World::levelFailed()
 {
 	return levelmanager.HasFailed();
@@ -193,10 +191,26 @@ void World::muteLevel()
 	levelmanager.muteLevel();
 }
 
+void World::ContinueLevel()
+{
+	levelmanager.SetlevelGenbool(false);
+	std::vector<std::string> levels;
+	levels = levelmanager.GetLevelIndex();
+
+	levelmanager.SetLevel(levels[levelmanager.getLevelNumber()]);
+}
+
 void World::SetLevel(const int levelNum)
 {
+	levelmanager.SetlevelGenbool(false);
 	std::vector<std::string> levels;
 	levels = levelmanager.GetLevelIndex();
 
 	levelmanager.SetLevel(levels[levelNum]);
+}
+
+void World::SetLevelRandom()
+{
+	levelmanager.SetlevelGenbool(true);
+	levelmanager.SetLevel("random");
 }

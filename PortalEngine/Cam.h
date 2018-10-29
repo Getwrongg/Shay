@@ -2,7 +2,7 @@
 
 #include <GL/glut.h>
 #include <math.h>
-
+#include <iostream>
 #include "Structs.h"
 
 #define PI 3.1415962654 // probs not needed
@@ -98,6 +98,7 @@ public:
 	void SetMoveSpeed(const GLfloat speed);
 	void SetRotateSpeed(const GLfloat speed);
 	void SetPosition(const GLfloat xyz[3], const GLfloat upVec[3], const GLfloat angle);
+	void SetMenuPosition();
 
 	//--------------------------------------------------
 	//	Getters

@@ -115,8 +115,6 @@ public:
 	*/
 	void SetNextLevel();
 
-	void RandomGenMaps();
-
 	/**
 	* @author Shane Martinez
 	*
@@ -216,6 +214,10 @@ public:
 	*/
 	std::vector<std::string> GetLevelIndex();
 
+	void SetlevelGenbool(const bool gset);
+
+	int getbackgroundNumber();
+
 private:
 	
 	/**
@@ -240,6 +242,8 @@ private:
 	int coinscollected=0; // number of coins collected per level
 	int trophyscollected = 0; // number of trophys collected per level
 	int currentlevelNumber = 0; // current level number
+	int currentrandomNumber = 0;
+	int backgroundNumber = 0;
 
 	bool mute = false; // whether or not sound is muted
 

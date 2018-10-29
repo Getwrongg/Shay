@@ -296,7 +296,10 @@ private:
 	bool DisplayExit;
 	bool DisplayMenu;
 	bool startRun;
-	bool paused;
+
+	bool gameselect=false;
+
+	int testcount=0;
 
 	bool down;
 	bool up;

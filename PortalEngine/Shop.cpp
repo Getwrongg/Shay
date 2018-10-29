@@ -2,23 +2,23 @@
 
 Shop::Shop()
 {
-	skin eight_ball = skin("8BALL", 11, 10);
+	skin eight_ball = skin("8BALL", 11, 15);
 	SkinList.push_back(eight_ball);
 
-	skin space_ball = skin("STAR", 21, 15);
-	SkinList.push_back(space_ball);
+	skin mirror_ball = skin("MIRROR", 21, 30);
+	SkinList.push_back(mirror_ball);
 
-	skin kaleidoscope_ball = skin("KALEIDOSCOPE", 31, 20);
+	skin kaleidoscope_ball = skin("KALEIDOSCOPE", 31, 45);
 	SkinList.push_back(kaleidoscope_ball);
 
-	skin rainbow_ball = skin("RAINBOW", 12, 20);
+	skin rainbow_ball = skin("RAINBOW", 12, 60);
 	SkinList.push_back(rainbow_ball);
 
-	skin basket_ball = skin("BASKET", 22, 30);
-	SkinList.push_back(basket_ball);
+	skin space_ball = skin("SPACE", 22, 75);
+	SkinList.push_back(space_ball);
 
-	skin soccer_ball = skin("SOCCER", 32, 40);
-	SkinList.push_back(soccer_ball);
+	skin earth_ball = skin("EARTH", 32, 100);
+	SkinList.push_back(earth_ball);
 }
 
 void Shop::LoadSounds()

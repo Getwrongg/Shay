@@ -75,7 +75,7 @@ void LevelManager::LoadLevelIndex(const char *file) // ./levels/level.txt
 	}
 	indexfile.close();
 
-	// TESTING LEVEL GENEERATION
+	// GENERATE FIRST RANDOM LEVEL
 	LevelStorage["random"] = levelgen.GenLevel();
 	Level_Index.push_back("random");
 
@@ -98,7 +98,7 @@ void LevelManager::DrawLevel(const Coordinates pos)
 				}
 				else 
 				{
-					cubedraw.Draw((float)j, (float)i, 0.0f, currentLevelName);
+					cubedraw.Draw((float)j, (float)i, 0.0f, currentLevelName, backgroundNumber);
 				}
 			}
 			if (currentnumber == "2") //Draws Coins
@@ -120,7 +120,7 @@ void LevelManager::DrawLevel(const Coordinates pos)
 				{
 					if(!HasEndedRound()) // if the round has not ended
 					{
-						SetNextLevel(); // ends the round and sets the next level
+						SetNextLevel();
 					}
 				}
 			}
@@ -138,7 +138,7 @@ void LevelManager::DrawLevel(const Coordinates pos)
 			}
 			if (currentnumber == "5") //Fake Blocks
 			{
-				cubedraw.Draw((float)j, (float)i, 0.0f, currentLevelName);
+				cubedraw.Draw((float)j, (float)i, 0.0f, currentLevelName, backgroundNumber);
 			}
 		}
 		reverse--; 
@@ -154,7 +154,6 @@ void LevelManager::SetLevel(const std::string levelName)
 {
 	currentLevel = LevelStorage.find(levelName)->second;
 	currentLevelName = levelName;
-
 	endRound = false;
 }
 
@@ -162,23 +161,21 @@ void LevelManager::SetNextLevel()
 {
 	if (genMaps)
 	{
-		currentlevelNumber = 0;
 		LevelStorage["random"] = levelgen.GenLevel(); // Store level
 		SetLevel("random");
+		currentrandomNumber++;
+		backgroundNumber++;
 	}
-	else
+	else if (Level_Index.size() > currentlevelNumber) 
 	{
-		if (Level_Index.size() > currentlevelNumber) 
-		{
-			SetLevel(Level_Index[currentlevelNumber]);
-		}
-		else 
-		{
-			SetLevel(Level_Index[0]);
-			currentlevelNumber = 0;
-		}
+		currentlevelNumber++;
+		SetLevel(Level_Index[currentlevelNumber]);
 	}
-	currentlevelNumber++;
+	else 
+	{
+		SetLevel(Level_Index[0]);
+		currentlevelNumber = 0;
+	}
 	endRound = true;
 }
 
@@ -214,22 +211,6 @@ bool LevelManager::HasFailed()
 	return failed;
 }
 
-void LevelManager::RandomGenMaps()
-{
-	if (genMaps)
-	{
-		genMaps = false;
-		currentlevelNumber = 0;
-		SetNextLevel();
-	}
-	else
-	{
-		currentLevelName = "random";
-		genMaps = true;
-		endRound = true;
-	}
-}
-
 void LevelManager::ResetLevel() 
 {
 	SetLevel(currentLevelName);
@@ -243,9 +224,22 @@ std::string LevelManager::getLevelName()
 	return currentLevelName;
 }
 
+void LevelManager::SetlevelGenbool(const bool gset)
+{
+	genMaps = gset;
+}
+
 int LevelManager::getLevelNumber()
 {
-	return currentlevelNumber;
+	if (genMaps)
+	{
+		return currentrandomNumber;
+	}
+	else
+	{
+		return currentlevelNumber;
+	}
+	
 }
 
 std::vector<std::string> LevelManager::GetLevelIndex()
@@ -267,4 +261,18 @@ void LevelManager::muteLevel()
 		mute = true;
 	}
 
+}
+
+int LevelManager::getbackgroundNumber()
+{
+	if (backgroundNumber < 10)
+	{
+		return backgroundNumber;
+	}
+	else
+	{
+		backgroundNumber = 0;
+		return backgroundNumber;
+	}
+	
 }

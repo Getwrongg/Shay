@@ -50,8 +50,6 @@ PortalWorld::PortalWorld()
 	xCounter = 1;
 	yCounter = 1;
 
-	paused = true;
-
 	down = false;
 	up = false;
 
@@ -110,31 +108,30 @@ void PortalWorld::Display()
 		DisplayExitScreen();
 	}
 
-	if (DisplayMenu == true)
+	if (DisplayMenu)
 	{
 		DisplayMenuScreen();
 	}
 
 	AnimatePortalWorld();
 	// only starts portal world animation if startRun is true
-	if (startRun == true)
+	if (startRun)
 	{
 		ourCam.Follow(player.GetPosition());
-		paused = false;
 		glClearColor(0, 0, 0, 0);
 	}
 	else
 	{
-		//ourCam.Follow(camPos);
-		ourCam.Update();
+		ourCam.SetMenuPosition();
+		player.SetPosition(50, 50, 46);
 		DisplayMenuSplash(); // displays screen with controls at the start of the level
 		glClearColor(0.1f, 0.1f, 0.1f, 0.0f);
 	}
 
 	DisplayLevel(); //Draw level UI
 
-
 	//Draw World and reset player and world if needed
+
 	world.DrawLevel(player.GetPosition());
 	if (world.levelFailed())
 	{
@@ -161,12 +158,7 @@ void PortalWorld::AnimatePortalWorld()
 	GLfloat currTime = glutGet(GLUT_ELAPSED_TIME) / 1000.0f;     // to convert the returned time into seconds
 	GLfloat timeSincePrevFrame = currTime - prevTime;	// time since previous frame
 
-	prevTime = currTime;
-
-	if (paused) 
-	{
-		timeSincePrevFrame = 0.1f;
-	}
+	prevTime = currTime;	
 
 	player.Update(timeSincePrevFrame, leftclickedMouse, rightclickedMouse, startRun);
 
@@ -189,15 +181,19 @@ void PortalWorld::CreateTexturesPortalWorld()
 
 	pic.CreateTexture("MENU", "data/UI/menu.png");
 
-	pic.CreateTexture("SHOP", "data/UI/shopMenu.png");
+	//pic.CreateTexture("SHOP", "data/UI/shopMenu.png");
 
 	pic.CreateTexture("SKINS", "data/UI/skinsMenu.png");
 
 	pic.CreateTexture("CONTROLSMENU", "data/UI/controlsMenu.png");
 
+	pic.CreateTexture("GAMESELECT", "data/UI/gameselect.png");
+
 	pic.CreateTexture("MENUPOINTER", "data/UI/MenuPointer.jpg");
 
 	pic.CreateTexture("LOCKED", "data/UI/locked.jpg");
+
+	pic.CreateTexture("COINSHOP", "data/UI/coinshop.png");
 
 
 	player.LoadTexture();
@@ -259,13 +255,13 @@ void PortalWorld::Resize(int w, int h)
 
 void PortalWorld::SpecialKeys(int key, int x, int y)
 {
-	if (!inShop)
+	if (!inShop && !gameselect)
 	{
 		if (startRun == false)
 		{
 			switch (key)
 			{
-			case GLUT_KEY_DOWN: //down key needs changing
+			case GLUT_KEY_DOWN: 
 				if (down == false)
 				{
 					arrowCounter++;
@@ -306,7 +302,7 @@ void PortalWorld::SpecialKeys(int key, int x, int y)
 
 				}
 				break;
-			case GLUT_KEY_UP://up key needs changing
+			case GLUT_KEY_UP:
 				if (up == false)
 				{
 					arrowCounter--;
@@ -351,6 +347,72 @@ void PortalWorld::SpecialKeys(int key, int x, int y)
 						first2 = 200;
 						first3 = 210;
 						first4 = 225;
+						arrowMenu();
+					}
+				}
+				break;
+			}
+		}
+	}
+
+	if (gameselect)
+	{
+		if (startRun == false)
+		{
+			switch (key)
+			{
+			case GLUT_KEY_DOWN:
+				if (down == false)
+				{
+					testcount++;
+
+					if (testcount > 1)
+					{
+						testcount = 1;
+					}
+					else if (testcount < 0)
+					{
+						testcount = 0;
+					}
+
+					else if (testcount == 1)
+					{
+						first1 = 180;
+						first2 = 200;
+						first3 = 155;
+						first4 = 170;
+						arrowMenu();
+					}
+				}
+				break;
+			case GLUT_KEY_UP:
+				if (up == false)
+				{
+					testcount--;
+
+					if (testcount > 1)
+					{
+						testcount = 1;
+					}
+					else if (testcount < 1)
+					{
+						testcount = 0;
+					}
+
+					if (testcount == 0)
+					{
+						first1 = 180;
+						first2 = 200;
+						first3 = 130;
+						first4 = 145;
+						arrowMenu();
+					}
+					else if (testcount == 1)
+					{
+						first1 = 180;
+						first2 = 200;
+						first3 = 155;
+						first4 = 170;
 						arrowMenu();
 					}
 				}
@@ -482,13 +544,10 @@ void PortalWorld::SpecialKeys(int key, int x, int y)
 
 void PortalWorld::Keyboard(unsigned char key, int x, int y)
 {
-	if (!inShop)
+	if (!inShop && !gameselect)
 	{
 		switch (key)
 		{
-		case 'r':
-			world.RandomGenMaps();
-			break;
 		case 'i':
 			ourCam.DirectionForwardBack(1);
 			break;
@@ -511,15 +570,9 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 
 			if (startRun == true)
 			{
-				ourCam.SetPosition(pos, upVec, angle);
-				ourCam.SetMoveSpeed(0.0f);
-				ourCam.SetRotateSpeed(0.0f);
-				player.SetMoveSpeed(0.0f); // so player doesn't start until ready
-				//player.SetPosition(-player.GetPosition().x, -player.GetPosition().y, -player.GetPosition().z);
-				//world.ResetLevel();
-				//player.ResetPlayer();
-				//player.SetPosition(-525.0f, 0.0f, -50.0f);
 				startRun = false;
+				world.ResetLevel();
+				player.ResetPlayer();
 			}
 
 			menuOption = "MENU";
@@ -537,9 +590,9 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 		case 13: // enter to start
 			if (arrowCounter == 0 && !startRun)
 			{
-				player.SetMoveSpeed(25.0f); // sets movespeed to 25
-				player.SetPosition(10.0f, 100.0f, 7.0f); // starting position of player
-				startRun = true;
+				menuOption = "GAMESELECT";
+				gameselect = true;
+				escapeCounter++;
 			}
 			else if (arrowCounter == 1)
 			{
@@ -601,6 +654,38 @@ void PortalWorld::Keyboard(unsigned char key, int x, int y)
 				shop.Mute();
 				break;
 			}
+		}
+	}
+	else if(gameselect)
+	{
+		switch (key)
+		{
+		case 13: // enter to start
+			if (testcount == 0) //campaign
+			{
+				world.ContinueLevel();
+				startRun = true;
+				player.SetMoveSpeed(25.0f); // sets movespeed to 25
+				player.SetPosition(10.0f, 100.0f, 7.0f); // starting position of player
+
+			}
+			if (testcount == 1) //random gen
+			{
+				world.SetLevelRandom();
+				startRun = true;
+				player.SetMoveSpeed(25.0f); // sets movespeed to 25
+				player.SetPosition(10.0f, 100.0f, 7.0f); // starting position of player
+
+			}
+		case 27:
+			menuOption = "MENU";
+			gameselect = false;
+			testcount = 0;
+			first1 = 180;
+			first2 = 200;
+			first3 = 130;
+			first4 = 145;
+			break;
 		}
 	}
 	else if(inShop)
@@ -856,89 +941,11 @@ void PortalWorld::DisplayLevel()
 
 void PortalWorld::DisplayLevelNumber()
 {
-	std::string levelnumber;
-	switch (world.LevelNumber() + 1) // level number starts at 0 so add 1 
-	{
-	case 1:
-		levelnumber = "ONE";
-		break;
-	case 2:
-		levelnumber = "TWO";
-		break;
-	case 3:
-		levelnumber = "THREE";
-		break;
-	case 4:
-		levelnumber = "FOUR";
-		break;
-	case 5:
-		levelnumber = "FIVE";
-		break;
-	case 6:
-		levelnumber = "SIX";
-		break;
-	case 7:
-		levelnumber = "SEVEN";
-		break;
-	case 8:
-		levelnumber = "EIGHT";
-		break;
-	case 9:
-		levelnumber = "NINE";
-		break;
-	default:
-		levelnumber = "ZERO";
-	}
 
-	//LEVEL NUMBER
-	glBindTexture(GL_TEXTURE_2D, pic.getTextureID(levelnumber));
-	glBegin(GL_QUADS);
-	glTexCoord2i(0, 0); glVertex2i(10, 0);
-	glTexCoord2i(0, 1); glVertex2i(10, 20);
-	glTexCoord2i(1, 1); glVertex2i(25, 20);
-	glTexCoord2i(1, 0); glVertex2i(25, 0);
-	glEnd();
-
-	//LEVEL UI
-	glBindTexture(GL_TEXTURE_2D, pic.getTextureID("LEVEL"));
-	glBegin(GL_QUADS);
-	glTexCoord2i(0, 0); glVertex2i(-50, 0);
-	glTexCoord2i(0, 1); glVertex2i(-50, 20);
-	glTexCoord2i(1, 1); glVertex2i(30, 20);
-	glTexCoord2i(1, 0); glVertex2i(30, 0);
-	glEnd();
-}
-
-void PortalWorld::DisplayLocked()
-{
-	int x1[3] = { 152, 225, 297 }; //coordinates for shop 
-	int x2[3] = { 205, 278, 349 }; 
-	int y1[2] = { 152, 215};
-	int y2[2] = { 162, 225};
-	int counter = 0;
-
-	for (int i = 0; i < 2; i++) {
-		for (int j = 0; j < 3; j++) {
-			if (!shop.IsUnlocked(counter)) {
-				glBindTexture(GL_TEXTURE_2D, pic.getTextureID("LOCKED"));
-				glBegin(GL_QUADS);
-				glTexCoord2i(0, 0); glVertex2i(x1[j], y1[i]);
-				glTexCoord2i(0, 1); glVertex2i(x1[j], y2[i]);
-				glTexCoord2i(1, 1); glVertex2i(x2[j], y2[i]);
-				glTexCoord2i(1, 0); glVertex2i(x2[j], y1[i]);
-				glEnd();
-			}
-			counter++;
-		}
-	}
-}
-
-void PortalWorld::DisplayCoinsShop() 
-{
 	std::string firstNumber;
 	std::string secondNumber;
 
-	int totalCoins = player.GetTotalCoins();
+	int totalCoins = world.LevelNumber() + 1;
 
 	int firstNum = totalCoins / 10;
 	int secondNum = totalCoins % 10;
@@ -1015,70 +1022,308 @@ void PortalWorld::DisplayCoinsShop()
 		secondNumber = "ZERO";
 	}
 
+	//LEVEL NUMBER
+
 	glBindTexture(GL_TEXTURE_2D, pic.getTextureID(firstNumber));
 	glBegin(GL_QUADS);
-	glTexCoord2i(0, 0); glVertex2i(240-13, 230+40);
-	glTexCoord2i(0, 1); glVertex2i(240-13, 235+50);
-	glTexCoord2i(1, 1); glVertex2i(260-9, 235+50);
-	glTexCoord2i(1, 0); glVertex2i(260-9, 230+40);
+	glTexCoord2i(0, 0); glVertex2i(10, 0);
+	glTexCoord2i(0, 1); glVertex2i(10, 20);
+	glTexCoord2i(1, 1); glVertex2i(25, 20);
+	glTexCoord2i(1, 0); glVertex2i(25, 0);
 	glEnd();
 
 	glBindTexture(GL_TEXTURE_2D, pic.getTextureID(secondNumber));
 	glBegin(GL_QUADS);
-	glTexCoord2i(0, 0); glVertex2i(240+9, 230+40);
-	glTexCoord2i(0, 1); glVertex2i(240+9, 235+50);
-	glTexCoord2i(1, 1); glVertex2i(260+13, 235+50);
-	glTexCoord2i(1, 0); glVertex2i(260+13, 230+40);
+	glTexCoord2i(0, 0); glVertex2i(10 + 16, 0);
+	glTexCoord2i(0, 1); glVertex2i(10 + 16, 20);
+	glTexCoord2i(1, 1); glVertex2i(25 + 16, 20);
+	glTexCoord2i(1, 0); glVertex2i(25 + 16, 0);
+	glEnd();
+
+	//LEVEL UI
+	glBindTexture(GL_TEXTURE_2D, pic.getTextureID("LEVEL"));
+	glBegin(GL_QUADS);
+	glTexCoord2i(0, 0); glVertex2i(-50, 0);
+	glTexCoord2i(0, 1); glVertex2i(-50, 20);
+	glTexCoord2i(1, 1); glVertex2i(30, 20);
+	glTexCoord2i(1, 0); glVertex2i(30, 0);
+	glEnd();
+}
+
+void PortalWorld::DisplayLocked()
+{
+	int x1[3] = { 152, 225, 297 }; //coordinates for shop 
+	int x2[3] = { 205, 278, 349 }; 
+	int y1[2] = { 152, 215};
+	int y2[2] = { 162, 225};
+	int counter = 0;
+
+	for (int i = 0; i < 2; i++) {
+		for (int j = 0; j < 3; j++) {
+			if (!shop.IsUnlocked(counter)) {
+				glBindTexture(GL_TEXTURE_2D, pic.getTextureID("LOCKED"));
+				glBegin(GL_QUADS);
+				glTexCoord2i(0, 0); glVertex2i(x1[j], y1[i]);
+				glTexCoord2i(0, 1); glVertex2i(x1[j], y2[i]);
+				glTexCoord2i(1, 1); glVertex2i(x2[j], y2[i]);
+				glTexCoord2i(1, 0); glVertex2i(x2[j], y1[i]);
+				glEnd();
+			}
+			counter++;
+		}
+	}
+}
+
+void PortalWorld::DisplayCoinsShop() 
+{
+	std::string firstNumber;
+	std::string secondNumber;
+	std::string thirdNumber;
+
+	int totalCoins = player.GetTotalCoins();
+
+	int firstNum = totalCoins / 100;
+	int secondNum = (totalCoins % 100) / 10;
+	int thirdNum = totalCoins % 10;
+
+	switch (firstNum)
+	{
+	case 0:
+		firstNumber = "ZERO";
+		break;
+	case 1:
+		firstNumber = "ONE";
+		break;
+	case 2:
+		firstNumber = "TWO";
+		break;
+	case 3:
+		firstNumber = "THREE";
+		break;
+	case 4:
+		firstNumber = "FOUR";
+		break;
+	case 5:
+		firstNumber = "FIVE";
+		break;
+	case 6:
+		firstNumber = "SIX";
+		break;
+	case 7:
+		firstNumber = "SEVEN";
+		break;
+	case 8:
+		firstNumber = "EIGHT";
+		break;
+	case 9:
+		firstNumber = "NINE";
+		break;
+	default:
+		firstNumber = "ZERO";
+	}
+
+	switch (secondNum)
+	{
+	case 0:
+		secondNumber = "ZERO";
+		break;
+	case 1:
+		secondNumber = "ONE";
+		break;
+	case 2:
+		secondNumber = "TWO";
+		break;
+	case 3:
+		secondNumber = "THREE";
+		break;
+	case 4:
+		secondNumber = "FOUR";
+		break;
+	case 5:
+		secondNumber = "FIVE";
+		break;
+	case 6:
+		secondNumber = "SIX";
+		break;
+	case 7:
+		secondNumber = "SEVEN";
+		break;
+	case 8:
+		secondNumber = "EIGHT";
+		break;
+	case 9:
+		secondNumber = "NINE";
+		break;
+	default:
+		secondNumber = "ZERO";
+	}
+
+	switch (thirdNum)
+	{
+	case 0:
+		thirdNumber = "ZERO";
+		break;
+	case 1:
+		thirdNumber = "ONE";
+		break;
+	case 2:
+		thirdNumber = "TWO";
+		break;
+	case 3:
+		thirdNumber = "THREE";
+		break;
+	case 4:
+		thirdNumber = "FOUR";
+		break;
+	case 5:
+		thirdNumber = "FIVE";
+		break;
+	case 6:
+		thirdNumber = "SIX";
+		break;
+	case 7:
+		thirdNumber = "SEVEN";
+		break;
+	case 8:
+		thirdNumber = "EIGHT";
+		break;
+	case 9:
+		thirdNumber = "NINE";
+		break;
+	default:
+		thirdNumber = "ZERO";
+	}
+
+	glBindTexture(GL_TEXTURE_2D, pic.getTextureID(firstNumber));
+	glBegin(GL_QUADS);
+	glTexCoord2i(0, 0); glVertex2i(240-5, 230+52);
+	glTexCoord2i(0, 1); glVertex2i(240-5, 235+62);
+	glTexCoord2i(1, 1); glVertex2i(260-15, 235+62);
+	glTexCoord2i(1, 0); glVertex2i(260-15, 230+52);
+	glEnd();
+
+	glBindTexture(GL_TEXTURE_2D, pic.getTextureID(secondNumber));
+	glBegin(GL_QUADS);
+	glTexCoord2i(0, 0); glVertex2i(240+5, 230+52);
+	glTexCoord2i(0, 1); glVertex2i(240+5, 235+62);
+	glTexCoord2i(1, 1); glVertex2i(260-5, 235+62);
+	glTexCoord2i(1, 0); glVertex2i(260-5, 230+52);
+	glEnd();
+
+	glBindTexture(GL_TEXTURE_2D, pic.getTextureID(thirdNumber));
+	glBegin(GL_QUADS);
+	glTexCoord2i(0, 0); glVertex2i(240 + 15, 230 + 52);
+	glTexCoord2i(0, 1); glVertex2i(240 + 15, 235 + 62);
+	glTexCoord2i(1, 1); glVertex2i(260 + 5, 235 + 62);
+	glTexCoord2i(1, 0); glVertex2i(260 + 5, 230 + 52);
+	glEnd();
+
+	glBindTexture(GL_TEXTURE_2D, pic.getTextureID("COINSHOP"));
+	glBegin(GL_QUADS);
+	glTexCoord2i(0, 0); glVertex2i(240 - 13, 230 + 36);
+	glTexCoord2i(0, 1); glVertex2i(240 - 13, 235 + 46);
+	glTexCoord2i(1, 1); glVertex2i(260 + 13, 235 + 46);
+	glTexCoord2i(1, 0); glVertex2i(260 + 13, 230 + 36);
 	glEnd();
 }
 
 void PortalWorld::DisplayCoinsCollected()
 {
-	std::string uiNumber;
+	std::string firstNumber;
+	std::string secondNumber;
 
-	switch (world.GetCoins())
+	int totalCoins = world.GetCoins();
+
+	int firstNum = totalCoins / 10;
+	int secondNum = totalCoins % 10;
+
+	switch (firstNum)
 	{
 	case 0:
-		uiNumber = "ZERO";
+		firstNumber = "ZERO";
 		break;
 	case 1:
-		uiNumber = "ONE";
+		firstNumber = "ONE";
 		break;
 	case 2:
-		uiNumber = "TWO";
+		firstNumber = "TWO";
 		break;
 	case 3:
-		uiNumber = "THREE";
+		firstNumber = "THREE";
 		break;
 	case 4:
-		uiNumber = "FOUR";
+		firstNumber = "FOUR";
 		break;
 	case 5:
-		uiNumber = "FIVE";
+		firstNumber = "FIVE";
 		break;
 	case 6:
-		uiNumber = "SIX";
+		firstNumber = "SIX";
 		break;
 	case 7:
-		uiNumber = "SEVEN";
+		firstNumber = "SEVEN";
 		break;
 	case 8:
-		uiNumber = "EIGHT";
+		firstNumber = "EIGHT";
 		break;
 	case 9:
-		uiNumber = "NINE";
+		firstNumber = "NINE";
 		break;
 	default:
-		uiNumber = "ZERO";
+		firstNumber = "ZERO";
+	}
+
+	switch (secondNum)
+	{
+	case 0:
+		secondNumber = "ZERO";
+		break;
+	case 1:
+		secondNumber = "ONE";
+		break;
+	case 2:
+		secondNumber = "TWO";
+		break;
+	case 3:
+		secondNumber = "THREE";
+		break;
+	case 4:
+		secondNumber = "FOUR";
+		break;
+	case 5:
+		secondNumber = "FIVE";
+		break;
+	case 6:
+		secondNumber = "SIX";
+		break;
+	case 7:
+		secondNumber = "SEVEN";
+		break;
+	case 8:
+		secondNumber = "EIGHT";
+		break;
+	case 9:
+		secondNumber = "NINE";
+		break;
+	default:
+		secondNumber = "ZERO";
 	}
 
 	//COINS UI COUNT
-	glBindTexture(GL_TEXTURE_2D, pic.getTextureID(uiNumber));
+	glBindTexture(GL_TEXTURE_2D, pic.getTextureID(firstNumber));
 	glBegin(GL_QUADS);
 	glTexCoord2i(0, 0); glVertex2i(10, 22);
 	glTexCoord2i(0, 1); glVertex2i(10, 42);
 	glTexCoord2i(1, 1); glVertex2i(25, 42);
 	glTexCoord2i(1, 0); glVertex2i(25, 22);
+	glEnd();
+
+	glBindTexture(GL_TEXTURE_2D, pic.getTextureID(secondNumber));
+	glBegin(GL_QUADS);
+	glTexCoord2i(0, 0); glVertex2i(10+16, 22);
+	glTexCoord2i(0, 1); glVertex2i(10+16, 42);
+	glTexCoord2i(1, 1); glVertex2i(25+16, 42);
+	glTexCoord2i(1, 0); glVertex2i(25+16, 22);
 	glEnd();
 
 	//COINS UI MANAGER
