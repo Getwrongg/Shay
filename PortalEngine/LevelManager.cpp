@@ -83,7 +83,7 @@ void LevelManager::LoadLevelIndex(const char *file) // ./levels/level.txt
 
 void LevelManager::DrawLevel(const Coordinates pos)
 {
-	int reverse = MAX_HEIGHT-1; // flips the world other else world is flipped
+	int reverse = MAX_HEIGHT-1; // flips the world or else world is flipped
 	std::string currentnumber;
 	for (unsigned i = 0; i < MAX_HEIGHT; i++) 
 	{
