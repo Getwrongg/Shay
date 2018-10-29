@@ -173,6 +173,7 @@ void LevelManager::SetNextLevel()
 	}
 	else 
 	{
+		coinscollected += 50;
 		SetLevel(Level_Index[0]);
 		currentlevelNumber = 0;
 	}

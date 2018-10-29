@@ -18,7 +18,7 @@ Player::Player()
 
 	texName = "DEFAULT";
 
-	totalcoinsCollected = 999;
+	totalcoinsCollected = 0;
 	totaltrophysCollected = 0;
 
 	boostTotal = BOOST_NUMBER;
