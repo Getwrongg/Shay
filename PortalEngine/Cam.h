@@ -104,7 +104,7 @@ public:
 	//	Getters
 	//--------------------------------------------------
 	Coordinates & GetPosition();
-	
+	//
 private:
 
 	/**

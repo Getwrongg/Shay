@@ -1,16 +1,2 @@
 Runtime Data:
 
-Position: 21
-
-Position: 31
-
-Position: 32
-
-Position: 22
-
-Position: 12
-
-CurrentSkin: RAINBOW
-
-Position: 22
-
