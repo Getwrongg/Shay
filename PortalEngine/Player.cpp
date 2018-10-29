@@ -52,7 +52,9 @@ void Player::LoadTexture()
 
 void Player::SetSkin(const std::string name)
 {
-	texName = name;
+	if (!name.empty()) {
+		texName = name;
+	}
 }
 
 void Player::LoadSounds() 
