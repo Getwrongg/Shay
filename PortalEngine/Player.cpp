@@ -18,7 +18,7 @@ Player::Player()
 
 	texName = "DEFAULT";
 
-	totalcoinsCollected = 999;
+	totalcoinsCollected = 0;
 	totaltrophysCollected = 0;
 
 	boostTotal = BOOST_NUMBER;
@@ -52,7 +52,9 @@ void Player::LoadTexture()
 
 void Player::SetSkin(const std::string name)
 {
-	texName = name;
+	if (!name.empty()) {
+		texName = name;
+	}
 }
 
 void Player::LoadSounds() 
