@@ -166,7 +166,7 @@ void LevelManager::SetNextLevel()
 		currentrandomNumber++;
 		backgroundNumber++;
 	}
-	else if (Level_Index.size() > currentlevelNumber) 
+	else if (Level_Index.size()-2 > currentlevelNumber) 
 	{
 		currentlevelNumber++;
 		SetLevel(Level_Index[currentlevelNumber]);
