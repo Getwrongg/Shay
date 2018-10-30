@@ -282,6 +282,7 @@ private:
 	World world;
 	ImageLoader pic;
 	Player player;
+	Audio music;
 
 	// shop variables
 	Shop shop;
