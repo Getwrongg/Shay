@@ -93,6 +93,9 @@ void PortalWorld::MyInit()
 
 	shop.LoadSounds();
 
+	music.PlayMusic("MUSIC", -1);
+
+
 	log << "Runtime Data:\n\n";
 }
 
@@ -197,6 +200,7 @@ void PortalWorld::CreateTexturesPortalWorld()
 
 	pic.CreateTexture("SPECIALFEATURES", "data/UI/specialFeatures.png");
 
+	music.LoadOGG("MUSIC", "sounds/FGL.ogg");
 
 	player.LoadTexture();
 	player.LoadSounds();
