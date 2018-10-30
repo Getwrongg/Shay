@@ -195,6 +195,8 @@ void PortalWorld::CreateTexturesPortalWorld()
 
 	pic.CreateTexture("COINSHOP", "data/UI/coinshop.png");
 
+	pic.CreateTexture("SPECIALFEATURES", "data/UI/specialFeatures.png");
+
 
 	player.LoadTexture();
 	player.LoadSounds();
@@ -875,6 +877,16 @@ void PortalWorld::DisplayMenuSplash()
 	if (menuOption == "SKINS") {
 		DisplayLocked();
 		DisplayCoinsShop();
+	}
+
+	if (menuOption == "CONTROLSMENU") {
+		glBindTexture(GL_TEXTURE_2D, pic.getTextureID("SPECIALFEATURES"));
+		glBegin(GL_QUADS);
+		glTexCoord2i(0, 0); glVertex2i(-150, 50);
+		glTexCoord2i(0, 1); glVertex2i(-150, 300);
+		glTexCoord2i(1, 1); glVertex2i(75, 300);
+		glTexCoord2i(1, 0); glVertex2i(75, 50);
+		glEnd();
 	}
 	
 	glBindTexture(GL_TEXTURE_2D, pic.getTextureID(menuOption));

@@ -1,28 +1,2 @@
 Runtime Data:
 
-CurrentSkin: 
-
-Position: 21
-
-CurrentSkin: 
-
-CurrentSkin: 
-
-Position: 22
-
-CurrentSkin: 
-
-CurrentSkin: 
-
-Position: 32
-
-CurrentSkin: 
-
-CurrentSkin: 
-
-CurrentSkin: 
-
-CurrentSkin: 
-
-Position: 22
-
